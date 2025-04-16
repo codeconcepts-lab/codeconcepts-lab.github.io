@@ -1,233 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bush Creek Guest House - Page</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" />
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <style>
-           
-        </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bush Creek Guest House - Activities</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" />
+
+    <link rel="stylesheet" href="assets/css/test.css" />
+
     </head>
 
-    <body>
-        <nav class="navbar">
-            <div class="container">
-                <a href="index.html" class="logo">
-                    <img src="assets/imgs/general/logo_crop.png" alt="Delmore Guest Farm Logo">
-                </a>
-                <button class="nav-toggle" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="nav-links-container">
-                    <ul class="nav-links">
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/imgs/general/logo_crop.png" alt="Bush Creek Guest House Logo">
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Accommodation</a>
+                        <div class="dropdown-content">
+                            <a href="html/rooms/protea.html">Protea</a>
+                            <a href="html/rooms/rock-rose.html">Rock Rose</a>
+                            <a href="html/rooms/acacia.html">Acacia</a>
+                            <a href="html/rooms/aloe.html">Aloe</a>
+                            <a href="html/rooms/arum.html">Arum</a>
+                            <a href="html/rooms/jacaranda.html">Jacaranda</a>
+                        </div>
+                    </li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="rates.html">Rates</a></li>
+                    <li><a href="special-offers.html">Special Offers</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Activities</a>
+                        <div class="dropdown-content">
+                            <a href="html/activity/local-restaurants.html">Local Restaurants</a>
+                            <a href="html/activity/bush-creek-activities.html">Bush Creek Activities</a>
+                            <a href="html/activity/local-activities.html">Local Activities</a>
+                        </div>
+                    </li>
+                    <li><a href="location.html">Location</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+                <button class="book-now-btn" onclick="window.location.href='booking-link.html'">
+                    <i class="far fa-calendar-alt"></i> Book Now </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-image" style="background-image: url('assets/imgs/farm/scenary_1.jpg');">
+        </div>
+
+    <main>
+        <div class="container page-content">
+            <section class="intro-section">
+                <h2>Explore Activities In & Around Bush Creek</h2>
+                <p>Whether you're looking for adventure on the farm, delicious local dining, or nearby attractions, there's plenty to explore during your stay. Discover activities available right here at Bush Creek or venture out to experience the best of the Mooi River and Estcourt surroundings.</p>
+            </section>
+
+            <hr>
+
+            <section class="activity-categories">
+                <h2>Discover What's Available</h2>
+                <div class="activity-categories-grid">
+                    <div class="activity-category-item">
+                        <img src="https://placehold.co/600x400/a28a7e/FFF?text=Restaurants" alt="Dining plate with food">
+                        <h3>Local Restaurants</h3>
+                        <p>Find nearby cafes, pubs, and restaurants offering a variety of dining experiences.</p>
+                        <a href="html/activity/local-restaurants.html" class="btn">View Restaurants</a>
+                    </div>
+
+                    <div class="activity-category-item">
+                        <img src="https://placehold.co/600x400/8ca081/FFF?text=On+The+Farm" alt="Scenic view of Bush Creek farm">
+                        <h3>Bush Creek Activities</h3>
+                        <p>Enjoy activities available right here on the farm, from river walks to relaxing by the dam.</p>
+                        <a href="html/activity/bush-creek-activities.html" class="btn">View Farm Activities</a>
+                    </div>
+
+                    <div class="activity-category-item">
+                        <img src="https://placehold.co/600x400/7e9aa2/FFF?text=Nearby+Fun" alt="Map showing local attractions">
+                        <h3>Local Activities & Attractions</h3>
+                        <p>Explore nearby nature reserves, historical sites, family fun, and more in the surrounding area.</p>
+                        <a href="html/activity/local-activities.html" class="btn">View Local Attractions</a>
+                    </div>
+                </div>
+            </section>
+
+        </div> </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Explore</h4>
+                    <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropbtn">Accommodation</a>
-                            <div class="dropdown-content">
-                                <a href="html/rooms/protea.html">Protea</a>
-                                <a href="html/rooms/rock-rose.html">Rock Rose</a>
-                                <a href="html/rooms/acacia.html">Acacia</a>
-                                <a href="html/rooms/aloe.html">Aloe</a>
-                                <a href="html/rooms/arum.html">Arum</a>
-                                <a href="html/rooms/jacaranda.html">Jacaranda</a>
-                            </div>
-                        </li>
+                        <li><a href="rooms.html">Accommodation</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="rates.html">Rates</a></li>
-                        <li><a href="special-offers.html">Special Offers</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropbtn">Activities</a>
-                            <div class="dropdown-content">
-                                <a href="html/activity/local-restaurants.html">Local Restaurants</a>
-                                <a href="html/activity/bush-creek-activities.html">Bush Creek Activities</a>
-                                <a href="html/activity/local-activities.html">Local Activities</a>
-                            </div>
-                        </li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="activities.html">Activities</a></li>
                         <li><a href="location.html">Location</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="special-offers.html">Special Offers</a></li>
                     </ul>
-                    <button class="book-now-btn" onclick="window.location.href='booking-link.html'">
-                        <i class="far fa-calendar-alt"></i> Book Now </button>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/r9cLQ6iSQUFKZqEM8">Bush Creek Farm, Mooi River, KZN</a></p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+27844885000">(084) 488-5000</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:traceyoellermann123@gmail.com">traceyoellermann123@gmail.com</a></p>
                 </div>
             </div>
-        </nav>
-        <div class="hero-image" style="background-image: url('assets/imgs/rooms/building/building_1.jpeg');">
-        </div>
-        <div class="container">
-            <section class="intro-section">
-                <h2>Heading</h2>
-                <p>Page Description</p>
-            </section>
-        </div>
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-grid">
-                    <div class="footer-column">
-                        <h4>Explore</h4>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="rooms.html">Accommodation</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="rates.html">Rates</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>About</h4>
-                        <ul>
-                            <li><a href="activities.html">Activities</a></li>
-                            <li><a href="location.html">Location</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="special-offers.html">Special Offers</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Contact Us</h4>
-                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/r9cLQ6iSQUFKZqEM8">Bush Creek Farm, Mooi River, KZN</a></p>
-                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+27844885000">(084) 488-5000</a></p>
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:traceyoellermann123@gmail.com">traceyoellermann123@gmail.com</a></p>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2025 Bush Creek Guest House. All Rights Reserved. Website by Joshua Stevenson</p>
-                </div>
+            <div class="footer-bottom">
+                <p>© 2025 Bush Creek Guest House. All Rights Reserved. Website by Joshua Stevenson</p>
             </div>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
-        <script>
-            // --- Carousel Script ---
-            let slideIndex = 1;
-            let slideInterval;
-            let slides = document.querySelectorAll(".hero-section .slide");
-            let dots = document.querySelectorAll(".hero-section .dot");
+        </div>
+    </footer>
 
-            function plusSlides(n) {
-                clearInterval(slideInterval);
-                showSlide(slideIndex += n);
-                startSlideInterval();
-            }
+    <script>
+        // --- Mobile Nav Toggle Script ---
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinksContainer = document.querySelector('.nav-links-container');
 
-            function currentSlide(n) {
-                clearInterval(slideInterval);
-                showSlide(slideIndex = n);
-                startSlideInterval();
-            }
-
-            function showSlide(n) {
-                let i;
-                if (!slides || slides.length === 0) return;
-
-                if (n > slides.length) { slideIndex = 1 }
-                if (n < 1) { slideIndex = slides.length }
-
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                    slides[i].classList.remove('active');
-                }
-
-                if (dots && dots.length > 0) {
-                    for (i = 0; i < dots.length; i++) {
-                        dots[i].classList.remove("active");
-                    }
-                }
-
-                if (slides[slideIndex - 1]) {
-                    slides[slideIndex - 1].style.display = "block";
-                    setTimeout(() => {
-                        if (slides[slideIndex - 1]) slides[slideIndex - 1].classList.add('active');
-                    }, 10);
-                }
-                if (dots && dots[slideIndex - 1]) {
-                    dots[slideIndex - 1].classList.add("active");
-                }
-            }
-
-            function startSlideInterval() {
-                clearInterval(slideInterval);
-                slideInterval = setInterval(() => plusSlides(1), 5000);
-            }
-
-            // --- Mobile Nav Toggle Script ---
-            const navToggle = document.querySelector('.nav-toggle');
-            const navLinksContainer = document.querySelector('.nav-links-container');
-
-            if (navToggle && navLinksContainer) {
-                navToggle.addEventListener('click', () => {
-                    navLinksContainer.classList.toggle('active');
-                    const icon = navToggle.querySelector('i');
-                    if (icon.classList.contains('fa-bars')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                    } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-            }
-
-            // --- Date Input Placeholder Script ---
-            // REMOVED - Litepicker handles interaction now.
-            /*
-            function setupDateInput(inputId) { ... }
-            */
-
-            // --- Shrinking Navbar Script ---
-            function scrollFunction() {
-                const navbar = document.querySelector(".navbar");
-                if (!navbar) return;
-                const scrollThreshold = 100;
-                if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
-                    navbar.classList.add("shrunk");
+        if (navToggle && navLinksContainer) {
+            navToggle.addEventListener('click', () => {
+                navLinksContainer.classList.toggle('active');
+                const icon = navToggle.querySelector('i');
+                if (icon.classList.contains('fa-bars')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
                 } else {
-                    navbar.classList.remove("shrunk");
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
                 }
-            }
-            window.addEventListener('scroll', scrollFunction);
-
-
-            // --- Initialize Scripts on DOM Load ---
-            document.addEventListener('DOMContentLoaded', function () {
-                // Start slideshow
-                if (slides.length > 0) {
-                    showSlide(slideIndex);
-                    startSlideInterval();
-                }
-
-                // Setup date inputs using Litepicker
-                // REMOVED: setupDateInput('checkin');
-                // REMOVED: setupDateInput('checkout');
-
-                // Initialize Litepicker
-                const picker = new Litepicker({
-                    element: document.getElementById('checkin'),
-                    elementEnd: document.getElementById('checkout'),
-                    singleMode: false, // Enable range selection
-                    numberOfMonths: 2, // Show two months like the image
-                    numberOfColumns: 2,
-                    format: 'DD MMM YYYY', // Example format, adjust as needed
-                    tooltipText: {
-                        one: 'night',
-                        other: 'nights'
-                    },
-                    minDate: new Date(), // Prevent selecting past dates
-                    autoApply: true, // Apply selection immediately
-                    mobileFriendly: true, // Improve mobile experience
-                    // Add more configuration options as needed:
-                    // disableBookedDays: ['2025-04-20', '2025-04-21'], // Example
-                    // selectForward: true, // Only allow selecting forward ranges
-                });
-
-                // Run scroll function once on load
-                scrollFunction();
             });
+        }
 
-        </script>
-    </body>
+        // --- Shrinking Navbar Script ---
+        function scrollFunction() {
+            const navbar = document.querySelector(".navbar");
+            if (!navbar) return;
+            const scrollThreshold = 100; // Adjust as needed
+            if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+                navbar.classList.add("shrunk");
+            } else {
+                navbar.classList.remove("shrunk");
+            }
+        }
+        window.addEventListener('scroll', scrollFunction);
+
+
+        // --- Initialize Scripts on DOM Load ---
+        document.addEventListener('DOMContentLoaded', function () {
+            // Run scroll function once on load
+            scrollFunction();
+
+            // NOTE: Removed Carousel and Litepicker initialization from here
+            // Add any JS specific to the activities landing page if needed
+        });
+
+    </script>
+</body>
 
 </html>

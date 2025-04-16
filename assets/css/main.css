@@ -1,4 +1,8 @@
 /* ==========================================================================
+   Bush Creek Guest House - Base Styles (style.css / main.css)
+   ========================================================================== */
+
+/* ==========================================================================
    1. Basic Reset & Global Styles
    ========================================================================== */
 
@@ -12,22 +16,22 @@
     --white: #ffffff;
     --border-color: #cccccc;    /* Input border color */
     --placeholder-color: #999999;/* Placeholder text color */
-  
+
     /* Fonts */
     --sans-serif-font: "Poppins", sans-serif;
     --serif-font: "Playfair Display", serif;
-  
+
     /* Component Specific */
     --availability-button-bg: var(--primary-color);
-  }
-  
-  * {
+}
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  
-  body {
+}
+
+body {
     font-family: var(--sans-serif-font);
     color: var(--text-color);
     line-height: 1.6;
@@ -37,59 +41,85 @@
     /* Add padding-top to prevent content overlap with fixed navbar */
     /* *** Adjust this value based on final initial navbar height *** */
     padding-top: 110px; /* Adjusted based on 70px logo + 2*20px padding */
-  }
-  
-  .container {
+}
+
+.container {
     max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
+}
+
+h1, h2, h3, h4, h5, h6 {
     font-family: var(--sans-serif-font);
     font-weight: 600;
     margin-bottom: 0.75em;
     color: var(--text-color);
-  }
-  
-  h2 { font-size: 1.7rem; margin-top: 1.5rem; }
-  h3 { font-size: 1.4rem; margin-top: 1.25rem; }
-  
-  a {
+}
+
+/* Added H1 style */
+h1 { font-size: 2.2rem; margin-top: 1.8rem; }
+h2 { font-size: 1.7rem; margin-top: 1.5rem; }
+h3 { font-size: 1.4rem; margin-top: 1.25rem; }
+/* Added H4 */
+h4 { font-size: 1.1rem; margin-top: 1.0rem; }
+
+a {
     color: var(--primary-color);
     text-decoration: none;
     transition: color 0.2s ease;
-  }
-  
-  a:hover {
+}
+
+a:hover {
     color: #6a3610;
     text-decoration: none;
-  }
-  
-  img {
+}
+
+img {
     max-width: 100%;
     height: auto;
     display: block;
     vertical-align: middle;
-  }
-  
-  hr {
+}
+
+hr {
     border: none;
     border-bottom: 1px solid var(--border-color);
     margin: 2em 0;
-  }
-  
-  .clear {
+}
+
+.clear {
     clear: both;
-  }
-  
-  /* ==========================================================================
-     2. Navigation Bar
-     ========================================================================== */
-  
-  .navbar {
+}
+
+/* Basic Button Style (Optional - Customize as needed) */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #6a3610;
+    color: var(--white); /* Ensure text color remains white on hover */
+}
+
+/* ==========================================================================
+   2. Navigation Bar
+   ========================================================================== */
+
+.navbar {
     background-color: var(--dark-bg);
     position: fixed;
     top: 0;
@@ -99,58 +129,58 @@
     align-items: center;
     padding: 20px 0; /* Initial padding */
     transition: padding 0.4s ease-in-out;
-  }
-  
-  .navbar.shrunk {
+}
+
+.navbar.shrunk {
     padding: 5px 0; /* Shrunk padding */
-  }
-  
-  .navbar .container {
+}
+
+.navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     flex-wrap: nowrap;
-  }
-  
-  /* --- Navbar Logo --- */
-  .navbar .logo {
+}
+
+/* --- Navbar Logo --- */
+.navbar .logo {
     flex-shrink: 0;
     display: flex;
     align-items: center;
     padding-right: 20px;
-  }
-  
-  .navbar .logo img {
+}
+
+.navbar .logo img {
     height: 70px; /* Initial height */
     max-width: 160px;
     display: block;
     transition: height 0.4s ease-in-out;
-  }
-  
-  .navbar.shrunk .logo img {
+}
+
+.navbar.shrunk .logo img {
     height: 50px; /* Shrunk height */
-  }
-  
-  /* --- Navbar Links --- */
-  .nav-links-container {
+}
+
+/* --- Navbar Links --- */
+.nav-links-container {
     display: flex;
     align-items: center;
-  }
-  
-  .nav-links {
+}
+
+.nav-links {
     list-style: none;
     display: flex;
     align-items: center;
     margin: 0;
     padding: 0;
-  }
-  
-  .nav-links li {
+}
+
+.nav-links li {
     margin-left: 15px;
-  }
-  
-  .nav-links a {
+}
+
+.nav-links a {
     text-decoration: none;
     color: var(--light-text);
     padding: 5px;
@@ -161,19 +191,19 @@
     letter-spacing: 0.8px;
     transition: color 0.2s ease;
     white-space: nowrap;
-  }
-  
-  .nav-links a:hover,
-  .nav-links .dropdown:hover .dropbtn {
+}
+
+.nav-links a:hover,
+.nav-links .dropdown:hover .dropbtn {
     color: var(--white);
-  }
-  
-  /* --- Navbar Dropdown (with Hove r Delay) --- */
-  li.dropdown {
+}
+
+/* --- Navbar Dropdown (with Hover Delay) --- */
+li.dropdown {
     position: relative;
-  }
-  
-  .dropdown-content {
+}
+
+.dropdown-content {
     opacity: 0; /* Start hidden */
     visibility: hidden; /* Start hidden for accessibility/interaction */
     pointer-events: none; /* Prevent interaction when hidden */
@@ -192,11 +222,11 @@
     transition: opacity 0.2s ease 0.3s,        /* Opacity fades out after 0.3s delay */
                 visibility 0s linear 0.5s,    /* Visibility changes instantly after 0.5s total */
                 pointer-events 0s linear 0.5s;/* Pointer-events changes instantly after 0.5s */
-  }
-  
-  /* Show dropdown on hover of parent OR dropdown itself */
-  .dropdown:hover .dropdown-content,
-  .dropdown-content:hover {
+}
+
+/* Show dropdown on hover of parent OR dropdown itself */
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
     opacity: 1; /* Make visible */
     visibility: visible; /* Make accessible/interactive */
     pointer-events: auto; /* Allow interaction */
@@ -204,10 +234,10 @@
     transition: opacity 0.2s ease 0s,
                 visibility 0s linear 0s,
                 pointer-events 0s linear 0s;
-  }
-  
-  
-  .dropdown-content a {
+}
+
+
+.dropdown-content a {
     color: var(--light-text); /* Light text for dark background */
     padding: 10px 15px;
     text-decoration: none;
@@ -218,16 +248,16 @@
     letter-spacing: normal;
     font-weight: 400;
     background-color: transparent;
-  }
-  
-  .dropdown-content a:hover {
+}
+
+.dropdown-content a:hover {
     background-color: rgba(255, 255, 255, 0.1); /* Subtle hover on dark background */
     color: var(--white);
-  }
-  
-  
-  /* --- Navbar Book Now Button --- */
-  .book-now-btn {
+}
+
+
+/* --- Navbar Book Now Button --- */
+.book-now-btn {
     background-color: var(--primary-color);
     color: var(--white);
     padding: 8px 15px;
@@ -246,18 +276,18 @@
     flex-shrink: 0;
     transition: background-color 0.2s ease;
     height: 38px;
-  }
-  
-  .book-now-btn i {
+}
+
+.book-now-btn i {
     font-size: 0.85rem;
-  }
-  
-  .book-now-btn:hover {
+}
+
+.book-now-btn:hover {
     background-color: #6a3610;
-  }
-  
-  /* --- Navbar Mobile Toggle --- */
-  .nav-toggle {
+}
+
+/* --- Navbar Mobile Toggle --- */
+.nav-toggle {
     display: none; /* Hidden by default */
     background: none;
     border: none;
@@ -267,27 +297,27 @@
     padding: 5px;
     margin-left: 15px;
     flex-shrink: 0;
-  }
-  
-  
-  /* ==========================================================================
-     3. Hero Section (Carousel)
-     ========================================================================== */
-  
-  .hero-section {
+}
+
+
+/* ==========================================================================
+   3. Hero Section (Carousel - Homepage Specific)
+   ========================================================================== */
+
+.hero-section {
     position: relative;
     height: 660px; /* Adjusted Height */
     overflow: hidden;
     background-color: var(--dark-bg);
-  }
-  
-  .slider-container {
+}
+
+.slider-container {
     position: relative;
     width: 100%;
     height: 100%;
-  }
-  
-  .slide {
+}
+
+.slide {
     display: none;
     position: absolute;
     top: 0;
@@ -298,30 +328,26 @@
     background-position: center center;
     background-repeat: no-repeat;
     opacity: 0;
-  }
-  
-  .slide.fade {
+}
+
+.slide.fade {
     animation-name: fade;
     animation-duration: 1.5s;
-  }
-  
-  .slide.active {
+}
+
+.slide.active {
     display: block;
     opacity: 1;
-  }
-  
-  @keyframes fade {
+}
+
+@keyframes fade {
     from { opacity: 0.4; }
     to { opacity: 1; }
-  }
-  
-  .hero-text { /* Removed as it wasn't in the last HTML version provided */
-    /* ... */
-  }
-  
-  /* --- Carousel Controls --- */
-  .prev,
-  .next {
+}
+
+/* --- Carousel Controls --- */
+.prev,
+.next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -342,32 +368,32 @@
     align-items: center;
     justify-content: center;
     line-height: 1;
-  }
-  
-  .prev { left: 20px; }
-  .next { right: 20px; }
-  
-  .slider-container:hover .prev,
-  .slider-container:hover .next {
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.slider-container:hover .prev,
+.slider-container:hover .next {
     opacity: 1;
-  }
-  
-  .prev:hover,
-  .next:hover {
+}
+
+.prev:hover,
+.next:hover {
     color: white;
     opacity: 1; /* Keep opacity on hover */
     background-color: rgba(0, 0, 0, 0.3); /* Optional: subtle bg on hover */
-  }
-  
-  .slider-dots {
+}
+
+.slider-dots {
     position: absolute;
     bottom: 25px;
     right: 30px;
     z-index: 15;
     text-align: center;
-  }
-  
-  .dot {
+}
+
+.dot {
     cursor: pointer;
     height: 12px;
     width: 12px;
@@ -377,29 +403,24 @@
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.3s ease;
-  }
-  
-  .dot:hover,
-  .dot.active {
+}
+
+.dot:hover,
+.dot.active {
     background-color: rgba(255, 255, 255, 0.9);
-  }
-  
-  /* --- Awards Tab --- */
-  .awards-tab { /* Removed as it wasn't in the last HTML version */
-   /* ... */
-  }
-  
-  
-  /* ==========================================================================
-     4. Availability Checker
-     ========================================================================== */
-  
-  .availability-section {
+}
+
+
+/* ==========================================================================
+   4. Availability Checker (Homepage Specific)
+   ========================================================================== */
+
+.availability-section {
     padding: 40px 0;
     background-color: var(--light-bg);
-  }
-  
-  .availability-checker {
+}
+
+.availability-checker {
     max-width: 700px;
     margin: 0 auto;
     background-color: transparent;
@@ -408,47 +429,47 @@
     gap: 10px;
     align-items: flex-end;
     justify-content: center;
-  }
-  
-  .availability-checker .form-group.input-with-icon {
+}
+
+.availability-checker .form-group.input-with-icon {
     flex: 1 1 100px; /* Adjust basis */
     width: auto; /* Let flexbox determine width */
     min-width: 180px; /* Set minimum width */
     position: relative;
-  }
-  
-  .availability-checker label {
+}
+
+.availability-checker label {
     display: none;
-  }
-  
-  .availability-checker input[type="text"],
-  .availability-checker input[type="date"] {
+}
+
+.availability-checker input[type="text"],
+.availability-checker input[type="date"] {
     width: 100%;
     padding: 8px 40px 8px 15px;
     border: 1px solid var(--border-color);
-    border-radius: 0;
+    border-radius: 0; /* Removed border-radius */
     font-family: var(--sans-serif-font);
     font-size: 0.9rem;
     font-weight: 400;
-    color: var(--text-color); /* Changed back from black */
+    color: var(--text-color);
     height: 38px;
     background-color: var(--white);
     line-height: normal;
-  }
-  
-  .availability-checker input::placeholder {
+}
+
+.availability-checker input::placeholder {
     color: #787878;
     font-size: 13px;
     font-weight: 400;
     opacity: 1;
-  }
-  
-  .availability-checker input[type="date"]::-webkit-calendar-picker-indicator {
+}
+
+.availability-checker input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
-  }
-  
-  .input-with-icon .input-icon {
+}
+
+.input-with-icon .input-icon {
     position: absolute;
     top: 50%;
     right: 12px;
@@ -457,9 +478,9 @@
     pointer-events: none;
     font-size: 1.2rem; /* Slightly larger icon */
     line-height: 1;
-  }
-  
-  .availability-checker button {
+}
+
+.availability-checker button {
     background-color: var(--availability-button-bg);
     color: var(--white);
     padding: 8px 20px;
@@ -475,67 +496,67 @@
     letter-spacing: 0.4px;
     line-height: normal;
     flex-shrink: 0;
-  }
-  
-  .availability-checker button:hover {
+}
+
+.availability-checker button:hover {
     background-color: #6a3610;
-  }
-  
-  
-  /* ==========================================================================
-     5. Content Sections (Intro, Gallery)
-     ========================================================================== */
-  
-  /* --- Intro Section --- */
-  .intro-section {
+}
+
+
+/* ==========================================================================
+   5. Content Sections (Intro, Gallery - Homepage Specific)
+   ========================================================================== */
+
+/* --- Intro Section --- */
+.intro-section {
     padding: 20px 0; /* Restored padding */
     text-align: center;
     max-width: 850px;
     margin: 0 auto 40px auto;
-  }
-  
-  .intro-section h2 {
+}
+
+.intro-section h2 {
     font-size: 1.7rem;
     font-weight: 600;
     margin-bottom: 20px;
-  }
-  
-  .intro-section p {
+}
+
+.intro-section p {
     font-size: 1rem;
     color: #555;
     margin-bottom: 25px; /* Restore margin */
     line-height: 1.7;
-  }
-  
-  .intro-section .quote {
+}
+
+.intro-section .quote {
     font-family: var(--serif-font);
     font-style: italic;
     color: #777;
     font-size: 1.1rem;
     margin-top: 15px;
-  }
-  
-  /* --- Gallery Section --- */
-  .gallery-section {
+}
+
+/* --- Gallery Section --- */
+.gallery-section {
     padding: 10px 0; /* Restored padding */
     margin-bottom: 60px;
-  }
-  
-  .gallery-grid {
+}
+
+.gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-  }
-  
-  .gallery-item {
+}
+
+.gallery-item {
     background-color: var(--white);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  }
-  
-  .gallery-item img {
+}
+
+.gallery-item img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -544,40 +565,40 @@
     object-fit: cover;
     margin-bottom: 15px;
     border-radius: 3px;
-  }
-  
-  .gallery-item h3 {
+}
+
+.gallery-item h3 {
     font-size: 1.2rem; /* Restored size */
     font-weight: 600;
     margin-top: 0;
     margin-bottom: 8px;
-  }
-  
-  .gallery-item h3 a {
+}
+
+.gallery-item h3 a {
     color: var(--text-color);
-  }
-  
-  .gallery-item h3 a:hover {
+}
+
+.gallery-item h3 a:hover {
     color: var(--primary-color);
-  }
-  
-  .gallery-item p {
+}
+
+.gallery-item p {
     font-size: 0.9rem;
     color: #555;
     line-height: 1.6;
     font-weight: 400;
     margin-bottom: 0;
-  }
-  
-  
-  /* ==========================================================================
-     6. Parallax Section
-     ========================================================================== */
-  
-  .parallax-section {
+}
+
+
+/* ==========================================================================
+   6. Parallax Section (Homepage Specific)
+   ========================================================================== */
+
+.parallax-section {
     /* == IMPORTANT: Replace with your image path == */
     background-image: url('/assets/imgs/farm/scenary_2.jpg'); /* <<<--- Example Path */
-  
+
     min-height: 550px;
     background-attachment: fixed;
     background-position: center;
@@ -590,19 +611,15 @@
     text-align: center;
     color: var(--white);
     padding: 40px 15px;
-  }
-  
-  .parallax-content {
-   
+}
+
+.parallax-content {
     padding: 30px 50px;
     border-radius: 5px;
     max-width: 600px;
-  }
-  
-  /* Removed heading from HTML, so removing style */
-  /* .parallax-content h2 { ... } */
-  
-  .parallax-content p {
+}
+
+.parallax-content p {
     font-size: 1.9rem; /* Larger size for parallax quote */
     font-family: var(--serif-font); /* Match quote style */
     font-style: italic;
@@ -611,540 +628,430 @@
     text-shadow: 3px 3px 4px #000000;
     position: static;
     transform: none;
-  }
-  
-  /* Removed button from HTML, so removing style */
-  /* .parallax-content .btn-parallax { ... } */
-  
-  
-  /* ==========================================================================
-     7. Tagline Section (Removed as wasn't in last HTML version)
-     ========================================================================== */
-  
-  /* .tagline-section { ... } */
-  
-  
-  /* ==========================================================================
-     8. Footer
-     ========================================================================== */
-  
-  .footer {
+}
+
+
+/* ==========================================================================
+   7. Footer
+   ========================================================================== */
+
+.footer {
     background-color: var(--dark-bg); /* Use variable */
     color: #a0a0a0;
     padding: 50px 0 30px 0;
     font-size: 0.9rem;
-  }
-  
-  .footer-grid {
+}
+
+.footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
     margin-bottom: 40px;
-  }
-  
-  .footer-column h4 {
+}
+
+.footer-column h4 {
     color: var(--white);
     font-size: 0.9rem;
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 0.8px;
     font-weight: 500;
-  }
-  
-  .footer-column ul {
+}
+
+.footer-column ul {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  
-  .footer-column ul li {
+}
+
+.footer-column ul li {
     margin-bottom: 10px;
-  }
-  
-  .footer-column ul li a {
+}
+
+.footer-column ul li a {
     color: #a0a0a0;
     text-decoration: none;
     font-size: 0.85rem;
-  }
-  
-  .footer-column ul li a:hover {
+}
+
+.footer-column ul li a:hover {
     color: var(--white);
-  }
-  
-  .footer-column p {
+}
+
+.footer-column p {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 0.85rem;
     color: #a0a0a0;
-  }
-  .footer-column p a {
-   
+}
+.footer-column p a {
     font-size: 0.85rem;
     color: #a0a0a0;
-  }
-  .footer-column p a:hover {
+}
+.footer-column p a:hover {
     color: var(--white);
-  }
-  .footer-column i {
+}
+.footer-column i {
     width: 16px;
     text-align: center;
     color: #ccc;
     font-size: 0.9rem;
-  }
-  
-  .footer-bottom {
+}
+
+.footer-bottom {
     border-top: 1px solid #444;
     padding-top: 20px;
     text-align: center;
     font-size: 0.8rem;
     color: #888;
-  }
-  
-  
-  /* ==========================================================================
-     9. Litepicker Custom Styles (Date Picker)
-     ========================================================================== */
-  
-  .litepicker {
+}
+
+
+/* ==========================================================================
+   8. Litepicker Custom Styles (Date Picker - Homepage Specific)
+   ========================================================================== */
+
+.litepicker {
     font-family: var(--sans-serif-font);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
     border: 1px solid var(--border-color);
     z-index: 1100; /* Ensure it's above navbar */
-  }
-  
-  .litepicker .container__months .month-item .month-item-header {
+}
+
+.litepicker .container__months .month-item .month-item-header {
     background-color: var(--white);
     padding: 15px 10px;
     border-bottom: 1px solid var(--border-color);
-  }
-  
-  .litepicker .container__months .month-item .month-item-header div {
+}
+
+.litepicker .container__months .month-item .month-item-header div {
     font-size: 1rem;
     font-weight: 600;
     color: var(--text-color);
-  }
-  
-  .litepicker .container__months .month-item .month-item-header button {
+}
+
+.litepicker .container__months .month-item .month-item-header button {
     color: var(--text-color);
     width: 32px;
     height: 32px;
-  }
-  .litepicker .container__months .month-item .month-item-header button:hover {
+}
+.litepicker .container__months .month-item .month-item-header button:hover {
     background-color: var(--light-bg);
     border-radius: 50%;
-  }
-  
-  .litepicker .container__months .month-item .days-oftheweek {
+}
+
+.litepicker .container__months .month-item .days-oftheweek {
     font-weight: 500;
     color: #888;
     padding-bottom: 5px;
     margin-bottom: 5px;
     border-bottom: none;
-  }
-  .litepicker .container__months .month-item .days-oftheweek div {
-      padding-bottom: 0;
-  }
-  
-  .litepicker .container__months .month-item .day-item {
+}
+.litepicker .container__months .month-item .days-oftheweek div {
+    padding-bottom: 0;
+}
+
+.litepicker .container__months .month-item .day-item {
     font-size: 0.85rem;
     font-weight: 400;
     color: var(--text-color);
     border: none;
     border-radius: 4px;
-  }
-  
-  .litepicker .container__months .month-item .day-item:hover {
+}
+
+.litepicker .container__months .month-item .day-item:hover {
     background-color: var(--light-bg);
     color: var(--text-color);
     border-radius: 4px;
-  }
-  
-  .litepicker .container__months .month-item .day-item.is-start-date,
-  .litepicker .container__months .month-item .day-item.is-end-date {
+}
+
+.litepicker .container__months .month-item .day-item.is-start-date,
+.litepicker .container__months .month-item .day-item.is-end-date {
     background-color: var(--primary-color);
     color: var(--white);
     border-radius: 4px;
-  }
-  
-  .litepicker .container__months .month-item .day-item.is-in-range {
+}
+
+.litepicker .container__months .month-item .day-item.is-in-range {
     background-color: rgba(138, 88, 64, 0.15);
     color: var(--text-color);
     border-radius: 0;
-  }
-  
-  .litepicker .container__months .month-item .day-item.is-start-date.is-in-range {
-      background-color: var(--primary-color);
-      border-top-left-radius: 4px;
-      border-bottom-left-radius: 4px;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-  }
-  .litepicker .container__months .month-item .day-item.is-end-date.is-in-range {
-      background-color: var(--primary-color);
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      border-top-right-radius: 4px;
-      border-bottom-right-radius: 4px;
-  }
-  
-  .litepicker .container__months .month-item .day-item.is-locked {
+}
+
+.litepicker .container__months .month-item .day-item.is-start-date.is-in-range {
+    background-color: var(--primary-color);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.litepicker .container__months .month-item .day-item.is-end-date.is-in-range {
+    background-color: var(--primary-color);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.litepicker .container__months .month-item .day-item.is-locked {
     color: var(--border-color);
     text-decoration: line-through;
     pointer-events: none;
-  }
-  
-  .litepicker .container__tooltip {
+}
+
+.litepicker .container__tooltip {
     background-color: var(--dark-bg);
     color: var(--white);
     border-radius: 4px;
     font-size: 0.8rem;
-  }
-  
-  
-  /* ==========================================================================
-     10. Responsive Media Queries
-     ========================================================================== */
-  
-  /* --- Medium Devices (Tablets, etc.) --- */
-  @media (max-width: 992px) {
-    .availability-checker {
-      width: 90%;
-      max-width: none;
+}
+
+
+/* ==========================================================================
+   9. Responsive Media Queries
+   ========================================================================== */
+
+/* --- Medium Devices (Tablets, etc.) --- */
+@media (max-width: 992px) {
+    /* Availability Checker */
+    .availability-checker { width: 90%; max-width: none; }
+    .availability-checker .form-group.input-with-icon { flex-basis: calc(50% - 5px); }
+    .availability-checker button { flex-basis: 100%; margin-top: 10px; }
+    /* Navbar */
+    .nav-links li { margin-left: 15px; }
+    .book-now-btn { margin-left: 20px; padding: 8px 15px; }
+    /* Hero */
+    .hero-text { font-size: 2.5rem; } /* Keep if used */
+}
+
+
+/* --- Small Devices (Mobiles) --- */
+@media (max-width: 768px) {
+    body { padding-top: 70px; }
+    /* Navbar */
+    .nav-toggle { display: block; }
+    .navbar .container { flex-wrap: wrap; }
+    .navbar .logo { flex-grow: 1; padding-right: 0; }
+    .navbar .logo img { height: 40px; }
+    .navbar.shrunk .logo img { height: 28px; }
+    .nav-links-container { display: none; order: 3; width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease-out; position: absolute; top: 100%; left: 0; right: 0; background-color: var(--dark-bg); z-index: 1001; border-top: 1px solid #444; padding: 0; }
+    .nav-links-container.active { display: flex; flex-direction: column; max-height: 500px; padding: 10px 0; }
+    .nav-links { flex-direction: column; width: 100%; align-items: stretch; }
+    .nav-links li { margin-left: 0; width: 100%; border-bottom: 1px solid #444; }
+    .nav-links li:last-child { border-bottom: none; }
+    .nav-links a { padding: 12px 15px; text-align: left; width: 100%; font-size: 0.85rem; float: none; }
+    .dropdown .dropdown-content { position: static; box-shadow: none; border-top: none; background-color: #404040; padding-left: 30px; border-bottom: 1px solid #555; width: 100%; margin-top: 0; left: auto; top: auto; opacity: 1; visibility: visible; pointer-events: auto; transition: none; }
+    .nav-links-container:not(.active) .dropdown .dropdown-content { display: none; }
+    .nav-links-container.active .dropdown .dropdown-content { display: block; }
+    .dropdown-content a { color: var(--light-text) !important; }
+    .dropdown-content a:hover { background-color: rgba(255, 255, 255, 0.1) !important; color: var(--white) !important; }
+    .book-now-btn { margin: 10px 15px; width: calc(100% - 30px); justify-content: center; align-self: center; height: 42px; }
+    /* Hero */
+    .hero-section { height: 55vh; }
+    .hero-text { font-size: 1.8rem; width: 90%; white-space: normal; } /* Keep if used */
+    .awards-tab { display: none; } /* Keep if used */
+    .prev, .next { width: 36px; height: 36px; margin-top: -18px; font-size: 18px; }
+    .prev { left: 10px; } .next { right: 10px; }
+    .slider-dots { bottom: 15px; right: 15px; }
+    /* Availability Checker */
+    .availability-checker { width: calc(100% - 30px); margin: 25px auto; align-items: stretch; }
+    .availability-checker .form-group.input-with-icon { flex-basis: 100%; min-width: 0; }
+    .availability-checker button { margin-top: 10px; flex-basis: 100%; height: 42px; }
+    /* Parallax */
+    .parallax-section { background-attachment: scroll; min-height: 350px; }
+    .parallax-content p { font-size: 1.3rem; white-space: normal; position: static; transform: none; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); margin-bottom: 0; }
+    .parallax-content { padding: 20px 30px; background-color: rgba(0, 0, 0, 0.6); }
+    /* Intro */
+    .intro-section { padding: 40px 0; }
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr; }
+}
+
+
+/* --- Desktop Styles Refinements (Overrides for >= 769px) --- */
+@media (min-width: 769px) {
+    /* Navbar */
+    .nav-toggle { display: none !important; }
+    .nav-links-container { display: flex !important; position: static !important; flex-direction: row !important; align-items: center !important; width: auto !important; background: none !important; max-height: none !important; overflow: visible !important; padding: 0 !important; border-top: none !important; order: 0 !important; }
+    .nav-links { flex-direction: row !important; width: auto !important; }
+    .nav-links li { border-bottom: none !important; width: auto !important; margin-left: 15px !important; }
+    .nav-links a { width: auto !important; padding: 5px !important; }
+    .dropdown .dropdown-content { position: absolute !important; background-color: var(--white) !important; padding-left: 0 !important; border-bottom: none !important; box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15) !important; border-top: 3px solid var(--primary-color) !important; margin-top: 10px !important; left: 0 !important; top: 100% !important; width: auto !important; min-width: 180px; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; transition: opacity 0.2s ease 0.5s, visibility 0s linear 0.5s, pointer-events 0s linear 0.5s !important; }
+    .dropdown:hover .dropdown-content, .dropdown-content:hover { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transition: opacity 0.5s ease 0.5s, visibility 0.1s linear 0s, pointer-events 0s linear 0s !important; }
+    .dropdown-content a { color: var(--text-color) !important; padding: 10px 15px !important; text-align: left !important; }
+    .dropdown-content a:hover { background-color: var(--light-bg) !important; color: var(--primary-color) !important; }
+    .book-now-btn { margin: 0 0 0 25px !important; width: auto !important; align-self: center !important; }
+    /* Availability Checker */
+    .availability-checker { align-items: flex-end !important; justify-content: center !important; }
+    .availability-checker .form-group.input-with-icon { flex: 1 1 200px !important; min-width: 180px !important; }
+    .availability-checker button { flex-basis: auto !important; min-width: auto !important; margin-top: 0 !important; }
+    /* Parallax */
+    .parallax-content p { position: static; transform: none; white-space: normal; }
+}
+
+/* ==========================================================================
+   10. Page Specific Styles (Add below this line)
+   ========================================================================== */
+
+/* --- Activity List Styles (Used on local-restaurants.html, local-activities.html etc.) --- */
+.activity-list {
+    margin-top: 30px;
+}
+
+.activity-card {
+    background-color: var(--white);
+    border: 1px solid #e0e0e0;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.activity-card header h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5rem; /* Larger heading */
+}
+
+.activity-card p {
+    margin-bottom: 20px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.activity-card footer {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+    gap: 10px; /* Space between buttons */
+}
+
+.activity-card .activity-btn {
+    padding: 8px 15px; /* Slightly smaller buttons */
+    font-size: 0.8rem;
+}
+
+/* --- Activity Categories Grid Styles (Used on activities.html) --- */
+.activity-categories {
+    margin-top: 40px;
+    text-align: center; /* Center the section heading */
+}
+
+.activity-categories h2 {
+    margin-bottom: 30px;
+}
+
+.activity-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    text-align: left; /* Reset text alignment for items */
+}
+
+.activity-category-item {
+    background-color: var(--white);
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden; /* Ensure image corners are rounded if needed */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+}
+
+.activity-category-item img {
+    width: 100%;
+    height: 220px; /* Fixed height for images */
+    object-fit: cover; /* Cover the area */
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.activity-category-item h3 {
+    font-size: 1.3rem;
+    margin: 15px 20px 10px 20px; /* Add padding around text */
+}
+
+.activity-category-item p {
+    color: #555;
+    font-size: 0.95rem;
+    margin: 0 20px 20px 20px; /* Add padding */
+    flex-grow: 1; /* Allow paragraph to take up space */
+}
+
+.activity-category-item .btn {
+    margin: 0 20px 20px 20px; /* Add padding */
+    align-self: flex-start; /* Align button to the start */
+}
+
+/* --- Responsive adjustments for Activity Cards/Categories --- */
+@media (max-width: 768px) {
+    .activity-card footer {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: flex-start; /* Align buttons left */
     }
-  
-    .availability-checker .form-group.input-with-icon {
-      flex-basis: calc(50% - 5px);
+    .activity-card .activity-btn {
+        width: 100%; /* Make buttons full width */
+        text-align: center;
     }
-  
-    .availability-checker button {
-      flex-basis: 100%;
-      margin-top: 10px;
+
+    .activity-categories-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        gap: 20px;
     }
-  
-    .nav-links li {
-      margin-left: 15px;
+     .activity-category-item img {
+        height: 200px; /* Adjust image height */
     }
-  
-    .book-now-btn {
-      margin-left: 20px;
-      padding: 8px 15px;
-    }
-  
-    .hero-text { /* Keep if used */
-      font-size: 2.5rem;
-    }
-  }
-  
-  
-  /* --- Small Devices (Mobiles) --- */
-  @media (max-width: 768px) {
-    body {
-      padding-top: 70px; /* Adjust based on shorter mobile navbar */
-    }
-  
-    /* Navbar mobile adjustments */
-    .nav-toggle {
-      display: block;
-    }
-  
-    .navbar .container {
-      flex-wrap: wrap;
-    }
-  
-    .navbar .logo {
-      flex-grow: 1;
-      padding-right: 0;
-    }
-  
-    .navbar .logo img {
-      height: 40px; /* Smaller logo */
-    }
-  
-    .navbar.shrunk .logo img {
-       height: 28px; /* Smaller shrunk logo */
-    }
-  
-    .nav-links-container {
-      display: none;
-      order: 3;
-      width: 100%;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background-color: var(--dark-bg);
-      z-index: 1001;
-      border-top: 1px solid #444;
-      padding: 0;
-    }
-  
-    .nav-links-container.active {
-      display: flex;
-      flex-direction: column;
-      max-height: 500px;
-      padding: 10px 0;
-    }
-  
-    .nav-links {
-      flex-direction: column;
-      width: 100%;
-      align-items: stretch;
-    }
-  
-    .nav-links li {
-      margin-left: 0;
-      width: 100%;
-      border-bottom: 1px solid #444;
-    }
-  
-    .nav-links li:last-child {
-      border-bottom: none;
-    }
-  
-    .nav-links a {
-      padding: 12px 15px;
-      text-align: left;
-      width: 100%;
-      font-size: 0.85rem;
-      float: none;
-    }
-  
-    /* Mobile Dropdown - Static */
-    .dropdown .dropdown-content {
-      position: static;
-      box-shadow: none;
-      border-top: none;
-      background-color: #404040;
-      padding-left: 30px;
-      border-bottom: 1px solid #555;
-      width: 100%;
-      margin-top: 0;
-      left: auto;
-      top: auto;
-      /* Remove hover transition/delay logic for static mobile */
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transition: none;
-    }
-     /* Hide static dropdowns when nav menu is closed */
-    .nav-links-container:not(.active) .dropdown .dropdown-content {
-       display: none;
-    }
-     .nav-links-container.active .dropdown .dropdown-content {
-        display: block;
-    }
-  
-     /* Ensure dropdown link colors are correct on mobile */
-    .dropdown-content a {
-      color: var(--light-text) !important; /* Ensure override if needed */
-    }
-     .dropdown-content a:hover {
-      background-color: rgba(255, 255, 255, 0.1) !important; /* Ensure override if needed */
-      color: var(--white) !important;
-    }
-  
-  
-    .book-now-btn {
-      margin: 10px 15px;
-      width: calc(100% - 30px);
-      justify-content: center;
-      align-self: center;
-      height: 42px;
-    }
-  
-    /* Hero mobile adjustments */
-    .hero-section {
-      height: 55vh; /* Shorter hero */
-    }
-  
-    .hero-text { /* Keep if used */
-      font-size: 1.8rem;
-      width: 90%;
-      white-space: normal;
-    }
-  
-    .awards-tab { /* Keep if used */
-      display: none;
-    }
-  
-    .prev,
-    .next {
-      width: 36px;
-      height: 36px;
-      margin-top: -18px;
-      font-size: 18px;
-    }
-  
-    .prev { left: 10px; }
-    .next { right: 10px; }
-  
-    .slider-dots {
-      bottom: 15px;
-      right: 15px;
-    }
-  
-    /* Availability Checker mobile adjustments */
-    .availability-checker {
-      width: calc(100% - 30px);
-      margin: 25px auto;
-      align-items: stretch;
-    }
-  
-    .availability-checker .form-group.input-with-icon {
-      flex-basis: 100%;
-      min-width: 0;
-    }
-  
-    .availability-checker button {
-      margin-top: 10px;
-      flex-basis: 100%;
-      height: 42px;
-    }
-  
-    /* Parallax mobile adjustments */
-    .parallax-section {
-      background-attachment: scroll;
-      min-height: 350px;
-    }
-  
-    .parallax-content p {
-       font-size: 1.3rem; /* Adjust size for mobile */
-       white-space: normal;
-       position: static;
-       transform: none;
-       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Adjust shadow */
-       margin-bottom: 0;
-    }
-  
-    .parallax-content {
-      padding: 20px 30px;
-      background-color: rgba(0, 0, 0, 0.6); /* Slightly stronger overlay */
-    }
-  
-    /* Intro mobile adjustments */
-    .intro-section {
-      padding: 40px 0;
-    }
-  
-    /* Footer mobile adjustments */
-    .footer-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  
-  /* --- Desktop Styles Refinements (Overrides for >= 769px) --- */
-  @media (min-width: 769px) {
-  
-    /* Navbar Desktop Overrides */
-    .nav-toggle {
-      display: none !important;
-    }
-  
-    .nav-links-container {
-      display: flex !important;
-      position: static !important;
-      flex-direction: row !important;
-      align-items: center !important;
-      width: auto !important;
-      background: none !important;
-      max-height: none !important;
-      overflow: visible !important;
-      padding: 0 !important;
-      border-top: none !important;
-      order: 0 !important;
-    }
-  
-    .nav-links {
-      flex-direction: row !important;
-      width: auto !important;
-    }
-  
-    .nav-links li {
-      border-bottom: none !important;
-      width: auto !important;
-      margin-left: 15px !important;
-    }
-  
-    .nav-links a {
-      width: auto !important;
-      padding: 5px !important;
-    }
-  
-    /* Desktop Dropdown - Apply Hover Delay */
-    .dropdown .dropdown-content {
-      position: absolute !important;
-      background-color: var(--white) !important; /* White background */
-      padding-left: 0 !important;
-      border-bottom: none !important;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15) !important;
-      border-top: 3px solid var(--primary-color) !important;
-      margin-top: 10px !important;
-      left: 0 !important;
-      top: 100% !important;
-      width: auto !important;
-      min-width: 180px;
-      /* Apply opacity/visibility/transition for hover effect */
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-      transition: opacity 0.2s ease 0.5s, visibility 0s linear 0.5s, pointer-events 0s linear 0.5s !important;
-    }
-  
-    .dropdown:hover .dropdown-content,
-    .dropdown-content:hover {
-      opacity: 1 !important;
-      visibility: visible !important;
-      pointer-events: auto !important;
-      transition: opacity 0.5s ease 0.5s, visibility 0.1s linear 0s, pointer-events 0s linear 0s !important;
-    }
-  
-  
-    /* Ensure correct text color for white background on desktop */
-    .dropdown-content a {
-      color: var(--text-color) !important;
-      padding: 10px 15px !important;
-      text-align: left !important;
-    }
-  
-    .dropdown-content a:hover {
-      background-color: var(--light-bg) !important;
-      color: var(--primary-color) !important;
-    }
-  
-    .book-now-btn {
-      margin: 0 0 0 25px !important;
-      width: auto !important;
-      align-self: center !important;
-    }
-  
-    /* Availability Checker Desktop Overrides */
-    .availability-checker {
-      align-items: flex-end !important;
-      justify-content: center !important;
-    }
-  
-    .availability-checker .form-group.input-with-icon {
-      flex: 1 1 200px !important;
-      min-width: 180px !important;
-    }
-  
-    .availability-checker button {
-      flex-basis: auto !important;
-      min-width: auto !important;
-      margin-top: 0 !important;
-    }
-  
-    /* Parallax Desktop Overrides */
-     .parallax-content p {
-       position: static;
-       transform: none;
-       white-space: normal;
-     }
-  }
+}
+
+/* --- Hero Image for Inner Pages --- */
+.hero-image {
+    height: 350px; /* Adjust height as needed */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-bottom: 40px; /* Space below hero image */
+    position: relative; /* For potential overlay/text */
+}
+
+/* Optional Hero Overlay */
+.hero-image .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Example overlay */
+}
+
+/* Optional Hero Title */
+.hero-image .hero-title-container {
+    position: relative; /* To sit above overlay */
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-image .hero-title-container h1 {
+    color: var(--white);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    font-size: 2.8rem;
+    margin: 0;
+}
+
+/* Responsive Hero Image */
+@media (max-width: 992px) {
+    .hero-image { height: 300px; }
+    .hero-image .hero-title-container h1 { font-size: 2.4rem; }
+}
+@media (max-width: 768px) {
+    .hero-image { height: 250px; }
+    .hero-image .hero-title-container h1 { font-size: 2rem; }
+}
+
+/* --- Main Content Area Padding --- */
+main {
+    padding-top: 40px; /* Space below navbar/hero */
+    padding-bottom: 60px; /* Space above footer */
+    min-height: calc(100vh - 110px - 250px); /* Adjust min-height calculation if needed */
+}
