@@ -1055,3 +1055,683 @@ main {
     padding-bottom: 60px; /* Space above footer */
     min-height: calc(100vh - 110px - 250px); /* Adjust min-height calculation if needed */
 }
+/* ==========================================================================
+   Bush Creek Guest House - Base Styles (style.css / main.css)
+   ========================================================================== */
+
+/* ... (Keep Sections 1-5: Reset, Global, Nav, Main Content, Footer, Responsive Base) ... */
+/* ==========================================================================
+   1. Basic Reset & Global Styles
+   ========================================================================== */
+
+   :root {
+    /* Colors */
+    --primary-color: #8a5840;    /* Brown for buttons/accents */
+    --dark-bg: #292929;        /* Navbar/Footer background */
+    --light-bg: #f8f8f7;       /* Light section backgrounds */
+    --text-color: #37352f;      /* Main dark text */
+    --light-text: #b3b3b3;      /* Navbar links text (slightly off-white) - Used in dark backgrounds */
+    --white: #ffffff;
+    --border-color: #cccccc;    /* Input border color */
+    --placeholder-color: #999999;/* Placeholder text color */
+
+    /* Fonts */
+    --sans-serif-font: "Poppins", sans-serif;
+    --serif-font: "Playfair Display", serif;
+
+    /* Component Specific */
+    /* Add other global component variables if needed */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--sans-serif-font);
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--white);
+    font-size: 16px;
+    font-weight: 400;
+    padding-top: 110px; /* Adjust based on initial navbar height */
+}
+
+.container {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--sans-serif-font);
+    font-weight: 600;
+    margin-bottom: 0.75em;
+    color: var(--text-color);
+    line-height: 1.3;
+}
+
+h1 { font-size: 2.2rem; margin-top: 1.8rem; }
+h2 { font-size: 1.7rem; margin-top: 1.5rem; }
+h3 { font-size: 1.4rem; margin-top: 1.25rem; }
+h4 { font-size: 1.1rem; margin-top: 1.0rem; }
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #6a3610;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    vertical-align: middle;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid #e0e0e0; /* Lighter border */
+    margin: 2.5em 0; /* Increased margin */
+}
+
+.clear {
+    clear: both;
+}
+
+/* Basic Button Style */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.85rem; /* Slightly smaller */
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease;
+    text-align: center;
+    line-height: 1.4; /* Ensure consistent line height */
+}
+
+.btn:hover {
+    background-color: #6a3610;
+    color: var(--white);
+}
+
+/* Icon Button adjustment */
+.btn i {
+    margin-right: 6px;
+    font-size: 0.9em; /* Relative to button font size */
+}
+
+
+/* ==========================================================================
+   2. Navigation Bar (Keep existing styles)
+   ========================================================================== */
+
+.navbar {
+    background-color: var(--dark-bg);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    transition: padding 0.4s ease-in-out;
+}
+
+.navbar.shrunk {
+    padding: 5px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.navbar .logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.navbar .logo img {
+    height: 70px;
+    max-width: 160px;
+    display: block;
+    transition: height 0.4s ease-in-out;
+}
+
+.navbar.shrunk .logo img {
+    height: 50px;
+}
+
+.nav-links-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 15px;
+}
+
+/* Add active class style for nav links */
+.nav-links a.active {
+    color: var(--white);
+    font-weight: 500; /* Make active link slightly bolder */
+    /* Optional: Add underline or other indicator */
+    /* border-bottom: 2px solid var(--primary-color); */
+    /* padding-bottom: 3px; */
+}
+
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--light-text);
+    padding: 5px;
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    letter-spacing: 0.8px;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links .dropdown:hover .dropbtn {
+    color: var(--white);
+}
+
+li.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    background-color: var(--dark-bg);
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    border-radius: 0;
+    padding: 5px 0;
+    border-top: 3px solid var(--primary-color);
+    margin-top: 10px;
+    left: 0;
+    top: 100%;
+    transition: opacity 0.2s ease 0.3s, visibility 0s linear 0.5s, pointer-events 0s linear 0.5s;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.2s ease 0s, visibility 0s linear 0s, pointer-events 0s linear 0s;
+}
+
+.dropdown-content a {
+    color: var(--light-text);
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 400;
+    background-color: transparent;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+}
+
+.book-now-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-left: 25px;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease;
+    height: 38px;
+}
+
+.book-now-btn i {
+    font-size: 0.85rem;
+}
+
+.book-now-btn:hover {
+    background-color: #6a3610;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 15px;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   3. Main Content Area & Common Page Elements
+   ========================================================================== */
+
+main {
+    min-height: calc(100vh - 110px - 250px); /* Viewport height - navbar height - approx footer height */
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.page-content {
+    /* Optional: Add general padding or styles for the main content area */
+}
+
+/* Hero Image for Inner Pages */
+.hero-image {
+    height: 350px; /* Adjust height as needed */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-bottom: 40px; /* Space below hero image */
+    position: relative; /* For potential overlay/text */
+}
+
+/* Optional Hero Overlay */
+.hero-image .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Example overlay */
+}
+
+/* Optional Hero Title */
+.hero-image .hero-title-container {
+    position: relative; /* To sit above overlay */
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Center text */
+}
+.hero-image .hero-title-container h1 {
+    color: var(--white);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    font-size: 2.8rem;
+    margin: 0;
+    padding: 0 15px; /* Add padding for smaller screens */
+}
+
+
+/* Intro Section Styling (Used on multiple pages) */
+.intro-section {
+    padding: 20px 0;
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 40px auto; /* Center align */
+}
+
+.intro-section h2 {
+    font-size: 1.9rem; /* Slightly larger */
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.intro-section p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0; /* Remove bottom margin if it's the last element */
+    line-height: 1.7;
+}
+
+
+/* ==========================================================================
+   4. Footer (Keep existing styles)
+   ========================================================================== */
+
+.footer {
+    background-color: var(--dark-bg);
+    color: #a0a0a0;
+    padding: 50px 0 30px 0;
+    font-size: 0.9rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-column h4 {
+    color: var(--white);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 500;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.footer-column ul li a:hover {
+    color: var(--white);
+}
+
+.footer-column p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #a0a0a0;
+}
+.footer-column p a {
+    font-size: 0.85rem;
+    color: #a0a0a0;
+}
+.footer-column p a:hover {
+    color: var(--white);
+}
+.footer-column i {
+    width: 16px;
+    text-align: center;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+
+/* ==========================================================================
+   5. Responsive Media Queries (Keep existing queries for Nav/Footer)
+   ========================================================================== */
+
+/* --- Medium Devices --- */
+@media (max-width: 992px) {
+    .nav-links li { margin-left: 15px; }
+    .book-now-btn { margin-left: 20px; padding: 8px 15px; }
+    .hero-image { height: 300px; }
+    .hero-image .hero-title-container h1 { font-size: 2.4rem; }
+}
+
+
+/* --- Small Devices --- */
+@media (max-width: 768px) {
+    body { padding-top: 70px; }
+    .nav-toggle { display: block; }
+    .navbar .container { flex-wrap: wrap; }
+    .navbar .logo { flex-grow: 1; padding-right: 0; }
+    .navbar .logo img { height: 40px; }
+    .navbar.shrunk .logo img { height: 28px; }
+    .nav-links-container { display: none; order: 3; width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease-out; position: absolute; top: 100%; left: 0; right: 0; background-color: var(--dark-bg); z-index: 1001; border-top: 1px solid #444; padding: 0; }
+    .nav-links-container.active { display: flex; flex-direction: column; max-height: 500px; padding: 10px 0; }
+    .nav-links { flex-direction: column; width: 100%; align-items: stretch; }
+    .nav-links li { margin-left: 0; width: 100%; border-bottom: 1px solid #444; }
+    .nav-links li:last-child { border-bottom: none; }
+    .nav-links a { padding: 12px 15px; text-align: left; width: 100%; font-size: 0.85rem; float: none; }
+    .dropdown .dropdown-content { position: static; box-shadow: none; border-top: none; background-color: #404040; padding-left: 30px; border-bottom: 1px solid #555; width: 100%; margin-top: 0; left: auto; top: auto; opacity: 1; visibility: visible; pointer-events: auto; transition: none; display: block; }
+    .nav-links-container:not(.active) .dropdown .dropdown-content { display: none; }
+    .nav-links-container.active .dropdown .dropdown-content { display: block; }
+    .dropdown-content a { color: var(--light-text) !important; }
+    .dropdown-content a:hover { background-color: rgba(255, 255, 255, 0.1) !important; color: var(--white) !important; }
+    .book-now-btn { margin: 10px 15px; width: calc(100% - 30px); justify-content: center; align-self: center; height: 42px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-image { height: 250px; }
+    .hero-image .hero-title-container h1 { font-size: 2rem; }
+    .intro-section { padding: 10px 0; }
+}
+
+
+/* --- Desktop Styles Refinements --- */
+@media (min-width: 769px) {
+    .nav-toggle { display: none !important; }
+    .nav-links-container { display: flex !important; position: static !important; flex-direction: row !important; align-items: center !important; width: auto !important; background: none !important; max-height: none !important; overflow: visible !important; padding: 0 !important; border-top: none !important; order: 0 !important; }
+    .nav-links { flex-direction: row !important; width: auto !important; }
+    .nav-links li { border-bottom: none !important; width: auto !important; margin-left: 15px !important; }
+    .nav-links a { width: auto !important; padding: 5px !important; }
+    .dropdown .dropdown-content { position: absolute !important; background-color: var(--dark-bg) !important; /* Reverted to dark */ padding-left: 0 !important; border-bottom: none !important; box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15) !important; border-top: 3px solid var(--primary-color) !important; margin-top: 10px !important; left: 0 !important; top: 100% !important; width: auto !important; min-width: 180px; display: block !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; transition: opacity 0.2s ease 0.3s, visibility 0s linear 0.5s, pointer-events 0s linear 0.5s !important; }
+    .dropdown:hover .dropdown-content, .dropdown-content:hover { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transition: opacity 0.2s ease 0s, visibility 0s linear 0s, pointer-events 0s linear 0s !important; }
+    .dropdown-content a { color: var(--light-text) !important; padding: 10px 15px !important; text-align: left !important; background-color: transparent !important; }
+    .dropdown-content a:hover { background-color: rgba(255, 255, 255, 0.1) !important; color: var(--white) !important; }
+    .book-now-btn { margin: 0 0 0 25px !important; width: auto !important; align-self: center !important; }
+    .footer-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+}
+
+
+/* ==========================================================================
+   6. Page Specific Styles (Add below this line)
+   ========================================================================== */
+
+/* --- Activity List Styles (Used on local-restaurants.html, etc.) --- */
+.activity-list { margin-top: 30px; }
+.activity-card { background-color: var(--white); border: 1px solid #e0e0e0; padding: 25px; margin-bottom: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.activity-card header h3 { margin-top: 0; margin-bottom: 10px; font-size: 1.5rem; }
+.activity-card p { margin-bottom: 20px; color: #555; line-height: 1.7; }
+.activity-card footer { display: flex; flex-wrap: wrap; gap: 10px; }
+.activity-card .activity-btn { padding: 8px 15px; font-size: 0.8rem; }
+
+/* --- Activity Categories Grid Styles (Used on activities.html) --- */
+.activity-categories { margin-top: 40px; text-align: center; }
+.activity-categories h2 { margin-bottom: 30px; }
+.activity-categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; text-align: left; }
+.activity-category-item { background-color: var(--white); border: 1px solid #e0e0e0; border-radius: 5px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+.activity-category-item img { width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid #e0e0e0; }
+.activity-category-item h3 { font-size: 1.3rem; margin: 15px 20px 10px 20px; }
+.activity-category-item p { color: #555; font-size: 0.95rem; margin: 0 20px 20px 20px; flex-grow: 1; }
+.activity-category-item .btn { margin: 0 20px 20px 20px; align-self: flex-start; }
+
+/* --- Rates Table Styles (Used on rates.html) --- */
+.rates-table-section { margin-top: 30px; }
+.rates-table-section h2 { text-align: center; margin-bottom: 30px; }
+/* Responsive wrapper for table */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Allows horizontal scrolling on small screens */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    margin-bottom: 20px;
+}
+.rates-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #e0e0e0;
+    font-size: 0.95rem;
+}
+.rates-table th,
+.rates-table td {
+    border: 1px solid #e0e0e0;
+    padding: 12px 15px;
+    text-align: left;
+    vertical-align: middle;
+}
+.rates-table th {
+    background-color: var(--light-bg);
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+.rates-table tbody tr:nth-child(even) {
+    background-color: var(--light-bg); /* Zebra striping */
+}
+.rates-table tbody tr:hover {
+    background-color: #f0f0f0; /* Hover effect */
+}
+.rates-table td:nth-child(n+2) { /* Align numeric columns to the right */
+    text-align: right;
+}
+.rates-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+
+/* --- Special Offers Styles (Used on special-offers.html) --- */
+.offers-section { margin-top: 30px; }
+.offer-placeholder {
+    border: 1px dashed var(--border-color);
+    padding: 30px;
+    text-align: center;
+    background-color: var(--light-bg);
+    border-radius: 5px;
+    color: #666;
+}
+.offer-placeholder i {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    opacity: 0.7;
+}
+.offer-placeholder p {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+.offer-placeholder p:last-child {
+    margin-bottom: 0;
+}
+
+/* Example styles for actual offer cards (if used later) */
+.offer-card {
+    display: flex;
+    flex-direction: column; /* Stack image and content vertically */
+    background-color: var(--white);
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    overflow: hidden; /* Clip image corners */
+}
+.offer-card img {
+    width: 100%;
+    height: 250px; /* Adjust as needed */
+    object-fit: cover;
+}
+.offer-content {
+    padding: 25px;
+}
+.offer-content h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+}
+.offer-validity {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+.offer-content p {
+    margin-bottom: 20px;
+    color: #555;
+}
+.offer-content .btn {
+    align-self: flex-start;
+}
+
+/* Responsive adjustments for offers */
+@media (min-width: 768px) {
+    .offer-card {
+        flex-direction: row; /* Side-by-side image and content */
+    }
+    .offer-card img {
+        width: 40%; /* Adjust image width */
+        height: auto; /* Auto height */
+        min-height: 250px; /* Ensure minimum height */
+    }
+    .offer-content {
+        width: 60%; /* Adjust content width */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Vertically center content */
+    }
+}
+
+
+/* --- Responsive adjustments for Activities/Rates/Offers --- */
+@media (max-width: 768px) {
+    /* Activity Cards */
+    .activity-card footer { flex-direction: column; align-items: flex-start; }
+    .activity-card .activity-btn { width: 100%; text-align: center; }
+    /* Activity Categories */
+    .activity-categories-grid { grid-template-columns: 1fr; gap: 20px; }
+    .activity-category-item img { height: 200px; }
+    /* Rates Table */
+    .rates-table th, .rates-table td { padding: 10px 8px; font-size: 0.9rem; }
+    .rates-table th { font-size: 0.8rem; }
+    /* Offer Cards */
+    .offer-card img { height: 200px; }
+}
+
+/* --- Add other page-specific styles below --- */
