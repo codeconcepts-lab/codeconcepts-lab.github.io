@@ -4,17 +4,20 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bush Creek Guest House - Home</title>
+        <title>Bush Creek Guest House - Page</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" />
         <link rel="stylesheet" href="assets/css/main.css" />
+        <style>
+           
+        </style>
     </head>
 
     <body>
-       <nav class="navbar">
+        <nav class="navbar">
     <div class="container">
         <a href="index.html" class="logo">
             <img src="assets/imgs/general/logo_crop.png" alt="Delmore Guest Farm Logo">
@@ -24,103 +27,46 @@
         </button>
         <div class="nav-links-container">
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/index.html">Home</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Accommodation</a>
                     <div class="dropdown-content">
-                        <a href="html/rooms/protea.html">Protea</a>
-                        <a href="html/rooms/rock-rose.html">Rock Rose</a>
-                        <a href="html/rooms/acacia.html">Acacia</a>
-                        <a href="html/rooms/aloe.html">Aloe</a>
-                        <a href="html/rooms/arum.html">Arum</a>
-                        <a href="html/rooms/jacaranda.html">Jacaranda</a>
+                        <a href="protea.html">Protea</a>
+                        <a href="rock-rose.html">Rock Rose</a>
+                        <a href="acacia.html">Acacia</a>
+                        <a href="aloe.html">Aloe</a>
+                        <a href="arum.html">Arum</a>
+                        <a href="jacaranda.html">Jacaranda</a>
                     </div>
                 </li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="rates.html">Rates</a></li>
-                <li><a href="special-offers.html">Special Offers</a></li>
+                <li><a href="/gallery.html">Gallery</a></li>
+                <li><a href="/rates.html">Rates</a></li>
+                <li><a href="/special-offers.html">Special Offers</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Activities</a>
                     <div class="dropdown-content">
-                        <a href="html/activity/local-restaurants.html">Local Restaurants</a>
-                        <a href="html/activity/bush-creek-activities.html">Bush Creek Activities</a>
-                        <a href="html/activity/local-activities.html">Local Activities</a>
+                        <a href="/html/activity/local-restaurants.html">Local Restaurants</a>
+                        <a href="/html/activity/bush-creek-activities.html">Bush Creek Activities</a>
+                        <a href="/html/activity/local-activities.html">Local Activities</a>
                     </div>
                 </li>
-                <li><a href="location.html">Location</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="/location.html">Location</a></li>
+                <li><a href="/contact.html">Contact Us</a></li>
             </ul>
             <button class="book-now-btn" onclick="window.location.href='booking-link.html'">
                 <i class="far fa-calendar-alt"></i> Book Now </button>
         </div>
     </div>
 </nav>
-        <section class="hero-section">
-            <div class="slider-container">
-                <div class="slide fade" style="background-image: url('assets/imgs/rooms/building/building_1.jpeg');"></div>
-                <div class="slide fade" style="background-image: url('assets/imgs/rooms/building/building_2.jpg');"></div>
-                <div class="slide fade" style="background-image: url('assets/imgs/farm/scenary_1.jpg');"></div>
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                <div class="slider-dots">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                </div>
-            </div>
-        </section>
-        <section class="availability-section">
-            <div class="container">
-                <div class="availability-checker">
-                    <form action="redirect-to-booking-site.php" method="GET" style="display: contents;">
-                        <div class="form-group input-with-icon">
-                            <label for="checkin" style="display:none;">Check In</label>
-                            <input type="text" id="checkin" name="checkin" placeholder="Check in" required>
-                            <i class="far fa-calendar-alt input-icon"></i>
-                        </div>
-                        <div class="form-group input-with-icon">
-                            <label for="checkout" style="display:none;">Check Out</label>
-                            <input type="text" id="checkout" name="checkout" placeholder="Check out" required>
-                            <i class="far fa-calendar-alt input-icon"></i>
-                        </div>
-                        <button type="submit">Check Availability and Rates</button>
-                    </form>
-                </div>
-            </div>
-        </section>
+
+        <div class="hero-image" style="background-image: url('assets/imgs/rooms/building/building_1.jpeg');">
+        </div>
         <div class="container">
             <section class="intro-section">
-                <h2>Experience nature and comfort</h2>
-                <p>Bush Creek Guest House invites you to escape the hustle of city life. Nestled on a picturesque farm between Mooi River and Estcourt, our cozy bed and breakfast features six uniquely accommodating rooms.  Dive into our refreshing dam, embark on scenic river walks, or simply relax in the tranquility of nature. Discover a perfect blend of history, comfort, and adventure at Bush Creek Guest House, where your peaceful retreat awaits.</p>
-               
-            </section>
-            <section class="gallery-section">
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <a href="rooms.html"><img src="assets/imgs/rooms/protea/protea_6.jpg" alt="View Our Accommodation"></a>
-                        <h3><a href="rooms.html">View Our Accommodation</a></h3>
-                        <p>Nestled on a picturesque farm... our cozy bed and breakfast features six uniquely accommodating rooms. Enjoy free WiFi and stunning rural views.</p>
-                    </div>
-                    <div class="gallery-item">
-                        <a href="gallery.html"><img src="assets/imgs/farm/horse_1.jpg" alt="Explore Our Gallery"></a>
-                        <h3><a href="gallery.html">Explore Our Gallery</a></h3>
-                        <p>Dive into our refreshing dam, embark on scenic river walks, or simply relax in the tranquility of nature. Discover history, comfort, and adventure.</p>
-                    </div>
-                    <div class="gallery-item">
-                        <a href="contact.html"><img src="assets/imgs/farm/scenary_2.jpg" alt="Get In Touch"></a>
-                        <h3><a href="contact.html">Get In Touch</a></h3>
-                        <p>We'd love to hear from you. Contact us for enquiries, or check availability and book online using the button at the top of this page.</p>
-                    </div>
-                </div>
+                <h2>Heading</h2>
+                <p>Page Description</p>
             </section>
         </div>
-        <section class="parallax-section">
-            <div class="parallax-content">
-                <p>Where the past lingers,
-                    the present unwinds,
-                    and nature welcomes you home.</p>
-            </div>
-        </section>
         <footer class="footer">
             <div class="container">
                 <div class="footer-grid">
@@ -148,7 +94,6 @@
                         <p><i class="fas fa-phone-alt"></i> <a href="tel:+27844885000">(084) 488-5000</a></p>
                         <p><i class="fas fa-envelope"></i> <a href="mailto:traceyoellermann123@gmail.com">traceyoellermann123@gmail.com</a></p>
                     </div>
-                    
                 </div>
                 <div class="footer-bottom">
                     <p>&copy; 2025 Bush Creek Guest House. All Rights Reserved. Website by Joshua Stevenson</p>
