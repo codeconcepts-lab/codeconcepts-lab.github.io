@@ -1700,26 +1700,22 @@ main {
     align-self: flex-start;
 }
 
-/* Responsive adjustments for offers */
-@media (min-width: 768px) {
-    .offer-card {
-        flex-direction: row; /* Side-by-side image and content */
-    }
-    .offer-card img {
-        width: 40%; /* Adjust image width */
-        height: auto; /* Auto height */
-        min-height: 250px; /* Ensure minimum height */
-    }
-    .offer-content {
-        width: 60%; /* Adjust content width */
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* Vertically center content */
-    }
-}
+/* --- Room List Styles (Used on rooms.html) --- */
+.room-list-section { margin-top: 30px; }
+.room-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.room-card { background-color: var(--white); border: 1px solid #e0e0e0; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.3s ease; }
+.room-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.room-card img { width: 100%; height: 240px; object-fit: cover; }
+.room-card-content { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; /* Make content area grow */ }
+.room-card-content h3 { margin-top: 0; margin-bottom: 10px; font-size: 1.4rem; }
+.room-card-details { display: flex; gap: 15px; /* Space between details */ margin-bottom: 15px; font-size: 0.9rem; color: #555; flex-wrap: wrap; }
+.room-card-details span { display: flex; align-items: center; gap: 5px; /* Space between icon and text */ }
+.room-card-details i { color: var(--primary-color); font-size: 1rem; }
+.room-card-content p { color: #555; font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; /* Allow paragraph to push button down */ }
+.room-card-content .btn { margin-top: auto; /* Push button to bottom */ align-self: flex-start; }
 
 
-/* --- Responsive adjustments for Activities/Rates/Offers --- */
+/* --- Responsive adjustments for Activities/Rates/Offers/Rooms --- */
 @media (max-width: 768px) {
     /* Activity Cards */
     .activity-card footer { flex-direction: column; align-items: flex-start; }
@@ -1732,6 +1728,13 @@ main {
     .rates-table th { font-size: 0.8rem; }
     /* Offer Cards */
     .offer-card img { height: 200px; }
+    /* Room Cards */
+    .room-grid { grid-template-columns: 1fr; gap: 25px; }
+    .room-card img { height: 220px; }
 }
-
-/* --- Add other page-specific styles below --- */
+@media (min-width: 768px) {
+    /* Offer Cards */
+    .offer-card { flex-direction: row; }
+    .offer-card img { width: 40%; height: auto; min-height: 250px; }
+    .offer-content { width: 60%; display: flex; flex-direction: column; justify-content: center; }
+}
