@@ -1,0 +1,1185 @@
+/* ==========================================================================
+   1. Basic Reset & Global Styles
+   ========================================================================== */
+
+   :root {
+    /* Colors */
+    --primary-color: #8a5840;    /* Brown for buttons/accents */
+    --dark-bg: #292929;        /* Navbar/Footer background */
+    --light-bg: #f8f8f7;       /* Availability section background */
+    --text-color: #37352f;      /* Main dark text */
+    --light-text: #b3b3b3;      /* Navbar links text (slightly off-white) - Used in dark backgrounds */
+    --white: #ffffff;
+    --border-color: #cccccc;    /* Input border color */
+    --placeholder-color: #999999;/* Placeholder text color */
+  
+    /* Fonts */
+    --sans-serif-font: "Poppins", sans-serif;
+    --serif-font: "Playfair Display", serif;
+  
+    /* Component Specific */
+    --availability-button-bg: var(--primary-color);
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: var(--sans-serif-font);
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--white);
+    font-size: 16px;
+    font-weight: 400;
+    /* Add padding-top to prevent content overlap with fixed navbar */
+    /* *** Adjust this value based on final initial navbar height *** */
+    padding-top: 110px; /* Increased based on larger initial logo height */
+  }
+  
+  .container {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--sans-serif-font);
+    font-weight: 600;
+    margin-bottom: 0.75em;
+    color: var(--text-color);
+  }
+  
+  h2 { font-size: 1.7rem; margin-top: 1.5rem; }
+  h3 { font-size: 1.4rem; margin-top: 1.25rem; }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  a:hover {
+    color: #6a3610;
+    text-decoration: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    vertical-align: middle;
+  }
+  
+  hr {
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    margin: 2em 0;
+  }
+  
+  .clear {
+    clear: both;
+  }
+  
+  /* ==========================================================================
+     2. Navigation Bar
+     ========================================================================== */
+  
+  .navbar {
+    background-color: var(--dark-bg);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 20px 0; /* Initial padding */
+    transition: padding 0.4s ease-in-out;
+  }
+  
+  .navbar.shrunk {
+    padding: 5px 0; /* Shrunk padding */
+  }
+  
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+  
+  /* --- Navbar Logo --- */
+  .navbar .logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding-right: 20px; /* Reduced padding */
+  }
+  
+  .navbar .logo img {
+    height: 70px; /* Initial height */
+    max-width: 160px;
+    display: block;
+    transition: height 0.4s ease-in-out;
+  }
+  
+  .navbar.shrunk .logo img {
+    height: 50px; /* Shrunk height */
+  }
+  
+  /* --- Navbar Links --- */
+  .nav-links-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin-left: 15px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: var(--light-text);
+    padding: 5px;
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    letter-spacing: 0.8px;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+  }
+  
+  .nav-links a:hover,
+  .nav-links .dropdown:hover .dropbtn {
+    color: var(--white);
+  }
+  
+  /* --- Navbar Dropdown --- */
+  li.dropdown {
+    position: relative;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--dark-bg); /* Dark background for base dropdown */
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    border-radius: 0;
+    padding: 5px 0;
+    border-top: 3px solid var(--primary-color);
+    margin-top: 10px;
+    left: 0;
+    top: 100%;
+  }
+  
+  .dropdown-content a {
+    color: var(--light-text); /* Light text for dark background */
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 400;
+    background-color: transparent; /* Ensure no override from parent */
+  }
+  
+  .dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover on dark background */
+    color: var(--white);
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* --- Navbar Book Now Button --- */
+  .book-now-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-left: 25px;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease;
+    height: 38px;
+  }
+  
+  .book-now-btn i {
+    font-size: 0.85rem;
+  }
+  
+  .book-now-btn:hover {
+    background-color: #6a3610;
+  }
+  
+  /* --- Navbar Mobile Toggle --- */
+  .nav-toggle {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 15px;
+    flex-shrink: 0;
+  }
+  
+  
+  /* ==========================================================================
+     3. Hero Section (Carousel)
+     ========================================================================== */
+  
+  .hero-section {
+    position: relative;
+    height: 686px;
+    overflow: hidden;
+    background-color: var(--dark-bg);
+  }
+  
+  .slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .slide {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0; /* Start hidden for fade */
+  }
+  
+  .slide.fade { /* Class applied by JS for fade animation */
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  .slide.active {
+    display: block;
+    opacity: 1;
+  }
+  
+  @keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+  }
+  
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    color: var(--white);
+    font-family: var(--serif-font);
+    font-size: 3.5rem;
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    white-space: nowrap;
+  }
+  
+  /* --- Carousel Controls --- */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: 44px;
+    height: 44px;
+    margin-top: -22px; /* Half of height */
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    border-radius: 50%;
+    user-select: none;
+    text-decoration: none;
+    z-index: 15;
+    opacity: 0; /* Hidden by default */
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  
+  .prev { left: 20px; }
+  .next { right: 20px; }
+  
+  .slider-container:hover .prev,
+  .slider-container:hover .next {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .slider-dots {
+    position: absolute;
+    bottom: 25px;
+    right: 30px;
+    z-index: 15;
+    text-align: center;
+  }
+  
+  .dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 3px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dot:hover,
+  .dot.active {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  /* --- Awards Tab --- */
+  .awards-tab {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) translateX(100%) rotate(90deg);
+    transform-origin: left top;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 8px 15px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    z-index: 12;
+    border-radius: 0;
+    cursor: pointer;
+  }
+  
+  
+  /* ==========================================================================
+     4. Availability Checker
+     ========================================================================== */
+  
+  .availability-section {
+    padding: 40px 0;
+    background-color: var(--light-bg);
+  }
+  
+  .availability-checker {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-end; /* Align items to bottom for button */
+    justify-content: center;
+  }
+  
+  .availability-checker .form-group.input-with-icon {
+    flex: 1 1 100px; /* Allow shrinking/growing */
+   width: 40px;
+    position: relative;
+  }
+  
+  .availability-checker label {
+    display: none; /* Hide labels visually */
+  }
+  
+  .availability-checker input[type="text"],
+  .availability-checker input[type="date"] {
+    width: 100%;
+    padding: 8px 40px 8px 15px; /* Space for icon */
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    font-family: var(--sans-serif-font);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: black;
+    height: 38px;
+    background-color: var(--white);
+    line-height: normal; /* Fix potential line-height issues */
+  }
+  
+  .availability-checker input::placeholder {
+    color: #787878;
+    font-size: 13px;
+    font-weight: 400;
+    opacity: 1;
+  }
+  
+  .availability-checker input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none; /* Hide default date picker icon */
+    -webkit-appearance: none;
+  }
+  
+  .input-with-icon .input-icon {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    color: #787878    ;
+    pointer-events: none;
+    font-size: 23px;
+    line-height: 1;
+  }
+  
+  .availability-checker button {
+    background-color: var(--availability-button-bg);
+    color: var(--white);
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease;
+    height: 38px; /* Match input height */
+    white-space: nowrap;
+    letter-spacing: 0.4px;
+    line-height: normal;
+    flex-shrink: 0; /* Prevent button from shrinking */
+  }
+  
+  .availability-checker button:hover {
+    background-color: #6a3610;
+  }
+  
+  
+  /* ==========================================================================
+     5. Content Sections (Intro, Gallery)
+     ========================================================================== */
+  
+  /* --- Intro Section --- */
+  .intro-section {
+    padding: 60px 0; /* Increased padding */
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 40px auto;
+  }
+  
+  .intro-section h2 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .intro-section p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.7;
+  }
+  
+  .intro-section .quote {
+    font-family: var(--serif-font);
+    font-style: italic;
+    color: #777;
+    font-size: 1.1rem;
+    margin-top: 15px; /* Added margin top */
+  }
+  
+  /* --- Gallery Section --- */
+  .gallery-section {
+    padding: 40px 0; /* Added padding */
+    margin-bottom: 40px; /* Kept margin */
+  }
+  
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    /* padding-bottom: 20px; */ /* Removed, let section padding handle it */
+  }
+  
+  .gallery-item {
+    background-color: var(--white);
+    text-align: center; /* Center content */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* margin-bottom: 40px; */ /* Removed, gap handles spacing */
+    padding: 15px; /* Add padding inside item */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+  }
+  
+  .gallery-item img {
+    display: block; /* Keep block */
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%; /* Make image fill width */
+    height: 220px; /* Adjusted height */
+    object-fit: cover; /* Cover the area */
+    margin-bottom: 15px;
+    border-radius: 3px;
+  }
+  
+  .gallery-item h3 {
+    font-size: 1.2rem; /* Adjusted size */
+    font-weight: 600; /* Bolder heading */
+    margin-top: 0; /* Removed top margin */
+    margin-bottom: 8px; /* Adjusted margin */
+  }
+  
+  .gallery-item h3 a {
+    color: var(--text-color);
+    /* font-weight: 400; */ /* Inherit from h3 */
+  }
+  
+  .gallery-item h3 a:hover {
+    color: var(--primary-color);
+  }
+  
+  .gallery-item p {
+    font-size: 0.9rem; /* Adjusted size */
+    color: #555;
+    line-height: 1.6; /* Adjusted line height */
+    font-weight: 400;
+    /* padding: 5px; */ /* Removed padding */
+    margin-bottom: 0; /* Remove bottom margin */
+  }
+  
+  
+  /* ==========================================================================
+     6. Parallax Section
+     ========================================================================== */
+  
+  .parallax-section {
+    /* == IMPORTANT: Replace with your image path == */
+    background-image: url('/assets/imgs/farm/scenary_2.jpg'); /* <<<--- Example Path */
+  
+    min-height: 450px; /* Adjusted height */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 40px 15px;
+  }
+  
+  .parallax-content {
+    
+    padding: 30px 50px;
+    border-radius: 5px;
+    max-width: 600px;
+  }
+  
+  .parallax-content h2 {
+    font-family: var(--serif-font);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--white);
+    font-weight: normal;
+    margin-top: 0; /* Remove default margin */
+  }
+  
+  .parallax-content p {
+    /* Removed absolute positioning - let flexbox handle centering */
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.7;
+    /* Remove conflicting text styles if they are meant only for hero */
+    /* position: absolute; */
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    /* z-index: 10; */
+    /* color: var(--white); */
+    /* font-family: var(--serif-font); */
+    /* font-style: italic; */
+    /* font-weight: 400; */
+    /* text-align: center; */
+    /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); */
+    /* white-space: nowrap; */
+  }
+  
+  .parallax-content .btn-parallax {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .parallax-content .btn-parallax:hover {
+    background-color: #6a3610;
+  }
+  
+  
+  /* ==========================================================================
+     7. Tagline Section (Example - keep if used)
+     ========================================================================== */
+  
+  .tagline-section {
+    background-color: var(--light-bg);
+    padding: 60px 0;
+    text-align: center;
+    margin-top: 50px; /* If parallax doesn't have margin */
+  }
+  
+  .tagline-section p {
+    font-family: var(--serif-font);
+    font-style: italic;
+    font-size: 1.5rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  
+  /* ==========================================================================
+     8. Footer
+     ========================================================================== */
+  
+  .footer {
+    background-color: var(--dark-bg);
+    color: #a0a0a0;
+    padding: 50px 0 30px 0;
+    font-size: 0.9rem;
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .footer-column h4 {
+    color: var(--white);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 500;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-column ul li a {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+  
+  .footer-column ul li a:hover {
+    color: var(--white);
+  }
+  
+  .footer-column p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+  }
+  
+  .footer-column i {
+    width: 16px;
+    text-align: center;
+    color: #ccc;
+    font-size: 0.9rem;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+  }
+  
+  
+  /* ==========================================================================
+     9. Responsive Media Queries
+     ========================================================================== */
+  
+  /* --- Medium Devices (Tablets, etc.) --- */
+  @media (max-width: 992px) {
+    .availability-checker {
+      width: 90%;
+      max-width: none;
+    }
+  
+    .availability-checker .form-group.input-with-icon {
+      flex-basis: calc(50% - 5px); /* Adjust gap calculation */
+    }
+  
+    .availability-checker button {
+      flex-basis: 100%;
+      margin-top: 10px;
+    }
+  
+    .nav-links li {
+      margin-left: 15px;
+    }
+  
+    .book-now-btn {
+      margin-left: 20px;
+      padding: 8px 15px;
+    }
+  
+    .hero-text {
+      font-size: 2.5rem;
+    }
+  }
+  
+  
+  /* --- Small Devices (Mobiles) --- */
+  @media (max-width: 768px) {
+    body {
+      padding-top: 70px; /* Adjust based on mobile navbar height */
+    }
+  
+    /* Navbar mobile adjustments */
+    .nav-toggle {
+      display: block; /* Show hamburger */
+    }
+  
+    .navbar .container {
+      flex-wrap: wrap;
+    }
+  
+    .navbar .logo {
+      flex-grow: 1;
+      padding-right: 0;
+    }
+  
+    .navbar .logo img {
+      height: 40px; /* Smaller logo */
+    }
+  
+    .navbar.shrunk .logo img {
+       height: 28px; /* Smaller shrunk logo */
+    }
+  
+    .nav-links-container {
+      display: none;
+      order: 3;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--dark-bg);
+      z-index: 1001;
+      border-top: 1px solid #444;
+      padding: 0;
+    }
+  
+    .nav-links-container.active {
+      display: flex;
+      flex-direction: column;
+      max-height: 500px;
+      padding: 10px 0;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      width: 100%;
+      align-items: stretch;
+    }
+  
+    .nav-links li {
+      margin-left: 0;
+      width: 100%;
+      border-bottom: 1px solid #444;
+    }
+  
+    .nav-links li:last-child {
+      border-bottom: none;
+    }
+  
+    .nav-links a {
+      padding: 12px 15px;
+      text-align: left;
+      width: 100%;
+      font-size: 0.85rem;
+      float: none;
+    }
+  
+    .dropdown .dropdown-content {
+      position: static;
+      box-shadow: none;
+      border-top: none;
+      background-color: #404040;
+      padding-left: 30px;
+      border-bottom: 1px solid #555;
+      width: 100%;
+      margin-top: 0;
+      left: auto;
+      top: auto;
+    }
+     /* Ensure dropdown link colors are correct on mobile */
+    .dropdown-content a {
+      color: var(--light-text);
+    }
+     .dropdown-content a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+    }
+  
+  
+    .book-now-btn {
+      margin: 10px 15px;
+      width: calc(100% - 30px);
+      justify-content: center;
+      align-self: center;
+      height: 42px;
+    }
+  
+    /* Hero mobile adjustments */
+    .hero-section {
+      height: 55vh;
+    }
+  
+    .hero-text {
+      font-size: 1.8rem;
+      width: 90%;
+      white-space: normal;
+    }
+  
+    .awards-tab {
+      display: none;
+    }
+  
+    .prev,
+    .next {
+      width: 36px;
+      height: 36px;
+      margin-top: -18px;
+      font-size: 18px;
+    }
+  
+    .prev { left: 10px; }
+    .next { right: 10px; }
+  
+    .slider-dots {
+      bottom: 15px;
+      right: 15px;
+    }
+  
+    /* Availability Checker mobile adjustments */
+    .availability-checker {
+      width: calc(100% - 30px); /* Full width minus padding */
+      margin: 25px auto;
+      align-items: stretch; /* Stretch inputs */
+    }
+  
+    .availability-checker .form-group.input-with-icon {
+      flex-basis: 100%;
+      min-width: 0;
+    }
+  
+    .availability-checker button {
+      margin-top: 10px;
+      flex-basis: 100%;
+      height: 42px;
+    }
+  
+    /* Parallax mobile adjustments */
+    .parallax-section {
+      background-attachment: scroll; /* Disable fixed attachment */
+      min-height: 350px;
+    }
+  
+    .parallax-content h2 {
+      font-size: 2rem;
+    }
+  
+    .parallax-content p {
+       /* Ensure paragraph text styles are appropriate for mobile */
+       font-size: 1rem;
+       white-space: normal; /* Allow wrapping */
+       position: static; /* Remove absolute */
+       transform: none; /* Remove transform */
+       text-shadow: none; /* Remove shadow if background overlay is enough */
+       margin-bottom: 15px; /* Adjust spacing */
+    }
+  
+    .parallax-content {
+      padding: 20px 30px;
+    }
+  
+    /* Intro mobile adjustments */
+    .intro-section {
+      padding: 40px 0; /* Adjust padding */
+    }
+  
+    /* Footer mobile adjustments */
+    .footer-grid {
+      grid-template-columns: 1fr; /* Stack columns */
+    }
+  }
+  
+  
+  /* --- Desktop Styles Refinements (Overrides for >= 769px) --- */
+  /* This block ensures mobile styles applied inside the 768px block are correctly overridden */
+  /* for larger screens, preventing style leakage if elements are hidden/shown. */
+  @media (min-width: 769px) {
+  
+    /* Navbar Desktop Overrides */
+    .nav-toggle {
+      display: none !important;
+    }
+  
+    .nav-links-container {
+      display: flex !important;
+      position: static !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      width: auto !important;
+      background: none !important;
+      max-height: none !important;
+      overflow: visible !important;
+      padding: 0 !important;
+      border-top: none !important;
+      order: 0 !important;
+    }
+  
+    .nav-links {
+      flex-direction: row !important;
+      width: auto !important;
+    }
+  
+    .nav-links li {
+      border-bottom: none !important;
+      width: auto !important;
+      margin-left: 15px !important; /* Restore desktop margin */
+    }
+  
+    .nav-links a {
+      width: auto !important;
+      padding: 5px !important;
+    }
+  
+    .dropdown .dropdown-content {
+      position: absolute !important;
+      background-color: var(--white) !important; /* White background on desktop */
+      padding-left: 0 !important;
+      border-bottom: none !important;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15) !important;
+      border-top: 3px solid var(--primary-color) !important;
+      margin-top: 10px !important;
+      left: 0 !important;
+      top: 100% !important;
+      width: auto !important;
+      min-width: 180px;
+    }
+  
+     /* Ensure correct text color for white background on desktop */
+    .dropdown-content a {
+      color: var(--text-color) !important;
+      padding: 10px 15px !important;
+      text-align: left !important;
+    }
+  
+    .dropdown-content a:hover {
+      background-color: var(--light-bg) !important;
+      color: var(--primary-color) !important;
+    }
+  
+    .book-now-btn {
+      margin: 0 0 0 25px !important;
+      width: auto !important;
+      align-self: center !important;
+    }
+  
+    /* Availability Checker Desktop Overrides */
+    .availability-checker {
+      align-items: flex-end !important;
+      justify-content: center !important;
+    }
+  
+    .availability-checker .form-group.input-with-icon {
+      flex: 1 1 200px !important;
+      min-width: 180px !important;
+    }
+  
+    .availability-checker button {
+      flex-basis: auto !important;
+      min-width: auto !important;
+      margin-top: 0 !important;
+    }
+  
+    /* Parallax Desktop Overrides (if any needed beyond base styles) */
+     .parallax-content p {
+       position: static; /* Ensure paragraph is not absolute */
+       transform: none;
+       white-space: normal; /* Ensure wrapping */
+     }
+  }
+  /* ==========================================================================
+   10. Litepicker Custom Styles (Additions)
+   ========================================================================== */
+
+/* Apply base font to the picker */
+.litepicker {
+  font-family: var(--sans-serif-font);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); /* Add shadow */
+  border: 1px solid var(--border-color);
+}
+
+/* Month Header (e.g., "April 2025") */
+.litepicker .container__months .month-item .month-item-header {
+  background-color: var(--white); /* White background */
+  padding: 15px 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.litepicker .container__months .month-item .month-item-header div {
+  font-size: 1rem; /* Adjust font size */
+  font-weight: 600; /* Bolder month/year */
+  color: var(--text-color);
+}
+
+/* Month Navigation Arrows */
+.litepicker .container__months .month-item .month-item-header button {
+  color: var(--text-color); /* Color for arrows */
+  width: 32px;
+  height: 32px;
+}
+.litepicker .container__months .month-item .month-item-header button:hover {
+  background-color: var(--light-bg);
+  border-radius: 50%;
+}
+
+/* Days of the week header (Sun, Mon, Tue...) */
+.litepicker .container__months .month-item .days-oftheweek {
+  font-weight: 500; /* Medium weight */
+  color: #888; /* Grey color */
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-bottom: none; /* Remove default border if present */
+}
+.litepicker .container__months .month-item .days-oftheweek div {
+    padding-bottom: 0; /* Remove default padding */
+}
+
+/* Individual Day Styles */
+.litepicker .container__months .month-item .day-item {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-color); /* Default day color */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Slightly rounded hover/selection */
+}
+
+/* Hover effect */
+.litepicker .container__months .month-item .day-item:hover {
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  border-radius: 4px;
+}
+
+/* Selected start/end dates */
+.litepicker .container__months .month-item .day-item.is-start-date,
+.litepicker .container__months .month-item .day-item.is-end-date {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: 4px;
+}
+
+/* Dates within the selected range */
+.litepicker .container__months .month-item .day-item.is-in-range {
+  background-color: rgba(138, 88, 64, 0.15); /* Lighter primary color */
+  color: var(--text-color);
+  border-radius: 0; /* Square edges for range */
+}
+
+/* Ensure start/end dates overlay range color correctly */
+.litepicker .container__months .month-item .day-item.is-start-date.is-in-range {
+    background-color: var(--primary-color);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.litepicker .container__months .month-item .day-item.is-end-date.is-in-range {
+    background-color: var(--primary-color);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+/* Disabled/Booked dates (Example) */
+.litepicker .container__months .month-item .day-item.is-locked {
+  color: var(--border-color); /* Light grey */
+  text-decoration: line-through;
+  pointer-events: none;
+}
+
+/* Tooltip (showing number of nights) */
+.litepicker .container__tooltip {
+  background-color: var(--dark-bg);
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* ========================================================================== */
