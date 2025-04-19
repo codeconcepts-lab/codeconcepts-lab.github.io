@@ -2501,8 +2501,8 @@ main {
 .room-card-content h3 {
     margin-top: 0;
     margin-bottom: 25px;
-    font-size: 1.2rem;
-    font-weight: 450;
+    font-size: 1.1rem;
+    font-weight: 425;
     text-align: center;
 }
 
@@ -2511,7 +2511,7 @@ main {
     display: block;
     gap: 35px;
     margin-bottom: 15px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #555;
     flex-wrap: wrap;
     text-align: center;
@@ -2522,11 +2522,12 @@ main {
     gap: 35px;
     text-align: center;
     padding: 15px;
+    font-weight: 350;
 }
 
 .room-card-details i {
     color: var(--primary-color);
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding-right: 2px;
     text-align: center;
 }
