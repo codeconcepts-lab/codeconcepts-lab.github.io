@@ -11,7 +11,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+        <link rel="stylesheet" href="assets/css/gallery.css">
         <link rel="stylesheet" href="/assets/css/main.css" />
 
     </head>
@@ -59,9 +59,7 @@
             </div>
         </nav>
 
-        <div class="hero-image" style="background-image: url('/assets/imgs/general/gallery_hero.jpg');">
-             <div class="hero-title-container container"><h1>Gallery</h1></div>
-        </div>
+       
 
         <main>
             <div class="container page-content">
@@ -71,54 +69,49 @@
                 </section>
 
                 <hr>
-
-                <section class="gallery-page-section">
-                    <div class="gallery-page-grid">
-                        <div class="gallery-page-item">
-                            <img src="https://placehold.co/600x400/8a5840/FFF?text=Farm+View+1" alt="Placeholder Farm View 1">
-                        </div>
-                         <div class="gallery-page-item">
-                            <img src="https://placehold.co/600x400/a28a7e/FFF?text=Protea+Room+Interior" alt="Placeholder Protea Room">
-                        </div>
-                         <div class="gallery-page-item">
-                            <img src="https://placehold.co/600x400/7e9aa2/FFF?text=Dam+Area" alt="Placeholder Dam Area">
-                        </div>
-                         <div class="gallery-page-item">
-                            <img src="https://placehold.co/600x400/8ca081/FFF?text=Garden+Path" alt="Placeholder Garden Path">
-                        </div>
-                         <div class="gallery-page-item">
-                            <img src="https://placehold.co/600x400/b3a59a/FFF?text=Rock+Rose+Detail" alt="Placeholder Rock Rose Detail">
-                        </div>
-                         <div class="gallery-page-item">
-                            <img src="https://placehold.co/600x400/c1a998/FFF?text=Breakfast+Area" alt="Placeholder Breakfast Area">
-                        </div>
-                         <div class="gallery-page-item">
-                            <img src="https://placehold.co/600x400/968173/FFF?text=Farm+Animals" alt="Placeholder Farm Animals">
-                        </div>
-                         <div class="gallery-page-item">
-                            <img src="https://placehold.co/600x400/a89a8f/FFF?text=Acacia+Room+View" alt="Placeholder Acacia Room View">
-                        </div>
-                         <div class="gallery-page-item">
-                            <img src="https://placehold.co/600x400/b9ad9f/FFF?text=Sunset+over+Farm" alt="Placeholder Sunset">
-                        </div>
-                         <div class="gallery-page-item">
-                            <img src="https://placehold.co/600x400/d3c9bd/FFF?text=Aloe+Room+Decor" alt="Placeholder Aloe Room Decor">
-                        </div>
-                         <div class="gallery-page-item">
-                            <img src="https://placehold.co/600x400/9e9188/FFF?text=River+Walk" alt="Placeholder River Walk">
-                        </div>
-                         <div class="gallery-page-item">
-                            <img src="https://placehold.co/600x400/afa49c/FFF?text=Guest+House+Exterior" alt="Placeholder Guest House Exterior">
-                        </div>
-                        </div>
-                </section>
+                <div class="gallery-grid">
+                    <a href="assets/imgs/farm/horse_1.jpg" class="gallery-item">
+                        <img src="assets/imgs/farm/horse_1.jpg">
+                    </a>
+                    <a href="assets/imgs/farm/horse_2.jpg" class="gallery-item">
+                        <img src="assets/imgs/farm/horse_2.jpg">
+                    </a>
+                    <a href="assets/imgs/farm/scenary_1.jpg" class="gallery-item">
+                        <img src="assets/imgs/farm/scenary_1.jpg">
+                    </a>
+                    <a href="assets/imgs/farm/scenary_2.jpg" class="gallery-item">
+                        <img src="assets/imgs/farm/scenary_2.jpg">
+                    </a>
+                    <a href="assets/imgs/farm/farm_4.jpeg" class="gallery-item">
+                        <img src="assets/imgs/farm/farm_4.jpeg">
+                    </a>
+                    <a href="assets/imgs/farm/dam_2.jpg" class="gallery-item">
+                        <img src="assets/imgs/farm/dam_2.jpg">
+                    </a>
+                    <a href="assets/imgs/activity/jungle_gym.jpg" class="gallery-item">
+                        <img src="assets/imgs/activity/jungle_gym.jpg">
+                    </a>
+                    <a href="assets/imgs/rooms/building/building_1.jpeg" class="gallery-item">
+                        <img src="assets/imgs/rooms/building/building_1.jpeg">
+                    </a>
+                    <a href="assets/imgs/rooms/building/building_2.jpg" class="gallery-item">
+                        <img src="assets/imgs/rooms/building/building_2.jpg">
+                    </a>
+                    </div>
+            
+                <div id="lightbox-modal" class="lightbox">
+                    <span class="lightbox-close">&times;</span>
+                    <img class="lightbox-content" id="lightbox-image">
+                    <a class="lightbox-prev">&#10094;</a>
+                    <a class="lightbox-next">&#10095;</a>
+                    <div id="lightbox-caption"></div>
+                </div>
+            
+                
+              
 
             </div> </main>
 
-        <div class="lightbox-overlay" id="lightboxOverlay" style="display: none;">
-            <span class="lightbox-close" id="lightboxClose">&times;</span>
-            <img class="lightbox-image" id="lightboxImage" src="" alt="Enlarged Gallery Image">
-        </div>
 
 
         <footer class="footer">
@@ -154,7 +147,7 @@
                 </div>
             </div>
         </footer>
-
+        <script src="assets/js/gallery.js"></script>
         <script>
             // --- Mobile Nav Toggle Script ---
             const navToggle = document.querySelector('.nav-toggle');
