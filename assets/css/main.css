@@ -1822,27 +1822,29 @@ hr.room-divider {
     }
 
     .nav-links-container {
-        display: none;
+        display: none; /* Keep hidden initially */
         order: 3;
         width: 100%;
-        max-height: 0;
-        overflow: hidden;
+        max-height: 0; /* Start with 0 max-height for animation */
+        overflow: hidden; /* Keep hidden overflow for animation */
         transition: max-height 0.3s ease-out, padding 0.3s ease-out;
         position: absolute;
-        top: 100%;
+        top: 100%; /* Position below the navbar */
         left: 0;
         right: 0;
         background-color: var(--dark-bg);
         z-index: 1001;
         border-top: 1px solid #444;
-        padding: 0;
+        padding: 0; /* No padding when closed */
     }
 
     .nav-links-container.active {
-        display: flex;
+        display: flex; /* Use flex when active */
         flex-direction: column;
-        max-height: 500px;
-        padding: 10px 0;
+        max-height: 70vh; /* Limit height (e.g., 70% of viewport height) */
+        overflow-y: auto;  /* Enable vertical scrolling ONLY when active and needed */
+        overflow-x: hidden; /* Prevent horizontal scroll */
+        padding: 10px 0; /* Restore padding when active */
     }
 
     .nav-links {
