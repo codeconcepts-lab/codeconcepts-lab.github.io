@@ -1,382 +1,10 @@
 /* ==========================================================================
-   1. Basic Reset & Global Styles
-   ========================================================================== */
-
-:root {
-    /* Colors */
-    --primary-color: #8a5840;
-    /* Brown for buttons/accents */
-    --dark-bg: #292929;
-    /* Navbar/Footer background */
-    --light-bg: #f8f8f7;
-    /* Light section backgrounds */
-    --text-color: #37352f;
-    /* Main dark text */
-    --light-text: #b3b3b3;
-    /* Navbar links text (slightly off-white) - Used in dark backgrounds */
-    --white: #ffffff;
-    --border-color: #cccccc;
-    /* Input border color */
-    --placeholder-color: #999999;
-    /* Placeholder text color */
-
-    /* Fonts */
-    --sans-serif-font: "Poppins", sans-serif;
-    --serif-font: "Playfair Display", serif;
-
-    /* Component Specific */
-    /* Add other global component variables if needed */
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: var(--sans-serif-font);
-    color: var(--text-color);
-    line-height: 1.6;
-    background-color: var(--white);
-    font-size: 16px;
-    font-weight: 400;
-    padding-top: 110px;
-    /* Adjust based on initial navbar height */
-}
-
-.container {
-    max-width: 1140px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--sans-serif-font);
-    font-weight: 600;
-    margin-bottom: 0.75em;
-    color: var(--text-color);
-    line-height: 1.3;
-}
-
-h1 {
-    font-size: 2.2rem;
-    margin-top: 1.8rem;
-}
-
-h2 {
-    font-size: 1.7rem;
-    margin-top: 1.5rem;
-}
-
-h3 {
-    font-size: 1.4rem;
-    margin-top: 1.25rem;
-}
-
-h4 {
-    font-size: 1.1rem;
-    margin-top: 1.0rem;
-}
-
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-a:hover {
-    color: #6a3610;
-    text-decoration: none;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    vertical-align: middle;
-}
-
-hr {
-    border: none;
-    border-bottom: 1px solid #e0e0e0;
-    /* Lighter border */
-    margin: 2.5em 0;
-    /* Increased margin */
-}
-
-.clear {
-    clear: both;
-}
-
-/* Basic Button Style */
-.btn {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    /* Slightly smaller */
-    letter-spacing: 0.5px;
-    transition: background-color 0.2s ease;
-    text-align: center;
-    line-height: 1.4;
-    /* Ensure consistent line height */
-}
-
-.btn:hover {
-    background-color: #6a3610;
-    color: var(--white);
-}
-
-/* Icon Button adjustment */
-.btn i {
-    margin-right: 6px;
-    font-size: 0.9em;
-    /* Relative to button font size */
-}
-
-/* ==========================================================================
-   2. Navigation Bar
-   ========================================================================== */
-
-.navbar {
-    background-color: var(--dark-bg);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    padding: 20px 0;
-    /* Initial padding */
-    transition: padding 0.4s ease-in-out;
-}
-
-.navbar.shrunk {
-    padding: 5px 0;
-    /* Shrunk padding */
-}
-
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    flex-wrap: nowrap;
-}
-
-/* --- Navbar Logo --- */
-.navbar .logo {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    padding-right: 20px;
-}
-
-.navbar .logo img {
-    height: 70px;
-    /* Initial height */
-    max-width: 160px;
-    display: block;
-    transition: height 0.4s ease-in-out;
-}
-
-.navbar.shrunk .logo img {
-    height: 50px;
-    /* Shrunk height */
-}
-
-/* --- Navbar Links --- */
-.nav-links-container {
-    display: flex;
-    align-items: center;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li {
-    margin-left: 15px;
-}
-
-/* Add active class style for nav links */
-.nav-links a.active {
-    color: var(--white);
-    font-weight: 500;
-    /* Make active link slightly bolder */
-}
-
-/* Style for active dropdown button */
-.nav-links .dropbtn.active {
-    color: var(--white);
-    font-weight: 500;
-}
-
-/* Style for active link within dropdown */
-.dropdown-content a.active {
-    color: var(--primary-color);
-    /* Highlight color */
-    background-color: var(--light-bg);
-    /* Light background */
-    font-weight: 500;
-}
-
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--light-text);
-    padding: 5px;
-    display: block;
-    font-size: 0.8rem;
-    font-weight: 400;
-    text-transform: capitalize;
-    letter-spacing: 0.8px;
-    transition: color 0.2s ease;
-    white-space: nowrap;
-}
-
-.nav-links a:hover,
-.nav-links .dropdown:hover .dropbtn {
-    color: var(--white);
-}
-
-/* --- Navbar Dropdown (with Hover Delay) --- */
-li.dropdown {
-    position: relative;
-}
-
-.dropdown-content {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    position: absolute;
-    background-color: var(--dark-bg);
-    /* Dark background for base dropdown */
-    min-width: 180px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
-    z-index: 1;
-    border-radius: 0;
-    padding: 5px 0;
-    border-top: 3px solid var(--primary-color);
-    margin-top: 10px;
-    left: 0;
-    top: 100%;
-    /* Transition with delay for HIDING */
-    transition: opacity 0.2s ease 0.3s,
-        /* Opacity fades out after 0.3s delay */
-        visibility 0s linear 0.5s,
-        /* Visibility changes instantly after 0.5s total */
-        pointer-events 0s linear 0.5s;
-    /* Pointer-events changes instantly after 0.5s */
-}
-
-/* Show dropdown on hover of parent OR dropdown itself */
-.dropdown:hover .dropdown-content,
-.dropdown-content:hover {
-    opacity: 1;
-    /* Make visible */
-    visibility: visible;
-    /* Make accessible/interactive */
-    pointer-events: auto;
-    /* Allow interaction */
-    /* Transition for SHOWING (no delay) */
-    transition: opacity 0.2s ease 0s,
-        visibility 0s linear 0s,
-        pointer-events 0s linear 0s;
-}
-
-.dropdown-content a {
-    color: var(--light-text);
-    /* Light text for dark background */
-    padding: 10px 15px;
-    text-decoration: none;
-    display: block;
-    white-space: nowrap;
-    font-size: 0.85rem;
-    text-transform: none;
-    letter-spacing: normal;
-    font-weight: 400;
-    background-color: transparent;
-}
-
-.dropdown-content a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    /* Subtle hover on dark background */
-    color: var(--white);
-}
-
-
-/* --- Navbar Book Now Button --- */
-.book-now-btn {
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 8px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 500;
-    text-transform: uppercase;
-    margin-left: 25px;
-    font-size: 0.75rem;
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    transition: background-color 0.2s ease;
-    height: 38px;
-    /* Fixed height for alignment */
-}
-
-.book-now-btn i {
-    font-size: 0.85rem;
-}
-
-.book-now-btn:hover {
-    background-color: #6a3610;
-}
-
-/* --- Navbar Mobile Toggle --- */
-.nav-toggle {
-    display: none;
-    /* Hidden by default */
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.8rem;
-    cursor: pointer;
-    padding: 5px;
-    margin-left: 15px;
-    flex-shrink: 0;
-}
-
-/* ==========================================================================
    3. Hero Section (Carousel - Homepage Specific)
    ========================================================================== */
 
-.hero-section {
+   .hero-section {
     position: relative;
-    height: 660px;
-    /* Adjusted Height */
+    height: 660px; /* Adjusted Height */
     overflow: hidden;
     background-color: var(--dark-bg);
 }
@@ -414,7 +42,6 @@ li.dropdown {
     from {
         opacity: 0.4;
     }
-
     to {
         opacity: 1;
     }
@@ -461,10 +88,8 @@ li.dropdown {
 .prev:hover,
 .next:hover {
     color: white;
-    opacity: 1;
-    /* Keep opacity on hover */
-    background-color: rgba(0, 0, 0, 0.3);
-    /* Optional: subtle bg on hover */
+    opacity: 1; /* Keep opacity on hover */
+    background-color: rgba(0, 0, 0, 0.3); /* Optional: subtle bg on hover */
 }
 
 .slider-dots {
@@ -513,12 +138,9 @@ li.dropdown {
 }
 
 .availability-checker .form-group.input-with-icon {
-    flex: 1 1 100px;
-    /* Adjust basis */
-    width: auto;
-    /* Let flexbox determine width */
-    min-width: 100px;
-    /* Set minimum width */
+    flex: 1 1 100px; /* Adjust basis */
+    width: auto; /* Let flexbox determine width */
+    min-width: 100px; /* Set minimum width */
     position: relative;
 }
 
@@ -531,8 +153,7 @@ li.dropdown {
     width: 100%;
     padding: 8px 40px 8px 15px;
     border: 1px solid var(--border-color);
-    border-radius: 0;
-    /* Removed border-radius */
+    border-radius: 0; /* Removed border-radius */
     font-family: var(--sans-serif-font);
     font-size: 0.9rem;
     font-weight: 400;
@@ -561,14 +182,12 @@ li.dropdown {
     transform: translateY(-50%);
     color: #787878;
     pointer-events: none;
-    font-size: 1.2rem;
-    /* Slightly larger icon */
+    font-size: 1.2rem; /* Slightly larger icon */
     line-height: 1;
 }
 
 .availability-checker button {
-    background-color: var(--availability-button-bg, var(--primary-color));
-    /* Added fallback */
+    background-color: var(--availability-button-bg, var(--primary-color)); /* Added fallback */
     color: var(--white);
     padding: 8px 20px;
     border: none;
@@ -595,8 +214,7 @@ li.dropdown {
 
 /* --- Gallery Section --- */
 .gallery-section {
-    padding: 10px 0;
-    /* Restored padding */
+    padding: 10px 0; /* Restored padding */
     margin-bottom: 60px;
 }
 
@@ -619,16 +237,14 @@ li.dropdown {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    height: 320px;
-    /* Restored height */
+    height: 320px; /* Restored height */
     object-fit: cover;
     margin-bottom: 15px;
     border-radius: 3px;
 }
 
 .gallery-item h3 {
-    font-size: 1.2rem;
-    /* Restored size */
+    font-size: 1.2rem; /* Restored size */
     font-weight: 600;
     margin-top: 0;
     margin-bottom: 8px;
@@ -657,8 +273,7 @@ li.dropdown {
 
 .parallax-section {
     /* == IMPORTANT: Replace with your image path == */
-    background-image: url('/assets/imgs/farm/scenary_2.jpg');
-    /* <<<--- Example Path */
+    background-image: url('/assets/imgs/farm/scenary_2.jpg'); /* <<<--- Example Path */
     min-height: 550px;
     background-attachment: fixed;
     background-position: center;
@@ -680,15 +295,11 @@ li.dropdown {
 }
 
 .parallax-content p {
-    font-size: 1.9rem;
-    /* Larger size for parallax quote */
-    font-family: var(--serif-font);
-    /* Match quote style */
+    font-size: 1.9rem; /* Larger size for parallax quote */
+    font-family: var(--serif-font); /* Match quote style */
     font-style: italic;
-    margin-bottom: 0;
-    /* Remove margin if it's the only content */
-    line-height: 1.5;
-    /* Adjust line height */
+    margin-bottom: 0; /* Remove margin if it's the only content */
+    line-height: 1.5; /* Adjust line height */
     text-shadow: 3px 3px 4px #000000;
     position: static;
     transform: none;
@@ -699,8 +310,7 @@ li.dropdown {
    ========================================================================== */
 
 main {
-    min-height: calc(100vh - 110px - 250px);
-    /* Viewport height - navbar height - approx footer height */
+    min-height: calc(100vh - 110px - 250px); /* Viewport height - navbar height - approx footer height */
     /* Removed top padding as map section might go full width */
     padding-bottom: 60px;
 }
@@ -711,15 +321,12 @@ main {
 
 /* Hero Image for Inner Pages */
 .hero-image {
-    height: 350px;
-    /* Adjust height as needed */
+    height: 350px; /* Adjust height as needed */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    margin-bottom: 40px;
-    /* Space below hero image */
-    position: relative;
-    /* For potential overlay/text */
+    margin-bottom: 40px; /* Space below hero image */
+    position: relative; /* For potential overlay/text */
 }
 
 /* Optional Hero Overlay */
@@ -729,21 +336,18 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    /* Example overlay */
+    background-color: rgba(0, 0, 0, 0.3); /* Example overlay */
 }
 
 /* Optional Hero Title */
 .hero-image .hero-title-container {
-    position: relative;
-    /* To sit above overlay */
+    position: relative; /* To sit above overlay */
     z-index: 2;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    /* Center text */
+    text-align: center; /* Center text */
 }
 
 .hero-image .hero-title-container h1 {
@@ -751,8 +355,7 @@ main {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     font-size: 2.8rem;
     margin: 0;
-    padding: 0 15px;
-    /* Add padding for smaller screens */
+    padding: 0 15px; /* Add padding for smaller screens */
 }
 
 /* Intro Section Styling (Used on multiple pages) */
@@ -760,13 +363,11 @@ main {
     padding: 20px 0;
     text-align: center;
     max-width: 850px;
-    margin: 0 auto 40px auto;
-    /* Center align */
+    margin: 0 auto 40px auto; /* Center align */
 }
 
 .intro-section h2 {
-    font-size: 1.9rem;
-    /* Slightly larger */
+    font-size: 1.9rem; /* Slightly larger */
     font-weight: 600;
     margin-bottom: 20px;
 }
@@ -774,43 +375,35 @@ main {
 .intro-section p {
     font-size: 1rem;
     color: #555;
-    margin-bottom: 0;
-    /* Remove bottom margin if it's the last element */
+    margin-bottom: 0; /* Remove bottom margin if it's the last element */
     line-height: 1.7;
 }
 
 /* Page Title Section (Used on Contact page based on image) */
 .page-title-section {
     text-align: center;
-    margin-bottom: 50px;
-    /* Space below titles */
-    margin-top: 20px;
-    /* Space above titles if no hero image */
+    margin-bottom: 50px; /* Space below titles */
+    margin-top: 20px; /* Space above titles if no hero image */
 }
 
 .page-title-main {
-    font-size: 2.8rem;
-    /* Larger main title */
-    color: #aaa;
-    /* Lighter color like image */
-    font-weight: 400;
-    /* Lighter weight */
+    font-size: 2.8rem; /* Larger main title */
+    color: #aaa; /* Lighter color like image */
+    font-weight: 400; /* Lighter weight */
     margin-bottom: 0.2em;
     margin-top: 0;
     letter-spacing: 1px;
 }
 
 .page-subtitle {
-    font-size: 1.8rem;
-    /* Smaller subtitle */
+    font-size: 1.8rem; /* Smaller subtitle */
     font-weight: 600;
     margin-bottom: 0.8em;
     margin-top: 0;
 }
 
 .page-description {
-    max-width: 700px;
-    /* Limit width of description */
+    max-width: 700px; /* Limit width of description */
     margin-left: auto;
     margin-right: auto;
     font-size: 1rem;
@@ -908,8 +501,7 @@ main {
     font-family: var(--sans-serif-font);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
     border: 1px solid var(--border-color);
-    z-index: 1100;
-    /* Ensure it's above navbar */
+    z-index: 1100; /* Ensure it's above navbar */
 }
 
 .litepicker .container__months .month-item .month-item-header {
@@ -1280,28 +872,21 @@ main {
 }
 
 .room-card-details {
-    display: block;
-    /* Changed from flex/grid for centering */
-    gap: 35px;
-    /* Kept gap for spacing if items wrap */
+    display: block; /* Changed from flex/grid for centering */
+    gap: 35px; /* Kept gap for spacing if items wrap */
     margin-bottom: 15px;
     font-size: 0.8rem;
     color: #555;
-    flex-wrap: wrap;
-    /* Allow wrapping */
-    text-align: center;
-    /* Center align text */
+    flex-wrap: wrap; /* Allow wrapping */
+    text-align: center; /* Center align text */
 }
 
 .room-card-details span {
-    display: inline-block;
-    /* Treat spans like words for wrapping */
-    align-items: center;
-    /* Vertical align if wrapped */
+    display: inline-block; /* Treat spans like words for wrapping */
+    align-items: center; /* Vertical align if wrapped */
     /* gap: 35px; Removed gap here */
     text-align: center;
-    padding: 15px;
-    /* Add padding around each detail */
+    padding: 15px; /* Add padding around each detail */
     font-weight: 350;
 }
 
@@ -1331,21 +916,18 @@ main {
 /* --- Location Page Styles --- */
 .map-section {
     margin: 0;
-    padding: 0;
-    /* Remove default margins/padding if needed */
+    padding: 0; /* Remove default margins/padding if needed */
 }
 
 .map-embed.full-width-map iframe {
     display: block;
     width: 100%;
     /* height: 550px; /* Adjust height as desired */
-    border: none;
-    /* Remove iframe border */
+    border: none; /* Remove iframe border */
 }
 
 .directions-section {
-    padding: 40px 0;
-    /* Add padding above/below directions */
+    padding: 40px 0; /* Add padding above/below directions */
 }
 
 .directions-container h2 {
@@ -1356,8 +938,7 @@ main {
 
 .directions-text {
     max-width: 800px;
-    margin: 0 auto;
-    /* Center text block */
+    margin: 0 auto; /* Center text block */
 }
 
 .directions-text p {
@@ -1384,8 +965,7 @@ main {
 
 /* --- Contact Page Styles --- */
 .contact-section {
-    margin-top: 0px;
-    /* Removed top margin to align with titles */
+    margin-top: 0px; /* Removed top margin to align with titles */
 }
 
 .contact-grid {
@@ -1396,15 +976,11 @@ main {
 
 .contact-form-container h3,
 .contact-details-container h3 {
-    margin-bottom: 25px;
-    /* Increased space below heading */
-    font-size: 1.5rem;
-    /* Slightly smaller than H2 */
+    margin-bottom: 25px; /* Increased space below heading */
+    font-size: 1.5rem; /* Slightly smaller than H2 */
     font-weight: 600;
-    border-bottom: 1px solid #eee;
-    /* Add subtle line below heading */
-    padding-bottom: 10px;
-    /* Space between text and line */
+    border-bottom: 1px solid #eee; /* Add subtle line below heading */
+    padding-bottom: 10px; /* Space between text and line */
 }
 
 .contact-form .form-group {
@@ -1415,10 +991,8 @@ main {
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    font-size: 0.85rem;
-    /* Smaller label */
-    color: #555;
-    /* Lighter label text */
+    font-size: 0.85rem; /* Smaller label */
+    color: #555; /* Lighter label text */
 }
 
 .contact-form label .required {
@@ -1433,15 +1007,12 @@ main {
 .contact-form textarea {
     width: 100%;
     padding: 10px 12px;
-    border: 1px solid #d5d5d5;
-    /* Slightly darker border */
-    border-radius: 0px;
-    /* No radius */
+    border: 1px solid #d5d5d5; /* Slightly darker border */
+    border-radius: 0px; /* No radius */
     font-family: var(--sans-serif-font);
     font-size: 0.95rem;
     transition: border-color 0.2s ease;
-    background-color: var(--white);
-    /* Ensure background is white */
+    background-color: var(--white); /* Ensure background is white */
 }
 
 .contact-form input[type="text"]:focus,
@@ -1451,8 +1022,7 @@ main {
 .contact-form textarea:focus {
     border-color: var(--primary-color);
     outline: none;
-    box-shadow: none;
-    /* No focus shadow */
+    box-shadow: none; /* No focus shadow */
 }
 
 .contact-form textarea {
@@ -1476,34 +1046,27 @@ main {
 }
 
 .contact-details p {
-    margin-bottom: 18px;
-    /* Increased spacing */
+    margin-bottom: 18px; /* Increased spacing */
     display: flex;
-    align-items: flex-start;
-    /* Align icon top */
-    font-size: 0.95rem;
-    /* Adjusted size */
+    align-items: flex-start; /* Align icon top */
+    font-size: 0.95rem; /* Adjusted size */
     color: #444;
     line-height: 1.5;
 }
 
 .contact-details i {
-    width: 20px;
-    /* Adjusted icon width */
+    width: 20px; /* Adjusted icon width */
     text-align: center;
-    margin-right: 15px;
-    /* Increased space */
+    margin-right: 15px; /* Increased space */
     color: var(--primary-color);
     font-size: 1.1rem;
-    margin-top: 3px;
-    /* Align icon better */
+    margin-top: 3px; /* Align icon better */
     flex-shrink: 0;
 }
 
 .contact-details a {
     color: var(--primary-color);
-    word-break: break-word;
-    /* Break long emails/links */
+    word-break: break-word; /* Break long emails/links */
 }
 
 .contact-details a:hover {
@@ -1519,8 +1082,7 @@ main {
     font-size: 0.85rem;
     color: #666;
     margin-top: -10px;
-    margin-left: 35px;
-    /* Align with text */
+    margin-left: 35px; /* Align with text */
 }
 
 .find-us-section {
@@ -1552,8 +1114,7 @@ main {
 
 .gallery-page-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    /* Adjust minmax for desired size */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust minmax for desired size */
     gap: 15px;
 }
 
@@ -1566,8 +1127,7 @@ main {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     display: block;
     width: 100%;
-    height: 250px;
-    /* Fixed height for grid items */
+    height: 250px; /* Fixed height for grid items */
     object-fit: cover;
 }
 
@@ -1590,8 +1150,7 @@ main {
     justify-content: center;
     padding: 20px;
     opacity: 0;
-    transition: opacity 0.3s ease;
-    /* Add transition */
+    transition: opacity 0.3s ease; /* Add transition */
 }
 
 /* Add 'show' class via JS to trigger transition */
@@ -1631,8 +1190,7 @@ main {
 
 .room-details-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    /* Default to single column */
+    grid-template-columns: 1fr; /* Default to single column */
     gap: 40px;
 }
 
@@ -1648,8 +1206,7 @@ main {
 .room-gallery h2,
 .room-info h2 {
     margin-bottom: 20px;
-    font-size: 1.8rem;
-    /* Adjusted size */
+    font-size: 1.8rem; /* Adjusted size */
     color: var(--primary-color);
 }
 
@@ -1657,8 +1214,7 @@ main {
     margin-bottom: 25px;
     line-height: 1.7;
     color: #444;
-    font-size: 1rem;
-    /* Adjusted size */
+    font-size: 1rem; /* Adjusted size */
 }
 
 .room-amenities {
@@ -1697,8 +1253,7 @@ hr.room-divider {
     border-radius: 5px;
     border: 1px solid #e0e0e0;
     display: flex;
-    flex-direction: column;
-    /* Stack items vertically by default */
+    flex-direction: column; /* Stack items vertically by default */
     gap: 15px;
 }
 
@@ -1710,17 +1265,13 @@ hr.room-divider {
 }
 
 .room-availability .form-group.input-with-icon {
-    flex: 1 1 100%;
-    /* Take full width when stacked */
-    min-width: 0;
-    /* Allow shrinking */
+    flex: 1 1 100%; /* Take full width when stacked */
+    min-width: 0; /* Allow shrinking */
 }
 
 .room-availability button {
-    width: 100%;
-    /* Full width button when stacked */
-    margin-top: 10px;
-    /* Space above button */
+    width: 100%; /* Full width button when stacked */
+    margin-top: 10px; /* Space above button */
 }
 
 .availability-note {
@@ -1736,12 +1287,10 @@ hr.room-divider {
 
 /* --- Medium Devices --- */
 @media (max-width: 992px) {
-
     /* Navbar */
     .nav-links li {
         margin-left: 15px;
     }
-
     .book-now-btn {
         margin-left: 20px;
         padding: 8px 15px;
@@ -1752,26 +1301,21 @@ hr.room-divider {
         width: 90%;
         max-width: none;
     }
-
     .availability-checker .form-group.input-with-icon {
         flex-basis: calc(50% - 5px);
     }
-
     .availability-checker button {
         flex-basis: 100%;
         margin-top: 10px;
     }
 
     /* Hero */
-    .hero-text {
-        /* Assuming this class exists */
+    .hero-text { /* Assuming this class exists */
         font-size: 2.5rem;
     }
-
     .hero-image {
         height: 300px;
     }
-
     .hero-image .hero-title-container h1 {
         font-size: 2.4rem;
     }
@@ -1780,15 +1324,13 @@ hr.room-divider {
     .page-title-main {
         font-size: 2.4rem;
     }
-
     .page-subtitle {
         font-size: 1.6rem;
     }
 
     /* Room Details */
     .room-details-grid {
-        gap: 30px;
-        /* Slightly reduce gap */
+        gap: 30px; /* Slightly reduce gap */
     }
 }
 
@@ -1803,24 +1345,19 @@ hr.room-divider {
     .nav-toggle {
         display: block;
     }
-
     .navbar .container {
         flex-wrap: wrap;
     }
-
     .navbar .logo {
         flex-grow: 1;
         padding-right: 0;
     }
-
     .navbar .logo img {
         height: 40px;
     }
-
     .navbar.shrunk .logo img {
         height: 28px;
     }
-
     .nav-links-container {
         display: none;
         order: 3;
@@ -1837,30 +1374,25 @@ hr.room-divider {
         border-top: 1px solid #444;
         padding: 0;
     }
-
     .nav-links-container.active {
         display: flex;
         flex-direction: column;
         max-height: 500px;
         padding: 10px 0;
     }
-
     .nav-links {
         flex-direction: column;
         width: 100%;
         align-items: stretch;
     }
-
     .nav-links li {
         margin-left: 0;
         width: 100%;
         border-bottom: 1px solid #444;
     }
-
     .nav-links li:last-child {
         border-bottom: none;
     }
-
     .nav-links a {
         padding: 12px 15px;
         text-align: left;
@@ -1868,7 +1400,6 @@ hr.room-divider {
         font-size: 0.85rem;
         float: none;
     }
-
     .dropdown .dropdown-content {
         position: static;
         box-shadow: none;
@@ -1886,31 +1417,25 @@ hr.room-divider {
         transition: none;
         display: block;
     }
-
     .nav-links-container:not(.active) .dropdown .dropdown-content {
         display: none;
     }
-
     .nav-links-container.active .dropdown .dropdown-content {
         display: block;
     }
-
     .dropdown-content a {
         color: var(--light-text) !important;
     }
-
     .dropdown-content a:hover {
         background-color: rgba(255, 255, 255, 0.1) !important;
         color: var(--white) !important;
     }
-
     /* Active link in mobile dropdown */
     .dropdown-content a.active {
         background-color: rgba(255, 255, 255, 0.1) !important;
         color: var(--white) !important;
         font-weight: 500;
     }
-
     .book-now-btn {
         margin: 10px 15px;
         width: calc(100% - 30px);
@@ -1923,39 +1448,26 @@ hr.room-divider {
     .hero-section {
         height: 55vh;
     }
-
-    .hero-text {
-        /* Assuming this class exists */
+    .hero-text { /* Assuming this class exists */
         font-size: 1.8rem;
         width: 90%;
         white-space: normal;
     }
-
-    .prev,
-    .next {
+    .prev, .next {
         width: 36px;
         height: 36px;
         margin-top: -18px;
         font-size: 18px;
     }
-
-    .prev {
-        left: 10px;
-    }
-
-    .next {
-        right: 10px;
-    }
-
+    .prev { left: 10px; }
+    .next { right: 10px; }
     .slider-dots {
         bottom: 15px;
         right: 15px;
     }
-
     .hero-image {
         height: 250px;
     }
-
     .hero-image .hero-title-container h1 {
         font-size: 2rem;
     }
@@ -1966,12 +1478,10 @@ hr.room-divider {
         margin: 25px auto;
         align-items: stretch;
     }
-
     .availability-checker .form-group.input-with-icon {
         flex-basis: 100%;
         min-width: 0;
     }
-
     .availability-checker button {
         margin-top: 10px;
         flex-basis: 100%;
@@ -1983,7 +1493,6 @@ hr.room-divider {
         background-attachment: scroll;
         min-height: 350px;
     }
-
     .parallax-content p {
         font-size: 1.3rem;
         white-space: normal;
@@ -1992,7 +1501,6 @@ hr.room-divider {
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
         margin-bottom: 0;
     }
-
     .parallax-content {
         padding: 20px 30px;
         background-color: rgba(0, 0, 0, 0.6);
@@ -2002,15 +1510,12 @@ hr.room-divider {
     .intro-section {
         padding: 10px 0;
     }
-
     .page-title-main {
         font-size: 2rem;
     }
-
     .page-subtitle {
         font-size: 1.4rem;
     }
-
     .page-title-section {
         margin-bottom: 30px;
     }
@@ -2025,7 +1530,6 @@ hr.room-divider {
         flex-direction: column;
         align-items: flex-start;
     }
-
     .activity-card .activity-btn {
         width: 100%;
         text-align: center;
@@ -2036,7 +1540,6 @@ hr.room-divider {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-
     .activity-category-item img {
         height: 200px;
     }
@@ -2047,7 +1550,6 @@ hr.room-divider {
         padding: 10px 8px;
         font-size: 0.9rem;
     }
-
     .rates-table th {
         font-size: 0.8rem;
     }
@@ -2062,7 +1564,6 @@ hr.room-divider {
         grid-template-columns: 1fr;
         gap: 25px;
     }
-
     .room-card img {
         height: 220px;
     }
@@ -2072,7 +1573,6 @@ hr.room-divider {
         flex-direction: column;
         gap: 0;
     }
-
     .contact-form button[type="submit"] {
         width: 100%;
     }
@@ -2082,11 +1582,9 @@ hr.room-divider {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 10px;
     }
-
     .gallery-page-item img {
         height: 150px;
     }
-
     .lightbox-close {
         font-size: 2.5rem;
         top: 15px;
@@ -2096,25 +1594,20 @@ hr.room-divider {
     /* Individual Room Details */
     .room-gallery h2,
     .room-info h2 {
-        font-size: 1.6rem;
-        /* Slightly smaller headings */
+        font-size: 1.6rem; /* Slightly smaller headings */
     }
-
     .room-details-grid {
-        gap: 25px;
-        /* Reduce gap */
+        gap: 25px; /* Reduce gap */
     }
 }
 
 
 /* --- Desktop Styles Refinements --- */
 @media (min-width: 769px) {
-
     /* Navbar */
     .nav-toggle {
         display: none !important;
     }
-
     .nav-links-container {
         display: flex !important;
         position: static !important;
@@ -2128,27 +1621,22 @@ hr.room-divider {
         border-top: none !important;
         order: 0 !important;
     }
-
     .nav-links {
         flex-direction: row !important;
         width: auto !important;
     }
-
     .nav-links li {
         border-bottom: none !important;
         width: auto !important;
         margin-left: 15px !important;
     }
-
     .nav-links a {
         width: auto !important;
         padding: 5px !important;
     }
-
     .dropdown .dropdown-content {
         position: absolute !important;
-        background-color: var(--dark-bg) !important;
-        /* Reverted to dark */
+        background-color: var(--dark-bg) !important; /* Reverted to dark */
         padding-left: 0 !important;
         border-bottom: none !important;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15) !important;
@@ -2164,7 +1652,6 @@ hr.room-divider {
         pointer-events: none !important;
         transition: opacity 0.2s ease 0.3s, visibility 0s linear 0.5s, pointer-events 0s linear 0.5s !important;
     }
-
     .dropdown:hover .dropdown-content,
     .dropdown-content:hover {
         opacity: 1 !important;
@@ -2172,31 +1659,26 @@ hr.room-divider {
         pointer-events: auto !important;
         transition: opacity 0.2s ease 0s, visibility 0s linear 0s, pointer-events 0s linear 0s !important;
     }
-
     .dropdown-content a {
         color: var(--light-text) !important;
         padding: 10px 15px !important;
         text-align: left !important;
         background-color: transparent !important;
     }
-
     .dropdown-content a:hover {
         background-color: rgba(255, 255, 255, 0.1) !important;
         color: var(--white) !important;
     }
-
     /* Active link in desktop dropdown */
     .dropdown-content a.active {
         color: var(--primary-color) !important;
         background-color: var(--light-bg) !important;
     }
-
     /* Active link hover in desktop dropdown */
     .dropdown-content a.active:hover {
         background-color: var(--light-bg) !important;
         color: var(--primary-color) !important;
     }
-
     .book-now-btn {
         margin: 0 0 0 25px !important;
         width: auto !important;
@@ -2208,12 +1690,10 @@ hr.room-divider {
         align-items: flex-end !important;
         justify-content: center !important;
     }
-
     .availability-checker .form-group.input-with-icon {
         flex: 1 1 200px !important;
         min-width: 180px !important;
     }
-
     .availability-checker button {
         flex-basis: auto !important;
         min-width: auto !important;
@@ -2236,13 +1716,11 @@ hr.room-divider {
     .offer-card {
         flex-direction: row;
     }
-
     .offer-card img {
         width: 40%;
         height: auto;
         min-height: 250px;
     }
-
     .offer-content {
         width: 60%;
         display: flex;
@@ -2255,47 +1733,32 @@ hr.room-divider {
 
     /* Contact Page */
     .contact-grid {
-        grid-template-columns: 1.5fr 1fr;
-        /* Adjusted ratio */
+        grid-template-columns: 1.5fr 1fr; /* Adjusted ratio */
         align-items: start;
     }
-
     .contact-form button[type="submit"] {
         width: auto;
     }
 
     /* Individual Room */
     .room-details-grid {
-        grid-template-columns: repeat(2, 1fr);
-        /* Two columns */
-        align-items: start;
-        /* Align items to the top */
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        align-items: start; /* Align items to the top */
     }
-
     .room-availability {
-        flex-direction: row;
-        /* Align items horizontally */
-        align-items: flex-end;
-        /* Align items to bottom */
+        flex-direction: row; /* Align items horizontally */
+        align-items: flex-end; /* Align items to bottom */
     }
-
     .room-availability .form-group.input-with-icon {
-        flex: 1 1 180px;
-        /* Allow inputs to grow/shrink */
+        flex: 1 1 180px; /* Allow inputs to grow/shrink */
     }
-
     .room-availability button {
-        width: auto;
-        /* Button width based on content */
-        margin-top: 0;
-        /* Remove top margin */
-        flex-shrink: 0;
-        /* Prevent button from shrinking */
+        width: auto; /* Button width based on content */
+        margin-top: 0; /* Remove top margin */
+        flex-shrink: 0; /* Prevent button from shrinking */
     }
-
     .availability-note {
-        text-align: left;
-        /* Align note to the left */
+        text-align: left; /* Align note to the left */
     }
 }
 
@@ -2311,9 +1774,7 @@ hr.room-divider {
 
     /* Individual Room */
     .room-details-grid {
-        grid-template-columns: 1fr 1fr;
-        /* Ensure two columns */
-        gap: 50px;
-        /* Increase gap */
+        grid-template-columns: 1fr 1fr; /* Ensure two columns */
+        gap: 50px; /* Increase gap */
     }
 }
