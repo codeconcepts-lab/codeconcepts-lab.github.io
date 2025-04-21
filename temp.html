@@ -1,51 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Lightbox Gallery</title>
-    <link rel="stylesheet" href="assets/css/gallery.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-</head>
-<body>
 
-    <h1>Image Gallery</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bush Creek Guest House - Special Offers</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" />
+        <link rel="stylesheet" href="/assets/css/main.css" />
+    </head>
 
-    <div class="gallery-grid">
-        <a href="images/full/image1.jpg" class="gallery-item">
-            <img src="images/thumbs/image1_thumb.jpg" alt="Description of image 1">
-        </a>
-        <a href="images/full/image2.jpg" class="gallery-item">
-            <img src="images/thumbs/image2_thumb.jpg" alt="Description of image 2">
-        </a>
-        <a href="images/full/image3.jpg" class="gallery-item">
-            <img src="images/thumbs/image3_thumb.jpg" alt="Description of image 3">
-        </a>
-        <a href="images/full/image4.jpg" class="gallery-item">
-            <img src="images/thumbs/image4_thumb.jpg" alt="Description of image 4">
-        </a>
-         <a href="images/full/image5.jpg" class="gallery-item">
-            <img src="images/thumbs/image5_thumb.jpg" alt="Description of image 5">
-        </a>
-        <a href="images/full/image6.jpg" class="gallery-item">
-            <img src="images/thumbs/image6_thumb.jpg" alt="Description of image 6">
-        </a>
-        <a href="images/full/image7.jpg" class="gallery-item">
-            <img src="images/thumbs/image7_thumb.jpg" alt="Description of image 7">
-        </a>
-        <a href="images/full/image8.jpg" class="gallery-item">
-            <img src="images/thumbs/image8_thumb.jpg" alt="Description of image 8">
-        </a>
-        </div>
+    <body>
+        <nav class="navbar">
+            <div class="container">
+                <a href="/index.html" class="logo">
+                    <img src="/assets/imgs/general/logo_crop.png" alt="Bush Creek Guest House Logo">
+                </a>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links-container">
+                    <ul class="nav-links">
+                        <li><a href="/index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropbtn">Accommodation</a>
+                            <div class="dropdown-content">
+                                <a href="/html/rooms/protea.html">Protea</a>
+                                <a href="/html/rooms/rock-rose.html">Rock Rose</a>
+                                <a href="/html/rooms/acacia.html">Acacia</a>
+                                <a href="/html/rooms/aloe.html">Aloe</a>
+                                <a href="/html/rooms/arum.html">Arum</a>
+                                <a href="/html/rooms/jacaranda.html">Jacaranda</a>
+                            </div>
+                        </li>
+                        <li><a href="/gallery.html">Gallery</a></li>
+                        <li><a href="/rates.html">Rates</a></li>
+                        <li><a href="/special-offers.html" class="active">Special Offers</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropbtn">Activities</a>
+                            <div class="dropdown-content">
+                                <a href="/html/activity/local-restaurants.html">Local Restaurants</a>
+                                <a href="/html/activity/bush-creek-activities.html">Bush Creek Activities</a>
+                                <a href="/html/activity/local-activities.html">Local Activities</a>
+                            </div>
+                        </li>
+                        <li><a href="/location.html">Location</a></li>
+                        <li><a href="/contact.html">Contact Us</a></li>
+                    </ul>
+                    <button class="book-now-btn" onclick="window.location.href='/booking-link.html'">
+                        <i class="far fa-calendar-alt"></i> Book Now </button>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <div class="container page-content">
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h4>Explore</h4>
+                        <ul>
+                            <li><a href="/index.html">Home</a></li>
+                            <li><a href="/rooms.html">Accommodation</a></li>
+                            <li><a href="/gallery.html">Gallery</a></li>
+                            <li><a href="/rates.html">Rates</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>About</h4>
+                        <ul>
+                            <li><a href="/activities.html">Activities</a></li>
+                            <li><a href="/location.html">Location</a></li>
+                            <li><a href="/contact.html">Contact Us</a></li>
+                            <li><a href="/special-offers.html">Special Offers</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact Us</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/r9cLQ6iSQUFKZqEM8">Bush Creek Farm, Mooi River, KZN</a></p>
+                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+27844885000">(084) 488-5000</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:traceyoellermann123@gmail.com">traceyoellermann123@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2025 Bush Creek Guest House. All Rights Reserved. Website by Joshua Stevenson</p>
+                </div>
+            </div>
+        </footer>
+        <script>
+            // --- Mobile Nav Toggle Script ---
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinksContainer = document.querySelector('.nav-links-container');
+            if (navToggle && navLinksContainer) {
+                navToggle.addEventListener('click', () => {
+                    navLinksContainer.classList.toggle('active');
+                    const icon = navToggle.querySelector('i');
+                    if (icon.classList.contains('fa-bars')) {
+                        icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+                    }
+                });
+            }
 
-    <div id="lightbox-modal" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-image">
-        <a class="lightbox-prev">&#10094;</a>
-        <a class="lightbox-next">&#10095;</a>
-        <div id="lightbox-caption"></div>
-    </div>
+            // --- Shrinking Navbar Script ---
+            function scrollFunction() {
+                const navbar = document.querySelector(".navbar");
+                if (!navbar) return;
+                const scrollThreshold = 100;
+                if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+                    navbar.classList.add("shrunk");
+                } else {
+                    navbar.classList.remove("shrunk");
+                }
+            }
+            window.addEventListener('scroll', scrollFunction);
 
-    <script src="assets/js/gallery.js"></script>
-</body>
+            // --- Initialize Scripts on DOM Load ---
+            document.addEventListener('DOMContentLoaded', function () {
+                // Run scroll function once on load
+                scrollFunction();
+                // NOTE: Removed Carousel and Litepicker initialization
+            });
+        </script>
+    </body>
+
 </html>
