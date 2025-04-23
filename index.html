@@ -50,7 +50,7 @@
                 <li><a href="location.html">Location</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
-            <button class="book-now-btn" onclick="window.location.href='booking-link.html'">
+            <button class="book-now-btn" onclick="window.location.href='https://www.booking.com/hotel/za/bush-creek-guest-house.en-gb.html?activeTab=main%5B&checkin=2025-04-25&checkout=2025-04-26%5D'">
                 <i class="far fa-calendar-alt"></i> Book Now </button>
         </div>
     </div>
@@ -83,7 +83,7 @@
                             <input type="text" id="checkout" name="checkout" placeholder="Check out" required>
                             <i class="far fa-calendar-alt input-icon"></i>
                         </div>
-                        <button type="submit">Check Availability and Rates</button>
+                        <button type="button" id="checkAvailabilityBtn">Check Availability and Rates</button>
                     </form>
                 </div>
             </div>
@@ -283,6 +283,56 @@
                 scrollFunction();
             });
 
+        </script>
+        <script>
+
+ document.addEventListener('DOMContentLoaded', function() {
+    const checkAvailabilityBtn = document.getElementById('checkAvailabilityBtn');
+    const checkinInput = document.getElementById('checkin');
+    const checkoutInput = document.getElementById('checkout');
+
+    checkAvailabilityBtn.addEventListener('click', function() {
+        const checkinDate = checkinInput.value;
+        const checkoutDate = checkoutInput.value;
+
+        // Construct the URL
+        let bookingUrl = 'https://www.booking.com/hotel/za/bush-creek-guest-house.en-gb.html';
+        bookingUrl += '?activeTab=main%5B';
+
+        // Add checkin and checkout only if they have values
+        if (checkinDate) {
+            //  Format the date if necessary (Booking.com may require a specific format)
+            const formattedCheckinDate = formatDate(checkinDate); //  Implement formatDate function
+            bookingUrl += `&checkin=${formattedCheckinDate}`;
+        }
+        if (checkoutDate) {
+            //  Format the date if necessary
+            const formattedCheckoutDate = formatDate(checkoutDate); //  Implement formatDate function
+            bookingUrl += `&checkout=${formattedCheckoutDate}%5D`;
+        }
+
+        // Redirect to Booking.com
+        window.location.href = bookingUrl;
+    });
+
+    //  --- Date Formatting Function ---
+    function formatDate(dateString) {
+        //  The dateString will be in the format 'DD MMM YYYY' (e.g., '25 Apr 2025')
+        const dateParts = dateString.split(' ');
+        const day = dateParts[0];
+        const month = dateParts[1];
+        const year = dateParts[2];
+
+        //  Convert month abbreviation to a number
+        const monthNumber = {
+            'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06',
+            'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
+        }[month];
+
+        //  Return in YYYY-MM-DD format (Booking.com standard)
+        return `${year}-${monthNumber}-${day.padStart(2, '0')}`;  //  Pad day with leading zero if needed
+    }
+});
         </script>
     </body>
 
