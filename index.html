@@ -62,7 +62,8 @@
                             </div>
                         </li>
                         <li><a href="location.html">Location</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="/contact.html">Contact Us</a></li>
+                        <li><a href="/amenities.html">Amenities</a></li>
                     </ul>
                     <button class="book-now-btn"
                         onclick="window.location.href='https://www.booking.com/hotel/za/bush-creek-guest-house.en-gb.html?activeTab=main%5B&checkin=2025-04-25&checkout=2025-04-26%5D'">
@@ -117,13 +118,12 @@
                 <h2>Experience nature and comfort</h2>
                 <p>Bush Creek Guest House invites you to escape the hustle of
                     city life. Nestled on a picturesque farm between Mooi River
-                    and Estcourt, our cozy guest home features six
-                    uniquely accommodating rooms. Dive into our refreshing dam,
-                    embark on scenic river walks, or simply relax in the
-                    tranquility of nature. Discover a perfect blend of history,
-                    comfort, and adventure at Bush Creek Guest House, where your
-                    peaceful retreat awaits.</p>
-
+                    and Estcourt, our cozy guest home features six uniquely
+                    accommodating rooms. Dive into our refreshing dam, embark on
+                    scenic river walks, or simply relax in the tranquility of
+                    nature. Discover a perfect blend of history, comfort, and
+                    adventure at Bush Creek Guest House, where your peaceful
+                    retreat awaits.</p>
             </section>
             <section class="gallery-section">
                 <div class="gallery-grid">
@@ -133,8 +133,8 @@
                                 alt="View Our Accommodation"></a>
                         <h3><a href="rooms.html">View Our Rooms</a></h3>
                         <p>Nestled on a picturesque farm... our cozy guest home
-                            features six uniquely accommodating rooms.
-                            Enjoy free WiFi and stunning rural views.</p>
+                            features six uniquely accommodating rooms. Enjoy
+                            free WiFi and stunning rural views.</p>
                     </div>
                     <div class="gallery-item">
                         <a href="gallery.html"><img
@@ -159,9 +159,8 @@
         </div>
         <section class="parallax-section">
             <div class="parallax-content">
-                <p>Where the past lingers,
-                    the present unwinds,
-                    and nature welcomes you home.</p>
+                <p>Where the past lingers, the present unwinds, and nature
+                    welcomes you home.</p>
             </div>
         </section>
         <footer class="footer">
@@ -170,10 +169,11 @@
                     <div class="footer-column">
                         <h4>Explore</h4>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="rooms.html">Rooms</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="rates.html">Rates</a></li>
+                            <li><a href="/index.html">Home</a></li>
+                            <li><a href="/rooms.html">Rooms</a></li>
+                            <li><a href="/gallery.html">Gallery</a></li>
+                            <li><a href="/rates.html">Rates</a></li>
+                            <li><a href="/amenities.html">Amenities</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -196,7 +196,6 @@
                         <p><i class="fas fa-envelope"></i> <a
                                 href="mailto:bushcreekguesthouse@gmail.com">bushcreekguesthouse@gmail.com</a></p>
                     </div>
-
                 </div>
                 <div class="footer-bottom">
                     <p>&copy; 2025 Bush Creek Guest House. All Rights Reserved.
@@ -336,53 +335,53 @@
         </script>
         <script>
 
- document.addEventListener('DOMContentLoaded', function() {
-    const checkAvailabilityBtn = document.getElementById('checkAvailabilityBtn');
-    const checkinInput = document.getElementById('checkin');
-    const checkoutInput = document.getElementById('checkout');
+            document.addEventListener('DOMContentLoaded', function () {
+                const checkAvailabilityBtn = document.getElementById('checkAvailabilityBtn');
+                const checkinInput = document.getElementById('checkin');
+                const checkoutInput = document.getElementById('checkout');
 
-    checkAvailabilityBtn.addEventListener('click', function() {
-        const checkinDate = checkinInput.value;
-        const checkoutDate = checkoutInput.value;
+                checkAvailabilityBtn.addEventListener('click', function () {
+                    const checkinDate = checkinInput.value;
+                    const checkoutDate = checkoutInput.value;
 
-        // Construct the URL
-        let bookingUrl = 'https://www.booking.com/hotel/za/bush-creek-guest-house.en-gb.html';
-        bookingUrl += '?activeTab=main%5B';
+                    // Construct the URL
+                    let bookingUrl = 'https://www.booking.com/hotel/za/bush-creek-guest-house.en-gb.html';
+                    bookingUrl += '?activeTab=main%5B';
 
-        // Add checkin and checkout only if they have values
-        if (checkinDate) {
-            //  Format the date if necessary (Booking.com may require a specific format)
-            const formattedCheckinDate = formatDate(checkinDate); //  Implement formatDate function
-            bookingUrl += `&checkin=${formattedCheckinDate}`;
-        }
-        if (checkoutDate) {
-            //  Format the date if necessary
-            const formattedCheckoutDate = formatDate(checkoutDate); //  Implement formatDate function
-            bookingUrl += `&checkout=${formattedCheckoutDate}%5D`;
-        }
+                    // Add checkin and checkout only if they have values
+                    if (checkinDate) {
+                        //  Format the date if necessary (Booking.com may require a specific format)
+                        const formattedCheckinDate = formatDate(checkinDate); //  Implement formatDate function
+                        bookingUrl += `&checkin=${formattedCheckinDate}`;
+                    }
+                    if (checkoutDate) {
+                        //  Format the date if necessary
+                        const formattedCheckoutDate = formatDate(checkoutDate); //  Implement formatDate function
+                        bookingUrl += `&checkout=${formattedCheckoutDate}%5D`;
+                    }
 
-        // Redirect to Booking.com
-        window.location.href = bookingUrl;
-    });
+                    // Redirect to Booking.com
+                    window.location.href = bookingUrl;
+                });
 
-    //  --- Date Formatting Function ---
-    function formatDate(dateString) {
-        //  The dateString will be in the format 'DD MMM YYYY' (e.g., '25 Apr 2025')
-        const dateParts = dateString.split(' ');
-        const day = dateParts[0];
-        const month = dateParts[1];
-        const year = dateParts[2];
+                //  --- Date Formatting Function ---
+                function formatDate(dateString) {
+                    //  The dateString will be in the format 'DD MMM YYYY' (e.g., '25 Apr 2025')
+                    const dateParts = dateString.split(' ');
+                    const day = dateParts[0];
+                    const month = dateParts[1];
+                    const year = dateParts[2];
 
-        //  Convert month abbreviation to a number
-        const monthNumber = {
-            'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06',
-            'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
-        }[month];
+                    //  Convert month abbreviation to a number
+                    const monthNumber = {
+                        'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06',
+                        'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
+                    }[month];
 
-        //  Return in YYYY-MM-DD format (Booking.com standard)
-        return `${year}-${monthNumber}-${day.padStart(2, '0')}`;  //  Pad day with leading zero if needed
-    }
-});
+                    //  Return in YYYY-MM-DD format (Booking.com standard)
+                    return `${year}-${monthNumber}-${day.padStart(2, '0')}`;  //  Pad day with leading zero if needed
+                }
+            });
         </script>
     </body>
 
