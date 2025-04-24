@@ -8,21 +8,68 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+            rel="stylesheet">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" />
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" />
 
         <link rel="stylesheet" href="/assets/css/main.css" />
-
+        <style>
+            .activity-header {
+              font-size: 24px;
+              font-weight: bold;
+              color: #8B4513; /* Brown color, similar to the image */
+              margin-bottom: 20px;
+              border-bottom: 2px solid #8B4513; /* Add a border */
+              padding-bottom: 5px;
+            }
+          
+            .activity-list {
+              list-style-type: disc; /* Use a disc (filled circle) for the list */
+              padding-left: 20px; /* Add some left padding for the list items */
+              margin-bottom: 20px;
+            }
+          
+            .activity-list li {
+              margin-bottom: 10px; /* Add space between list items */
+              font-size: 16px;  /* Make the font a bit larger */
+              color: #555; /* Darker gray for better readability */
+            }
+          
+            .sub-header {
+              font-size: 18px;
+              font-weight: bold;
+              color: #8B4513;
+              margin-top: 30px; /* Add space before sub-headers */
+             
+            }
+          
+            .horse-riding-warning {
+              font-size: 14px;
+              color: #555;
+              margin-bottom: 10px;
+              line-height: 1.5; /* Improve line spacing for the paragraph */
+            }
+          
+            .horse-riding-contact {
+              font-size: 14px;
+              color: #555;
+              line-height: 1.5;
+            }
+          </style>
     </head>
 
     <body>
         <nav class="navbar">
             <div class="container">
                 <a href="/index.html" class="logo">
-                    <img src="/assets/imgs/general/logo_crop.png" alt="Bush Creek Guest House Logo">
+                    <img src="/assets/imgs/general/logo_crop.png"
+                        alt="Bush Creek Guest House Logo">
                 </a>
                 <button class="nav-toggle" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
@@ -34,56 +81,106 @@
                             <a href="#" class="dropbtn">Rooms</a>
                             <div class="dropdown-content">
                                 <a href="/html/rooms/protea.html">Protea</a>
-                                <a href="/html/rooms/rock-rose.html">Rock Rose</a>
+                                <a href="/html/rooms/rock-rose.html">Rock
+                                    Rose</a>
                                 <a href="/html/rooms/acacia.html">Acacia</a>
                                 <a href="/html/rooms/aloe.html">Aloe</a>
                                 <a href="/html/rooms/arum.html">Arum</a>
-                                <a href="/html/rooms/jacaranda.html">Jacaranda</a>
+                                <a
+                                    href="/html/rooms/jacaranda.html">Jacaranda</a>
                             </div>
                         </li>
                         <li><a href="/gallery.html">Gallery</a></li>
                         <li><a href="/rates.html">Rates</a></li>
-                        <li><a href="/special-offers.html">Special Offers</a></li>
+                        <li><a href="/special-offers.html">Special
+                                Offers</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropbtn">Activities</a>
                             <div class="dropdown-content">
-                                <a href="/html/activity/local-restaurants.html">Local Restaurants</a>
-                                <a href="/html/activity/bush-creek-activities.html">Bush Creek Activities</a>
-                                <a href="/html/activity/local-activities.html">Local Activities</a>
+                                <a
+                                    href="/html/activity/local-restaurants.html">Local
+                                    Restaurants</a>
+                                <a
+                                    href="/html/activity/bush-creek-activities.html">Bush
+                                    Creek Activities</a>
+                                <a
+                                    href="/html/activity/local-activities.html">Local
+                                    Activities</a>
                             </div>
                         </li>
                         <li><a href="/location.html">Location</a></li>
                         <li><a href="/contact.html">Contact Us</a></li>
                     </ul>
-                    <button class="book-now-btn" onclick="window.location.href='https://www.booking.com/hotel/za/bush-creek-guest-house.en-gb.html?activeTab=main%5B&checkin=2025-04-25&checkout=2025-04-26%5D'">
+                    <button class="book-now-btn"
+                        onclick="window.location.href='https://www.booking.com/hotel/za/bush-creek-guest-house.en-gb.html?activeTab=main%5B&checkin=2025-04-25&checkout=2025-04-26%5D'">
                         <i class="far fa-calendar-alt"></i> Book Now </button>
                 </div>
             </div>
         </nav>
 
-        <div class="hero-image" style="background-image: url('/assets/imgs/activity/jungle_gym.jpg');">
-             <div class="hero-title-container container"><h1>Activities at Bush Creek</h1></div>
+        <div class="hero-image"
+            style="background-image: url('/assets/imgs/activity/jungle_gym.jpg');">
+            <div class="hero-title-container container"><h1>Activities at Bush
+                    Creek</h1></div>
         </div>
 
         <main>
             <div class="container page-content">
                 <section class="intro-section">
                     <h2>Relax and Explore on the Farm</h2>
-                    <p>Enjoy the peace and natural beauty right here at Bush Creek. Take a walk, relax by the water, or simply soak in the tranquil farm atmosphere.</p>
+                    <p>Enjoy the peace and natural beauty right here at Bush
+                        Creek. Take a walk, relax by the water, or simply soak
+                        in the tranquil farm atmosphere.</p>
                 </section>
 
                 <hr>
 
-                <section class="activity-list">
+                <h2 class="activity-header">Enjoy the following activities that
+                    can be found at our Bush Creek Dam</h2>
+                <ul class="activity-list">
+                    <li>Swimming: Take a refreshing dip in our dam.</li>
+                    <li>Kayaking: Paddle around the dam and enjoy the
+                        scenery.</li>
+                    <li>Windsurfing: Catch the wind and glide across the
+                        water.</li>
+                    <li>Fishing: Try your luck at catching bass in our dam.
+                        Please bring your own fishing rods. Catch-and-release
+                        policy.</li>
+                    <li>River: Enjoy our beautiful river</li>
+                    <li>Other Activities: Enjoy our beautiful River and Farm
+                        Walks.</li>
+                    <p
+                        style="text-align: center; font-weight: 500; color: #8B4513;">Important
+                        Notice: All activities are at your own risk.</p>
+                </ul>
+                <h3 class="sub-header" style="margin-bottom: 0;">Other
+                    Facilities at the Dam:</h3>
+                <ul class="activity-list" style="margin-top: 10px;">
+                    <li>Braai Area: Enjoy a barbecue with family and
+                        friends.</li>
+                    <li>Sunbathing: Soak up the sun and enjoy the scenic
+                        views.</li>
+                    <li>Jetty Jumping: Take the leap off our jetty into the dam
+                        for an adrenaline rush!</li>
+                </ul>
 
-                    <article class="activity-card">
-                        <header>
-                            <h3>Farm Activities</h3>
-                        </header>
-                        <p>Details about activities available directly on the Bush Creek farm (like river walks, swimming in the dam, bird watching, etc.) will be added here soon. Please check back later or contact us for more information.</p>
-                        </article>
+                <h2 class="activity-header">Viewing and Riding Horses</h2>
+                <ul class="activity-list" style="margin-top: 10px;">
+                    <li>Admire our magnificent horses
+                        from a safe distance. Please note that interacting with
+                        the
+                        horses is at your own risk.</li>
+                    <li>If you're an experienced rider
+                        and would like to ride our horses, please contact the
+                        farmer
+                        in advance to arrange a ride. Please note that riding is
+                        only permitted with the farmer's supervision and
+                        approval.
+                        You may enquire about Riding Fees with your host.</li>
 
-                    </section> </div> </main>
+                </ul>
+                
+            </div> </main>
 
         <footer class="footer">
             <div class="container">
@@ -103,18 +200,24 @@
                             <li><a href="/activities.html">Activities</a></li>
                             <li><a href="/location.html">Location</a></li>
                             <li><a href="/contact.html">Contact Us</a></li>
-                            <li><a href="/special-offers.html">Special Offers</a></li>
+                            <li><a href="/special-offers.html">Special
+                                    Offers</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
                         <h4>Contact Us</h4>
-                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/r9cLQ6iSQUFKZqEM8">Bush Creek Farm, Mooi River, KZN</a></p>
-                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+27844885000">(084) 488-5000</a></p>
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:traceyoellermann123@gmail.com">traceyoellermann123@gmail.com</a></p>
+                        <p><i class="fas fa-map-marker-alt"></i> <a
+                                href="https://maps.app.goo.gl/r9cLQ6iSQUFKZqEM8">Bush
+                                Creek Farm, Mooi River, KZN</a></p>
+                        <p><i class="fas fa-phone-alt"></i> <a
+                                href="tel:+27844885000">(084) 488-5000</a></p>
+                        <p><i class="fas fa-envelope"></i> <a
+                                href="mailto:bushcreekguesthouse@gmail.com">bushcreekguesthouse@gmail.com</a></p>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>© 2025 Bush Creek Guest House. All Rights Reserved. Website by Joshua Stevenson</p>
+                    <p>© 2025 Bush Creek Guest House. All Rights Reserved.
+                        Website by Joshua Stevenson</p>
                 </div>
             </div>
         </footer>
