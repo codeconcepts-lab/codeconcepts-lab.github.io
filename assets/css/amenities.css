@@ -1,0 +1,180 @@
+ .page-container {
+                /* Wrap main content */
+                max-width: 1200px;
+                margin: 20px auto;
+                padding: 0 15px;
+            }
+
+            /* Add styles for dropdowns and mobile toggle if needed */
+            /* Styles specifically for the facilities section */
+            #hp_facilities_box {
+                padding: 20px;
+                background-color: #fff;
+                /* White background for the section */
+                border-radius: 8px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+
+            /* --- Column Layout --- */
+            /* Container for all the facility group blocks */
+            #hp_facilities_box [data-testid="property-facilities-block-container"] {
+                column-count: 3;
+                /* Create 3 columns */
+                column-gap: 30px;
+                /* Space between columns */
+                padding-top: 20px;
+                /* Space below the main heading */
+            }
+
+            /* Removed grid styles from the parent container */
+            #hp_facilities_box [data-testid="property-section--content"] {
+                /* display: grid; removed */
+                /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); removed */
+                /* gap: 30px; removed */
+            }
+
+            #hp_facilities_box .amenities-div-item {
+                /* Container for each facility group */
+                margin-bottom: 20px;
+                /* Space below each group */
+                break-inside: avoid;
+                /* Prevent groups from breaking across columns */
+                page-break-inside: avoid;
+                /* Older property for compatibility */
+            }
+
+            #hp_facilities_box .amenities-div-item-section_1 h3 {
+                /* Facility group heading */
+                display: flex;
+                align-items: center;
+                font-weight: 600;
+                /* Bolder */
+                margin-bottom: 12px;
+                font-size: 1.05em;
+                /* Adjust size */
+                color: #262626;
+                /* Darker text */
+            }
+
+            /* --- Icon Styling for Category Headings --- */
+            #hp_facilities_box .amenities-div-item-section_1 h3 .heading-icon {
+                margin-right: 10px;
+                flex-shrink: 0;
+                width: 20px;
+                /* Fixed width for icon */
+                text-align: center;
+                /* Center icon */
+                color: #555;
+                /* Icon color */
+                font-size: 1.1em;
+                /* Adjust icon size */
+            }
+
+            /* Descriptive text below heading (like for Parking/Internet) */
+            #hp_facilities_box .amenities-div.f45d8e4c32 {
+                font-weight: 400;
+                /* Normal weight */
+                font-size: 0.9em;
+                color: #555;
+                margin-top: -8px;
+                /* Adjust spacing relative to heading */
+                margin-bottom: 10px;
+                /* Space before list */
+                display: block;
+                padding-left: 30px;
+                /* Indent slightly under heading text (icon width + margin) */
+            }
+
+            #hp_facilities_box .amenities-item-ul {
+                /* ul list for facilities */
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                padding-left: 5px;
+                /* Slight indent for the list */
+            }
+
+            #hp_facilities_box .amenities-list-section {
+                /* li for each facility */
+                display: flex;
+                align-items: flex-start;
+                /* Align to top if text wraps */
+                margin-bottom: 8px;
+                font-size: 0.9em;
+                color: #333;
+                line-height: 1.4;
+            }
+
+            #hp_facilities_box .amenities-list-section .amenities-list-section-item-icon-div {
+                /* Inner container for check and text */
+                display: flex;
+                align-items: flex-start;
+                /* Align checkmark with first line of text */
+            }
+
+            /* --- Checkmark Icon Styling --- */
+            #hp_facilities_box .amenities-list-section .facility-checkmark-icon {
+                margin-right: 8px;
+                color: #008000;
+                /* Green checkmark */
+                width: 16px;
+                /* Fixed width */
+                text-align: center;
+                flex-shrink: 0;
+                font-size: 0.9em;
+                /* Adjust checkmark size */
+                margin-top: 2px;
+                /* Fine-tune vertical alignment */
+            }
+
+            #hp_facilities_box .amenities-list-section .amenities-list-section-item-icon-div-2 {
+                /* Text container for facility name */
+                display: inline;
+                /* Allows the "additional charge" to wrap nicely */
+            }
+
+            /* "Additional charge" span container */
+            #hp_facilities_box .amenities-list-section .abf093bdfe {
+                margin-left: 6px;
+                font-size: 0.85em;
+                color: #6b6b6b;
+                background-color: #f0f0f0;
+                padding: 1px 5px;
+                border-radius: 3px;
+                white-space: nowrap;
+                display: inline-block;
+                /* Keep it neat */
+            }
+
+            /* Hide the initial "Great for your stay" list */
+            #hp_facilities_box .e50d7535fa {
+                display: none;
+            }
+
+            /* Refine main Facilities heading */
+            #hp_facilities_box .dc5041d860 h2 {
+                border-bottom: 1px solid #eee;
+                /* Subtle separator */
+                padding-bottom: 10px;
+                margin-bottom: 25px;
+                /* Space below */
+                font-size: 1.6em;
+                font-weight: 700;
+                /* Make it bolder */
+                color: #1a1a1a;
+            }
+
+            /* Responsive adjustments for columns */
+            @media (max-width: 992px) {
+                #hp_facilities_box [data-testid="property-facilities-block-container"] {
+                    column-count: 2;
+                    /* 2 columns on medium screens */
+                }
+            }
+
+            @media (max-width: 576px) {
+                #hp_facilities_box [data-testid="property-facilities-block-container"] {
+                    column-count: 1;
+                    /* 1 column on small screens */
+                }
+            }
