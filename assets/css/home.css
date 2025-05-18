@@ -4,13 +4,12 @@
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: left;
+  text-align: left;
   color: var(--white);
 }
 
 .hero-text h1 {
-
   font-size: 100px;
   color: var(--white);
   /* Larger size for parallax quote */
@@ -23,7 +22,7 @@
   /* Remove margin if it's the only content */
 
   /* Adjust line height */
-  text-shadow: 5px 5px 5px #000000;
+  text-shadow: 7px 7px 5px #000000;
   position: static;
   transform: none;
 }
