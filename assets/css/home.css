@@ -1,11 +1,13 @@
-
 .hero-text {
   min-height: 550px;
-  position: relative;
+  position: relative; /* This is important for absolute positioning of children */
   display: flex;
-  justify-content: center;
-  align-items: left;
-  text-align: left;
+  padding-left: 20px;
+  /* Align items to the bottom of the flex container */
+  align-items: flex-end;
+  /* Justify content to the start (left) of the flex container */
+  justify-content: flex-start;
+  text-align: left; /* Ensures text within h1 is left-aligned if it wraps */
   color: var(--white);
 }
 
@@ -13,16 +15,17 @@
   font-size: 100px;
   color: var(--white);
   /* Larger size for parallax quote */
-   font-family: "Italianno", cursive;
-    font-weight: 500;
+  font-family: "Italianno", cursive;
+  font-weight: 500;
   font-style: normal;
   /* Match quote style */
 
-  margin-bottom: 0;
+  margin-bottom: 0; /* You might want a small margin-left or padding if it's too close to the edge */
+  margin-left: 10px; /* Or adjust as needed for spacing */
   /* Remove margin if it's the only content */
 
   /* Adjust line height */
   text-shadow: 7px 7px 5px #000000;
-  position: static;
-  transform: none;
+  /* position: static; by default, no need to explicitly set unless overriding something */
+  /* transform: none; by default, no need to explicitly set unless overriding something */
 }
