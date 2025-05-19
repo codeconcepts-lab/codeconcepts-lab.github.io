@@ -377,7 +377,7 @@ li.dropdown {
     position: relative;
     height: 660px;
     /* Adjusted Height */
-    overflow: hidden;
+    overflow: auto;
     background-color: var(--dark-bg);
 }
 
