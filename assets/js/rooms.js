@@ -101,7 +101,7 @@
         const checkoutDate = checkoutInput.value;
 
         // Construct the URL
-        let bookingUrl = 'https://www.booking.com/hotel/za/bush-creek-guest-house.en-gb.html';
+        let bookingUrl = 'https://book.nightsbridge.com/38214';
         bookingUrl += '?activeTab=main%5B';
 
         // Add checkin and checkout only if they have values
