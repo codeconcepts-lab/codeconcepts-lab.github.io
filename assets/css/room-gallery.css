@@ -124,7 +124,7 @@
 img {
     margin-bottom: -4px;
     object-fit: cover;
-    max-height: 85vh; /* Limit height to viewport height */
+    max-height: 95vh; /* Limit height to viewport height */
 }
 
 .caption-container {
