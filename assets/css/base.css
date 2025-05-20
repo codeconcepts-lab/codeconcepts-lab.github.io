@@ -32,7 +32,10 @@
     animation-name: fade;
     animation-duration: 1.5s;
 }
-
+.slide.yt {
+    
+    animation-duration: 45s;
+}
 .slide.active {
     display: block;
     opacity: 1;

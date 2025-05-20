@@ -1,54 +1,78 @@
 // --- Carousel Script ---
-            let slideIndex = 1;
-            let slideInterval;
-            let slides = document.querySelectorAll(".hero-section .slide");
-            let dots = document.querySelectorAll(".hero-section .dot");
+let slideIndex = 1;
+let slideInterval;
+let slides = document.querySelectorAll(".hero-section .slide");
+let dots = document.querySelectorAll(".hero-section .dot");
+let videoPlaying = false; // Flag to track video playback
 
-            function plusSlides(n) {
-                clearInterval(slideInterval);
-                showSlide(slideIndex += n);
-                startSlideInterval();
-            }
+function plusSlides(n) {
+    clearInterval(slideInterval);
+    showSlide(slideIndex += n, true); // Force transition, don't restart interval yet
+}
 
-            function currentSlide(n) {
-                clearInterval(slideInterval);
-                showSlide(slideIndex = n);
-                startSlideInterval();
-            }
+function currentSlide(n) {
+    clearInterval(slideInterval);
+    showSlide(slideIndex = n, true); // Force transition, don't restart interval yet
+}
 
-            function showSlide(n) {
-                let i;
-                if (!slides || slides.length === 0) return;
+function showSlide(n, userInitiated = false) {
+    let i;
+    if (!slides || slides.length === 0) return;
 
-                if (n > slides.length) { slideIndex = 1 }
-                if (n < 1) { slideIndex = slides.length }
+    if (n > slides.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
 
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                    slides[i].classList.remove('active');
-                }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        slides[i].classList.remove('active');
+    }
 
-                if (dots && dots.length > 0) {
-                    for (i = 0; i < dots.length; i++) {
-                        dots[i].classList.remove("active");
-                    }
-                }
+    if (dots && dots.length > 0) {
+        for (i = 0; i < dots.length; i++) {
+            dots[i].classList.remove("active");
+        }
+    }
 
-                if (slides[slideIndex - 1]) {
-                    slides[slideIndex - 1].style.display = "block";
-                    setTimeout(() => {
-                        if (slides[slideIndex - 1]) slides[slideIndex - 1].classList.add('active');
-                    }, 10);
-                }
-                if (dots && dots[slideIndex - 1]) {
-                    dots[slideIndex - 1].classList.add("active");
-                }
-            }
+    if (slides[slideIndex - 1]) {
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(() => {
+            if (slides[slideIndex - 1]) slides[slideIndex - 1].classList.add('active');
+        }, 10);
+    }
+    if (dots && dots[slideIndex - 1]) {
+        dots[slideIndex - 1].classList.add("active");
+    }
 
-            function startSlideInterval() {
-                clearInterval(slideInterval);
-                slideInterval = setInterval(() => plusSlides(1), 5000);
-            }
+    if (slideIndex === 3) {
+        const iframe = slides[slideIndex - 1].querySelector('iframe');
+        if (iframe && !videoPlaying) {
+            videoPlaying = true;
+            iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*'); // YouTube API to play
+            iframe.addEventListener('ended', () => {
+                videoPlaying = false;
+                plusSlides(1); // Go to next slide after video ends
+                startSlideInterval(); // Resume auto-play
+            });
+        } else if (userInitiated) {
+            startSlideInterval(); // Resume auto-play
+        }
+    } else if (userInitiated) {
+        startSlideInterval(); // Resume auto-play
+    } else {
+        startSlideInterval(); // Continue auto-play
+    }
+}
+
+function startSlideInterval(startNow = true) {
+    clearInterval(slideInterval);
+    if (startNow) {
+        slideInterval = setInterval(() => plusSlides(1), 5000);
+    }
+}
 
             // --- Mobile Nav Toggle Script ---
             const navToggle = document.querySelector('.nav-toggle');

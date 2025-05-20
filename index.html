@@ -16,6 +16,25 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+        <style>
+.yt-container {
+  position: relative;
+  width: 100%;
+  overflow: auto;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+</style>
     </head>
 
     <body>
@@ -71,7 +90,11 @@
                         <h1>A Working Farm</h1>
                     </div>
                 </div>
-                <div class="slide fade" style="background-image: url('assets/imgs/farm/scenary_1.jpg');"></div>
+                <div class="slide fade" >
+               
+  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/z69Nz8HZBAA?si=1RdHd0kOn1h-25PB&amp;controls=0&modestbranding=1&rel=0" frameborder="0" allow="accelerometer; autoplay; modestbranding; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                </div>
                 <a class="prev" onclick="plusSlides(-1)">❮</a>
                 <a class="next" onclick="plusSlides(1)">❯</a>
                 <div class="slider-dots">
