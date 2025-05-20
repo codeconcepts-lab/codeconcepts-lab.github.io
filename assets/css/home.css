@@ -1,24 +1,25 @@
 .hero-text {
-   min-height: 550px;
+  min-height: 500px;
   position: relative;
   display: flex;
-  align-items: flex-end; /* Align items to the bottom */
-  justify-content: flex-start; /* Align items to the left */
+  align-items: flex-end;
+  justify-content: flex-start;
   padding-left: 20px;
   color: var(--white);
+  padding-bottom: 0;
+  bottom: 0;
+
 }
 
-/* Slide 1: Lower left corner */
+
+
 .slide:nth-of-type(1) .hero-text {
-  align-items: flex-end;
   justify-content: flex-start;
 }
 
-/* Slide 2: Bottom center */
 .slide:nth-of-type(2) .hero-text {
-  align-items: flex-end;
   justify-content: center;
-  text-align: center; /* Center the text within the container */
+  text-align: center;
   left: 0;
   right: 0;
   padding-left: 0;
@@ -28,9 +29,47 @@
   font-size: 100px;
   color: var(--white);
   font-family: "Italianno", cursive;
-  font-weight: 500;
+  font-weight: 550;
   font-style: normal;
   margin-bottom: 0;
+  margin-left: 10px;
+  padding: 10px;
+  position: relative;
+  z-index: 2;
+text-shadow: 2px 2px  rgba(0, 0, 0, 0.8);
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  /* Add a slight border radius */
+}
 
-  text-shadow: 7px 7px 5px #000000;
+@media (max-width: 768px) {
+  .slide:nth-of-type(1) .hero-text {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .slide:nth-of-type(2) .hero-text {
+    justify-content: center;
+    text-align: center;
+
+  }
+
+  .hero-text h1 {
+    font-size: 60px;
+    color: var(--white);
+    font-family: "Italianno", cursive;
+    font-weight: 500;
+    font-style: normal;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    padding: 10px;
+    position: relative;
+    z-index: 2;
+
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    /* Add a slight border radius */
+  }
 }
