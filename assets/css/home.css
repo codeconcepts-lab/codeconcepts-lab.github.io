@@ -54,6 +54,12 @@ text-shadow: 2px 2px  rgba(0, 0, 0, 0.8);
     text-align: center;
 
   }
+  .hero-text {
+  
+  padding-bottom: 130px;
+
+
+}
 
   .hero-text h1 {
     font-size: 60px;
