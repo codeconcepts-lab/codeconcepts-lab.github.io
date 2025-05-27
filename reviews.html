@@ -7,92 +7,183 @@
         <title>Bush Creek Guest House - Guest Reviews</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link rel="stylesheet" href="/assets/css/main.css" />
         <style>
             /* Styles specific to the reviews page */
             .reviews-section-container {
-                padding: 20px 0;
-                margin-top: 0;
+                padding: 20px 0; 
+                margin-top: 0; 
             }
 
-            .reviews-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                /* Responsive grid */
-                gap: 30px;
-                /* Space between cards */
-                padding: 20px 0;
+            .testimonials-pre-heading {
+                text-transform: uppercase;
+                font-size: 0.8rem;
+                color: #777; /* Dark grey for light background */
+                letter-spacing: 1.5px;
+                margin-bottom: 5px;
+                text-align: center; 
+            }
+
+            .intro-section h2 { /* Ensure main heading is centered */
+                text-align: center;
+            }
+            .intro-section p { /* Ensure paragraph is centered */
+                text-align: center;
+            }
+
+
+            /* Carousel Styles */
+            .reviews-carousel-wrapper {
+                position: relative;
+                width: 100%;
+                max-width: 1140px; 
+                margin: 0 auto 40px auto; /* Top margin removed, padding-top will handle avatar space */
+                overflow: hidden; 
+                padding-top: 45px; /* Space for overlapping avatars */
+            }
+
+            .reviews-carousel-track {
+                display: flex; 
+                transition: transform 0.5s ease-in-out; 
+                width: fit-content; 
             }
 
             .review-card {
-                background-color: var(--white);
-                border: 1px solid var(--border-color);
-                /* Card border color */
-                padding: 25px;
-                border-radius: 15px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                background-color: var(--white); 
+                border: 1px solid #ededed; /* Very subtle border */
+                padding: 20px; 
+                padding-top: 50px; 
+                border-radius: 20px; 
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* More diffused shadow */
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                text-align: center;
-                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+                align-items: stretch; 
+                text-align: center; 
+                position: relative; 
+                min-height: 240px; /* Adjusted min-height to accommodate title */
+                width: 350px; /* Adjusted width for 3 cards on desktop */
+                margin-right: 20px; 
+                flex-shrink: 0; 
             }
+            
+            .review-card:last-child {
+                margin-right: 0; 
+            }
+
 
             .review-card:hover {
-                transform: translateY(-5px) scale(1.02);
-                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+                transform: translateY(-5px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); 
             }
 
-            .review-avatar img {
-                width: 70px;
+            .review-avatar { 
+                position: absolute;
+                top: -35px; 
+                left: 50%;
+                transform: translateX(-50%); 
+                width: 70px; 
                 height: 70px;
                 border-radius: 50%;
-                margin-bottom: 15px;
+                background-color: var(--white); 
+                color: var(--white);
+                padding: 3px; 
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            
+         .review-avatar img {
+                width: 100%; 
+                height: 100%;
+                border-radius: 50%;
                 object-fit: cover;
-                border: 2px solid var(--border-color);
-                /* Explicitly set avatar border color */
+                background-color: var(--white); /* Added white background to the image itself */
+                color: var(--white);
+                /* border: 2px solid var(--primary-color); Removed border */
+            }
+            .review-card-content {
+                margin-top: 10px; 
+                flex-grow: 1; 
             }
 
             .review-card-content p {
-                margin-bottom: 15px;
-                color: #555;
-                line-height: 1.7;
-                font-size: 0.9rem;
+                margin-bottom: 15px; 
+                color: #444; 
+                line-height: 1.6;
+                font-size: 0.88rem; 
             }
 
             .review-author-info {
-                margin-top: auto;
-                padding-top: 15px;
+                margin-top: auto; 
+                padding-top: 15px; 
+                border-top: 1px solid #eee; 
             }
 
             .review-author-name {
-                font-weight: 700;
-                color: var(--text-color);
-                font-size: 1rem;
-                margin-bottom: 3px;
+                font-weight: 600; 
+                color: #8a5840; /* Dark grey for author name */
+                font-size: 0.95rem;
+                margin-bottom: 2px; /* Space before title */
             }
-
             .review-author-title {
-                font-size: 0.8rem;
-                color: #777;
+                font-size: 0.75rem;
+                color: #888; /* Lighter grey for title */
             }
 
-            /* Responsive adjustments for the grid */
-            @media (max-width: 768px) {
-                .reviews-grid {
-                    grid-template-columns: 1fr;
-                    gap: 20px;
-                }
 
+            .carousel-navigation {
+                text-align: center;
+                margin-top: 25px; /* Increased space for buttons */
+            }
+
+            .carousel-btn {
+                background-color: var(--white); /* Light grey background */
+                color: #8a5840; /* Darker icon color */
+                border: none;
+                padding: 10px 15px;
+                border-radius: 50%; 
+                cursor: pointer;
+                font-size: 1rem;
+                margin: 0 10px;
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+                width: 40px; 
+                height: 40px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            }
+
+            .carousel-btn:hover {
+                background-color: var(--light-bg); /* Slightly darker on hover */
+            }
+            .carousel-btn:disabled {
+                background-color: var(--white);
+                cursor: not-allowed;
+                box-shadow: none;
+            }
+
+
+            /* Responsive adjustments */
+            @media (max-width: 1139px) and (min-width: 768px) { /* Tablet view - for 2 cards */
                 .review-card {
-                    padding: 20px;
+                    width: 300px; 
+                    margin-right: 25px; /* Adjust margin for tablet if needed */
                 }
-
-                .review-avatar img {
-                    width: 60px;
-                    height: 60px;
+                 .reviews-carousel-wrapper {
+                    max-width: 655px; /* 2*300 (card width) + 25 (margin) */
+                }
+            }
+            @media (max-width: 767px) { /* Mobile view - for 1 card */
+                .reviews-carousel-wrapper {
+                    padding-left: 20px; /* Add padding to wrapper on mobile so card is not edge-to-edge */
+                    padding-right: 20px;
+                }
+                .review-card {
+                     width: 100%; /* Card takes full width of the padded wrapper content area */
                 }
             }
         </style>
@@ -102,7 +193,8 @@
         <nav class="navbar">
             <div class="container">
                 <a href="/index.html" class="logo">
-                    <img src="/assets/imgs/general/logo_crop.png" alt="Bush Creek Guest House Logo">
+                    <img src="/assets/imgs/general/logo_crop.png"
+                        alt="Bush Creek Guest House Logo">
                 </a>
                 <button class="nav-toggle" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
@@ -135,61 +227,111 @@
                         <li><a href="/amenities.html">Amenities</a></li>
                         <li><a href="/reviews.html" class="active">Reviews</a></li>
                     </ul>
-                    <button class="book-now-btn" onclick="window.location.href='https://book.nightsbridge.com/38214'">
+                    <button class="book-now-btn"
+                        onclick="window.location.href='https://book.nightsbridge.com/38214'">
                         <i class="far fa-calendar-alt"></i> Book Now </button>
                 </div>
             </div>
         </nav>
-      
+
         <main>
             <div class="container page-content">
-                <section class="intro-section">
+                 <section class="intro-section" style="margin-top: 20px;"> 
+                  
                     <h2>What Our Guests Say</h2>
                     <p>We are delighted to share some kind words from those who have experienced a stay at Bush Creek Guest House.</p>
                 </section>
-                <hr>
+                <hr> 
                 <section class="reviews-section-container">
-                    <div class="reviews-grid">
-                        <article class="review-card">
-                            <div class="review-avatar">
-                                <img src="https://placehold.co/70x70/A9A9A9/FFFFFF?text=LG" alt="Lyn Gace">
-                            </div>
-                            <div class="review-card-content">
-                                <p>"We spent a most enjoyable night at Bush Creek guest house with part of the family. We took a lovely walk to the dam in the evening for sundowners and experienced the most gorgeous sunset. We also played games around the table back at the house, were many laughs and memories were made. It was very good and I can highly recommend it too all."</p>
-                            </div>
-                            <div class="review-author-info">
-                                <div class="review-author-name">Lyn Gace</div>
-                                <div class="review-author-title">Valued Guest</div>
-                            </div>
-                        </article>
-                        <article class="review-card">
-                            <div class="review-avatar">
-                                <img src="https://placehold.co/70x70/A9A9A9/FFFFFF?text=JC" alt="Justin Caldecott">
-                            </div>
-                            <div class="review-card-content">
-                                <p>"I thoroughly enjoyed my 2 nights stay at Bush Creek, I loved the feeling the refurbished old farm house gave; situated in such peaceful surroundings. I had an amazing birders experience, surprised by the number of species I saw and heard. I left well rested."</p>
-                            </div>
-                            <div class="review-author-info">
-                                <div class="review-author-name">Justin Caldecott</div>
-                                <div class="review-author-title">Valued Guest</div>
-                            </div>
-                        </article>
-                        <article class="review-card">
-                            <div class="review-avatar">
-                                <img src="https://placehold.co/70x70/A9A9A9/FFFFFF?text=VS" alt="Vera Sorour">
-                            </div>
-                            <div class="review-card-content">
-                                <p>"I was welcomed by very friendly staff and shown to a very charming room. I had a very enjoyable time at Bush Creek Guest House, where the beds were super comfortable with great quality linen. I can highly recommend this Guest House."</p>
-                            </div>
-                            <div class="review-author-info">
-                                <div class="review-author-name">Vera Sorour</div>
-                                <div class="review-author-title">Valued Guest</div>
-                            </div>
-                        </article>
+                    <div class="reviews-carousel-wrapper">
+                        <div class="reviews-carousel-track">
+                            <article class="review-card">
+                                <div class="review-avatar">
+                                    <img src="https://placehold.co/70x70/ffffff/8a5840?text=LG" alt="Lyn Gace" >
+                                </div>
+                                <div class="review-card-content">
+                                    <p>"We spent a most enjoyable night at Bush Creek guest house with part of the family. We took a lovely walk to the dam in the evening for sundowners and experienced the most gorgeous sunset. We also played games around the table back at the house, were many laughs and memories were made. It was very good and I can highly recommend it too all."</p>
+                                </div>
+                                <div class="review-author-info">
+                                    <div class="review-author-name">Lyn Gace</div>
+                                   
+                                </div>
+                            </article>
+
+                            <article class="review-card">
+                                 <div class="review-avatar">
+                                    <img src="https://placehold.co/70x70/ffffff/8a5840?text=JC" alt="Justin Caldecott">
+                                </div>
+                                <div class="review-card-content">
+                                    <p>"I thoroughly enjoyed my 2 nights stay at Bush Creek, I loved the feeling the refurbished old farm house gave; situated in such peaceful surroundings. I had an amazing birders experience, surprised by the number of species I saw and heard. I left well rested."</p>
+                                </div>
+                                 <div class="review-author-info">
+                                    <div class="review-author-name">Justin Caldecott</div>
+                                   
+                                </div>
+                            </article>
+
+                            <article class="review-card">
+                                 <div class="review-avatar">
+                                     <img src="https://placehold.co/70x70/ffffff/8a5840?text=VS" alt="Vera Sorour">
+                                </div>
+                                <div class="review-card-content">
+                                    <p>"I was welcomed by very friendly staff and shown to a very charming room. I had a very enjoyable time at Bush Creek Guest House, where the beds were super comfortable with great quality linen. I can highly recommend this Guest House."</p>
+                                </div>
+                                 <div class="review-author-info">
+                                    <div class="review-author-name">Vera Sorour</div>
+                                   
+                                </div>
+                            </article>
+
+                            <article class="review-card">
+                                <div class="review-avatar">
+                                    <img src="https://placehold.co/70x70/ffffff/8a5840?text=AS" alt="Alex Smith">
+                                </div>
+                                <div class="review-card-content">
+                                    <p>"A truly wonderful escape from the city. The farm is beautiful and the guest house itself is charming and well-maintained. We loved the peace and quiet, and the hosts were incredibly welcoming. Will definitely be back!"</p>
+                                </div>
+                                <div class="review-author-info">
+                                    <div class="review-author-name">Alex Smith</div>
+                                   
+                                </div>
+                            </article>
+
+                            <article class="review-card">
+                                 <div class="review-avatar">
+                                    <img src="https://placehold.co/70x70/ffffff/8a5840?text=BD" alt="Brenda Davis">
+                                </div>
+                                <div class="review-card-content">
+                                    <p>"Our family had such a fantastic time at Bush Creek. The kids enjoyed exploring the farm and seeing the animals. The rooms were comfortable and clean, and the communal areas were perfect for relaxing together. A memorable stay!"</p>
+                                </div>
+                                 <div class="review-author-info">
+                                    <div class="review-author-name">Brenda Davis</div>
+                                   
+                                </div>
+                            </article>
+
+                            <article class="review-card">
+                                 <div class="review-avatar">
+                                     <img src="https://placehold.co/70x70/ffffff/8a5840?text=MJ" alt="Michael Jones">
+                                </div>
+                                <div class="review-card-content">
+                                    <p>"If you're looking for tranquility and a genuine farm experience, Bush Creek is the place. The scenery is breathtaking, and the hospitality is top-notch. I enjoyed the walking trails and the fresh farm air. Highly recommended for a recharge."</p>
+                                </div>
+                                 <div class="review-author-info">
+                                    <div class="review-author-name">Michael Jones</div>
+                                   
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="carousel-navigation">
+                        <button class="carousel-btn" id="prevReview" aria-label="Previous Review"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn" id="nextReview" aria-label="Next Review"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </section>
             </div>
         </main>
+
         <footer class="footer">
             <div class="container">
                 <div class="footer-grid">
@@ -213,26 +355,29 @@
                     </div>
                     <div class="footer-column">
                         <h4>Contact Us</h4>
-                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/r9cLQ6iSQUFKZqEM8">Bush Creek Farm, Mooi River, KZN</a></p>
-                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+27844885000">(084) 488-5000</a></p>
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:bushcreekguesthouse@gmail.com">bushcreekguesthouse@gmail.com</a></p>
+                        <p><i class="fas fa-map-marker-alt"></i> <a
+                                href="https://maps.app.goo.gl/r9cLQ6iSQUFKZqEM8">Bush Creek Farm, Mooi River, KZN</a></p>
+                        <p><i class="fas fa-phone-alt"></i> <a
+                                href="tel:+27844885000">(084) 488-5000</a></p>
+                        <p><i class="fas fa-envelope"></i> <a
+                                href="mailto:bushcreekguesthouse@gmail.com">bushcreekguesthouse@gmail.com</a></p>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>© 2025 Bush Creek Guest House. All Rights Reserved. <a href="https://www.linkedin.com/in/joshua-trevor-stevenson/">Website by Joshua Stevenson</a></p>
+                    <p>© 2025 Bush Creek Guest House. All Rights Reserved.
+                        <a href="https://www.linkedin.com/in/joshua-trevor-stevenson/">Website by Joshua Stevenson</a></p>
                 </div>
             </div>
         </footer>
+
         <script>
             // --- Mobile Nav Toggle Script ---
             const navToggle = document.querySelector('.nav-toggle');
             const navLinksContainer = document.querySelector('.nav-links-container');
-            // Check if both elements exist before adding event listener
             if (navToggle && navLinksContainer) {
                 navToggle.addEventListener('click', () => {
-                    navLinksContainer.classList.toggle('active'); // Toggle visibility of nav links
+                    navLinksContainer.classList.toggle('active'); 
                     const icon = navToggle.querySelector('i');
-                    // Toggle burger/close icon
                     if (icon.classList.contains('fa-bars')) {
                         icon.classList.remove('fa-bars');
                         icon.classList.add('fa-times');
@@ -246,22 +391,99 @@
             // --- Shrinking Navbar Script ---
             function scrollFunction() {
                 const navbar = document.querySelector(".navbar");
-                if (!navbar) return; // Exit if navbar element doesn't exist
-                const scrollThreshold = 100; // Pixels to scroll before navbar shrinks
-                // Check scroll position and add/remove 'shrunk' class
+                if (!navbar) return; 
+                const scrollThreshold = 100; 
                 if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
                     navbar.classList.add("shrunk");
                 } else {
                     navbar.classList.remove("shrunk");
                 }
             }
-            // Add scroll event listener to window
             window.addEventListener('scroll', scrollFunction);
 
+            // --- Reviews Carousel Script ---
+            const reviewsTrack = document.querySelector('.reviews-carousel-track');
+            const reviewCards = Array.from(reviewsTrack.children);
+            const nextButton = document.getElementById('nextReview');
+            const prevButton = document.getElementById('prevReview');
+            let cardOuterWidth = 0; 
+            let cardsToShow = 1; 
+            let currentIndex = 0;
 
-            // --- Initialize Scripts on DOM Load ---
+            function calculateCarouselParameters() {
+                if (reviewCards.length === 0) return;
+
+                const cardStyle = window.getComputedStyle(reviewCards[0]);
+                const cardWidthOnly = reviewCards[0].offsetWidth; 
+                const cardMarginRight = parseFloat(cardStyle.marginRight);
+                cardOuterWidth = cardWidthOnly + cardMarginRight;
+                
+                const wrapper = document.querySelector('.reviews-carousel-wrapper');
+                const wrapperStyle = window.getComputedStyle(wrapper);
+                const wrapperPaddingLeft = parseFloat(wrapperStyle.paddingLeft);
+                const wrapperPaddingRight = parseFloat(wrapperStyle.paddingRight);
+                const wrapperContentWidth = wrapper.clientWidth - wrapperPaddingLeft - wrapperPaddingRight;
+
+
+                if (window.innerWidth >= 1024) { 
+                    cardsToShow = 3;
+                } else if (window.innerWidth >= 768) { 
+                    cardsToShow = 2;
+                } else { 
+                    cardsToShow = 1;
+                }
+                cardsToShow = Math.min(cardsToShow, reviewCards.length);
+            }
+            
+
+            function updateCarouselPosition() {
+                const offset = -currentIndex * cardOuterWidth;
+                reviewsTrack.style.transform = `translateX(${offset}px)`;
+                updateButtonStates();
+            }
+
+            function updateButtonStates() {
+                prevButton.disabled = currentIndex === 0;
+                nextButton.disabled = currentIndex >= reviewCards.length - cardsToShow;
+            }
+
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < reviewCards.length - cardsToShow) {
+                    currentIndex++;
+                    updateCarouselPosition();
+                }
+            });
+
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarouselPosition();
+                }
+            });
+            
+            function initializeCarousel() {
+                calculateCarouselParameters();
+                updateCarouselPosition(); 
+            }
+
+
             document.addEventListener('DOMContentLoaded', function () {
-                scrollFunction(); // Call scrollFunction on page load to set initial navbar state
+                scrollFunction(); 
+                if (reviewsTrack && reviewCards.length > 0) {
+                    initializeCarousel();
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                 if (reviewsTrack && reviewCards.length > 0) {
+                    let oldCardsToShow = cardsToShow;
+                    calculateCarouselParameters();
+                    if (cardsToShow !== oldCardsToShow) {
+                         currentIndex = Math.min(currentIndex, reviewCards.length - cardsToShow);
+                         if(currentIndex < 0) currentIndex = 0;
+                    }
+                    updateCarouselPosition();
+                }
             });
 
         </script>
