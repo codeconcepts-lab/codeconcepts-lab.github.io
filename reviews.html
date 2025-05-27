@@ -54,19 +54,20 @@
             }
 
             .review-card {
-                background-color: var(--white); 
-                border: 1px solid #ededed; /* Very subtle border */
+                background-color: var(--white);  /* Changed from #f7f7f7 to var(--white) for card background */
+                border: 1px solid #ededed; 
                 padding: 20px; 
                 padding-top: 50px; 
                 border-radius: 20px; 
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* More diffused shadow */
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
                 display: flex;
                 flex-direction: column;
-                align-items: stretch; 
-                text-align: center; 
+                /* align-items: stretch; */ /* Changed from stretch to center for overall card content */
+                align-items: center; /* Center avatar and stars */
+                text-align: center; /* Center stars and author info by default */
                 position: relative; 
-                min-height: 240px; /* Adjusted min-height to accommodate title */
-                width: 350px; /* Adjusted width for 3 cards on desktop */
+                min-height: 270px; /* Adjusted min-height to accommodate stars */
+                width: 350px; 
                 margin-right: 20px; 
                 flex-shrink: 0; 
             }
@@ -90,23 +91,39 @@
                 height: 70px;
                 border-radius: 50%;
                 background-color: var(--white); 
-                color: var(--white);
                 padding: 3px; 
                 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             }
             
-         .review-avatar img {
+            .review-avatar img {
                 width: 100%; 
                 height: 100%;
                 border-radius: 50%;
                 object-fit: cover;
-                background-color: var(--white); /* Added white background to the image itself */
+                background-color: var(--white); 
                 color: var(--white);
-                /* border: 2px solid var(--primary-color); Removed border */
             }
+
+            .review-rating {
+                margin-top: 10px; /* Space below avatar before stars */
+                margin-bottom: 10px; /* Space after stars before content */
+                color: #FFD700; /* Gold color for stars */
+                font-size: 1rem; /* Size of the stars */
+            }
+
+            .review-rating .fas {
+                margin-right: 3px; /* Space between stars */
+            }
+            .review-rating .far { /* For empty stars if used */
+                 margin-right: 3px;
+            }
+
+
             .review-card-content {
-                margin-top: 10px; 
+                /* margin-top: 10px; /* This was for content directly after avatar, now after rating */
                 flex-grow: 1; 
+                width: 100%; /* Ensure content takes full width for left alignment */
+                text-align: center; /* Align review text to the left */
             }
 
             .review-card-content p {
@@ -120,28 +137,30 @@
                 margin-top: auto; 
                 padding-top: 15px; 
                 border-top: 1px solid #eee; 
+                width: 100%; /* Ensure author info takes full width for its text-align */
+                text-align: center; /* Align author name to the left */
             }
 
             .review-author-name {
                 font-weight: 600; 
-                color: #8a5840; /* Dark grey for author name */
+                color: #8a5840; 
                 font-size: 0.95rem;
-                margin-bottom: 2px; /* Space before title */
+                margin-bottom: 2px; 
             }
-            .review-author-title {
+            .review-author-title { /* Title is removed in latest design, but keeping style if re-added */
                 font-size: 0.75rem;
-                color: #888; /* Lighter grey for title */
+                color: #888; 
             }
 
 
             .carousel-navigation {
                 text-align: center;
-                margin-top: 25px; /* Increased space for buttons */
+                margin-top: 25px; 
             }
 
             .carousel-btn {
-                background-color: var(--white); /* Light grey background */
-                color: #8a5840; /* Darker icon color */
+                background-color: var(--white); 
+                color: #8a5840; 
                 border: none;
                 padding: 10px 15px;
                 border-radius: 50%; 
@@ -154,16 +173,17 @@
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
             }
 
             .carousel-btn:hover {
-                background-color: var(--light-bg); /* Slightly darker on hover */
+                background-color: var(--light-bg); 
             }
             .carousel-btn:disabled {
                 background-color: var(--white);
                 cursor: not-allowed;
                 box-shadow: none;
+                opacity: 0.6; /* Dim disabled buttons */
             }
 
 
@@ -171,19 +191,20 @@
             @media (max-width: 1139px) and (min-width: 768px) { /* Tablet view - for 2 cards */
                 .review-card {
                     width: 300px; 
-                    margin-right: 25px; /* Adjust margin for tablet if needed */
+                    margin-right: 25px; 
                 }
                  .reviews-carousel-wrapper {
-                    max-width: 655px; /* 2*300 (card width) + 25 (margin) */
+                    max-width: 655px; 
                 }
             }
             @media (max-width: 767px) { /* Mobile view - for 1 card */
                 .reviews-carousel-wrapper {
-                    padding-left: 20px; /* Add padding to wrapper on mobile so card is not edge-to-edge */
+                    padding-left: 20px; 
                     padding-right: 20px;
                 }
                 .review-card {
-                     width: 100%; /* Card takes full width of the padded wrapper content area */
+                     width: 100%; 
+                     min-height: 250px; /* Adjust min-height for mobile if needed */
                 }
             }
         </style>
@@ -249,6 +270,9 @@
                                 <div class="review-avatar">
                                     <img src="https://placehold.co/70x70/ffffff/8a5840?text=LG" alt="Lyn Gace" >
                                 </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
                                 <div class="review-card-content">
                                     <p>"We spent a most enjoyable night at Bush Creek guest house with part of the family. We took a lovely walk to the dam in the evening for sundowners and experienced the most gorgeous sunset. We also played games around the table back at the house, were many laughs and memories were made. It was very good and I can highly recommend it too all."</p>
                                 </div>
@@ -261,6 +285,9 @@
                             <article class="review-card">
                                  <div class="review-avatar">
                                     <img src="https://placehold.co/70x70/ffffff/8a5840?text=JC" alt="Justin Caldecott">
+                                </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                 </div>
                                 <div class="review-card-content">
                                     <p>"I thoroughly enjoyed my 2 nights stay at Bush Creek, I loved the feeling the refurbished old farm house gave; situated in such peaceful surroundings. I had an amazing birders experience, surprised by the number of species I saw and heard. I left well rested."</p>
@@ -275,6 +302,9 @@
                                  <div class="review-avatar">
                                      <img src="https://placehold.co/70x70/ffffff/8a5840?text=VS" alt="Vera Sorour">
                                 </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
                                 <div class="review-card-content">
                                     <p>"I was welcomed by very friendly staff and shown to a very charming room. I had a very enjoyable time at Bush Creek Guest House, where the beds were super comfortable with great quality linen. I can highly recommend this Guest House."</p>
                                 </div>
@@ -288,6 +318,8 @@
                                 <div class="review-avatar">
                                     <img src="https://placehold.co/70x70/ffffff/8a5840?text=AS" alt="Alex Smith">
                                 </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> </div>
                                 <div class="review-card-content">
                                     <p>"A truly wonderful escape from the city. The farm is beautiful and the guest house itself is charming and well-maintained. We loved the peace and quiet, and the hosts were incredibly welcoming. Will definitely be back!"</p>
                                 </div>
@@ -300,6 +332,9 @@
                             <article class="review-card">
                                  <div class="review-avatar">
                                     <img src="https://placehold.co/70x70/ffffff/8a5840?text=BD" alt="Brenda Davis">
+                                </div>
+                                 <div class="review-rating">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                 </div>
                                 <div class="review-card-content">
                                     <p>"Our family had such a fantastic time at Bush Creek. The kids enjoyed exploring the farm and seeing the animals. The rooms were comfortable and clean, and the communal areas were perfect for relaxing together. A memorable stay!"</p>
@@ -314,6 +349,8 @@
                                  <div class="review-avatar">
                                      <img src="https://placehold.co/70x70/ffffff/8a5840?text=MJ" alt="Michael Jones">
                                 </div>
+                                 <div class="review-rating">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> </div>
                                 <div class="review-card-content">
                                     <p>"If you're looking for tranquility and a genuine farm experience, Bush Creek is the place. The scenery is breathtaking, and the hospitality is top-notch. I enjoyed the walking trails and the fresh farm air. Highly recommended for a recharge."</p>
                                 </div>
