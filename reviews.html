@@ -16,24 +16,20 @@
         <style>
             /* Styles specific to the reviews page */
             .reviews-section-container {
-                padding: 20px 0; 
-                margin-top: 0; 
+                padding: 20px 0;
+                margin-top: 0;
             }
 
-            .testimonials-pre-heading {
-                text-transform: uppercase;
-                font-size: 0.8rem;
-                color: #777; /* Dark grey for light background */
-                letter-spacing: 1.5px;
-                margin-bottom: 5px;
-                text-align: center; 
-            }
-
-            .intro-section h2 { /* Ensure main heading is centered */
+            .intro-section h2 {
                 text-align: center;
+                font-size: 1.8rem; /* Base size */
             }
-            .intro-section p { /* Ensure paragraph is centered */
+            .intro-section p {
                 text-align: center;
+                font-size: 1rem; /* Base size */
+                max-width: 700px; /* Prevent text from becoming too wide */
+                margin-left: auto;
+                margin-right: auto;
             }
 
 
@@ -41,170 +37,234 @@
             .reviews-carousel-wrapper {
                 position: relative;
                 width: 100%;
-                max-width: 1140px; 
-                margin: 0 auto 40px auto; /* Top margin removed, padding-top will handle avatar space */
-                overflow: hidden; 
+                max-width: 1140px; /* Max width for desktop */
+                margin: 0 auto 40px auto;
+                overflow: hidden;
                 padding-top: 45px; /* Space for overlapping avatars */
+                box-sizing: border-box;
             }
 
             .reviews-carousel-track {
-                display: flex; 
-                transition: transform 0.5s ease-in-out; 
-                width: fit-content; 
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+                /* width: fit-content; /* JS will set this if needed, or it's implicitly sum of children */
             }
 
             .review-card {
-                background-color: var(--white);  /* Changed from #f7f7f7 to var(--white) for card background */
-                border: 1px solid #ededed; 
-                padding: 20px; 
-                padding-top: 50px; 
-                border-radius: 20px; 
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+                background-color: var(--white);
+                border: 1px solid #ededed;
+                padding: 20px;
+                padding-top: 50px; /* Space for avatar */
+                border-radius: 20px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
                 display: flex;
                 flex-direction: column;
-                /* align-items: stretch; */ /* Changed from stretch to center for overall card content */
-                align-items: center; /* Center avatar and stars */
-                text-align: center; /* Center stars and author info by default */
-                position: relative; 
-                min-height: 270px; /* Adjusted min-height to accommodate stars */
-                width: 350px; 
-                margin-right: 20px; 
-                flex-shrink: 0; 
-            }
-            
-            .review-card:last-child {
-                margin-right: 0; 
+                align-items: center;
+                text-align: center;
+                position: relative;
+                min-height: 270px; /* Default min-height */
+                /* Default width for desktop (approx 3 cards in 1140px) - JS might override for mobile */
+                width: 350px;
+                margin-right: 20px; /* Default margin between cards */
+                flex-shrink: 0; /* Prevent cards from shrinking if track is too narrow */
+                box-sizing: border-box; /* Crucial for width calculations */
             }
 
+            .review-card:last-child {
+                margin-right: 0;
+            }
 
             .review-card:hover {
                 transform: translateY(-5px);
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); 
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
             }
 
-            .review-avatar { 
+            .review-avatar {
                 position: absolute;
-                top: -35px; 
+                top: -35px; /* (70px avatar height / 2) */
                 left: 50%;
-                transform: translateX(-50%); 
-                width: 70px; 
+                transform: translateX(-50%);
+                width: 70px;
                 height: 70px;
                 border-radius: 50%;
-                background-color: var(--white); 
-                padding: 3px; 
+                background-color: var(--white);
+                padding: 3px;
                 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             }
-            
+
             .review-avatar img {
-                width: 100%; 
+                width: 100%;
                 height: 100%;
                 border-radius: 50%;
                 object-fit: cover;
-                background-color: var(--white); 
-                color: var(--white);
             }
 
             .review-rating {
-                margin-top: 10px; /* Space below avatar before stars */
-                margin-bottom: 10px; /* Space after stars before content */
-                color: #FFD700; /* Gold color for stars */
-                font-size: 1rem; /* Size of the stars */
+                margin-top: 10px; /* Space below avatar */
+                margin-bottom: 10px; /* Space before content */
+                color: #FFD700;
+                font-size: 1rem;
             }
 
-            .review-rating .fas {
-                margin-right: 3px; /* Space between stars */
+            .review-rating .fas,
+            .review-rating .far {
+                margin-right: 3px;
             }
-            .review-rating .far { /* For empty stars if used */
-                 margin-right: 3px;
-            }
-
 
             .review-card-content {
-                /* margin-top: 10px; /* This was for content directly after avatar, now after rating */
-                flex-grow: 1; 
-                width: 100%; /* Ensure content takes full width for left alignment */
-                text-align: center; /* Align review text to the left */
+                flex-grow: 1; /* Allows content to fill space, pushing author info down */
+                width: 100%;
+                text-align: center;
             }
 
             .review-card-content p {
-                margin-bottom: 15px; 
-                color: #444; 
+                margin-bottom: 15px;
+                color: #444;
                 line-height: 1.6;
-                font-size: 0.88rem; 
+                font-size: 0.88rem;
+                overflow-wrap: break-word; /* Ensure text wraps */
+                word-wrap: break-word; /* Older browsers */
             }
 
             .review-author-info {
-                margin-top: auto; 
-                padding-top: 15px; 
-                border-top: 1px solid #eee; 
-                width: 100%; /* Ensure author info takes full width for its text-align */
-                text-align: center; /* Align author name to the left */
+                margin-top: auto; /* Pushes this block to the bottom of the card */
+                padding-top: 15px;
+                border-top: 1px solid #eee;
+                width: 100%;
+                text-align: center;
             }
 
             .review-author-name {
-                font-weight: 600; 
-                color: #8a5840; 
+                font-weight: 600;
+                color: #8a5840;
                 font-size: 0.95rem;
-                margin-bottom: 2px; 
+                margin-bottom: 2px;
             }
-            .review-author-title { /* Title is removed in latest design, but keeping style if re-added */
-                font-size: 0.75rem;
-                color: #888; 
-            }
-
 
             .carousel-navigation {
                 text-align: center;
-                margin-top: 25px; 
+                margin-top: 25px;
             }
 
             .carousel-btn {
-                background-color: var(--white); 
-                color: #8a5840; 
+                background-color: var(--white);
+                color: #8a5840;
                 border: none;
                 padding: 10px 15px;
-                border-radius: 50%; 
+                border-radius: 50%;
                 cursor: pointer;
                 font-size: 1rem;
                 margin: 0 10px;
                 transition: background-color 0.3s ease, box-shadow 0.3s ease;
-                width: 40px; 
+                width: 40px;
                 height: 40px;
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             }
 
             .carousel-btn:hover {
-                background-color: var(--light-bg); 
+                background-color: var(--light-bg);
             }
             .carousel-btn:disabled {
                 background-color: var(--white);
                 cursor: not-allowed;
                 box-shadow: none;
-                opacity: 0.6; /* Dim disabled buttons */
+                opacity: 0.6;
             }
 
 
             /* Responsive adjustments */
-            @media (max-width: 1139px) and (min-width: 768px) { /* Tablet view - for 2 cards */
+            /* Tablet view - for 2 cards */
+            @media (max-width: 1139px) and (min-width: 768px) {
                 .review-card {
-                    width: 300px; 
-                    margin-right: 25px; 
+                    width: 300px; /* Adjust card width for 2 cards */
+                    margin-right: 25px;
                 }
                  .reviews-carousel-wrapper {
-                    max-width: 655px; 
+                    max-width: 625px; /* Approx 2*300 (cards) + 25 (margin) */
                 }
             }
-            @media (max-width: 767px) { /* Mobile view - for 1 card */
+
+            /* Mobile view - for 1 card */
+            @media (max-width: 767px) {
+                .intro-section h2 { font-size: 1.6rem; }
+                .intro-section p { font-size: 0.9rem; }
+
                 .reviews-carousel-wrapper {
-                    padding-left: 20px; 
+                    padding-left: 20px; /* Padding on the wrapper */
                     padding-right: 20px;
                 }
                 .review-card {
-                     width: 100%; 
-                     min-height: 250px; /* Adjust min-height for mobile if needed */
+                     /* Width will be set by JS for single card view to fit wrapper content area */
+                     min-height: 250px;
+                     margin-right: 0 !important; /* Ensure no margin when JS sets width */
+                }
+                .review-card-content p {
+                    font-size: 0.85rem; /* Adjust text size for better fit */
+                }
+            }
+
+            /* Very Narrow Screens */
+            @media (max-width: 399px) {
+                .intro-section h2 {
+                    font-size: 1.4rem;
+                    margin-top: 1rem;
+                }
+                .intro-section p {
+                    font-size: 0.8rem;
+                }
+
+                .reviews-carousel-wrapper {
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    padding-top: 30px; /* Adjust for smaller avatar: 50px/2 + 5px space */
+                    margin-bottom: 20px;
+                }
+
+                .review-card {
+                    padding: 10px;
+                    padding-top: 30px; /* Space for avatar: 50px/2 (avatar) + 5px */
+                    min-height: auto;
+                    border-radius: 15px;
+                }
+
+                .review-avatar {
+                    width: 50px;
+                    height: 50px;
+                    top: -25px;
+                }
+
+                .review-rating {
+                    font-size: 0.8rem;
+                    margin-top: 5px;
+                    margin-bottom: 8px;
+                }
+
+                .review-card-content p {
+                    font-size: 0.75rem;
+                    line-height: 1.45;
+                    margin-bottom: 10px;
+                }
+
+                .review-author-info {
+                    padding-top: 8px;
+                }
+
+                .review-author-name {
+                    font-size: 0.8rem;
+                }
+
+                .carousel-navigation {
+                    margin-top: 15px;
+                }
+
+                .carousel-btn {
+                    width: 30px;
+                    height: 30px;
+                    font-size: 0.8rem;
+                    margin: 0 5px;
                 }
             }
         </style>
@@ -257,12 +317,12 @@
 
         <main>
             <div class="container page-content">
-                 <section class="intro-section" style="margin-top: 20px;"> 
-                  
+                 <section class="intro-section" style="margin-top: 20px;">
+
                     <h2>What Our Guests Say</h2>
                     <p>We are delighted to share some kind words from those who have experienced a stay at Bush Creek Guest House.</p>
                 </section>
-                <hr> 
+                <hr>
                 <section class="reviews-section-container">
                     <div class="reviews-carousel-wrapper">
                         <div class="reviews-carousel-track">
@@ -278,7 +338,7 @@
                                 </div>
                                 <div class="review-author-info">
                                     <div class="review-author-name">Lyn Gace</div>
-                                   
+
                                 </div>
                             </article>
 
@@ -294,7 +354,7 @@
                                 </div>
                                  <div class="review-author-info">
                                     <div class="review-author-name">Justin Caldecott</div>
-                                   
+
                                 </div>
                             </article>
 
@@ -310,7 +370,7 @@
                                 </div>
                                  <div class="review-author-info">
                                     <div class="review-author-name">Vera Sorour</div>
-                                   
+
                                 </div>
                             </article>
 
@@ -325,7 +385,7 @@
                                 </div>
                                 <div class="review-author-info">
                                     <div class="review-author-name">Alex Smith</div>
-                                   
+
                                 </div>
                             </article>
 
@@ -341,7 +401,7 @@
                                 </div>
                                  <div class="review-author-info">
                                     <div class="review-author-name">Brenda Davis</div>
-                                   
+
                                 </div>
                             </article>
 
@@ -356,7 +416,7 @@
                                 </div>
                                  <div class="review-author-info">
                                     <div class="review-author-name">Michael Jones</div>
-                                   
+
                                 </div>
                             </article>
                         </div>
@@ -413,7 +473,7 @@
             const navLinksContainer = document.querySelector('.nav-links-container');
             if (navToggle && navLinksContainer) {
                 navToggle.addEventListener('click', () => {
-                    navLinksContainer.classList.toggle('active'); 
+                    navLinksContainer.classList.toggle('active');
                     const icon = navToggle.querySelector('i');
                     if (icon.classList.contains('fa-bars')) {
                         icon.classList.remove('fa-bars');
@@ -428,8 +488,8 @@
             // --- Shrinking Navbar Script ---
             function scrollFunction() {
                 const navbar = document.querySelector(".navbar");
-                if (!navbar) return; 
-                const scrollThreshold = 100; 
+                if (!navbar) return;
+                const scrollThreshold = 100;
                 if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
                     navbar.classList.add("shrunk");
                 } else {
@@ -443,84 +503,123 @@
             const reviewCards = Array.from(reviewsTrack.children);
             const nextButton = document.getElementById('nextReview');
             const prevButton = document.getElementById('prevReview');
-            let cardOuterWidth = 0; 
-            let cardsToShow = 1; 
+            let cardOuterWidth = 0;
+            let cardsToShow = 1;
             let currentIndex = 0;
 
             function calculateCarouselParameters() {
                 if (reviewCards.length === 0) return;
 
-                const cardStyle = window.getComputedStyle(reviewCards[0]);
-                const cardWidthOnly = reviewCards[0].offsetWidth; 
-                const cardMarginRight = parseFloat(cardStyle.marginRight);
-                cardOuterWidth = cardWidthOnly + cardMarginRight;
-                
                 const wrapper = document.querySelector('.reviews-carousel-wrapper');
                 const wrapperStyle = window.getComputedStyle(wrapper);
                 const wrapperPaddingLeft = parseFloat(wrapperStyle.paddingLeft);
                 const wrapperPaddingRight = parseFloat(wrapperStyle.paddingRight);
                 const wrapperContentWidth = wrapper.clientWidth - wrapperPaddingLeft - wrapperPaddingRight;
 
-
-                if (window.innerWidth >= 1024) { 
+                if (window.innerWidth >= 1024) { // Desktop
                     cardsToShow = 3;
-                } else if (window.innerWidth >= 768) { 
+                } else if (window.innerWidth >= 768) { // Tablet
                     cardsToShow = 2;
-                } else { 
+                } else { // Mobile
                     cardsToShow = 1;
                 }
                 cardsToShow = Math.min(cardsToShow, reviewCards.length);
+
+                if (cardsToShow === 1) {
+                    cardOuterWidth = wrapperContentWidth; // This will be the width for translation
+                    reviewCards.forEach(card => {
+                        card.style.width = wrapperContentWidth + 'px'; // Explicitly set card width
+                        card.style.marginRight = '0px'; // Ensure no right margin
+                    });
+                } else {
+                    // Revert to CSS defined widths for multi-card views
+                    reviewCards.forEach(card => {
+                        card.style.width = ''; // Let CSS handle width (e.g., 350px, 300px)
+                        card.style.marginRight = ''; // Let CSS handle margin
+                    });
+
+                    // Now calculate cardOuterWidth based on the first card's CSS-defined dimensions
+                    const firstCardStyle = window.getComputedStyle(reviewCards[0]);
+                    let cardWidthOnly = reviewCards[0].offsetWidth;
+                    if (cardWidthOnly === 0 && reviewCards[0].getBoundingClientRect().width > 0) {
+                        // Fallback if offsetWidth is 0 (e.g. display:none initially)
+                        cardWidthOnly = reviewCards[0].getBoundingClientRect().width;
+                    }
+                    const cardMarginRight = parseFloat(firstCardStyle.marginRight) || 0; // Default to 0 if NaN
+                    cardOuterWidth = cardWidthOnly + cardMarginRight;
+                }
+
+                if (cardOuterWidth === 0 && reviewCards.length > 0) {
+                    console.warn("Card width calculation resulted in 0. Carousel might not behave as expected.");
+                    // A very rough fallback if all else fails
+                    cardOuterWidth = wrapperContentWidth / (cardsToShow || 1);
+                }
             }
-            
+
 
             function updateCarouselPosition() {
+                if (reviewCards.length === 0 || cardOuterWidth === 0 ) {
+                    if(reviewsTrack) reviewsTrack.style.transform = `translateX(0px)`;
+                    updateButtonStates();
+                    return;
+                }
                 const offset = -currentIndex * cardOuterWidth;
                 reviewsTrack.style.transform = `translateX(${offset}px)`;
                 updateButtonStates();
             }
 
             function updateButtonStates() {
+                if (!prevButton || !nextButton) return;
+
                 prevButton.disabled = currentIndex === 0;
                 nextButton.disabled = currentIndex >= reviewCards.length - cardsToShow;
+
+                if (reviewCards.length <= cardsToShow) {
+                    prevButton.disabled = true;
+                    nextButton.disabled = true;
+                }
             }
 
-            nextButton.addEventListener('click', () => {
-                if (currentIndex < reviewCards.length - cardsToShow) {
-                    currentIndex++;
-                    updateCarouselPosition();
-                }
-            });
+            if (nextButton && prevButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentIndex < reviewCards.length - cardsToShow) {
+                        currentIndex++;
+                        updateCarouselPosition();
+                    }
+                });
 
-            prevButton.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    updateCarouselPosition();
-                }
-            });
-            
+                prevButton.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCarouselPosition();
+                    }
+                });
+            }
+
+
             function initializeCarousel() {
+                if (!reviewsTrack || reviewCards.length === 0) return;
                 calculateCarouselParameters();
-                updateCarouselPosition(); 
+                currentIndex = Math.max(0, Math.min(currentIndex, reviewCards.length - cardsToShow));
+                updateCarouselPosition();
             }
 
 
             document.addEventListener('DOMContentLoaded', function () {
-                scrollFunction(); 
-                if (reviewsTrack && reviewCards.length > 0) {
-                    initializeCarousel();
-                }
+                scrollFunction();
+                initializeCarousel();
             });
 
             window.addEventListener('resize', () => {
-                 if (reviewsTrack && reviewCards.length > 0) {
-                    let oldCardsToShow = cardsToShow;
-                    calculateCarouselParameters();
-                    if (cardsToShow !== oldCardsToShow) {
-                         currentIndex = Math.min(currentIndex, reviewCards.length - cardsToShow);
-                         if(currentIndex < 0) currentIndex = 0;
-                    }
-                    updateCarouselPosition();
+                 if (!reviewsTrack || reviewCards.length === 0) return;
+                let oldCardsToShow = cardsToShow;
+                calculateCarouselParameters(); // This will now also set card widths if cardsToShow is 1
+
+                if (cardsToShow !== oldCardsToShow || currentIndex >= reviewCards.length - cardsToShow) {
+                     currentIndex = Math.max(0, Math.min(currentIndex, reviewCards.length - cardsToShow));
+                     if (reviewCards.length <= cardsToShow) currentIndex = 0;
                 }
+                updateCarouselPosition();
             });
 
         </script>
