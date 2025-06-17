@@ -3,165 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joshua Stevenson - Data Analyst Portfolio</title> {/* Updated Title */}
-    <meta name="description" content="Welcome to the portfolio of Joshua Stevenson, a Data Analyst specializing in data analysis, visualization, and database management."> {/* Updated Description */}
-
+    <title>Nexora Web Agency: Websites that Drive Growth</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/home.css">
-
-    <script src="js/script.js" defer></script>
-    <script src="js/home.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" id="logo">Joshua Stevenson</a> {/* Updated Name */}
-                <div class="hamburger">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-headline">Websites that Drive Growth. Welcome to Nexora.</h1>
+            <p class="hero-subheadline">We build high-performance, visually stunning websites for startups and established brands.</p>
+            <a href="#contact" class="cta-button">Get a Free Proposal</a>
         </div>
     </header>
 
     <main>
-        <section id="hero" class="hero-section">
-            <div class="container hero-content-container">
-                <div class="hero-text">
-                    <h3>Hi, I'm</h3>
-                    <h1>Joshua Stevenson</h1> {/* Updated Name */}
-                    <p class="lead">Data Analyst</p> {/* Updated Title */}
-                    <p class="hero-description">
-                        A results-oriented Data Analyst based in Stellenbosch, with hands-on experience in data analysis, visualization, and database management.
-                        I leverage tools like BigQuery, Tableau, Python, and SQL to extract insights that drive strategic business decisions.
-                    </p>
-                    <a href="projects.html" class="btn btn-primary">View My Work</a>
-                    <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
-                </div>
-                <div class="hero-image">
-                    {/* Suggestion: Replace with a professional photo of Joshua */}
-                    <img src="https://via.placeholder.com/400x450/CCCCCC/000000?text=Joshua+Stevenson" alt="Joshua Stevenson - Data Analyst">
-                </div>
-            </div>
-        </section>
 
-        <section id="about" class="about-section section-bg">
+        <section class="client-showcase">
             <div class="container">
-                <h2 class="section-title">About Me</h2>
-                {/* Optional: Add profile picture here if not in Hero, or a different one */}
-                {/* <img src="https://via.placeholder.com/150" alt="Joshua Stevenson" class="profile-pic"> */}
-                <div class="about-me-content"> {/* Added a wrapper for better text formatting */}
-                    <p>
-                        I'm a Data Analyst with over two years of dedicated experience, passionate about transforming raw data into actionable insights. My expertise lies in data analysis, visualization, and robust database management.
-                    </p>
-                    <p>
-                        I am proficient with a range of powerful tools including BigQuery, Google Analytics, Tableau, Python, and SQL. My skill set extends to automating workflows, crafting interactive and informative dashboards, and optimizing large-scale datasets to enhance performance and clarity.
-                    </p>
-                    <p>
-                        Currently, I am advancing my analytical and technical capabilities by pursuing a BSc in Computer Science with a specialization in Data Science at Stellenbosch University. I thrive on solving complex problems and collaborating cross-functionally to deliver customized data solutions that meet business requirements.
-                    </p>
-                </div>
+                <img src="https://via.placeholder.com/150x50?text=Client+Logo+1" alt="Client Logo 1">
+                <img src="https://via.placeholder.com/150x50?text=Client+Logo+2" alt="Client Logo 2">
+                <img src="https://via.placeholder.com/150x50?text=Client+Logo+3" alt="Client Logo 3">
+                <img src="https://via.placeholder.com/150x50?text=Client+Logo+4" alt="Client Logo 4">
+                <img src="https://via.placeholder.com/150x50?text=Client+Logo+5" alt="Client Logo 5">
             </div>
         </section>
 
-        <section id="services" class="services-section"> {/* Changed id from 'about' to 'services' for clarity if 'About Me' is separate */}
+        <section id="services" class="core-services">
             <div class="container">
-                <h2 class="section-title">What I Do</h2>
-                 <div class="services-grid">
-                    <div class="service-card">
-                        <img src="https://via.placeholder.com/60/FF0066/FFFFFF?text=DA" alt="Data Analysis Icon" class="service-icon"> {/* Placeholder Icon */}
-                        <h3>Data Analysis & Visualization</h3>
-                        <p>Extracting insights from complex datasets and presenting them through clear, interactive dashboards using tools like Tableau and Google Data Studio.</p>
+                <h2 class="section-title">Our Core Services</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon">[ICON]</div>
+                        <h3>Responsive Design</h3>
+                        <p>Crafting websites that look perfect on any device, from desktop to mobile.</p>
+                        <a href="/services/responsive-design" class="learn-more">Learn More &rarr;</a>
                     </div>
-                    <div class="service-card">
-                        <img src="https://via.placeholder.com/60/FF0066/FFFFFF?text=DB" alt="Database Management Icon" class="service-icon"> {/* Placeholder Icon */}
-                        <h3>Database Management</h3>
-                        <p>Managing and optimizing large-scale databases with SQL and BigQuery to ensure efficient data retrieval and processing.</p>
+                    <div class="service-item">
+                        <div class="service-icon">[ICON]</div>
+                        <h3>E-commerce Solutions</h3>
+                        <p>Building powerful online stores that convert visitors into customers.</p>
+                        <a href="/services/ecommerce" class="learn-more">Learn More &rarr;</a>
                     </div>
-                    <div class="service-card">
-                        <img src="https://via.placeholder.com/60/FF0066/FFFFFF?text=AW" alt="Automation Icon" class="service-icon"> {/* Placeholder Icon */}
-                        <h3>Workflow Automation</h3>
-                        <p>Developing automated reporting processes and data extraction pipelines using Python and Google APIs to improve operational efficiency.</p>
+                    <div class="service-item">
+                        <div class="service-icon">[ICON]</div>
+                        <h3>SEO & Marketing</h3>
+                        <p>Driving organic traffic and increasing visibility in search engine results.</p>
+                        <a href="/services/seo" class="learn-more">Learn More &rarr;</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="featured-projects" class="featured-projects-section section-bg">
+        <section id="portfolio" class="featured-projects">
             <div class="container">
                 <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-grid">
-                    <div class="project-card" data-category="data-visualization"> {/* Updated category */}
-                        <div class="project-image-container">
-                            <img src="https://via.placeholder.com/400x300/777777/FFFFFF?text=E-commerce+Dashboard" alt="E-commerce Dashboard Development" class="project-thumbnail">
-                            <div class="project-overlay">
-                                <h3>E-commerce Dashboard</h3>
-                                <a href="projects.html#ecommerce-dashboard" class="btn btn-primary">View Details</a>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">E-commerce Dashboard Development</h3>
-                            <p class="project-category">Built an interactive Tableau dashboard integrating Google Analytics data to track sales performance and customer behavior, enabling a 20% increase in sales conversion rates.</p>
-                            <a href="projects.html#ecommerce-dashboard" class="project-link-btn">Learn More</a>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/600x400?text=Project+Showcase+1" alt="Featured Project 1">
+                        <div class="project-info">
+                            <h3>Client Name A</h3>
+                            <p>E-commerce Development</p>
+                            <a href="/portfolio/project-a">View Case Study</a>
                         </div>
                     </div>
-                    <div class="project-card" data-category="automation"> {/* Updated category */}
-                         <div class="project-image-container">
-                            <img src="https://via.placeholder.com/400x300/888888/FFFFFF?text=API+Automation" alt="Automation with Google APIs" class="project-thumbnail">
-                             <div class="project-overlay">
-                                <h3>Automation with Google APIs</h3>
-                                <a href="projects.html#api-automation" class="btn btn-primary">View Details</a>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Automation with Google APIs</h3>
-                            <p class="project-category">Designed an automated data extraction pipeline using Python and Google APIs, significantly reducing reporting time by 40%.</p>
-                            <a href="projects.html#api-automation" class="project-link-btn">Learn More</a>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/600x400?text=Project+Showcase+2" alt="Featured Project 2">
+                        <div class="project-info">
+                            <h3>Client Name B</h3>
+                            <p>Responsive Redesign</p>
+                             <a href="/portfolio/project-b">View Case Study</a>
                         </div>
                     </div>
-                    {/* Add a third project based on experience if desired, e.g., Website Performance Optimization */}
-                    <div class="project-card" data-category="web-analytics">
-                        <div class="project-image-container">
-                            <img src="https://via.placeholder.com/400x300/999999/FFFFFF?text=Website+Optimization" alt="Website Performance Optimization" class="project-thumbnail">
-                            <div class="project-overlay">
-                                <h3>Website Performance Optimization</h3>
-                                <a href="projects.html#website-optimization" class="btn btn-primary">View Details</a>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Website Performance Optimization</h3>
-                            <p class="project-category">Optimized website performance through Google Analytics, resulting in a 15% increase in conversion rates by identifying key user patterns.</p>
-                             <a href="projects.html#website-optimization" class="project-link-btn">Learn More</a>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/600x400?text=Project+Showcase+3" alt="Featured Project 3">
+                        <div class="project-info">
+                            <h3>Client Name C</h3>
+                            <p>Corporate Website</p>
+                             <a href="/portfolio/project-c">View Case Study</a>
                         </div>
                     </div>
-                </div>
-                <div style="text-align: center; margin-top: 40px;">
-                     <a href="projects.html" class="btn btn-primary">View All Projects</a>
                 </div>
             </div>
         </section>
+
+        <section class="value-proposition">
+            <div class="container">
+                <h2 class="section-title">What Sets Us Apart</h2>
+                <div class="pillars-grid">
+                    <div class="pillar">
+                        <h3>Strategic Thinking</h3>
+                        <p>We build with purpose. Our focus is on achieving your business goals and delivering a tangible return on investment.</p>
+                    </div>
+                    <div class="pillar">
+                        <h3>Creative Design</h3>
+                        <p>Our passion is crafting bespoke, beautiful aesthetics that create a memorable brand experience for your users.</p>
+                    </div>
+                    <div class="pillar">
+                        <h3>Technical Excellence</h3>
+                        <p>We prioritize high performance, robust security, and scalable solutions that grow with your business.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+     <section class="testimonials">
+    <div class="container">
+        <div class="testimonial-item active">
+            <blockquote>
+                "Working with Nexora was a game-changer for our brand. Their attention to detail and commitment to our goals was outstanding."
+            </blockquote>
+            <cite>
+                <strong>Jane Doe</strong>, Marketing Manager at BrandCorp
+            </cite>
+        </div>
+
+        <div class="testimonial-item">
+            <blockquote>
+                "The final website exceeded all our expectations. It's fast, beautiful, and our user engagement has skyrocketed. Highly recommended!"
+            </blockquote>
+            <cite>
+                <strong>John Smith</strong>, Founder of StartupX
+            </cite>
+        </div>
+
+        <div class="testimonial-item">
+            <blockquote>
+                "A truly professional and creative team. They listened to our needs and delivered a product that perfectly represents our vision."
+            </blockquote>
+            <cite>
+                <strong>Emily White</strong>, CEO of Innovate Inc.
+            </cite>
+        </div>
+
+        <div class="testimonial-nav">
+            <button id="prevBtn">&larr;</button>
+            <button id="nextBtn">&rarr;</button>
+        </div>
+    </div>
+</section>
+
+        <section class="lead-magnet">
+            <div class="container">
+                <h2>Level Up Your Website</h2>
+                <p>Download our free guide, "10 Features Every Modern Website Needs," and start your journey to a better online presence.</p>
+                <form class="newsletter-form">
+                    <input type="email" name="email" placeholder="Enter your email address" required>
+                    <button type="submit">Download Free Guide</button>
+                </form>
+            </div>
+        </section>
+
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; <span id="current-year"></span> Joshua Stevenson. All Rights Reserved.</p> {/* Updated Name */}
+    <footer id="contact" class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-column about-nexora">
+                <h4>Nexora Web Agency</h4>
+                <p>Websites that Drive Growth.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/portfolio">Portfolio</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>123 Web Street, Cape Town, 8001</p>
+                <p>hello@nexora.dev</p>
+                <p>(+27) 21 123 4567</p>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Nexora Web Agency. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
