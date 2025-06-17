@@ -1,193 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshua Stevenson - Data Analyst Portfolio</title> {/* Updated Title */}
+    <meta name="description" content="Welcome to the portfolio of Joshua Stevenson, a Data Analyst specializing in data analysis, visualization, and database management."> {/* Updated Description */}
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bush Creek Guest House - Home</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" />
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <link rel="stylesheet" href="assets/css/home.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-        <style>
-            .yt-container {
-                position: relative;
-                width: 100%;
-                overflow: auto;
-                padding-top: 56.25%;
-                /* 16:9 Aspect Ratio */
-            }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-            .responsive-iframe {
-                position: absolute;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                width: 100%;
-                height: 100%;
-                border: none;
-            }
-        </style>
-    </head>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
 
-    <body>
-        <nav class="navbar">
-            <div class="container">
-                <a href="index.html" class="logo">
-                    <img src="assets/imgs/general/logo_crop.png" alt="Delmore Guest Farm Logo">
-                </a>
-                <button class="nav-toggle" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="nav-links-container">
-                    <ul class="nav-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="dropdown">
-                            <a href="/rooms.html" class="dropbtn">Rooms</a>
-                            <div class="dropdown-content">
-                                <a href="html/rooms/protea.html">Protea</a>
-                                <a href="html/rooms/rock-rose.html">Rock Rose</a>
-                                <a href="html/rooms/acacia.html">Acacia</a>
-                                <a href="html/rooms/aloe.html">Aloe</a>
-                                <a href="html/rooms/arum.html">Arum</a>
-                                <a href="html/rooms/jacaranda.html">Jacaranda</a>
-                            </div>
-                        </li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li class="dropdown">
-                            <a href="/activities.html" class="dropbtn">Activities</a>
-                            <div class="dropdown-content">
-                                <a href="html/activity/local-restaurants.html">Local Restaurants</a>
-                                <a href="html/activity/bush-creek-activities.html">Bush Creek Activities</a>
-                                <a href="html/activity/local-activities.html">Local Activities</a>
-                            </div>
-                        </li>
-                        <li><a href="location.html">Location</a></li>
-                        <li><a href="/contact.html">Contact Us</a></li>
-                        <li><a href="/amenities.html">Amenities</a></li>
-                        <li><a href="/reviews.html">Reviews</a></li>
-                    </ul>
-                    <button class="book-now-btn" onclick="window.location.href='https://book.nightsbridge.com/38214'">
-                        <i class="far fa-calendar-alt"></i> Book Now </button>
-                </div>
-            </div>
-        </nav>
-        <section class="hero-section">
-            <div class="slider-container">
-                <div class="slide fade" style="background-image: url('assets/imgs/rooms/building/building_1.jpeg');">
-                    <div class="hero-text">
-                        <h1>Bush Creek Guest House</h1>
-                    </div>
-                </div>
-                <div class="slide fade" style="background-image: url('assets/imgs/rooms/building/building_2.jpg');">
-                    <div class="hero-text">
-                        <h1>A Working Farm</h1>
-                    </div>
-                </div>
-                <div class="slide fade">
-                    <iframe class="responsive-iframe" src="https://www.youtube.com/embed/z69Nz8HZBAA?si=1RdHd0kOn1h-25PB&amp;controls=0&modestbranding=1&rel=0" frameborder="0" allow="accelerometer; autoplay; modestbranding; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <a class="prev" onclick="plusSlides(-1)">❮</a>
-                <a class="next" onclick="plusSlides(1)">❯</a>
-                <div class="slider-dots">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                </div>
-            </div>
-        </section>
-        <section class="availability-section">
-            <div class="container">
-                <div class="availability-checker">
-                    <form action="redirect-to-booking-site.php" method="GET" style="display: contents;">
-                        <div class="form-group input-with-icon">
-                            <label for="checkin" style="display:none;">Check In</label>
-                            <input type="text" id="checkin" name="checkin" placeholder="Check in" required>
-                            <i class="far fa-calendar-alt input-icon"></i>
-                        </div>
-                        <div class="form-group input-with-icon">
-                            <label for="checkout" style="display:none;">Check Out</label>
-                            <input type="text" id="checkout" name="checkout" placeholder="Check out" required>
-                            <i class="far fa-calendar-alt input-icon"></i>
-                        </div>
-                        <button type="button" id="checkAvailabilityBtn">Check Availability and Rates</button>
-                    </form>
-                </div>
-            </div>
-        </section>
+    <script src="js/script.js" defer></script>
+    <script src="js/home.js" defer></script>
+</head>
+<body>
+    <header>
         <div class="container">
-            <section class="intro-section">
-                <h2>Experience nature and comfort</h2>
-                <p>Bush Creek Guest House invites you to escape the hustle of city life. Nestled on a picturesque farm between Mooi River and Estcourt, our cozy guest home features six uniquely accommodating rooms. Dive into our refreshing dam, embark on scenic river walks, or simply relax in the tranquility of nature. Discover a perfect blend of history, comfort, and adventure at Bush Creek Guest House, where your peaceful retreat awaits.</p>
-            </section>
-            <section class="gallery-section">
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <a href="rooms.html"><img src="/assets/room_imgs/protea/protea_resize.jpeg" alt="View Our Accommodation"></a>
-                        <h3><a href="rooms.html">View Our Rooms</a></h3>
-                        <p>Nestled on a picturesque farm... our cozy guest home features six uniquely accommodating rooms. Enjoy free WiFi and stunning rural views.</p>
-                    </div>
-                    <div class="gallery-item">
-                        <a href="gallery.html"><img src="assets/imgs/farm/horse_1.jpg" alt="Explore Our Gallery"></a>
-                        <h3><a href="gallery.html">Explore Our Gallery</a></h3>
-                        <p>Dive into our refreshing dam, embark on scenic river walks, or simply relax in the tranquility of nature. Discover history, comfort, and adventure.</p>
-                    </div>
-                    <div class="gallery-item">
-                        <a href="contact.html"><img src="assets/imgs/farm/scenary_2.jpg" alt="Get In Touch"></a>
-                        <h3><a href="contact.html">Get In Touch</a></h3>
-                        <p>We'd love to hear from you. Contact us for enquiries, or check availability and book online using the button at the top of this page.</p>
-                    </div>
+            <nav>
+                <a href="index.html" id="logo">Joshua Stevenson</a> {/* Updated Name */}
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
                 </div>
-            </section>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <section class="parallax-section">
-            <div class="parallax-content">
-                <p>Where the past lingers, the present unwinds, and nature welcomes you home.</p>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container hero-content-container">
+                <div class="hero-text">
+                    <h3>Hi, I'm</h3>
+                    <h1>Joshua Stevenson</h1> {/* Updated Name */}
+                    <p class="lead">Data Analyst</p> {/* Updated Title */}
+                    <p class="hero-description">
+                        A results-oriented Data Analyst based in Stellenbosch, with hands-on experience in data analysis, visualization, and database management.
+                        I leverage tools like BigQuery, Tableau, Python, and SQL to extract insights that drive strategic business decisions.
+                    </p>
+                    <a href="projects.html" class="btn btn-primary">View My Work</a>
+                    <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+                </div>
+                <div class="hero-image">
+                    {/* Suggestion: Replace with a professional photo of Joshua */}
+                    <img src="https://via.placeholder.com/400x450/CCCCCC/000000?text=Joshua+Stevenson" alt="Joshua Stevenson - Data Analyst">
+                </div>
             </div>
         </section>
-        <footer class="footer">
+
+        <section id="about" class="about-section section-bg">
             <div class="container">
-                <div class="footer-grid">
-                    <div class="footer-column">
-                        <h4>Explore</h4>
-                        <ul>
-                            <li><a href="/index.html">Home</a></li>
-                            <li><a href="/rooms.html">Rooms</a></li>
-                            <li><a href="/gallery.html">Gallery</a></li>
-                            <li><a href="/amenities.html">Amenities</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>About</h4>
-                        <ul>
-                            <li><a href="activities.html">Activities</a></li>
-                            <li><a href="location.html">Location</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="/reviews.html">Reviews</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Contact Us</h4>
-                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/r9cLQ6iSQUFKZqEM8">Bush Creek Farm, Mooi River, KZN</a></p>
-                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+27844885000">(084) 488-5000</a></p>
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:bushcreekguesthouse@gmail.com">bushcreekguesthouse@gmail.com</a></p>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2025 Bush Creek Guest House. All Rights Reserved. <a href="https://www.linkedin.com/in/joshua-trevor-stevenson/">Website by Joshua Stevenson</a></p>
+                <h2 class="section-title">About Me</h2>
+                {/* Optional: Add profile picture here if not in Hero, or a different one */}
+                {/* <img src="https://via.placeholder.com/150" alt="Joshua Stevenson" class="profile-pic"> */}
+                <div class="about-me-content"> {/* Added a wrapper for better text formatting */}
+                    <p>
+                        I'm a Data Analyst with over two years of dedicated experience, passionate about transforming raw data into actionable insights. My expertise lies in data analysis, visualization, and robust database management.
+                    </p>
+                    <p>
+                        I am proficient with a range of powerful tools including BigQuery, Google Analytics, Tableau, Python, and SQL. My skill set extends to automating workflows, crafting interactive and informative dashboards, and optimizing large-scale datasets to enhance performance and clarity.
+                    </p>
+                    <p>
+                        Currently, I am advancing my analytical and technical capabilities by pursuing a BSc in Computer Science with a specialization in Data Science at Stellenbosch University. I thrive on solving complex problems and collaborating cross-functionally to deliver customized data solutions that meet business requirements.
+                    </p>
                 </div>
             </div>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
-        <script src="assets/js/home.js"></script>
-    </body>
+        </section>
 
+        <section id="services" class="services-section"> {/* Changed id from 'about' to 'services' for clarity if 'About Me' is separate */}
+            <div class="container">
+                <h2 class="section-title">What I Do</h2>
+                 <div class="services-grid">
+                    <div class="service-card">
+                        <img src="https://via.placeholder.com/60/FF0066/FFFFFF?text=DA" alt="Data Analysis Icon" class="service-icon"> {/* Placeholder Icon */}
+                        <h3>Data Analysis & Visualization</h3>
+                        <p>Extracting insights from complex datasets and presenting them through clear, interactive dashboards using tools like Tableau and Google Data Studio.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://via.placeholder.com/60/FF0066/FFFFFF?text=DB" alt="Database Management Icon" class="service-icon"> {/* Placeholder Icon */}
+                        <h3>Database Management</h3>
+                        <p>Managing and optimizing large-scale databases with SQL and BigQuery to ensure efficient data retrieval and processing.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://via.placeholder.com/60/FF0066/FFFFFF?text=AW" alt="Automation Icon" class="service-icon"> {/* Placeholder Icon */}
+                        <h3>Workflow Automation</h3>
+                        <p>Developing automated reporting processes and data extraction pipelines using Python and Google APIs to improve operational efficiency.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="featured-projects" class="featured-projects-section section-bg">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card" data-category="data-visualization"> {/* Updated category */}
+                        <div class="project-image-container">
+                            <img src="https://via.placeholder.com/400x300/777777/FFFFFF?text=E-commerce+Dashboard" alt="E-commerce Dashboard Development" class="project-thumbnail">
+                            <div class="project-overlay">
+                                <h3>E-commerce Dashboard</h3>
+                                <a href="projects.html#ecommerce-dashboard" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">E-commerce Dashboard Development</h3>
+                            <p class="project-category">Built an interactive Tableau dashboard integrating Google Analytics data to track sales performance and customer behavior, enabling a 20% increase in sales conversion rates.</p>
+                            <a href="projects.html#ecommerce-dashboard" class="project-link-btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="automation"> {/* Updated category */}
+                         <div class="project-image-container">
+                            <img src="https://via.placeholder.com/400x300/888888/FFFFFF?text=API+Automation" alt="Automation with Google APIs" class="project-thumbnail">
+                             <div class="project-overlay">
+                                <h3>Automation with Google APIs</h3>
+                                <a href="projects.html#api-automation" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Automation with Google APIs</h3>
+                            <p class="project-category">Designed an automated data extraction pipeline using Python and Google APIs, significantly reducing reporting time by 40%.</p>
+                            <a href="projects.html#api-automation" class="project-link-btn">Learn More</a>
+                        </div>
+                    </div>
+                    {/* Add a third project based on experience if desired, e.g., Website Performance Optimization */}
+                    <div class="project-card" data-category="web-analytics">
+                        <div class="project-image-container">
+                            <img src="https://via.placeholder.com/400x300/999999/FFFFFF?text=Website+Optimization" alt="Website Performance Optimization" class="project-thumbnail">
+                            <div class="project-overlay">
+                                <h3>Website Performance Optimization</h3>
+                                <a href="projects.html#website-optimization" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Website Performance Optimization</h3>
+                            <p class="project-category">Optimized website performance through Google Analytics, resulting in a 15% increase in conversion rates by identifying key user patterns.</p>
+                             <a href="projects.html#website-optimization" class="project-link-btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                     <a href="projects.html" class="btn btn-primary">View All Projects</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Joshua Stevenson. All Rights Reserved.</p> {/* Updated Name */}
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
 </html>
