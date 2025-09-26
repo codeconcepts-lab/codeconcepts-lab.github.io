@@ -153,7 +153,8 @@ h6 {
 }
 
 .header .logo img {
-  height: 60px;
+  max-height: 70px;
+
   
 }
 
@@ -167,7 +168,9 @@ h6 {
 .header .btn-getstarted,
 .header .btn-getstarted:focus {
   color: var(--contrast-color);
-  background: var(--accent-color);
+  font-weight: 600;
+  background:#E2B420;
+  
   font-size: 14px;
   padding: 8px 25px;
   margin: 0 0 0 30px;
@@ -178,7 +181,7 @@ h6 {
 .header .btn-getstarted:hover,
 .header .btn-getstarted:focus:hover {
   color: var(--contrast-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+  background: color-mix(in srgb, #E2B420, transparent 15%);
 }
 
 @media (max-width: 1200px) {
