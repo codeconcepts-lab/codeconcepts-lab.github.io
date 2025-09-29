@@ -1218,7 +1218,7 @@ section,
 
 @media (min-width: 992px) {
   .services .services-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 50px;
   }
 }
