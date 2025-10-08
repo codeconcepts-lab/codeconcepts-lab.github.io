@@ -76,7 +76,7 @@
         </header>
         <main class="main">
             <div class="page-title dark-background" data-aos="fade"
-                style="background-image: url(/src/imgs/imgs_v1/solutions.jpg)">
+                style="background-image: url(/assets/img/construction/showcase-2.webp)">
                 <div class="container position-relative">
                     <h1>Power Solutions</h1>
                     <p> We deliver tailored and fully managed power solutions,
@@ -94,11 +94,13 @@
                     </nav>
                 </div>
             </div>
-            <section class="section section--secondary">
+            <section class="section">
                 <div class="services-container">
                     <div class="grid grid--2-cols">
                         <div class="feature-content fade-in">
-                           
+                            <h2
+                                class="section__title section__title--left">Uncompromising
+                                on Safety</h2>
                             <p>At CEMEX Project Power Solutions, we deliver
                                 reliable and efficient power tailored to the
                                 precise needs of your industry, business, or
@@ -119,16 +121,18 @@
                                 assume full responsibility for:
                             </p>
                             <ul class="feature-list">
-                                <li>Asset provision and management</li>
-                                <li>Skilled, on-site operations</li>
-                                <li>Comprehensive maintenance</li>
-                                <li>Complete fuel management</li>
+                                <li>Protecting the health and safety of all
+                                    employees and affected persons.</li>
+                                <li>Minimizing the environmental impact of our
+                                    activities.</li>
+                                <li>Adhering to all relevant HSE laws.</li>
                             </ul>
-
+                            <a href="about.html" class="btn btn--primary"
+                                style="margin-top: 1.5rem;">Our HSE Policy</a>
                         </div>
                         <div class="fade-in feature-content__img--order-first"
                             style="transition-delay: 0.2s;">
-                            <img src="/src/imgs/imgs_v1/energy-management.jpg"
+                            <img src="/src/imgs/imgs_v1/sparks.jpg"
                                 alt="Safety gear on an industrial site"
                                 class="feature-content__img">
                         </div>
@@ -140,7 +144,7 @@
                     <div class="grid grid--2-cols">
                         <div class="fade-in feature-content__img--order-first">
                             <img
-                                src="/src/imgs/imgs_v1/energy-management.jpg"
+                                src="https://placehold.co/600x400/121212/fec522?text=Placeholder"
                                 alt="Image representing company's vision"
                                 class="feature-content__img" />
                         </div>

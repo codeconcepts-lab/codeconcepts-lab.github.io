@@ -1,0 +1,211 @@
+/* ========================================================================
+   1. CSS Custom Properties (Design System)
+   ======================================================================== */
+:root {
+
+    --background-color: #060606;
+    --default-color: #ffffff;
+    --heading-color: #ffffff;
+    --surface-color: #252525;
+    /* --contrast-color: #ffffff;
+    --background-color: #ffffff; 
+    --default-color: #342c26; 
+    --heading-color: #2c1607; 
+    --surface-color: #ffffff; 
+    --contrast-color: #ffffff; */
+    --accent-color: #fec522;
+    /* Typography */
+    --font-primary: 'Roboto', sans-serif;
+    --font-secondary: 'Roboto Condensed', sans-serif;
+    --font-size-base: 1rem;
+    /* 16px */
+    --font-size-sm: 0.875rem;
+    /* 14px */
+    --font-size-lg: 1.125rem;
+    /* 18px */
+    --font-size-xl: 1.25rem;
+    /* 20px */
+    --font-size-h3: 1.5rem;
+    /* 24px */
+    --font-size-h2: 2.25rem;
+    /* 36px */
+    --font-size-h1: 3rem;
+    /* 48px */
+
+    /* Spacing & Sizing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    --spacing-xl: 4rem;
+    --container-width: 1300px;
+    --header-height: 80px;
+
+    /* Effects */
+    --border-radius: 0.5rem;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --transition: all 0.3s ease-in-out;
+}
+
+/* ========================================================================
+   3. Layout & Utility Classes
+   ======================================================================== */
+.services-container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
+}
+
+.section {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+}
+
+.section--secondary {
+    background-color: color-mix(in srgb, var(--background-color), var(--surface-color) 40%);
+}
+
+.section__header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.section__title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: var(--spacing-xs);
+}
+
+.section__title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: #fec522;
+}
+
+.section__title--left::after {
+    left: 0;
+    transform: translateX(0);
+}
+
+.section__title--right::after {
+    right: 0;
+    transform: translateX(0);
+}
+
+.grid {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.grid--2-cols {
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .grid--2-cols {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+}
+
+.grid--3-cols {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid--4-cols {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+@media (min-width: 768px) {
+    .grid--4-cols {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    }
+}
+
+/* Featured Content Section */
+.feature-content__img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    max-height: 600px;
+    width: 100%;
+}
+
+/* Feature Sections (Image & Text blocks) */
+.feature-section {
+    padding: 5rem 0;
+}
+
+.hse-commitment {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+}
+
+.turnkey-projects {
+    background-color: white;
+}
+
+.feature-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .feature-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Reorder image to be first on desktop for this specific section */
+    .turnkey-projects .feature-image {
+        order: -1;
+    }
+}
+
+.feature-content p {
+    margin: 1.5rem 0;
+    color: #d1d5db;
+}
+
+.turnkey-projects .feature-content p {
+    color: var(--color-text-muted);
+}
+
+.feature-image img {
+    width: 100%;
+    max-height: 600px;
+    display: block;
+    border-radius: 0.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.feature-list li {
+    padding-left: 2rem;
+    position: relative;
+    margin-bottom: 0.75rem;
+}
+
+.feature-list li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #fec522;
+    font-weight: bold;
+}
