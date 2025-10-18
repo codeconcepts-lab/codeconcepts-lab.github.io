@@ -1,0 +1,82 @@
+{file:catering_solutions.html,
+page_title:Catering Solutions,
+paragraph_title:Hospitality That Fuels Performance,
+paragraph_1:CEMEX Catering Solutions provides premier hospitality and comprehensive welfare management for crews in remote and high-demand environments. We understand that a well-cared-for team is the foundation of a safe and productive operation. Our mission is to enhance daily life for your workforce, ensuring they are motivated, healthy, and performing at their best.,
+paragraph_2:We deliver more than just meals; we offer a complete hospitality experience. Our services range from meticulous meal planning—providing nutritious, balanced, and culturally diverse menus—to full-scale welfare management. Every detail is executed to the most stringent international standards of hygiene and efficiency, fostering a positive and comfortable environment that directly supports your operational goals.,
+core_capabilities: [Catering Services:We provide round-the-clock meal preparation, including customised menu planning that accommodates special dietary, cultural, and nutritional requirements. We also cater for special events and holidays to boost crew morale.
+    ],
+    [Hospitality & Housekeeping:Our services include maintaining clean, climate-controlled accommodations with daily housekeeping, linen changes, and complete laundry services to ensure comfort and hygiene.
+    ],
+    [Logistics & Operations:We manage the entire supply chain, from forecasting and procurement to cold chain logistics and inventory tracking, ensuring the timely delivery of all necessary supplies to offshore locations.
+    ],
+    [Crew Welfare & Support:To enhance morale and productivity, we provide recreational facilities, internet and communication services, and transportation coordination, creating a supportive and connected community offshore.
+    ]
+},
+{file:construction_services.html,
+page_title:Construction Services,
+paragraph_title:Building the Future with Precision,
+paragraph_1:CEMEX Construction Services delivers landmark residential, commercial, and large-scale real estate developments. We manage the entire project lifecycle, providing integrated end-to-end delivery that transforms ambitious visions into tangible, high-value assets.,
+paragraph_2:Our expertise extends from initial design and development through to precision construction and long-term facility management. By unifying every phase, we ensure uncompromising quality, budget integrity, and on-time delivery. We build for lasting performance and architectural excellence, creating infrastructure and urban spaces that generate long-term value and enrich community life.,
+core_capabilities: [Roads & Residential Developments:We construct durable infrastructure and modern apartment complexes designed to meet the needs of Nigeria's growing urban population.
+    ],
+    [Real Estate Development:Our team manages every phase of property development, from site acquisition and design to construction oversight and final delivery, creating value-driven and sustainable communities.
+    ],
+    [Retail Malls & Commercial Spaces:We design and build high-traffic retail environments and informal markets optimised for functionality, accessibility, and operational efficiency.
+    ],
+    [Interior & Exterior Design:We craft aesthetic and functional spaces with precision, ensuring a harmonious balance of detail, flow, and finish, both inside and out.
+    ],
+    [Facility Management:We provide comprehensive services to ensure the smooth operation, safety, and longevity of residential, commercial, and industrial assets.
+    ]
+},
+{file:facility_services.html,
+page_title:Facility Services,
+paragraph_title:More Innovative Spaces, Seamless Operations,
+paragraph_1:CEMEX Facility Services provides comprehensive, integrated operations that protect and enhance the value of your property assets. We move beyond simple maintenance to deliver solutions that ensure operational safety, total efficiency, and an exceptional experience for occupants and residents.,
+paragraph_2:Our expert teams manage every aspect of your building's ecosystem, from complex technical systems and energy management to landscaping, security, and hospitality. Through proactive maintenance, transparent reporting, and dedicated resident engagement, we create a responsive, high-performance environment, allowing you to focus on your strategic goals while we safeguard your investment.,
+core_capabilities: [Cleaning & Sanitation:Daily cleaning of common areas, waste management, pest control, and deep cleaning services.
+    ],
+    [Mechanical & Electrical Maintenance:Proactive and corrective maintenance for electrical systems, plumbing, HVAC, elevators, and fire protection systems.
+    ],
+    [Landscaping & Groundskeeping:Professional care for lawns, gardens, and outdoor common areas, including irrigation and hardscape maintenance.
+    ],
+    [Security & Access Control: 24/7 staffed security, CCTV surveillance, and visitor and vehicle management systems.
+    ],
+    [Utility Management:Monitoring and management of water, electricity, backup generators, and fuel supply.
+    ],
+    [Asset Management:Maintenance of land and equipment, inventory management, and periodic tracking of all estate assets.
+    ],
+    [Resident Services & Communication:A dedicated helpdesk for resident requests, community communications, and emergency response coordination.
+    ],
+    [Administrative & Financial Support:Budgeting, financial reporting, lease management, and compliance documentation.
+    ],
+    [Health & Safety Services:Implementation of emergency preparedness drills, evacuation plans, and safety monitoring.
+    ]
+},
+{file:marine_services.html,
+page_title:Marine Services,
+paragraph_title:Integrated Marine Excellence,
+paragraph_1:CEMEX Marine Services delivers comprehensive offshore, inshore, and onshore support for the global energy sector. We are the strategic partner for complex marine environments, integrating vessel chartering, advanced logistics, custom fabrication, and elite staffing to ensure your operations flow without interruption.,
+paragraph_2:Our focus is on mitigating risk and maximising efficiency. By unifying disparate services into one cohesive solution, we solve the industry's toughest logistical challenges. We deploy our trusted expertise and rigorous safety protocols to navigate evolving demands, providing the operational certainty you need to succeed in even the most demanding marine environments.,
+core_capabilities: [Marine Operations:We offer flexible vessel chartering for service boats, barges, and houseboats, alongside custom equipment fabrication, drydocking, and maintenance to keep your assets safe, compliant, and efficient.
+    ],
+    [Logistics & Supply Chain:Our services include reliable leasing for essential project equipment (forklifts, tractors, portacabins), swift logistics support to streamline offshore operations, and cost-effective procurement through strong supplier partnerships.
+    ],
+    [Manpower & Workforce Solutions:We provide end-to-end recruitment, deployment, and management of skilled personnel, project managers, and supervisors tailored to the oil, gas, and energy sectors.
+    ],
+    [Crew & Welfare Services:We ensure a high standard of living for offshore teams through comprehensive hospitality, housekeeping, catering, and holistic welfare programs that enhance morale and productivity.
+    ]
+},
+{file:power_solutions.html,
+page_title:Power Solutions,
+paragraph_title:Empowering Growth Through Reliable Energy,
+paragraph_1:CEMEX Power Solutions engineers and delivers reliable, efficient, and scalable energy systems that empower industries, businesses, and communities. We specialise in providing uninterrupted power customised for your precise operational needs, ensuring you can operate with total confidence and focus on sustainable growth.,
+paragraph_2:From advanced renewable energy projects to comprehensive Independent Power Producer (IPP) plants, we manage the entire lifecycle. Our services eliminate downtime and financial risk by providing full asset provision, operations, and maintenance under a usage-based billing model. This zero-capital-investment approach guarantees consistent power continuity, allowing you to dedicate all your resources to your core business.,
+core_capabilities: [Renewable Energy Solutions:We design, build, and operate solar, gas, and diesel power plants to produce clean energy for the grid or for specific clients.
+    ],
+    [Independent Power Producer (IPP):We operate gas, diesel, solar, and hybrid plants to deliver uninterrupted electricity for malls, estates, industries, and other large-scale clients.
+    ],
+    [Project Development:Our team expertly manages all permits, licenses, and infrastructure development required for successful renewable energy initiatives.
+    ],
+    [Net Metering:We provide on-site system installation, allowing customers to be billed for their net energy usage and optimise costs.
+    ]
+}
