@@ -4446,3 +4446,136 @@ section,
 .starter-section {
     /* Add your styles here */
 }
+/*--------------------------------------------------------------
+# Footer Redesign - Full Width
+--------------------------------------------------------------*/
+.footer .footer-top {
+  
+  padding-bottom: 10px;
+}
+
+/* --- Brand Section --- */
+.footer .logo {
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+
+.footer .logo .footer-logo-img {
+  max-height: 80px;
+  width: auto;
+  display: block;
+}
+
+.footer .logo span {
+  font-family: var(--heading-font);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--heading-color);
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+  line-height: 1.2;
+}
+
+.footer .tagline {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.7;
+  max-width: 100%; /* Allowed to stretch in full width */
+}
+
+/* --- Headings --- */
+.footer h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--heading-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- Links Spacing --- */
+.footer .footer-links ul li {
+  padding-bottom: 10px;
+}
+
+.footer .footer-links ul li:last-child {
+  padding-bottom: 0;
+}
+
+.footer .footer-links ul li a {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.footer .footer-links ul li a:hover {
+  color: var(--accent-color);
+  padding-left: 5px;
+}
+
+/* --- Directions Section --- */
+.footer .directions-list .direction-item {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.footer .directions-list .icon-wrapper {
+  width: 36px;
+  height: 36px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.footer .location-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 3px;
+  letter-spacing: 0.5px;
+}
+
+.footer .map-link {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  font-size: 13px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: 0.3s;
+}
+
+.footer .map-link:hover {
+  color: var(--accent-color);
+}
+
+.footer .map-link i {
+  font-size: 12px;
+  transition: transform 0.3s;
+}
+
+.footer .map-link:hover i {
+  transform: translateX(3px);
+}
+
+/* --- Copyright Section --- */
+.footer .copyright {
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  padding-top: 25px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer .credits {
+  margin-bottom: 5px;
+  font-size: 12px;
+}
