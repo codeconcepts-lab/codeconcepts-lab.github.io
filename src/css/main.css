@@ -744,11 +744,11 @@ h6 {
     font-weight: 900;
     color: var(--default-color);
     line-height: 0;
-   
+
 }
 
 .scroll-top:hover {
-    background-color: color-mix(in srgb,  var(--nav-hover-color), transparent 20%);
+    background-color: color-mix(in srgb, var(--nav-hover-color), transparent 20%);
     color: var(--contrast-color);
 }
 
