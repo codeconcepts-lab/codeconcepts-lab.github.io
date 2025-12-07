@@ -4454,19 +4454,14 @@ section,
 
 /* --- Brand Section --- */
 .footer .footer-about .logo {
-   
     text-decoration: none;
-
-
+    align-items: center !important;
+    text-align: center;
 }
 
-
 .footer .footer-about .logo img {
-    max-height: 100px;
+    max-height: 120px;
     width: auto;
-
-
-
 }
 
 .footer .footer-about .sitename {
@@ -4475,19 +4470,14 @@ section,
     font-weight: 700;
     color: var(--heading-color);
     display: block;
-
-
 }
 
 .footer .footer-about .tagline {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
     color: var(--heading-color);
     line-height: 1.4;
-
     text-transform: uppercase;
-   
-
 }
 
 /* --- Links Section --- */
@@ -4598,19 +4588,15 @@ section,
     border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
     padding: 20px 0;
     margin-top: 10px;
-    /* Consistent top spacing */
 }
 
 /* The inner flex container */
 .footer .copyright-content {
     display: flex;
     flex-direction: column;
-    /* Mobile first: Stacked */
     align-items: center;
-    /* Mobile first: Centered */
     justify-content: center;
     gap: 10px;
-    /* Space between text and credits */
     width: 100%;
 }
 
@@ -4647,9 +4633,7 @@ section,
 @media (min-width: 992px) {
     .footer .copyright-content {
         flex-direction: row;
-        /* Side-by-side */
         justify-content: space-between;
-        /* Push to edges */
     }
 
     .footer .credits {
@@ -4668,13 +4652,12 @@ section,
 
     /* Center Brand/Logo Section */
     .footer .footer-about {
-
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    /* Center the logo explicitly - !important needed to override Bootstrap class */
+    /* Center the logo explicitly */
     .footer .footer-about .logo {
         align-items: center !important;
         text-align: center;
@@ -4712,7 +4695,6 @@ section,
 
     /* Center Directions/Contact Section */
     .footer .footer-contact {
-
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -4741,9 +4723,4 @@ section,
     .footer .directions-list .icon-wrapper {
         margin-right: 0;
     }
-}
-
-/* Mobile Specific Tweaks */
-@media (max-width: 576px) {
-    /* Additional mobile tweaks if necessary */
 }
