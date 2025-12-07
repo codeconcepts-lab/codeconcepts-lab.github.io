@@ -4460,8 +4460,9 @@ section,
 }
 
 .footer .footer-about .logo img {
-    max-height: 120px;
+    max-height: 100px;
     width: auto;
+    margin-bottom: 15px;
 }
 
 .footer .footer-about .sitename {
@@ -4473,11 +4474,11 @@ section,
 }
 
 .footer .footer-about .tagline {
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
     color: var(--heading-color);
     line-height: 1.4;
-    text-transform: uppercase;
+   
 }
 
 /* --- Links Section --- */
