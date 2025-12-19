@@ -4475,10 +4475,10 @@ section,
 
 .footer .footer-about .tagline {
     font-size: 16px;
-    font-weight: 600;
-    color: var(--heading-color);
+    font-weight: 500;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
     line-height: 1.4;
-   
+
 }
 
 /* --- Links Section --- */
@@ -4639,6 +4639,11 @@ section,
 
     .footer .credits {
         text-align: right;
+    }
+
+    .footer .footer-about .tagline {
+        width: 75%;
+
     }
 }
 
