@@ -3555,7 +3555,7 @@ section,
 }
 
 .contact .map-wrapper {
-    height: 150px;
+    height: 250px;
     width: 100%;
     border-radius: 16px;
     overflow: hidden;
@@ -3564,6 +3564,7 @@ section,
 @media (min-width: 992px) {
     .contact .map-wrapper {
         height: 100%;
+        min-height: 200px;
         position: sticky;
         top: 100px;
     }
