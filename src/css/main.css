@@ -4731,6 +4731,7 @@ section,
         margin-right: 0;
     }
 }
+
 .contact-link {
     color: color-mix(in srgb, var(--default-color), transparent 15%);
 }
