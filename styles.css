@@ -42,4 +42,7 @@
             background: #DC2626; 
         }
    
-        
+        .header-logo {
+            height: 60px;
+            width: auto;
+        }
