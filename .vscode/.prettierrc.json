@@ -1,7 +1,0 @@
-{
-  "htmlWhitespaceSensitivity": "ignore",
-  "bracketSameLine": false,
-  "singleAttributePerLine": false,
-  "printWidth": 80,
-  "proseWrap": "never"
-}

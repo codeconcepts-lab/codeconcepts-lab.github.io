@@ -1,9 +1,0 @@
-{
-  "liveServer.settings.multiRootWorkspaceName": "codeconcepts-lab.github.io",
-  "liveServer.settings.port": 5506,
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  }
-}
