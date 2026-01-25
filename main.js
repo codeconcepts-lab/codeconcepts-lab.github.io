@@ -3,12 +3,14 @@ tailwind.config = {
         extend: {
             colors: {
                 redwolf: {
-                    DEFAULT: '#b3321d', // Updated: Custom Primary Red
+                    DEFAULT: '#972f1e', // Updated: New Primary Red
                     dark: '#5e160a',    // Darker shade for hovers
-                    gold: '#ca9e12',    // Updated: Custom Primary Yellow
+                    gold: '#ebaf0b',    // Updated: New Primary Yellow
                     black: '#0a0a0a',
                     gray: '#171717',
-                    lightred: '#DC2626'
+                    red: '#972f1e',
+                    lightred: '#DC2626',
+                    darkgold:'#9a7702'
                 }
             },
             fontFamily: {
