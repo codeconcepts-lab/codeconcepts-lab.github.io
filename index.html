@@ -10,35 +10,7 @@
         <link rel="icon" type="image/svg+xml" href="/assets/logos/RED WOLF Logo.png">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
         <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        colors: {
-                            redwolf: {
-                                DEFAULT: '#b3321d', // Updated: Custom Primary Red
-                                dark: '#5e160a',    // Darker shade for hovers
-                                gold: '#ca9e12',    // Updated: Custom Primary Yellow
-                                black: '#0a0a0a',
-                                gray: '#171717',
-                                lightred: '#DC2626'
-                            }
-                        },
-                        fontFamily: {
-                            sans: ['Open Sans', 'sans-serif'],
-                            display: ['Montserrat', 'sans-serif'],
-                        },
-                        animation: {
-                            'fade-in-up': 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        },
-                        keyframes: {
-                            fadeInUp: {
-                                '0%': { opacity: '0', transform: 'translateY(20px)' },
-                                '100%': { opacity: '1', transform: 'translateY(0)' },
-                            }
-                        }
-                    }
-                }
-            }
+            
         </script>
         <link rel="stylesheet" href="styles.css">
     </head>
@@ -1146,51 +1118,10 @@
         </footer>
         <!-- JS Router Logic -->
         <script>
-            function switchPage(pageId) {
-                // Get all pages
-                const allPages = document.querySelectorAll('.page-section');
-
-                // Hide all pages & remove active class for animation reset
-                allPages.forEach(page => {
-                    page.classList.add('hidden');
-                    page.classList.remove('active');
-                });
-
-                // Show selected page
-                const selectedPage = document.getElementById(pageId);
-                if (selectedPage) {
-                    selectedPage.classList.remove('hidden');
-                    // Small delay to ensure the DOM has updated hidden state before adding animation class
-                    setTimeout(() => {
-                        selectedPage.classList.add('active');
-                    }, 10);
-                } else {
-                    console.error("Page ID not found:", pageId);
-                    return;
-                }
-
-                // Update Nav States
-                document.querySelectorAll('.nav-link').forEach(el => {
-                    el.classList.remove('nav-active');
-                });
-
-                // Determine active nav button based on pageId
-                let navId = 'nav-' + pageId;
-                if (pageId.startsWith('service-')) {
-                    navId = 'nav-services';
-                }
-
-                const activeNav = document.getElementById(navId);
-                if (activeNav) activeNav.classList.add('nav-active');
-
-                // Scroll to top
-                window.scrollTo(0, 0);
-
-                // Close mobile menu if open
-                document.getElementById('mobile-menu').classList.add('hidden');
-            }
+            
         </script>
         <script src="index.js"></script>
+         <script src="main.js"></script>
     </body>
 
 </html>
