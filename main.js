@@ -1,36 +1,21 @@
-function switchPage(pageId) {
-            // Hide all pages including sub-services
-            const allPages = document.querySelectorAll('.page-section');
-            allPages.forEach(page => {
-                page.classList.add('hidden');
-            });
+javascript
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+// sgMail.setDataResidency('eu'); 
+// uncomment the above line if you are sending mail using a regional EU subuser
 
-            // Show selected page
-            const selectedPage = document.getElementById(pageId);
-            if(selectedPage) {
-                selectedPage.classList.remove('hidden');
-            } else {
-                console.error("Page ID not found:", pageId);
-                return;
-            }
-
-            // Update Nav States
-            document.querySelectorAll('.nav-link').forEach(el => {
-                el.classList.remove('nav-active');
-            });
-            
-            // Determine active nav button based on pageId
-            let navId = 'nav-' + pageId;
-            if (pageId.startsWith('service-')) {
-                navId = 'nav-services';
-            }
-            
-            const activeNav = document.getElementById(navId);
-            if(activeNav) activeNav.classList.add('nav-active');
-
-            // Scroll to top
-            window.scrollTo(0, 0);
-
-            // Close mobile menu if open
-            document.getElementById('mobile-menu').classList.add('hidden');
-        }
+const msg = {
+  to: 'joshua.stevenson.100703@gmail.com', // Change to your recipient
+  from: 'joshua.stevenson.100703@gmail.com', // Change to your verified sender
+  subject: 'Sending with SendGrid is Fun',
+  text: 'and easy to do anywhere, even with Node.js',
+  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+}
+sgMail
+  .send(msg)
+  .then(() => {
+    console.log('Email sent')
+  })
+  .catch((error) => {
+    console.error(error)
+  })
