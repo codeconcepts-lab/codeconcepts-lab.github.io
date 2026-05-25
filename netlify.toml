@@ -1,0 +1,47 @@
+[build]
+  # Site is plain HTML/CSS/JS — no build step. Publish the project root as-is.
+  publish = "."
+
+# ----------------------------------------------------
+# Routing & Redirects
+# ----------------------------------------------------
+[[redirects]]
+  # Ensure clean URLs (Netlify does this automatically, but good to be explicit)
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  # Note: Use the above ONLY if building an SPA (React/Vue).
+  # For static HTML, remove the SPA fallback and rely on Netlify's Pretty URLs.
+
+[[redirects]]
+  # Global 404 fallback page
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# ----------------------------------------------------
+# Security & Performance Headers
+# ----------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Prevents Clickjacking
+    X-Frame-Options = "DENY"
+    # Prevents MIME-sniffing
+    X-Content-Type-Options = "nosniff"
+    # Basic XSS protection
+    X-XSS-Protection = "1; mode=block"
+    # Referrer policy for privacy
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  # Aggressive Caching for Immutable Assets (Images, Icons)
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  # Reduced Caching for Unhashed CSS/JS (24 Hours)
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
