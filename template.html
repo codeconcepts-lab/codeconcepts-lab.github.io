@@ -1,576 +1,880 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5CGM7HB4');</script>
-        <!-- End Google Tag Manager -->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description"
-            content="Nexora Web Agency provides high-performance web, mobile, and data solutions for modern businesses. Digital Clarity, Delivered.">
-        <title>Nexora Web Agency | Digital Clarity, Delivered</title>
-        <!-- Favicons -->
-        <link href="/icons/emblem.svg" rel="icon" />
-        <link href="/icons/nexora_emblem.png" rel="apple-touch-icon" />
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet" href="/assets/css/home.css">
-    </head>
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5CGM7HB4');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scooty XP Case Study | Nexora — Nigerian Multi-App Logistics Ecosystem</title>
+    <meta name="description" content="How Nexora engineered Scooty XP — a five-app real-time logistics and marketplace ecosystem for Nigeria's on-demand economy, live on both App Store and Google Play." />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Scooty XP — Case Study | Nexora Web Agency" />
+    <meta property="og:description" content="Five apps. One ecosystem. Real-time dispatch, role-based architecture, and a logistics platform engineered for Nigeria's on-demand economy." />
+    <meta property="og:url" content="https://codeconcepts-lab.github.io/projects/scooty-xp.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://codeconcepts-lab.github.io/projects/scooty-xp.html" />
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "Scooty XP — Multi-App Logistics Ecosystem Design & Development",
+        "creator": { "@type": "Organization", "name": "Nexora Web Agency", "url": "https://codeconcepts-lab.github.io" },
+        "about": { "@type": "SoftwareApplication", "name": "Scooty XP", "url": "https://myscooty.ng", "applicationCategory": "Logistics, Marketplace, Mobility" }
+    }
+    </script>
+    
+    <!-- Favicons -->
+    <link rel="icon" href="/icons/emblem.svg" />
+    <link rel="apple-touch-icon" href="/icons/nexora_emblem.png" />
+    
+    <!-- Original Global CSS references (kept for safety, overridden by custom styles below) -->
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/utilities.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
 
-    <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe
-                src="https://www.googletagmanager.com/ns.html?id=GTM-5CGM7HB4"
-                height="0" width="0"
-                style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-        <!-- HEADER -->
-        <header class="site-header">
-            <div class="header-inner">
-                <a href="/" class="logo-link">
-                    <img src="/icons/header_logo.svg" alt="Nexora Logo"
-                        class="nav-logo"
-                        onerror="this.src='/images/nexora-logo.svg'"
-                        style="height: 70px; width: auto;">
-                </a>
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about.html">About</a></li>
-                        <li><a href="/services.html">Services</a></li>
-                        <li><a href="/projects.html">Projects</a></li>
-                        <li><a href="/contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="header-cta">
-                    <a href="/quote.html" class="btn-primary">Get a Quote</a>
-                </div>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- LINEAR x NEXORA AESTHETIC OVERRIDES -->
+    <style>
+        :root {
+            /* Linear Dark Theme Palette */
+            --bg-color: #000000;
+            --surface-color: #080808;
+            --surface-light: #121212;
+            --surface-hover: #18181b;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(255, 255, 255, 0.2);
+            --text-main: #f4f4f5;
+            --text-muted: #a1a1aa;
+            
+            /* Nexora Identity */
+            --cs-accent: #F97316; /* Scooty Orange */
+            --cs-accent-glow: rgba(249, 115, 22, 0.15);
+            
+            /* Typography */
+            --font-heading: 'Syne', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; background: var(--bg-color); }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* -----------------------------------------------------------
+           LINEAR-STYLE BACKGROUNDS
+           ----------------------------------------------------------- */
+        /* Subtle Grid Pattern overlay */
+        .bg-grid {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: radial-gradient(ellipse at top, black 20%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at top, black 20%, transparent 70%);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Top glowing orb */
+        .ambient-glow {
+            position: absolute;
+            top: -20vh; left: 50%;
+            transform: translateX(-50%);
+            width: 80vw; height: 60vh;
+            background: radial-gradient(ellipse at center, var(--cs-accent-glow) 0%, transparent 60%);
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        /* Reading Progress */
+        .cs-progress {
+            position: fixed; top: 0; left: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cs-accent), transparent);
+            z-index: 1000; transition: width 0.1s ease;
+        }
+
+        /* -----------------------------------------------------------
+           TYPOGRAPHY & UTILITIES
+           ----------------------------------------------------------- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--text-main);
+        }
+        p { color: var(--text-muted); font-size: 1.125rem; margin-bottom: 1.5rem; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+        section { padding: 8rem 0; position: relative; }
+
+        /* Linear Pill Label */
+        .pill-label {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 6px 16px; margin-bottom: 2rem;
+            border-radius: 9999px;
+            border: 1px solid var(--border-highlight);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            font-size: 0.85rem; font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+        .pill-label span { color: var(--cs-accent); margin-right: 8px; font-weight: 700; }
+
+        /* Text Gradient */
+        .text-gradient {
+            background: linear-gradient(135deg, #FFFFFF 0%, #a1a1aa 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-accent {
+            background: linear-gradient(135deg, #fb923c 0%, var(--cs-accent) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        /* Buttons (Linear Style) */
+        .btn-primary, .btn-secondary {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 0.875rem 1.75rem; font-size: 0.95rem; font-weight: 600;
+            border-radius: 8px; text-decoration: none; transition: var(--transition-smooth);
+        }
+        .btn-primary {
+            background: var(--text-main); color: var(--bg-color);
+            box-shadow: 0 0 0 1px transparent, 0 4px 14px rgba(0,0,0,0.5);
+        }
+        .btn-primary:hover {
+            background: #ffffff; transform: translateY(-1px);
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.2), 0 8px 24px rgba(255,255,255,0.1);
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.03); color: var(--text-main);
+            border: 1px solid var(--border-color); margin-left: 1rem;
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: var(--border-highlight); }
+
+        /* Lists */
+        .cs-list { list-style: none; padding: 0; }
+        .cs-list li {
+            position: relative; padding-left: 1.5rem; margin-bottom: 1rem;
+            color: var(--text-muted); font-size: 1.05rem;
+        }
+        .cs-list li::before {
+            content: "→"; position: absolute; left: 0; top: 0;
+            color: var(--cs-accent); font-family: monospace; font-size: 1.2rem; line-height: 1.2;
+        }
+
+        /* -----------------------------------------------------------
+           LAYOUT COMPONENTS (BENTO/CARDS)
+           ----------------------------------------------------------- */
+        .linear-bento {
+            display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; margin-top: 3rem;
+        }
+        .col-4 { grid-column: span 4; }
+        .col-6 { grid-column: span 6; }
+        .col-8 { grid-column: span 8; }
+        .col-12 { grid-column: span 12; }
+
+        /* The signature Linear Mouse-Tracking Card */
+        .linear-card {
+            position: relative;
+            background: linear-gradient(180deg, rgba(24,24,27,0.4) 0%, rgba(9,9,11,0.4) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            overflow: hidden;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+        .linear-card::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(600px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255,255,255,0.06), transparent 40%);
+            z-index: 0; pointer-events: none; opacity: 0; transition: opacity 0.3s;
+        }
+        .linear-card:hover { border-color: var(--border-highlight); }
+        .linear-card:hover::before { opacity: 1; }
+        .linear-card > * { position: relative; z-index: 1; }
+
+        .linear-card.accent-glow::before {
+            background: radial-gradient(600px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(249, 115, 22, 0.1), transparent 40%);
+        }
+
+        /* -----------------------------------------------------------
+           SECTIONS
+           ----------------------------------------------------------- */
+        /* Header */
+        header.site-header {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(12px); border-bottom: 1px solid transparent;
+            transition: border-bottom 0.3s;
+        }
+        header.site-header.scrolled { border-bottom: 1px solid var(--border-color); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 5%; }
+        .main-nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; margin: 0 1rem; transition: color 0.2s; }
+        .main-nav a:hover, .main-nav a.active { color: var(--text-main); }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding-top: 8rem; padding-bottom: 4rem;
+        }
+        .hero h1 { font-size: clamp(3.5rem, 6vw, 6rem); letter-spacing: -0.05em; margin-bottom: 1.5rem; max-width: 1000px; line-height: 1.05; }
+        .hero p.subtitle { font-size: clamp(1.1rem, 2vw, 1.25rem); max-width: 700px; margin: 0 auto 3rem; color: var(--text-muted); }
+        
+        .hero-image-wrapper {
+            width: 100%; max-width: 1100px; margin: 5rem auto 0;
+            border-radius: 12px; overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 1), 0 0 0 1px rgba(255,255,255,0.05);
+            position: relative;
+        }
+        .hero-image-wrapper::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top, var(--bg-color) 0%, transparent 20%); pointer-events: none;
+        }
+        .hero-image-wrapper img { width: 100%; display: block; }
+
+        /* Stats Strip */
+        .stats-strip {
+            display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;
+            padding: 3rem 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
+        }
+        .stat-item { flex: 1; min-width: 150px; text-align: left; }
+        .stat-value { font-size: 2.5rem; font-family: var(--font-heading); font-weight: 700; color: var(--text-main); line-height: 1; margin-bottom: 0.5rem; display: block; }
+        .stat-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cs-accent); font-weight: 600; margin-bottom: 0.25rem; display: block; }
+        .stat-context { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* Center Titles */
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+        .section-header h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); margin-top: 1rem; }
+
+        /* Process Steps */
+        .process-list { border-left: 1px solid var(--border-color); padding-left: 2.5rem; margin-left: 1rem; position: relative; }
+        .process-item { position: relative; margin-bottom: 3rem; }
+        .process-item::before {
+            content: ''; position: absolute; left: -2.85rem; top: 0.5rem;
+            width: 12px; height: 12px; border-radius: 50%; background: var(--bg-color); border: 2px solid var(--cs-accent);
+            box-shadow: 0 0 10px var(--cs-accent-glow);
+        }
+        .process-item h4 { font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--text-main); }
+        .process-num { color: var(--cs-accent); font-family: var(--font-heading); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; display: block; }
+
+        /* App Stores Cards */
+        .app-stores { display: flex; gap: 0.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .store-link {
+            font-size: 0.8rem; padding: 0.5rem 1rem; border: 1px solid var(--border-color); border-radius: 6px;
+            color: var(--text-muted); text-decoration: none; transition: all 0.2s; background: rgba(255,255,255,0.02);
+        }
+        .store-link:hover { border-color: var(--cs-accent); color: var(--text-main); }
+
+        /* Gallery */
+        .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .gallery-item { border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); position: relative; }
+        .gallery-item img { width: 100%; height: auto; display: block; transition: transform 0.7s ease; }
+        .gallery-item:hover img { transform: scale(1.02); }
+
+        /* CTA */
+        .cta-section { text-align: center; padding: 8rem 0; position: relative; }
+        .cta-section h2 { font-size: clamp(3rem, 5vw, 4.5rem); margin-bottom: 2rem; }
+
+        /* Animations */
+        .reveal-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal-fade { opacity: 0; transition: opacity 1.2s ease; }
+        .reveal-scale { opacity: 0; transform: scale(0.98); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .is-revealed { opacity: 1; transform: translateY(0) scale(1); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .col-4, .col-6, .col-8 { grid-column: span 12; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            section { padding: 5rem 0; }
+            .hero { padding-top: 8rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .btn-secondary { margin-left: 0; margin-top: 1rem; display: block; }
+            .main-nav { display: none; } /* Add hamburger for production */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CGM7HB4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <!-- UI Elements -->
+    <div class="cs-progress" aria-hidden="true"></div>
+    <div class="bg-grid"></div>
+    <div class="ambient-glow"></div>
+
+    <!-- HEADER -->
+    <header class="site-header" id="site-header">
+        <div class="container header-inner">
+            <a href="/index.html" class="logo-link">
+                <img src="/icons/header_logo.svg" alt="Nexora Logo" class="nav-logo" onerror="this.src='/images/nexora-logo.svg'" style="height: 40px; width: auto;">
+            </a>
+            <nav class="main-nav">
+                <a href="/">Home</a>
+                <a href="/about.html">About</a>
+                <a href="/services.html">Services</a>
+                <a href="/projects.html" class="active" style="color: var(--text-main);">Projects</a>
+                <a href="/contact.html">Contact</a>
+            </nav>
+            <div class="header-cta">
+                <a href="/quote.html" class="btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Get a Quote</a>
             </div>
-        </header>
-        <!-- Component 1: Modern Hero Section -->
-        <div class="hero-wrapper" id="hero-wrapper">
-            <div class="hero-bg-grid"></div>
-            <div class="hero-mouse-glow" id="hero-mouse-glow"></div>
-            <section class="hero container">
-                <h1 class="reveal delay-100">Your <span
-                        class="text-gradient">Digital
-                        Vision</span>,<br>Engineered.</h1>
-                <h2 class="reveal delay-200">High-performance web, mobile, and
-                    data solutions for modern businesses.</h2>
-                <div class="hero-cta-group">
-                    <a href="/quote.html" class="btn btn-primary-hero">Start
-                        Your Project</a>
-                    <a href="/services.html"
-                        class="btn btn-secondary-hero">Explore Services</a>
-                </div>
-            </section>
         </div>
-        <!-- METRICS SECTION -->
-        <section class="metrics-section">
-            <div class="metrics-grid">
-                <div class="metric-item">
-                    <div class="metric-number">100%</div>
-                    <div class="metric-label">Custom Code</div>
+    </header>
+
+    <main>
+        <!-- 01. HERO SECTION -->
+        <section class="hero" id="hero-heading">
+            <div class="container" style="position: relative; z-index: 2;">
+                <!-- Breadcrumb styled as Linear Pill -->
+                <div class="reveal-fade">
+                    <a href="/projects.html" style="text-decoration: none;">
+                        <div class="pill-label">
+                            <span>✦</span> Logistics & Marketplace · Lagos, Nigeria
+                        </div>
+                    </a>
                 </div>
-                <div class="metric-item">
-                    <div class="metric-number">24/7</div>
-                    <div class="metric-label">Support Available</div>
+
+                <h1 class="reveal-up delay-100">
+                    Engineering a <span class="text-gradient">Five-App Ecosystem</span><br>for Nigeria's On-Demand Economy
+                </h1>
+                
+                <p class="subtitle reveal-up delay-200">
+                    Scooty XP isn't one product — it's five interconnected role-based applications operating as a single real-time logistics and marketplace platform, live on the App Store and Google Play.
+                </p>
+                
+                <div class="hero-actions reveal-up delay-300">
+                    <a href="https://myscooty.ng" target="_blank" rel="noopener" class="btn-primary">View Platform ↗</a>
+                    <a href="#challenge" class="btn-secondary">Read Case Study ↓</a>
                 </div>
-                <div class="metric-item">
-                    <div class="metric-number">10+</div>
-                    <div class="metric-label">Services Offered</div>
-                </div>
-                <div class="metric-item">
-                    <div class="metric-number">&lt;1s</div>
-                    <div class="metric-label">Load Times</div>
+                
+                <div class="hero-image-wrapper reveal-scale delay-300" id="hero-parallax">
+                    <img src="/images/projects/scooty/hero-desktop-homepage.png" alt="Scooty XP platform overview" loading="eager" />
                 </div>
             </div>
         </section>
-        <!-- SERVICES SECTION -->
-        <section class="services-section">
-            <div class="section-header reveal">
-                <div class="section-label">// OUR CAPABILITIES</div>
-                <h2 class="section-title">Engineering Excellence</h2>
-                <p class="section-subtitle">Full-stack solutions spanning
-                    frontend aesthetics to backend data architecture.</p>
-            </div>
-            <div class="services-grid">
-                <a href="/services.html#web" class="service-card reveal">
-                    <div class="service-number">[01]</div>
-                    <svg class="service-icon" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                    </svg>
-                    <h3 class="service-title">Website Solutions</h3>
-                    <p class="service-description"> Custom development from
-                        rapid templates to fully bespoke platforms.
-                        SEO-optimized, conversion-focused, built to scale. </p>
-                    <span class="service-link"> Explore Web Services → </span>
-                </a>
-                <a href="/services.html#mobile" class="service-card reveal">
-                    <div class="service-number">[02]</div>
-                    <svg class="service-icon" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                    </svg>
-                    <h3 class="service-title">Mobile Applications</h3>
-                    <p class="service-description"> Native iOS and Android
-                        development with complete lifecycle management. Premium
-                        user experiences across all devices. </p>
-                    <span class="service-link"> Explore Mobile Services →
-                    </span>
-                </a>
-                <a href="/services.html#data" class="service-card reveal">
-                    <div class="service-number">[03]</div>
-                    <svg class="service-icon" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
-                    </svg>
-                    <h3 class="service-title">Data & Analytics</h3>
-                    <p class="service-description"> Scalable pipelines,
-                        strategic dashboards, and advanced workflow
-                        optimization. Turn data into competitive advantage. </p>
-                    <span class="service-link"> Explore Data Services → </span>
-                </a>
-            </div>
-        </section>
-        <!-- FOUNDER SECTION -->
-        <section class="founder-section">
-            <div class="founder-container">
-                <div class="founder-image-wrapper reveal">
-                    <div class="founder-image-frame">
-                        <img src="/images/founder/profile_pic.webp"
-                            alt="Joshua Stevenson - Founder"
-                            class="founder-image"
-                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 500\' fill=\'%23111111\'><rect width=\'400\' height=\'500\'/></svg>'">
+
+        <!-- 02. STATS STRIP -->
+        <section style="padding: 0;">
+            <div class="container">
+                <div class="stats-strip">
+                    <div class="stat-item reveal-up">
+                        <span class="stat-value cs-stat__value" data-raw="5">5</span>
+                        <span class="stat-label">Apps Shipped</span>
+                        <span class="stat-context">Customer · Rider · Provider · Shop · Worker</span>
+                    </div>
+                    <div class="stat-item reveal-up delay-100">
+                        <span class="stat-value cs-stat__value" data-raw="2">2</span>
+                        <span class="stat-label">Platforms</span>
+                        <span class="stat-context">iOS App Store & Google Play</span>
+                    </div>
+                    <div class="stat-item reveal-up delay-200">
+                        <span class="stat-value cs-stat__value" data-raw="RT">RT</span>
+                        <span class="stat-label">Real-Time</span>
+                        <span class="stat-context">Live dispatch & state sync</span>
+                    </div>
+                    <div class="stat-item reveal-up delay-300">
+                        <span class="stat-value cs-stat__value" data-raw="3+">3+</span>
+                        <span class="stat-label">Service Verticals</span>
+                        <span class="stat-context">Delivery · Mobility · Workforce</span>
+                    </div>
+                    <div class="stat-item reveal-up delay-300">
+                        <span class="stat-value cs-stat__value" data-raw="2025">2025</span>
+                        <span class="stat-label">Year Delivered</span>
+                        <span class="stat-context">Live at myscooty.ng</span>
                     </div>
                 </div>
-                <div class="founder-content reveal">
-                    <h2>Built by an Engineer,<br>Driven by Data</h2>
-                    <p> Nexora is led by Joshua Stevenson, a Data Analytics
-                        Engineer with extensive experience transforming complex
-                        datasets into actionable business intelligence and
-                        high-performance digital products. </p>
-                    <p> With a background spanning financial services, media,
-                        and tech sectors, Joshua brings an analytical rigor to
-                        every project—ensuring your digital infrastructure isn't
-                        just beautiful, but measurably effective. </p>
-                    <div class="founder-stats">
-                        <div class="stat-item">
-                            <span class="stat-value">BSc</span>
-                            <span class="stat-label">Computer Science & Data
-                                Science</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-value">5+</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-value">10+</span>
-                            <span class="stat-label">Tech Specializations</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-value">100%</span>
-                            <span class="stat-label">Client Satisfaction</span>
+            </div>
+        </section>
+
+        <!-- 03. OVERVIEW & THE 5 APPS -->
+        <section id="overview">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <div class="pill-label"><span>01</span> Project Overview</div>
+                    <h2>A Platform Built for the Complexity of Real-World Logistics</h2>
+                    <p>Nigeria's on-demand economy is among Africa's fastest-growing — but it's also among its most operationally complex. Nexora engineered a coordinated ecosystem to compete with industry giants.</p>
+                </div>
+
+                <div class="linear-bento">
+                    <div class="linear-card col-12 reveal-scale">
+                        <p style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 1.5rem; max-width: 900px;">
+                            Consumers expect Uber-speed delivery. Riders need seamless dispatch. Vendors require inventory and order management. Employers need to coordinate task-based workforces. No single off-the-shelf solution handles all of this simultaneously, and fragmented tools create friction at every handoff.
+                        </p>
+                        <p style="max-width: 900px; margin-bottom: 2rem;">
+                            Nexora was engaged to design and architect Scooty XP from the ground up — not as a single app, but as a coordinated ecosystem of five role-specific applications that share a unified backend, a consistent design language, and a real-time operational layer.
+                        </p>
+                        <ul class="cs-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+                            <li>Architect five distinct apps that behave as one cohesive platform</li>
+                            <li>Design role-specific UX flows without sacrificing cross-app consistency</li>
+                            <li>Engineer real-time dispatch and order state synchronisation</li>
+                            <li>Build a marketplace infrastructure ready to scale</li>
+                        </ul>
+                    </div>
+
+                    <!-- Five Apps Live -->
+                    <div class="col-12" style="margin-top: 4rem;">
+                        <h3 class="reveal-up" style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--text-main); text-align: center;">Five Apps. Live on Both Stores.</h3>
+                    </div>
+                    
+                    <div class="linear-card accent-glow col-4 reveal-up">
+                        <span style="font-size: 2rem; margin-bottom: 1rem; display: block;">🛵</span>
+                        <h4>Scooty XP</h4>
+                        <p style="font-size: 0.95rem; margin-top: 0.5rem; margin-bottom: auto;">Customer ordering, delivery tracking & ride-hailing.</p>
+                        <div class="app-stores">
+                            <a href="https://apps.apple.com/ca/app/scooty-xp/id6759159512" target="_blank" rel="noopener" class="store-link">App Store ↗</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.myscooty.customer" target="_blank" rel="noopener" class="store-link">Google Play ↗</a>
                         </div>
                     </div>
-                    <a href="/about.html"
-                        class="btn btn-secondary-hero founder-cta">Learn More
-                        About Joshua</a>
+
+                    <div class="linear-card accent-glow col-4 reveal-up delay-100">
+                        <span style="font-size: 2rem; margin-bottom: 1rem; display: block;">🏍️</span>
+                        <h4>Scooty XP Rider</h4>
+                        <p style="font-size: 0.95rem; margin-top: 0.5rem; margin-bottom: auto;">Dispatch acceptance, navigation & earnings management.</p>
+                        <div class="app-stores">
+                            <a href="https://apps.apple.com/ca/app/scooty-xp-rider/id6759160232" target="_blank" rel="noopener" class="store-link">App Store ↗</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.myscooty.driver" target="_blank" rel="noopener" class="store-link">Google Play ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="linear-card accent-glow col-4 reveal-up delay-200">
+                        <span style="font-size: 2rem; margin-bottom: 1rem; display: block;">🏢</span>
+                        <h4>Scooty Provider</h4>
+                        <p style="font-size: 0.95rem; margin-top: 0.5rem; margin-bottom: auto;">Fleet & operations management for service providers.</p>
+                        <div class="app-stores">
+                            <a href="https://apps.apple.com/ca/app/scooty-xp-provider/id6759160287" target="_blank" rel="noopener" class="store-link">App Store ↗</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.myscooty.provider" target="_blank" rel="noopener" class="store-link">Google Play ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="linear-card accent-glow col-6 reveal-up">
+                        <span style="font-size: 2rem; margin-bottom: 1rem; display: block;">🏪</span>
+                        <h4>Scooty XP Shop</h4>
+                        <p style="font-size: 0.95rem; margin-top: 0.5rem; margin-bottom: auto;">Vendor catalogue, order processing & dispatch control.</p>
+                        <div class="app-stores">
+                            <a href="https://apps.apple.com/ca/app/scooty-xp-store/id6759160252" target="_blank" rel="noopener" class="store-link">App Store ↗</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.myscooty.shop" target="_blank" rel="noopener" class="store-link">Google Play ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="linear-card accent-glow col-6 reveal-up delay-100">
+                        <span style="font-size: 2rem; margin-bottom: 1rem; display: block;">👷</span>
+                        <h4>Scooty XP Worker</h4>
+                        <p style="font-size: 0.95rem; margin-top: 0.5rem; margin-bottom: auto;">Task acceptance, job management & workforce coordination.</p>
+                        <div class="app-stores">
+                            <a href="https://apps.apple.com/ca/app/scooty-xp-worker/id6759160315" target="_blank" rel="noopener" class="store-link">App Store ↗</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.myscooty.worker" target="_blank" rel="noopener" class="store-link">Google Play ↗</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        <!-- TESTIMONIAL SECTION -->
-        <section class="testimonial-section reveal">
-            <div class="testimonial-content">
-                <div class="quote-icon">"</div>
-                <blockquote class="testimonial-text"> Excellence isn't an act,
-                    it's a habit. Every line of code, every dashboard, every
-                    deployment—engineered for impact. </blockquote>
-                <cite class="testimonial-author">— Nexora Philosophy</cite>
-            </div>
-        </section>
-        <!-- CTA SECTION -->
-        <section class="cta-section">
-            <div class="cta-content reveal">
-                <h2>Ready to Build Something Exceptional?</h2>
-                <p>Let's architect a digital solution that doesn't just meet
-                    expectations—it exceeds them by orders of magnitude.</p>
-                <a href="/quote.html" class="btn btn-primary-hero">Get Your
-                    Custom Quote</a>
-            </div>
-        </section>
-        <!-- FOOTER -->
-        <footer class="site-footer">
-            <div class="footer-container">
-                <div class="footer-grid">
-                    <div class="footer-col">
-                        <a href="/">
-                            <img src="/icons/logo_nobg.svg"
-                                alt="Nexora Web Agency Logo" class="footer-logo"
-                                onerror="this.src='/images/nexora-logo.svg'"
-                                style="height: 180px; width: auto;">
-                        </a>
-                        <p class="footer-tagline"> Digital Clarity, Delivered.
-                            High-performance engineering for modern businesses.
+
+        <!-- 04. CHALLENGE & STRATEGY -->
+        <section id="challenge">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <div class="pill-label"><span>02</span> The Challenge</div>
+                    <h2>Zero Tolerance for Operational Chaos</h2>
+                </div>
+
+                <div class="linear-bento">
+                    <div class="linear-card col-12 reveal-up" style="border-left: 2px solid var(--cs-accent);">
+                        <p style="font-size: 1.25rem; font-family: var(--font-heading); color: var(--text-main); margin: 0;">
+                            "The defining question wasn't 'how do we build five apps?' — it was 'how do we build one platform that happens to have five entry points?' That framing changed every architecture decision we made."
                         </p>
                     </div>
-                    <div class="footer-col">
-                        <h3>Quick Links</h3>
-                        <nav>
-                            <a href="/services.html">Services</a>
-                            <a href="/projects.html">Projects</a>
-                            <a href="/about.html">About Us</a>
-                            <a href="/contact.html">Contact</a>
-                            <a href="/quote.html">Get a Quote</a>
-                        </nav>
+
+                    <div class="linear-card col-6 reveal-up">
+                        <h4>Role Fragmentation Without Coherence</h4>
+                        <p style="font-size: 0.95rem;">Each user role has entirely different success metrics and interaction patterns. A customer wants speed. A rider needs frictionless navigation. A vendor needs to manage orders without leaving their counter. Designing experiences that feel purposeful required a unified design system enforced across every app from day one.</p>
                     </div>
-                    <div class="footer-col">
-                        <h3>Contact</h3>
-                        <nav>
-                            <a href="tel:+27715332762">+27 71 533 2762</a>
-                            <a
-                                href="mailto:joshua.stevenson.100703@gmail.com">Send
-                                Email</a>
-                            <a>Cape Town, SA</a>
-                        </nav>
-                    </div>
-                    <div class="footer-col">
-                        <h3>Connect</h3>
-                        <nav>
-                            <a
-                                href="https://www.linkedin.com/in/joshua-trevor-stevenson"
-                                target="_blank"
-                                rel="noopener noreferrer">LinkedIn</a>
-                        </nav>
+                    <div class="linear-card col-6 reveal-up delay-100">
+                        <h4>Real-Time State Across Distributed Sessions</h4>
+                        <p style="font-size: 0.95rem;">When an order is placed, three other apps must respond simultaneously — rider dispatch, vendor notification, and logic evaluation in under two seconds. Engineering this level of synchronisation on infrastructure suited to Nigeria's variable connectivity was the platform's defining technical constraint.</p>
                     </div>
                 </div>
-                <div class="footer-bottom">
-                    <p>&copy; <span id="year"></span> Nexora Web Agency. All
-                        rights reserved.</p>
+
+                <!-- Process Steps -->
+                <div style="margin-top: 8rem;" class="reveal-up">
+                    <div class="pill-label"><span>03</span> Process & Discovery</div>
+                    <h3 style="font-size: 2.5rem; margin-bottom: 4rem;">Ecosystem-First Thinking.</h3>
+                    
+                    <div class="process-list">
+                        <div class="process-item reveal-up">
+                            <span class="process-num">01</span>
+                            <h4>Ecosystem Mapping & Operational Logic</h4>
+                            <p>Full order lifecycle and cross-role workflow analysis. Defined every state change, every notification trigger, and every data dependency before design began.</p>
+                        </div>
+                        <div class="process-item reveal-up">
+                            <span class="process-num">02</span>
+                            <h4>Shared Design System & Component Library</h4>
+                            <p>Built a unified UI component set covering all five apps — ensuring visual and interaction consistency while enabling role-specific customisation within defined constraints.</p>
+                        </div>
+                        <div class="process-item reveal-up">
+                            <span class="process-num">03</span>
+                            <h4>Role-Specific UX Architecture</h4>
+                            <p>Designed each app's information hierarchy around its user's primary job-to-be-done — rider app for one-handed use, shop app for counter-speed fulfilment.</p>
+                        </div>
+                        <div class="process-item reveal-up">
+                            <span class="process-num">04</span>
+                            <h4>Cross-Platform Development & Real-Time</h4>
+                            <p>React Native across iOS and Android for all five apps, connected to a Node.js + Firebase backend. Real-time dispatch logic and geolocation integrated throughout.</p>
+                        </div>
+                        <div class="process-item reveal-up" style="margin-bottom: 0;">
+                            <span class="process-num">05</span>
+                            <h4>Store Submission, QA & Launch</h4>
+                            <p>Coordinated App Store and Google Play submission across all five apps simultaneously, with cross-role QA testing covering the complete order-to-delivery lifecycle.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </footer>
-        <!-- CUSTOM CURSOR -->
-        <div class="cursor"></div>
-        <div class="cursor-follower"></div>
-        <!-- SCROLL PROGRESS BAR -->
-        <div class="scroll-progress"></div>
-        <!-- SCRIPTS -->
-        <script>
-            // ==================== DYNAMIC YEAR ====================
-            document.getElementById('year').textContent = new Date().getFullYear();
+        </section>
 
-            // ==================== CUSTOM CURSOR ====================
-            const cursor = document.querySelector('.cursor');
-            const cursorFollower = document.querySelector('.cursor-follower');
-            let mouseX = 0, mouseY = 0;
-            let cursorX = 0, cursorY = 0;
-            let followerX = 0, followerY = 0;
+        <!-- 05. DESIGN SYSTEM & UX -->
+        <section id="design">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <div class="pill-label"><span>04</span> Visual & UX Design</div>
+                    <h2>One Visual Language.<br>Five Purposeful Interfaces.</h2>
+                </div>
 
-            // Update mouse position
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
+                <div class="linear-bento">
+                    <!-- UX Principles -->
+                    <div class="linear-card col-4 reveal-up">
+                        <h4>Operational Legibility</h4>
+                        <p style="font-size: 0.95rem;">Designed to be readable in one glance. Dispatch cards and map overlays follow a strict visual hierarchy: primary action first, ambient data below the fold.</p>
+                    </div>
+                    <div class="linear-card col-4 reveal-up delay-100">
+                        <h4>State-Driven Colour</h4>
+                        <p style="font-size: 0.95rem;">Orange signals action. Green signals completion. Red signals cancellation. Mappings are applied consistently so users switching roles never relearn the vocabulary.</p>
+                    </div>
+                    <div class="linear-card col-4 reveal-up delay-200">
+                        <h4>Touch-First Interaction</h4>
+                        <p style="font-size: 0.95rem;">All interactive targets meet 44×44pt minimums. The rider app extends this to 56×56pt for critical actions to account for gloves, speed, and stress.</p>
+                    </div>
 
-            // Smooth cursor animation
-            function animateCursor() {
-                // Cursor main ring
-                const dx = mouseX - cursorX;
-                const dy = mouseY - cursorY;
-                cursorX += dx * 0.2;
-                cursorY += dy * 0.2;
-                cursor.style.transform = `translate(${cursorX - 10}px, ${cursorY - 10}px)`;
+                    <!-- Flows -->
+                    <div class="col-12" style="margin-top: 2rem;">
+                        <h4 style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1rem;">Parallel Journeys, Synchronised</h4>
+                    </div>
+                    
+                    <div class="linear-card col-4 reveal-up">
+                        <span style="color: var(--cs-accent); font-family: monospace; font-size: 0.9rem;">CUSTOMER FLOW</span>
+                        <h4 style="margin: 0.5rem 0 1rem; font-size: 1.25rem;">Discover → Order → Track</h4>
+                        <p style="font-size: 0.9rem;">Primary conversion reaches "order confirmed" in under four taps. Checkout uses a persistent summary drawer; live tracking view becomes the primary screen post-order.</p>
+                    </div>
+                    <div class="linear-card col-4 reveal-up delay-100">
+                        <span style="color: var(--cs-accent); font-family: monospace; font-size: 0.9rem;">RIDER FLOW</span>
+                        <h4 style="margin: 0.5rem 0 1rem; font-size: 1.25rem;">Accept → Navigate → Deliver</h4>
+                        <p style="font-size: 0.9rem;">Built around a single decision moment. Gets the largest text and fastest response window. Transitions immediately to turn-by-turn navigation once accepted.</p>
+                    </div>
+                    <div class="linear-card col-4 reveal-up delay-200">
+                        <span style="color: var(--cs-accent); font-family: monospace; font-size: 0.9rem;">VENDOR FLOW</span>
+                        <h4 style="margin: 0.5rem 0 1rem; font-size: 1.25rem;">Receive → Confirm → Dispatch</h4>
+                        <p style="font-size: 0.9rem;">Order queue is the home screen — full-width, chronological, with colour-coded urgency. Confirmations are single-tap, designed for fast counter-speed fulfilment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                // Cursor follower dot
-                const dfx = mouseX - followerX;
-                const dfy = mouseY - followerY;
-                followerX += dfx * 0.15;
-                followerY += dfy * 0.15;
-                cursorFollower.style.transform = `translate(${followerX - 4}px, ${followerY - 4}px)`;
+        <!-- 06. FEATURES & TECH -->
+        <section id="features">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <div class="pill-label"><span>05</span> Technology Base</div>
+                    <h2>Systems Powering a Real-Time Ecosystem</h2>
+                </div>
 
-                requestAnimationFrame(animateCursor);
-            }
-            animateCursor();
+                <div class="linear-bento">
+                    <div class="linear-card col-6 reveal-up">
+                        <h4>Real-Time Dispatch Engine</h4>
+                        <p style="font-size: 0.95rem; margin-bottom: 0.5rem;">Matches incoming customer orders to the nearest available rider within seconds using proximity scoring.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Eliminates manual dispatch. Riders receive work continuously, reducing idle time and increasing throughput.</p>
+                    </div>
+                    <div class="linear-card col-6 reveal-up delay-100">
+                        <h4>Role-Based Permission Architecture</h4>
+                        <p style="font-size: 0.95rem; margin-bottom: 0.5rem;">Each app instance operates under a defined role with strictly scoped API access.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Protects operational integrity. A rider cannot view vendor financials. Ensures UIs are built exclusively around their data scope.</p>
+                    </div>
+                    
+                    <div class="linear-card col-4 reveal-up">
+                        <h4>Live GPS Map Layer</h4>
+                        <p style="font-size: 0.95rem;">Continuous 3–5s position updates. The single feature most correlated with customer trust and reduced support volume.</p>
+                    </div>
+                    <div class="linear-card col-4 reveal-up delay-100">
+                        <h4>In-App Payment</h4>
+                        <p style="font-size: 0.95rem;">End-to-end processing for card, wallet, and COD. Enables real-time earnings settlement to riders (key for retention).</p>
+                    </div>
+                    <div class="linear-card col-4 reveal-up delay-200">
+                        <h4>Push Notification Pipeline</h4>
+                        <p style="font-size: 0.95rem;">Coordinated cross-app alerts timed against operational states, not just DB events. Feels intelligent, not spammy.</p>
+                    </div>
 
-            // Cursor hover effects
-            const hoverElements = document.querySelectorAll('a, button, .service-card, .metric-item');
-            hoverElements.forEach(el => {
-                el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
-                el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
-            });
+                    <div class="linear-card col-12 reveal-up" style="background: rgba(249, 115, 22, 0.05); border-color: rgba(249, 115, 22, 0.2);">
+                        <h4 style="color: var(--cs-accent);">Workforce Booking System (Worker App)</h4>
+                        <p style="font-size: 0.95rem; max-width: 800px;">Enables businesses to post task-based jobs and engage vetted workers. This vertical diversifies platform revenue beyond logistics while reusing the same assignment, tracking, and payment infrastructure already built for delivery.</p>
+                    </div>
+                </div>
 
-            // ==================== SCROLL PROGRESS BAR ====================
-            const progressBar = document.querySelector('.scroll-progress');
+                <!-- Tech Stack Execution -->
+                <div style="margin-top: 6rem;" class="reveal-up">
+                    <h3 style="font-size: 2rem; margin-bottom: 2rem;">One Codebase Strategy, Five Production Apps</h3>
+                    <div class="linear-card col-12">
+                        <p style="font-size: 1.05rem;">The most critical technical decision made early in the project was the choice of React Native for all five apps. The alternative — native Swift and Kotlin development — would have required ten codebases total. React Native's cross-platform model halved the implementation surface while maintaining near-native performance.</p>
+                        <ul class="cs-list" style="margin-top: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+                            <li><strong>Frontend:</strong> React Native (iOS + Android) & Shared Component Library</li>
+                            <li><strong>Backend:</strong> Node.js + Express API layer, Firebase Realtime Database</li>
+                            <li><strong>Infrastructure:</strong> Firebase Auth, Cloud Functions for serverless dispatch</li>
+                            <li><strong>Integrations:</strong> Google Maps Platform, Payment Gateways, FCM Push</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            function updateScrollProgress() {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrollPercent = (scrollTop / scrollHeight);
-                progressBar.style.transform = `scaleX(${scrollPercent})`;
-            }
+        <!-- 07. RESULTS -->
+        <section id="results">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <div class="pill-label"><span>06</span> Business Impact</div>
+                    <h2>A Platform Ready to Scale</h2>
+                </div>
 
-            window.addEventListener('scroll', updateScrollProgress, { passive: true });
+                <div class="linear-bento">
+                    <div class="linear-card col-4 reveal-up">
+                        <h4 class="text-gradient-accent" style="font-size: 2rem; margin-bottom: 0.5rem;">All 10</h4>
+                        <h5 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Apps Live on Stores</h5>
+                        <p style="font-size: 0.9rem;">Shipped successfully to both Apple App Store and Google Play — a significant co-ordination milestone.</p>
+                    </div>
+                    <div class="linear-card col-4 reveal-up delay-100">
+                        <h4 class="text-gradient-accent" style="font-size: 2rem; margin-bottom: 0.5rem;">< 3s</h4>
+                        <h5 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Dispatch Assignment</h5>
+                        <p style="font-size: 0.9rem;">Firebase-powered engine assigns orders to the nearest available rider in under three seconds.</p>
+                    </div>
+                    <div class="linear-card col-4 reveal-up delay-200">
+                        <h4 class="text-gradient-accent" style="font-size: 2rem; margin-bottom: 0.5rem;">-60%</h4>
+                        <h5 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Maintenance Overhead</h5>
+                        <p style="font-size: 0.9rem;">Shared codebase means bug fixes propagate to all apps simultaneously, drastically reducing engineering load.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            // ==================== HEADER SCROLL EFFECT ====================
-            const header = document.querySelector('.site-header');
-            let lastScroll = 0;
+        <!-- 08. GALLERY -->
+        <section id="gallery">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <div class="pill-label"><span>07</span> Visual Gallery</div>
+                    <h2>Inside the Ecosystem</h2>
+                </div>
 
+                <div class="gallery-grid">
+                    <div class="gallery-item reveal-scale">
+                        <img src="/images/projects/scooty/gallery-01.png" alt="Scooty XP customer app" loading="lazy" />
+                    </div>
+                    <div class="gallery-item reveal-scale delay-100">
+                        <img src="/images/projects/scooty/gallery-02.png" alt="Scooty XP Rider app" loading="lazy" />
+                    </div>
+                    <div class="gallery-item reveal-scale">
+                        <img src="/images/projects/scooty/gallery-03.png" alt="Scooty XP Shop app" loading="lazy" />
+                    </div>
+                    <div class="gallery-item reveal-scale delay-100">
+                        <img src="/images/projects/scooty/gallery-04.png" alt="Scooty XP live tracking" loading="lazy" />
+                    </div>
+                </div>
+                <div class="gallery-item reveal-scale" style="margin-top: 1.5rem;">
+                    <img src="/images/projects/scooty/desktop-full.png" alt="Platform overview all five apps" loading="lazy" />
+                </div>
+            </div>
+        </section>
+
+        <!-- 09. CTA -->
+        <section class="cta-section">
+            <div class="container reveal-up">
+                <div class="pill-label" style="margin-bottom: 1.5rem;"><span>✦</span> Next Steps</div>
+                <h2>Building a Multi-Role<br>Mobile Ecosystem?</h2>
+                <p style="max-width: 600px; margin: 0 auto 3rem;">We design and engineer platforms where multiple user types depend on each other to succeed — and where real-time coordination is the product. Let's scope yours.</p>
+                
+                <div>
+                    <a href="/quote.html" class="btn-primary">Start a Project →</a>
+                    <a href="/projects.html" class="btn-secondary">View All Projects</a>
+                </div>
+
+                <!-- Related -->
+                <div style="margin-top: 6rem; text-align: left; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <h4 style="font-size: 1rem; color: var(--text-muted); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em;">More Projects</h4>
+                    <div class="linear-bento" style="margin-top: 0;">
+                        <a href="/projects/red-wolf-security.html" class="linear-card col-6" style="text-decoration: none;">
+                            <span style="font-size: 0.8rem; color: #EF4444; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Corporate Security · Nigeria</span>
+                            <h4 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 0.5rem;">Red Wolf Security</h4>
+                            <span style="color: var(--text-muted); font-size: 0.9rem;">redwolfsecurity.com ↗</span>
+                        </a>
+                        <a href="/projects/bush-creek-guest-house.html" class="linear-card col-6" style="text-decoration: none;">
+                            <span style="font-size: 0.8rem; color: #84CC16; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Hospitality · SA</span>
+                            <h4 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 0.5rem;">Bush Creek Guest House</h4>
+                            <span style="color: var(--text-muted); font-size: 0.9rem;">bushcreekguesthouse.co.za ↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="border-top: 1px solid var(--border-color); padding: 4rem 0; background: var(--bg-color);">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
+            <div class="reveal-up">
+                <a href="/index.html">
+                    <img src="/icons/logo_nobg.svg" alt="Nexora Web Agency Logo" onerror="this.src='/images/nexora-logo.svg'" style="height: 120px; width: auto; margin-bottom: 1rem;">
+                </a>
+            </div>
+            <div class="reveal-up delay-100">
+                <h3 style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-main);">Quick Links</h3>
+                <nav style="display: flex; flex-direction: column; gap: 0.8rem;">
+                    <a href="/services.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">Services</a>
+                    <a href="/projects.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">Projects</a>
+                    <a href="/about.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">About Us</a>
+                    <a href="/contact.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">Contact</a>
+                    <a href="/quote.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">Get a Quote</a>
+                </nav>
+            </div>
+            <div class="reveal-up delay-200">
+                <h3 style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-main);">Contact Us</h3>
+                <p style="margin-bottom: 0.5rem; font-size: 0.95rem; color: var(--text-muted);">Cape Town, South Africa</p>
+                <a href="mailto:contact@nexoraweb.agency" style="color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">contact@nexoraweb.agency</a>
+            </div>
+            <div class="reveal-up delay-300">
+                <h3 style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-main);">Follow Us</h3>
+                <a href="https://www.linkedin.com/in/joshua-trevor-stevenson" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">LinkedIn</a>
+            </div>
+        </div>
+        <div class="container reveal-up delay-400" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">&copy; <script>document.write(new Date().getFullYear())</script> Nexora Web Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Navbar Scroll Effect
+            const header = document.getElementById('site-header');
             window.addEventListener('scroll', () => {
-                const currentScroll = window.pageYOffset;
-
-                if (currentScroll > 100) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-
-                lastScroll = currentScroll;
+                if (window.scrollY > 50) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
             }, { passive: true });
 
-            // ==================== PARALLAX SCROLL EFFECTS ====================
-            const parallaxElements = document.querySelectorAll('.parallax-layer');
-
-            function handleParallax() {
-                const scrolled = window.pageYOffset;
-
-                parallaxElements.forEach((el, index) => {
-                    const speed = (index + 1) * 0.1;
-                    const yPos = -(scrolled * speed);
-                    el.style.transform = `translateY(${yPos}px)`;
-                });
+            // 2. Reading Progress Bar
+            const bar = document.querySelector('.cs-progress');
+            if (bar) {
+                window.addEventListener('scroll', () => {
+                    const st = window.scrollY;
+                    const dh = document.documentElement.scrollHeight - window.innerHeight;
+                    bar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
+                }, { passive: true });
             }
 
-            window.addEventListener('scroll', handleParallax, { passive: true });
-
-            // ==================== SCROLL REVEAL ANIMATIONS ====================
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15
-            };
-
-            const observer = new IntersectionObserver((entries) => {
+            // 3. Intersection Observer for Reveal Animations
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+            const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
+                        entry.target.classList.add('is-revealed');
+                        observer.unobserve(entry.target); // Reveal once
                     }
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.reveal').forEach(el => {
-                observer.observe(el);
-            });
+            const revealElements = document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-scale');
+            revealElements.forEach(el => observer.observe(el));
 
-            // ==================== SMOOTH SCROLL FOR ANCHOR LINKS ====================
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        const headerOffset = 80;
-                        const elementPosition = target.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // ==================== PERFORMANCE: REDUCED MOTION ====================
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-            if (prefersReducedMotion.matches) {
-                // Disable animations for users who prefer reduced motion
-                document.querySelectorAll('*').forEach(el => {
-                    el.style.animation = 'none';
-                    el.style.transition = 'none';
-                });
-            }
-
-            // ==================== DYNAMIC METRIC COUNTING ====================
-            const metricNumbers = document.querySelectorAll('.metric-number');
-
-            const countUpObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-                        entry.target.classList.add('counted');
-                        const text = entry.target.textContent;
-
-                        // Skip if not a number
-                        if (!/\d/.test(text)) return;
-
-                        // Extract number from text like "100%" or "24/7"
-                        const match = text.match(/\d+/);
-                        if (!match) return;
-
-                        const targetNum = parseInt(match[0]);
-                        const duration = 1500;
-                        const steps = 60;
-                        const increment = targetNum / steps;
-                        let current = 0;
-
-                        const counter = setInterval(() => {
-                            current += increment;
-                            if (current >= targetNum) {
-                                entry.target.textContent = text; // Restore original text
-                                clearInterval(counter);
-                            } else {
-                                entry.target.textContent = text.replace(/\d+/, Math.floor(current));
-                            }
-                        }, duration / steps);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            metricNumbers.forEach(el => countUpObserver.observe(el));
-
-            // ==================== SERVICE CARD 3D TILT EFFECT ====================
-            const serviceCards = document.querySelectorAll('.service-card');
-
-            serviceCards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
+            // 4. Linear-style Mouse Tracking Glow on Cards
+            document.querySelectorAll('.linear-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
-
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-
-                    const rotateX = (y - centerY) / 20;
-                    const rotateY = (centerX - x) / 20;
-
-                    card.style.transform = `translateY(-8px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-                });
-
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'translateY(0) perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
                 });
             });
 
-            // ==================== METRIC ITEM PARALLAX ON HOVER ====================
-            const metricItems = document.querySelectorAll('.metric-item');
+            // 5. Count-Up Animation for Stats
+            function countUp(el, raw, dur) {
+                let num = parseFloat(raw.replace(/[^0-9.]/g, ''));
+                if (isNaN(num)) return; 
+                let suffix = raw.replace(/^[\d.]+/, '');
+                let startTime = performance.now();
+                (function tick(now) {
+                    let p = Math.min((now - startTime) / dur, 1);
+                    let ease = 1 - Math.pow(1 - p, 3); // cubic ease-out
+                    el.textContent = Math.round(num * ease) + suffix;
+                    if (p < 1) requestAnimationFrame(tick);
+                })(startTime);
+            }
 
-            metricItems.forEach(item => {
-                item.addEventListener('mousemove', (e) => {
-                    const rect = item.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-
-                    const moveX = (x - centerX) / 10;
-                    const moveY = (y - centerY) / 10;
-
-                    const number = item.querySelector('.metric-number');
-                    if (number) {
-                        number.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            const statObs = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        countUp(entry.target, entry.target.dataset.raw, 1400);
+                        statObs.unobserve(entry.target);
                     }
                 });
+            }, { threshold: 0.6 });
 
-                item.addEventListener('mouseleave', () => {
-                    const number = item.querySelector('.metric-number');
-                    if (number) {
-                        number.style.transform = 'translate(0, 0)';
+            document.querySelectorAll('.cs-stat__value').forEach(function (el) {
+                el.dataset.raw = el.textContent.trim();
+                statObs.observe(el);
+            });
+
+            // 6. Subtle Parallax on Hero Image
+            const heroImg = document.getElementById('hero-parallax');
+            if (heroImg) {
+                heroImg.style.willChange = 'transform';
+                window.addEventListener('scroll', () => {
+                    const y = window.scrollY;
+                    if (y < 900) {
+                        heroImg.style.transform = `translateY(${y * 0.05}px) scale(${1 + (y * 0.0001)})`;
                     }
-                });
-            });
-
-            // ==================== LOADING PERFORMANCE ====================
-            window.addEventListener('load', () => {
-                // Mark page as fully loaded for performance tracking
-                document.body.classList.add('loaded');
-
-                // Optional: Log performance metrics
-                if (window.performance) {
-                    const perfData = window.performance.timing;
-                    const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-                    console.log('Page Load Time: ' + pageLoadTime + 'ms');
-                }
-            });
-        </script>
-        <!-- Interactive Animation Logic -->
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                // 1. Scroll Reveal Intersection Observer
-                const observerOptions = {
-                    root: null,
-                    rootMargin: '0px',
-                    threshold: 0.15 // Trigger when 15% of the element is visible
-                };
-
-                const observer = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('active');
-                            observer.unobserve(entry.target); // Only animate once
-                        }
-                    });
-                }, observerOptions);
-
-                document.querySelectorAll('.reveal').forEach(el => {
-                    observer.observe(el);
-                });
-
-                // 2. Interactive Spotlight Effect for Cards
-                // Adds a subtle glow following the user's cursor inside the card
-                const cardsContainer = document.getElementById('cards-container');
-
-                if (cardsContainer) {
-                    cardsContainer.addEventListener('mousemove', e => {
-                        for (const card of document.querySelectorAll('.service-card')) {
-                            const rect = card.getBoundingClientRect(),
-                                x = e.clientX - rect.left,
-                                y = e.clientY - rect.top;
-
-                            card.style.setProperty("--mouse-x", `${x}px`);
-                            card.style.setProperty("--mouse-y", `${y}px`);
-                        }
-                    });
-                }
-
-                // 3. Hero Mouse Glow Tracking
-                const heroWrapper = document.getElementById('hero-wrapper');
-                const heroGlow = document.getElementById('hero-mouse-glow');
-
-                if (heroWrapper && heroGlow) {
-                    heroWrapper.addEventListener('mousemove', (e) => {
-                        const rect = heroWrapper.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
-
-                        heroGlow.style.left = `${x}px`;
-                        heroGlow.style.top = `${y}px`;
-                    });
-
-                    // Re-center glow when mouse leaves the hero section
-                    heroWrapper.addEventListener('mouseleave', () => {
-                        heroGlow.style.left = '50%';
-                        heroGlow.style.top = '50%';
-                    });
-                }
-            });
-        </script>
-    </body>
-
+                }, { passive: true });
+            }
+        });
+    </script>
+</body>
 </html>

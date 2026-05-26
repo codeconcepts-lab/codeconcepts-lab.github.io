@@ -928,6 +928,25 @@ body:has(.contact-section) .page-hero {
     box-shadow: 0 0 8px #f39c12;
 }
 
+.project-status--live::before {
+    background-color: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+.project-status--live {
+    color: #22c55e;
+}
+
+.project-industry {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    opacity: 0.85;
+}
+
 @media (max-width: 992px) {
     .project-grid {
         grid-template-columns: 1fr;

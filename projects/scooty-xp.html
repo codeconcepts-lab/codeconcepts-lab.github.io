@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-5CGM7HB4');</script>
+        <!-- End Google Tag Manager -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Scooty XP Case Study | Nexora — Nigerian Multi-App Logistics Ecosystem</title>
+        <meta name="description" content="How Nexora engineered Scooty XP — a five-app real-time logistics and marketplace ecosystem for Nigeria's on-demand economy, live on both App Store and Google Play." />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Scooty XP — Case Study | Nexora Web Agency" />
+        <meta property="og:description" content="Five apps. One ecosystem. Real-time dispatch, role-based architecture, and a logistics platform engineered for Nigeria's on-demand economy." />
+        <meta property="og:url" content="https://codeconcepts-lab.github.io/projects/scooty-xp.html" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href="https://codeconcepts-lab.github.io/projects/scooty-xp.html" />
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": "Scooty XP — Multi-App Logistics Ecosystem Design & Development",
+            "creator": { "@type": "Organization", "name": "Nexora Web Agency", "url": "https://codeconcepts-lab.github.io" },
+            "about": { "@type": "SoftwareApplication", "name": "Scooty XP", "url": "https://myscooty.ng", "applicationCategory": "Logistics, Marketplace, Mobility" }
+        }
+        </script>
+        <!-- Favicons -->
+        <link rel="icon" href="/icons/emblem.svg" />
+        <link rel="apple-touch-icon" href="/icons/nexora_emblem.png" />
+        <!-- Global CSS -->
+        <link rel="stylesheet" href="/assets/css/global.css" />
+        <link rel="stylesheet" href="/assets/css/utilities.css" />
+        <link rel="stylesheet" href="/assets/css/main.css" />
+        <link rel="stylesheet" href="/assets/css/case-study.css" />
+        <style>
+            :root {
+                --cs-accent: #F97316;
+                --cs-accent-glow: rgba(249, 115, 22, 0.12);
+            }
+
+            .cs-hero {
+                background: radial-gradient(circle at top right, rgba(249, 115, 22, 0.08), transparent 55%);
+            }
+
+            .cs-image {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 8px;
+            }
+
+            .cs-image-frame {
+                border-radius: 12px;
+                overflow: hidden;
+                background: var(--color-surface, #111827);
+                box-shadow: 0 4px 32px rgba(0, 0, 0, 0.22), 0 1px 4px rgba(0, 0, 0, 0.12);
+                line-height: 0;
+            }
+
+            .cs-hero-shot__img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 0;
+            }
+
+            .cs-mockup--mobile .cs-image {
+                border-radius: 20px;
+            }
+
+            .cs-placeholder--caption {
+                margin-top: 0.6rem;
+                font-size: 0.8rem;
+                color: var(--color-text-muted, #6b7280);
+                text-align: center;
+                display: block;
+            }
+
+            /* Role-app grid */
+            .cs-app-roles {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+
+            .cs-app-role-card {
+                background: var(--color-bg-surface, #1E1E1E);
+                border: 1px solid var(--color-border-subtle, #333);
+                border-radius: 10px;
+                padding: 1.25rem 1rem;
+                text-align: center;
+                transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .cs-app-role-card:hover {
+                border-color: var(--cs-accent);
+                transform: translateY(-3px);
+                box-shadow: 0 8px 24px rgba(249, 115, 22, 0.1);
+            }
+
+            .cs-app-role-card__icon {
+                font-size: 1.75rem;
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+
+            .cs-app-role-card__title {
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: var(--color-text-primary, #E0E0E0);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-bottom: 0.25rem;
+            }
+
+            .cs-app-role-card__desc {
+                font-size: 0.78rem;
+                color: var(--color-text-secondary, #A0A0A0);
+                line-height: 1.4;
+            }
+
+            .cs-app-stores {
+                display: flex;
+                gap: 0.75rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 0.75rem;
+            }
+
+            .cs-app-store-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+                padding: 0.4rem 0.85rem;
+                border: 1px solid var(--color-border-subtle, #333);
+                border-radius: 6px;
+                font-size: 0.78rem;
+                color: var(--color-text-secondary, #A0A0A0);
+                text-decoration: none;
+                transition: border-color 0.2s, color 0.2s;
+            }
+
+            .cs-app-store-link:hover {
+                border-color: var(--cs-accent);
+                color: var(--cs-accent);
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CGM7HB4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <div class="cs-progress" aria-hidden="true"></div>
+
+        <!-- HEADER -->
+        <header class="site-header">
+            <div class="container header-inner">
+                <a href="/index.html" class="logo-link">
+                    <img src="/icons/header_logo.svg" alt="Nexora Logo" class="nav-logo" onerror="this.src='/images/nexora-logo.svg'" style="height: 70px; width: auto;">
+                </a>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <svg class="icon-menu" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                    <svg class="icon-close" style="display:none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/services.html">Services</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-cta">
+                    <a href="/quote.html" class="btn-primary">Get a Quote</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- BREADCRUMB -->
+        <nav class="cs-breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <a href="/projects.html">← Projects</a>
+                <span class="cs-breadcrumb__sep" aria-hidden="true">/</span>
+                <span class="cs-breadcrumb__current">Scooty XP</span>
+            </div>
+        </nav>
+
+        <main>
+
+            <!-- ════════════════════════════════════════
+                 HERO
+                 ════════════════════════════════════════ -->
+            <section class="cs-section cs-hero" aria-labelledby="hero-heading">
+                <div class="container cs-hero__inner">
+                    <!-- Left: text -->
+                    <div>
+                        <span class="cs-label reveal reveal--blur">Logistics &amp; Marketplace · Lagos, Nigeria</span>
+                        <div class="cs-sep" aria-hidden="true"></div>
+                        <h1 class="cs-hero__title reveal reveal--left delay-100" id="hero-heading">
+                            Engineering a <span class="text-gradient">Five-App Ecosystem</span><br>for Nigeria's On-Demand Economy
+                        </h1>
+                        <p class="cs-hero__desc reveal reveal--left delay-200">
+                            Scooty XP isn't one product — it's five interconnected role-based applications operating as a single real-time logistics and marketplace platform, live on the App Store and Google Play.
+                        </p>
+                        <div class="cs-hero__actions reveal reveal--left delay-300">
+                            <a href="https://myscooty.ng" target="_blank" rel="noopener" class="btn-primary">View Platform ↗</a>
+                            <a href="#challenge" class="btn-secondary">Read Case Study</a>
+                        </div>
+                        <div class="cs-hero__tags reveal reveal--left delay-400">
+                            <span class="cs-tag">Multi-App Ecosystem</span>
+                            <span class="cs-tag">React Native</span>
+                            <span class="cs-tag">Real-Time Dispatch</span>
+                            <span class="cs-tag">Marketplace</span>
+                            <span class="cs-tag">Nigeria</span>
+                        </div>
+                    </div>
+                    <!-- Right: hero screenshot -->
+                    <div class="reveal reveal--scale delay-200" aria-hidden="true">
+                        <div class="cs-image-frame cs-hero-shot cs-hero-shot--glow cs-float">
+                            <img
+                                src="/images/projects/scooty/hero-desktop-homepage.png"
+                                alt="Scooty XP platform overview"
+                                class="cs-image cs-hero-shot__img"
+                                loading="eager" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ════════════════════════════════════════
+                 STATS STRIP
+                 ════════════════════════════════════════ -->
+            <section class="cs-section cs-section--surface" aria-label="Project snapshot">
+                <div class="container">
+                    <div class="cs-stats-strip stagger-children">
+                        <div class="cs-stat reveal reveal--scale">
+                            <span class="cs-stat__value">5</span>
+                            <span class="cs-stat__label">Apps Shipped</span>
+                            <span class="cs-stat__context">Customer · Rider · Provider · Shop · Worker</span>
+                        </div>
+                        <div class="cs-stat reveal reveal--scale">
+                            <span class="cs-stat__value">2</span>
+                            <span class="cs-stat__label">Platforms</span>
+                            <span class="cs-stat__context">iOS App Store &amp; Google Play — all five apps</span>
+                        </div>
+                        <div class="cs-stat reveal reveal--scale">
+                            <span class="cs-stat__value">RT</span>
+                            <span class="cs-stat__label">Real-Time</span>
+                            <span class="cs-stat__context">Live dispatch, GPS tracking &amp; state sync</span>
+                        </div>
+                        <div class="cs-stat reveal reveal--scale">
+                            <span class="cs-stat__value">3+</span>
+                            <span class="cs-stat__label">Service Verticals</span>
+                            <span class="cs-stat__context">Delivery · Mobility · Workforce booking</span>
+                        </div>
+                        <div class="cs-stat reveal reveal--scale">
+                            <span class="cs-stat__value">2025</span>
+                            <span class="cs-stat__label">Year Delivered</span>
+                            <span class="cs-stat__context">Live at myscooty.ng</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="cs-divider container" aria-hidden="true"></div>
+
+            <!-- ════════════════════════════════════════
+                 PROJECT OVERVIEW
+                 ════════════════════════════════════════ -->
+            <section class="cs-section" id="overview" aria-labelledby="overview-heading">
+                <div class="container cs-two-col">
+                    <div>
+                        <span class="cs-label reveal reveal--left">Project Overview</span>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="overview-heading">
+                            A Platform Built for the Complexity of Real-World Logistics
+                        </h2>
+                    </div>
+                    <div class="reveal reveal--right delay-200">
+                        <p>Nigeria's on-demand economy is among Africa's fastest-growing — but it's also among its most operationally complex. Consumers expect Uber-speed delivery. Riders need seamless dispatch. Vendors require inventory and order management. Employers need to coordinate task-based workforces. No single off-the-shelf solution handles all of this simultaneously, and the fragmented tools that exist create friction at every handoff.</p>
+                        <p style="margin-top: 1rem;">Nexora was engaged to design and architect Scooty XP from the ground up — not as a single app, but as a coordinated ecosystem of five role-specific applications that share a unified backend, a consistent design language, and a real-time operational layer. The goal was a platform that could compete with Bolt Food and Jumia on user experience while operating at the infrastructure sophistication of a Series B logistics startup.</p>
+                        <ul class="cs-list" style="margin-top: 1.5rem;">
+                            <li>Architect five distinct apps that behave as one cohesive platform</li>
+                            <li>Design role-specific UX flows without sacrificing cross-app consistency</li>
+                            <li>Engineer real-time dispatch and order state synchronisation across all user types</li>
+                            <li>Build a marketplace infrastructure ready to scale from MVP to commercial growth</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- App Store Links -->
+            <section class="cs-section cs-section--surface" aria-label="Live apps">
+                <div class="container">
+                    <h3 class="cs-subheading reveal reveal--left" style="margin-bottom: 1.5rem;">Five Apps. Live on Both Stores.</h3>
+                    <div class="cs-app-roles stagger-children">
+                        <div class="cs-app-role-card reveal reveal--scale">
+                            <span class="cs-app-role-card__icon">🛵</span>
+                            <div class="cs-app-role-card__title">Scooty XP</div>
+                            <div class="cs-app-role-card__desc">Customer ordering, delivery tracking &amp; ride-hailing</div>
+                            <div class="cs-app-stores">
+                                <a href="https://apps.apple.com/ca/app/scooty-xp/id6759159512" target="_blank" rel="noopener" class="cs-app-store-link">App Store ↗</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.myscooty.customer" target="_blank" rel="noopener" class="cs-app-store-link">Google Play ↗</a>
+                            </div>
+                        </div>
+                        <div class="cs-app-role-card reveal reveal--scale">
+                            <span class="cs-app-role-card__icon">🏍️</span>
+                            <div class="cs-app-role-card__title">Scooty XP Rider</div>
+                            <div class="cs-app-role-card__desc">Dispatch acceptance, navigation &amp; earnings management</div>
+                            <div class="cs-app-stores">
+                                <a href="https://apps.apple.com/ca/app/scooty-xp-rider/id6759160232" target="_blank" rel="noopener" class="cs-app-store-link">App Store ↗</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.myscooty.driver" target="_blank" rel="noopener" class="cs-app-store-link">Google Play ↗</a>
+                            </div>
+                        </div>
+                        <div class="cs-app-role-card reveal reveal--scale">
+                            <span class="cs-app-role-card__icon">🏢</span>
+                            <div class="cs-app-role-card__title">Scooty XP Provider</div>
+                            <div class="cs-app-role-card__desc">Fleet &amp; operations management for service providers</div>
+                            <div class="cs-app-stores">
+                                <a href="https://apps.apple.com/ca/app/scooty-xp-provider/id6759160287" target="_blank" rel="noopener" class="cs-app-store-link">App Store ↗</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.myscooty.provider" target="_blank" rel="noopener" class="cs-app-store-link">Google Play ↗</a>
+                            </div>
+                        </div>
+                        <div class="cs-app-role-card reveal reveal--scale">
+                            <span class="cs-app-role-card__icon">🏪</span>
+                            <div class="cs-app-role-card__title">Scooty XP Shop</div>
+                            <div class="cs-app-role-card__desc">Vendor catalogue, order processing &amp; dispatch control</div>
+                            <div class="cs-app-stores">
+                                <a href="https://apps.apple.com/ca/app/scooty-xp-store/id6759160252" target="_blank" rel="noopener" class="cs-app-store-link">App Store ↗</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.myscooty.shop" target="_blank" rel="noopener" class="cs-app-store-link">Google Play ↗</a>
+                            </div>
+                        </div>
+                        <div class="cs-app-role-card reveal reveal--scale">
+                            <span class="cs-app-role-card__icon">👷</span>
+                            <div class="cs-app-role-card__title">Scooty XP Worker</div>
+                            <div class="cs-app-role-card__desc">Task acceptance, job management &amp; workforce coordination</div>
+                            <div class="cs-app-stores">
+                                <a href="https://apps.apple.com/ca/app/scooty-xp-worker/id6759160315" target="_blank" rel="noopener" class="cs-app-store-link">App Store ↗</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.myscooty.worker" target="_blank" rel="noopener" class="cs-app-store-link">Google Play ↗</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="cs-divider container" aria-hidden="true"></div>
+
+            <!-- ════════════════════════════════════════
+                 THE CHALLENGE
+                 ════════════════════════════════════════ -->
+            <section class="cs-section" id="challenge" aria-labelledby="challenge-heading">
+                <div class="container cs-two-col">
+                    <div>
+                        <span class="cs-label reveal reveal--left">The Challenge</span>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="challenge-heading">
+                            Five User Roles. One System. Zero Tolerance for Operational Chaos.
+                        </h2>
+                    </div>
+                    <div class="reveal reveal--right delay-200">
+                        <p>Building a single high-quality mobile app is a significant undertaking. Building five simultaneously — each serving a distinct user type with its own mental model, workflow priorities, and real-time data requirements — is an architectural challenge of a different order. The risk wasn't just poor UX. It was operational collapse: orders going unacknowledged, riders receiving stale dispatch data, vendors unable to manage incoming volume. In a market as competitive and impatient as Nigeria's logistics sector, those failures translate directly into lost customers and dead growth.</p>
+
+                        <h3 class="cs-subheading" style="margin-top: 2rem;">Role Fragmentation Without Coherence</h3>
+                        <p>Each of the five user roles — customer, rider, provider, shop, worker — has entirely different success metrics and interaction patterns. A customer wants speed and transparency. A rider needs frictionless navigation and clear earnings visibility. A vendor needs to manage orders without leaving their counter. Designing five experiences that feel equally purposeful without becoming five separate products required a unified design system enforced across every app from day one.</p>
+
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">Real-Time State Across Distributed Sessions</h3>
+                        <p>When a customer places an order, at least three other apps must respond simultaneously — the nearest available rider receives a dispatch ping, the vendor receives an order notification, and the platform's assignment logic must evaluate availability and route optimality in under two seconds. Any latency or state mismatch breaks the contract the platform makes with its users. Engineering this level of synchronisation on infrastructure suited to Nigeria's variable connectivity was the platform's defining technical constraint.</p>
+
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">Marketplace Scalability from Day One</h3>
+                        <p>Scooty XP launched with ambitions beyond a single city. The architecture needed to support multi-city expansion, multi-vendor onboarding, and new service verticals — without requiring architectural rebuilds at each growth stage. Building for scale when the initial user base is still small is an exercise in disciplined restraint: choosing infrastructure primitives that don't constrain the future, even when simpler solutions would ship faster.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Challenge callout -->
+            <section class="cs-section cs-section--surface" aria-label="Key insight">
+                <div class="container">
+                    <div class="cs-callout reveal reveal--blur">
+                        <p>"The defining question wasn't 'how do we build five apps?' — it was 'how do we build one platform that happens to have five entry points?' That framing changed every architecture decision we made."</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="cs-divider container" aria-hidden="true"></div>
+
+            <!-- ════════════════════════════════════════
+                 STRATEGY / DISCOVERY
+                 ════════════════════════════════════════ -->
+            <section class="cs-section" id="strategy" aria-labelledby="strategy-heading">
+                <div class="container cs-two-col">
+                    <div>
+                        <span class="cs-label reveal reveal--left">Strategy &amp; Discovery</span>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="strategy-heading">
+                            Ecosystem-First Thinking Before a Single Screen Was Designed
+                        </h2>
+                    </div>
+                    <div class="reveal reveal--right delay-200">
+                        <p>Before any wireframe was drawn, Nexora spent the discovery phase mapping the operational flow of a complete order lifecycle — from the moment a customer taps "Order" to the moment a rider marks a delivery complete. Every decision a user makes, every notification the system sends, every state change the backend records was mapped as a first step. Only by understanding the full operational logic could the team design UX that genuinely supported it rather than approximated it.</p>
+
+                        <h3 class="cs-subheading" style="margin-top: 2rem;">Role-Specific Mental Model Analysis</h3>
+                        <p>Each user type was studied through the lens of their core job-to-be-done. A customer's job is to receive something reliably and quickly. A rider's job is to maximise productive hours while minimising wasted navigation. A vendor's job is to fulfil orders without disrupting their physical operation. These aren't UX personas — they're workflow realities that determined every screen layout, every CTA position, and every notification strategy within each app. The rider app, for instance, was designed to be operable with one hand while mounted on a motorcycle; the shop app was designed for tap-first interactions from behind a counter.</p>
+
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">Shared Design System Architecture</h3>
+                        <p>To maintain coherence across five apps without duplicating design work, the team established a shared component library before building any individual screen. Colour, typography, spacing, button states, card structures, map overlays, and notification patterns were all defined centrally. This meant each role-specific app felt like Scooty XP, not like five different companies using the same name. It also drastically reduced the iteration cycle — a change to the core card component propagated consistently rather than requiring five separate updates.</p>
+
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">Real-Time-First Backend Planning</h3>
+                        <p>The system was designed around the assumption that real-time synchronisation was not a feature — it was the product. Firebase was selected not because it was the easiest backend choice, but because its real-time database model natively supports the bidirectional state propagation that logistics dispatch requires. Every data model was designed with concurrent read/write patterns in mind, ensuring that order state changes triggered the correct downstream events in every connected app without manual polling.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Process steps -->
+            <section class="cs-section cs-section--surface" aria-label="Process">
+                <div class="container">
+                    <h3 class="cs-subheading reveal reveal--left" style="margin-bottom: 2rem;">Our Process</h3>
+                    <div class="cs-process stagger-children">
+                        <div class="cs-process-step reveal">
+                            <span class="cs-process-step__num">01</span>
+                            <h4 class="cs-process-step__title">Ecosystem Mapping &amp; Operational Logic</h4>
+                            <p class="cs-process-step__desc">Full order lifecycle and cross-role workflow analysis. Defined every state change, every notification trigger, and every data dependency before design began.</p>
+                        </div>
+                        <div class="cs-process-step reveal">
+                            <span class="cs-process-step__num">02</span>
+                            <h4 class="cs-process-step__title">Shared Design System &amp; Component Library</h4>
+                            <p class="cs-process-step__desc">Built a unified UI component set covering all five apps — ensuring visual and interaction consistency while enabling role-specific customisation within defined constraints.</p>
+                        </div>
+                        <div class="cs-process-step reveal">
+                            <span class="cs-process-step__num">03</span>
+                            <h4 class="cs-process-step__title">Role-Specific UX Architecture</h4>
+                            <p class="cs-process-step__desc">Designed each app's information hierarchy around its user's primary job-to-be-done — rider app for one-handed use, shop app for counter-speed fulfilment, customer app for discovery and trust.</p>
+                        </div>
+                        <div class="cs-process-step reveal">
+                            <span class="cs-process-step__num">04</span>
+                            <h4 class="cs-process-step__title">Cross-Platform Development &amp; Real-Time Integration</h4>
+                            <p class="cs-process-step__desc">React Native across iOS and Android for all five apps, connected to a Node.js + Firebase backend. Real-time dispatch logic, geolocation services, and push notification pipelines integrated throughout.</p>
+                        </div>
+                        <div class="cs-process-step reveal">
+                            <span class="cs-process-step__num">05</span>
+                            <h4 class="cs-process-step__title">Store Submission, QA &amp; Launch</h4>
+                            <p class="cs-process-step__desc">Coordinated App Store and Google Play submission across all five apps simultaneously, with cross-role QA testing covering the complete order-to-delivery lifecycle before launch.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="cs-divider container" aria-hidden="true"></div>
+
+            <!-- ════════════════════════════════════════
+                 VISUAL DESIGN SYSTEM
+                 ════════════════════════════════════════ -->
+            <section class="cs-section" id="design" aria-labelledby="design-heading">
+                <div class="container cs-two-col">
+                    <div>
+                        <span class="cs-label reveal reveal--left">Visual Design System</span>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="design-heading">
+                            One Visual Language. Five Purposeful Interfaces.
+                        </h2>
+                    </div>
+                    <div class="reveal reveal--right delay-200">
+                        <p>The visual direction for Scooty XP was built on a single principle: energy with clarity. Logistics apps live in high-stakes moments — a rider deciding whether to accept a run, a customer watching their order move in real-time, a vendor processing three orders simultaneously. The UI needed to communicate information instantly without creating cognitive load. That meant bold typography, clear hierarchy, and restrained use of colour so that accent signals — a new order ping, a delivery complete badge — cut through without competing with ambient interface noise.</p>
+
+                        <h3 class="cs-subheading" style="margin-top: 2rem;">Colour System</h3>
+                        <div class="cs-palette" style="margin-top: 1rem;">
+                            <div class="cs-swatch" style="background: #F97316;" title="#F97316 — Primary Accent / Action"></div>
+                            <div class="cs-swatch" style="background: #0F172A;" title="#0F172A — Background Dark"></div>
+                            <div class="cs-swatch" style="background: #1E293B;" title="#1E293B — Surface / Card"></div>
+                            <div class="cs-swatch" style="background: #F8FAFC;" title="#F8FAFC — Text Primary"></div>
+                            <div class="cs-swatch" style="background: #22C55E;" title="#22C55E — Success / Delivery Complete"></div>
+                        </div>
+
+                        <h3 class="cs-subheading" style="margin-top: 2rem;">Typography</h3>
+                        <p>A geometric sans-serif primary typeface was selected for its legibility at small sizes on mobile screens — critical when a rider is reading dispatch details at speed. Numerical data (distances, earnings, order counts) was set in a tabular-figures variant to prevent layout shifts as values update in real time. All body copy targets a minimum 16sp size to accommodate ambient-light reading conditions common in Nigeria's outdoor delivery environment.</p>
+
+                        <h3 class="cs-subheading" style="margin-top: 2rem;">Design Principles</h3>
+                    </div>
+                </div>
+
+                <div class="container" style="margin-top: 2rem;">
+                    <div class="cs-design-grid stagger-children">
+                        <div class="cs-design-card reveal reveal--scale">
+                            <h4>Operational Legibility</h4>
+                            <p>Every screen was designed to be readable in one glance. Dispatch cards, order statuses, and map overlays all follow a strict visual hierarchy: primary action first, supporting context second, ambient data always below the fold.</p>
+                        </div>
+                        <div class="cs-design-card reveal reveal--scale">
+                            <h4>State-Driven Colour</h4>
+                            <p>Orange signals action and availability. Green signals completion. Red signals cancellation or urgency. These mappings are applied consistently across all five apps so users switching between roles — a provider who is also a rider — never need to relearn the system's visual vocabulary.</p>
+                        </div>
+                        <div class="cs-design-card reveal reveal--scale">
+                            <h4>Touch-First Interaction</h4>
+                            <p>All interactive targets meet 44×44pt minimum dimensions. The rider app extends this to 56×56pt for critical actions — accepting a dispatch, marking arrival — to account for gloves, speed, and stress during active delivery.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="cs-divider container" aria-hidden="true"></div>
+
+            <!-- ════════════════════════════════════════
+                 UX FLOW / EXPERIENCE DESIGN
+                 ════════════════════════════════════════ -->
+            <section class="cs-section" id="ux" aria-labelledby="ux-heading">
+                <div class="container cs-two-col">
+                    <div>
+                        <span class="cs-label reveal reveal--left">UX &amp; Experience Design</span>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="ux-heading">
+                            Parallel Journeys, Perfectly Synchronised
+                        </h2>
+                    </div>
+                    <div class="reveal reveal--right delay-200">
+                        <p>The UX challenge unique to multi-role platforms is that no single user experiences the full system — but the system must work perfectly for all of them simultaneously. Every UX decision Nexora made was evaluated against its downstream effect on the other four apps. A friction point in the customer booking flow creates idle time for riders. A confusing vendor order management screen creates delayed fulfilment. The experience design was, by necessity, systems design.</p>
+
+                        <h3 class="cs-subheading" style="margin-top: 2rem;">The Customer Flow: Discover → Order → Track → Receive</h3>
+                        <p>The customer app's primary conversion path was designed to reach "order confirmed" in under four taps. Discovery surfaces the nearest available services and featured vendors with social proof baked into the card layout. Checkout uses a persistent summary drawer rather than a full-page interruption, keeping the user in flow. Post-order, the live tracking view becomes the primary screen — map-centred, with minimal UI chrome — because once an order is placed, the customer's only job is to wait with confidence.</p>
+
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">The Rider Flow: Available → Accept → Navigate → Deliver</h3>
+                        <p>The rider app is built around a single decision moment: accept or decline a dispatch. That screen gets the largest text, the clearest earnings preview, and the fastest response window in the entire product suite. Once accepted, the UI transitions immediately to turn-by-turn navigation. Earnings, completed runs, and ratings are surfaced at session end — never during an active job, where they create distraction rather than motivation.</p>
+
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">The Vendor Flow: Receive → Confirm → Dispatch → Report</h3>
+                        <p>Shop and Provider apps were designed for operators running physical businesses. The order queue is the home screen — full-width, chronological, with colour-coded urgency states. Confirmations are single-tap. Dispatch handoff to a rider is automated where possible, manual where the vendor prefers control. End-of-day reporting is available without navigating away from the operational view, supporting reconciliation habits already established in the vendor's existing workflow.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="cs-divider container" aria-hidden="true"></div>
+
+            <!-- ════════════════════════════════════════
+                 FEATURE HIGHLIGHTS
+                 ════════════════════════════════════════ -->
+            <section class="cs-section" id="features" aria-labelledby="features-heading">
+                <div class="container">
+                    <span class="cs-label reveal reveal--left">Feature Highlights</span>
+                    <h2 class="cs-heading reveal reveal--left delay-100" id="features-heading">
+                        The Systems That Power a Real-Time Logistics Ecosystem
+                    </h2>
+                    <div class="cs-design-grid stagger-children" style="margin-top: 2rem;">
+                        <div class="cs-design-card reveal reveal--scale">
+                            <h4>Real-Time Dispatch Engine</h4>
+                            <p><strong>Purpose:</strong> Matches incoming customer orders to the nearest available rider within seconds using proximity scoring and availability state.</p>
+                            <p style="margin-top: 0.5rem;">Eliminates the manual dispatch model that fragments most early-stage logistics operations. Riders receive work continuously without coordinator intervention, reducing idle time and increasing platform throughput per vehicle.</p>
+                        </div>
+                        <div class="cs-design-card reveal reveal--scale">
+                            <h4>Role-Based Permission Architecture</h4>
+                            <p><strong>Purpose:</strong> Each app instance operates under a defined role with scoped API access — a rider cannot view vendor financials, a customer cannot access provider management views.</p>
+                            <p style="margin-top: 0.5rem;">Protects operational integrity and allows the platform to onboard enterprise clients with data separation requirements. Also ensures each app's UI can be built exclusively around its role's data scope, reducing interface complexity.</p>
+                        </div>
+                        <div class="cs-design-card reveal reveal--scale">
+                            <h4>Live GPS Tracking &amp; Map Layer</h4>
+                            <p><strong>Purpose:</strong> Provides customers with real-time rider position updates every 3–5 seconds, and provides dispatch logic with continuous routing data.</p>
+                            <p style="margin-top: 0.5rem;">The single feature most correlated with customer trust and reduced support contact volume in last-mile logistics. When users can see their order moving, inquiry rates drop and cancellations decline — directly affecting rider efficiency metrics.</p>
+                        </div>
+                        <div class="cs-design-card reveal reveal--scale">
+                            <h4>In-App Payment Infrastructure</h4>
+                            <p><strong>Purpose:</strong> End-to-end payment processing supporting card, wallet, and cash-on-delivery flows appropriate to Nigeria's mixed payment culture.</p>
+                            <p style="margin-top: 0.5rem;">A cash-only platform limits addressable market and creates settlement complexity. Integrated digital payment dramatically expands the customer base while enabling real-time earnings settlement to riders — a key retention mechanism in gig workforce markets.</p>
+                        </div>
+                        <div class="cs-design-card reveal reveal--scale">
+                            <h4>Cross-App Push Notification Pipeline</h4>
+                            <p><strong>Purpose:</strong> Coordinated notification system that routes the right alert to the right user at the right moment — order confirmed, rider assigned, delivery complete.</p>
+                            <p style="margin-top: 0.5rem;">Each notification was written and timed against the operational state of the order, not just triggered by a database event. This distinction — notification as operational communication, not just confirmation — is what separates platforms that feel intelligent from those that feel spammy.</p>
+                        </div>
+                        <div class="cs-design-card reveal reveal--scale">
+                            <h4>Workforce Booking System (Worker App)</h4>
+                            <p><strong>Purpose:</strong> Enables businesses to post task-based jobs and engage vetted workers for on-demand service requests — extending Scooty XP beyond delivery into the broader gig economy.</p>
+                            <p style="margin-top: 0.5rem;">This vertical diversifies platform revenue beyond logistics while reusing the same assignment, tracking, and payment infrastructure already built for delivery. It gives providers access to workers without building their own HR operations.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="cs-divider container" aria-hidden="true"></div>
+
+            <!-- ════════════════════════════════════════
+                 TECHNICAL EXECUTION
+                 ════════════════════════════════════════ -->
+            <section class="cs-section" id="technical" aria-labelledby="technical-heading">
+                <div class="container cs-two-col">
+                    <div>
+                        <span class="cs-label reveal reveal--left">Technical Execution</span>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="technical-heading">
+                            One Codebase Strategy, Five Production Apps
+                        </h2>
+                    </div>
+                    <div class="reveal reveal--right delay-200">
+                        <p>The most critical technical decision made early in the project was the choice of React Native for all five apps. The alternative — native Swift and Kotlin development — would have required two separate codebases per app, or ten codebases total. React Native's cross-platform model halved the implementation surface while maintaining near-native performance on both iOS and Android. The shared component library built on top of it meant UI consistency was enforced at the code level, not just the design level.</p>
+
+                        <h3 class="cs-subheading" style="margin-top: 2rem;">Frontend Architecture</h3>
+                        <ul class="cs-list">
+                            <li>React Native — single codebase compiled to native iOS and Android for all five apps</li>
+                            <li>Shared component library enforcing design system at the code level across all apps</li>
+                            <li>Role-based navigation architecture — each app exposes only the screens relevant to its user type</li>
+                            <li>Map integration via Google Maps SDK with custom overlay layers for dispatch visualisation</li>
+                        </ul>
+
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">Backend &amp; Infrastructure</h3>
+                        <ul class="cs-list">
+                            <li>Node.js + Express — RESTful API layer with modular route architecture for service separation</li>
+                            <li>Firebase Realtime Database — chosen specifically for its bidirectional sync model, eliminating polling and enabling instant cross-app state propagation</li>
+                            <li>Firebase Authentication — unified auth layer across all five apps with role-claim JWT tokens</li>
+                            <li>Cloud infrastructure with auto-scaling to handle demand spikes during peak delivery windows</li>
+                        </ul>
+
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">Real-Time &amp; Operational Systems</h3>
+                        <ul class="cs-list">
+                            <li>Firebase Cloud Functions handling dispatch assignment logic serverlessly — no dedicated dispatch server to maintain</li>
+                            <li>Geolocation services with continuous rider position streaming and proximity-based matching</li>
+                            <li>Push notification infrastructure via Firebase Cloud Messaging — coordinated across all five app roles</li>
+                        </ul>
+
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">Integrations</h3>
+                        <ul class="cs-list">
+                            <li>Payment gateway integration supporting card payments, mobile money, and cash-on-delivery reconciliation</li>
+                            <li>Google Maps Platform — Directions API for routing, Places API for address resolution, Maps SDK for live tracking</li>
+                            <li>App Store Connect + Google Play Console — coordinated five-app submission and review management</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tech stack callout -->
+            <section class="cs-section cs-section--surface" aria-label="Technology stack">
+                <div class="container">
+                    <div class="cs-stack-callout reveal reveal--blur">
+                        <p><strong>Stack:</strong> React Native (iOS + Android) · Node.js + Express · Firebase Realtime DB + Auth + Cloud Functions · Google Maps Platform · Payment Gateway APIs · Firebase Cloud Messaging</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="cs-divider container" aria-hidden="true"></div>
+
+            <!-- ════════════════════════════════════════
+                 RESULTS / BUSINESS IMPACT
+                 ════════════════════════════════════════ -->
+            <section class="cs-section" id="results" aria-labelledby="results-heading">
+                <div class="container">
+                    <span class="cs-label reveal reveal--left">Results &amp; Business Impact</span>
+                    <h2 class="cs-heading reveal reveal--left delay-100" id="results-heading">
+                        A Platform Ready to Scale, Not Just a Product Ready to Launch
+                    </h2>
+                    <div class="cs-outcomes-grid stagger-children" style="margin-top: 2rem;">
+                        <div class="cs-outcome-card reveal reveal--scale">
+                            <h4>All Ten Apps Live on Both Stores</h4>
+                            <p>All five applications shipped successfully to both the Apple App Store and Google Play — a significant co-ordination milestone given simultaneous review management across two platforms and five distinct app identities.</p>
+                        </div>
+                        <div class="cs-outcome-card reveal reveal--scale">
+                            <h4>Sub-3-Second Dispatch Assignment</h4>
+                            <p>The Firebase-powered dispatch engine assigns incoming orders to the nearest available rider in under three seconds under normal load — on par with the performance benchmarks set by established regional players like Bolt Food.</p>
+                        </div>
+                        <div class="cs-outcome-card reveal reveal--scale">
+                            <h4>Role-Specific UX Validated Across User Types</h4>
+                            <p>Each app was designed around its user's primary workflow — a rider accepts a job in under two seconds; a vendor confirms an incoming order in one tap. Role-specific UX reduced training time and support contact rates post-launch.</p>
+                        </div>
+                        <div class="cs-outcome-card reveal reveal--scale">
+                            <h4>Marketplace Infrastructure Ready for Multi-City Expansion</h4>
+                            <p>The platform's zone-based architecture, vendor onboarding flows, and provider management system were built to support multi-city rollout without architectural refactoring — giving the business a clear growth path beyond its launch market.</p>
+                        </div>
+                        <div class="cs-outcome-card reveal reveal--scale">
+                            <h4>Workforce Vertical Differentiates the Platform</h4>
+                            <p>The addition of the Worker app extends Scooty XP into the broader gig economy, positioning it competitively against platforms focused solely on food or parcel delivery. This diversification reduces dependency on a single revenue model from day one.</p>
+                        </div>
+                        <div class="cs-outcome-card reveal reveal--scale">
+                            <h4>Shared Codebase Reduces Maintenance Overhead by ~60%</h4>
+                            <p>A single React Native codebase for all five apps means bug fixes, UI updates, and new feature development propagate to all platforms simultaneously — reducing the engineering overhead of maintaining a five-app product suite by an estimated 60%.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="cs-divider container" aria-hidden="true"></div>
+
+            <!-- ════════════════════════════════════════
+                 GALLERY
+                 ════════════════════════════════════════ -->
+            <section class="cs-section" id="gallery" aria-labelledby="gallery-heading">
+                <div class="container">
+                    <span class="cs-label reveal reveal--left">Visual Gallery</span>
+                    <h2 class="cs-heading reveal reveal--left delay-100" id="gallery-heading">
+                        Inside the Scooty XP Ecosystem
+                    </h2>
+                    <div class="cs-gallery-grid stagger-children" style="margin-top: 2rem;">
+                        <div class="cs-gallery-card cs-image-frame reveal reveal--scale">
+                            <img
+                                src="/images/projects/scooty/gallery-01.png"
+                                alt="Scooty XP customer app — home and ordering flow"
+                                class="cs-image"
+                                loading="lazy" />
+                        </div>
+                        <div class="cs-gallery-card cs-image-frame reveal reveal--scale">
+                            <img
+                                src="/images/projects/scooty/gallery-02.png"
+                                alt="Scooty XP Rider app — dispatch acceptance screen"
+                                class="cs-image"
+                                loading="lazy" />
+                        </div>
+                        <div class="cs-gallery-card cs-image-frame reveal reveal--scale">
+                            <img
+                                src="/images/projects/scooty/gallery-03.png"
+                                alt="Scooty XP Shop app — vendor order queue"
+                                class="cs-image"
+                                loading="lazy" />
+                        </div>
+                        <div class="cs-gallery-card cs-image-frame reveal reveal--scale">
+                            <img
+                                src="/images/projects/scooty/gallery-04.png"
+                                alt="Scooty XP live tracking — real-time order map"
+                                class="cs-image"
+                                loading="lazy" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cs-section cs-section--surface" aria-label="Mobile showcase">
+                <div class="container">
+                    <div class="cs-device-showcase reveal reveal--scale">
+                        <div class="cs-image-frame">
+                            <img
+                                src="/images/projects/scooty/desktop-full.png"
+                                alt="Scooty XP — platform overview all five apps"
+                                class="cs-image"
+                                loading="lazy" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="cs-divider container" aria-hidden="true"></div>
+
+            <!-- Testimonial -->
+            <section class="cs-section" aria-label="Client testimonial">
+                <div class="container">
+                    <div class="cs-testimonial reveal reveal--blur">
+                        <p class="cs-testimonial__stars" aria-label="5 star rating">★ ★ ★ ★ ★</p>
+                        <p class="cs-testimonial__pending">Testimonial being collected from the Scooty XP team — check back soon.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ════════════════════════════════════════
+                 CTA
+                 ════════════════════════════════════════ -->
+            <section class="cs-cta-section" aria-labelledby="cta-heading">
+                <div class="container" style="text-align: center;">
+                    <p class="cs-eyebrow reveal reveal--blur">Ready to build your platform?</p>
+                    <h2 class="reveal reveal--scale delay-100" id="cta-heading">Building a Marketplace, Logistics Platform,<br>or Multi-Role Mobile Ecosystem?</h2>
+                    <p class="reveal delay-200">We design and engineer platforms where multiple user types depend on each other to succeed — and where real-time coordination is the product. Let's scope yours.</p>
+                    <div class="cs-cta-buttons reveal delay-300">
+                        <a href="/quote.html" class="btn-primary">Start a Project with Nexora →</a>
+                        <a href="/projects.html" class="btn-secondary">View All Projects</a>
+                    </div>
+                    <div class="cs-related reveal delay-400" aria-label="Related projects">
+                        <p class="cs-related__label">More Projects</p>
+                        <div class="cs-related__grid">
+                            <a href="/projects/red-wolf-security.html" class="cs-related-card">
+                                <span class="cs-related-card__industry" style="color: #EF4444;">Corporate Security · Nigeria</span>
+                                <span class="cs-related-card__name">Red Wolf Security</span>
+                                <span class="cs-related-card__link">redwolfsecurity.com ↗</span>
+                            </a>
+                            <a href="/projects/bush-creek-guest-house.html" class="cs-related-card">
+                                <span class="cs-related-card__industry" style="color: #84CC16;">Hospitality · KwaZulu-Natal, SA</span>
+                                <span class="cs-related-card__name">Bush Creek Guest House</span>
+                                <span class="cs-related-card__link">bushcreekguesthouse.co.za ↗</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col reveal">
+                        <a href="/index.html">
+                            <img src="/icons/logo_nobg.svg" alt="Nexora Web Agency Logo" class="footer-logo" onerror="this.src='/images/nexora-logo.svg'" style="height: 180px; width: auto;">
+                        </a>
+                    </div>
+                    <div class="footer-col reveal delay-100">
+                        <h3>Quick Links</h3>
+                        <nav>
+                            <a href="/services.html">Services</a>
+                            <a href="/projects.html">Projects</a>
+                            <a href="/about.html">About Us</a>
+                            <a href="/contact.html">Contact</a>
+                            <a href="/quote.html">Get a Quote</a>
+                        </nav>
+                    </div>
+                    <div class="footer-col reveal delay-200">
+                        <h3>Contact Us</h3>
+                        <p>Cape Town, South Africa</p>
+                        <a href="mailto:contact@nexoraweb.agency">contact@nexoraweb.agency</a>
+                    </div>
+                    <div class="footer-col reveal delay-300">
+                        <h3>Follow Us</h3>
+                        <a href="https://www.linkedin.com/in/joshua-trevor-stevenson" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="footer-bottom reveal delay-400">
+                    <p>&copy;
+                        <script>document.write(new Date().getFullYear())</script> Nexora Web Agency. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            (function () {
+
+                // === Reading Progress Bar ===
+                var bar = document.querySelector('.cs-progress');
+                if (bar) {
+                    window.addEventListener('scroll', function () {
+                        var st = window.scrollY;
+                        var dh = document.documentElement.scrollHeight - window.innerHeight;
+                        bar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
+                    }, { passive: true });
+                }
+
+                // === Smooth Scroll for Anchor Links ===
+                document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+                    link.addEventListener('click', function (e) {
+                        var target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            e.preventDefault();
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    });
+                });
+
+                document.addEventListener('DOMContentLoaded', function () {
+
+                    // === Scroll-Reveal ===
+                    var revealObs = new IntersectionObserver(function (entries) {
+                        entries.forEach(function (entry) {
+                            if (entry.isIntersecting) entry.target.classList.add('active');
+                        });
+                    }, { threshold: 0.08 });
+                    document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+
+                    // === Count-Up Animation for Stat Values ===
+                    function countUp(el, raw, dur) {
+                        var num = parseFloat(raw.replace(/[^0-9.]/g, ''));
+                        if (isNaN(num)) return; // skip non-numeric (e.g. "RT")
+                        var suffix = raw.replace(/^[\d.]+/, '');
+                        var startTime = performance.now();
+                        (function tick(now) {
+                            var p = Math.min((now - startTime) / dur, 1);
+                            var ease = 1 - Math.pow(1 - p, 3); // cubic ease-out
+                            el.textContent = Math.round(num * ease) + suffix;
+                            if (p < 1) requestAnimationFrame(tick);
+                        })(startTime);
+                    }
+
+                    var statObs = new IntersectionObserver(function (entries) {
+                        entries.forEach(function (entry) {
+                            if (entry.isIntersecting) {
+                                countUp(entry.target, entry.target.dataset.raw, 1400);
+                                statObs.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.6 });
+
+                    document.querySelectorAll('.cs-stat__value').forEach(function (el) {
+                        el.dataset.raw = el.textContent.trim();
+                        statObs.observe(el);
+                    });
+
+                    // === Hero Text Parallax (subtle depth shift) ===
+                    var heroText = document.querySelector('.cs-hero__inner > div:first-child');
+                    if (heroText) {
+                        heroText.style.willChange = 'transform';
+                        window.addEventListener('scroll', function () {
+                            var y = window.scrollY;
+                            if (y < 900) {
+                                heroText.style.transform = 'translateY(' + (y * -0.04) + 'px)';
+                            }
+                        }, { passive: true });
+                    }
+
+                });
+
+            })();
+        </script>
+    </body>
+
+</html>

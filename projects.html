@@ -36,6 +36,17 @@
                 <a href="/index.html" class="logo-link">
                     <img src="/icons/header_logo.svg" alt="Nexora Logo" class="nav-logo" onerror="this.src='/images/nexora-logo.svg'" style="height: 70px; width: auto;">
                 </a>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <svg class="icon-menu" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                    <svg class="icon-close" style="display:none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
                 <nav class="main-nav">
                     <ul>
                         <li><a href="/">Home</a></li>
@@ -56,56 +67,97 @@
                     <div class="reveal">
                         <div class="hero-badge">Our Work</div>
                         <h1>Featured <span class="text-gradient">Projects</span></h1>
-                        <p class="hero-subtitle">A curated selection of recent engineering work spanning bespoke web solutions and advanced data analytics.</p>
+                        <p class="hero-subtitle">Premium digital experiences, enterprise platforms, and conversion-focused systems — engineered for measurable business impact.</p>
                     </div>
                 </div>
             </section>
             <section class="container project-grid">
-                <!-- Project Card 1: Bush Creek Guest House -->
-                <a href="/projects/bush-creek-guest-house.html" class="project-card reveal delay-100">
+
+                <!-- Project Card 1: Scooty XP -->
+                <a href="/projects/scooty-xp.html" class="project-card reveal delay-100">
                     <div class="project-image-wrapper">
-                        <img src="/images/projects/bushcreek/hero-desktop-homepage.png" alt="Bush Creek Guest House" class="project-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\' fill=\'%23151515\'><rect width=\'600\' height=\'400\'/><text x=\'50%\' y=\'50%\' fill=\'%23333\' font-family=\'sans-serif\' font-size=\'24\' text-anchor=\'middle\'>Image Placeholder</text></svg>'">
+                        <img src="/images/projects/scooty-xp/hero-desktop-homepage.png" alt="Scooty XP — Logistics Marketplace App" class="project-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\' fill=\'%23151515\'><rect width=\'600\' height=\'400\'/><text x=\'50%\' y=\'50%\' fill=\'%23F97316\' font-family=\'sans-serif\' font-size=\'20\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Scooty XP</text></svg>'">
                     </div>
                     <div class="project-info">
+                        <span class="project-industry" style="color: #F97316;">Logistics &amp; Marketplace · Nigeria</span>
+                        <h3>Scooty XP</h3>
+                        <div class="project-tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">UX Strategy</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                        <span class="project-status project-status--live">Live</span>
+                    </div>
+                </a>
+
+                <!-- Project Card 2: Exclusive Offers VIP -->
+                <a href="/projects/exclusive-offers-vip.html" class="project-card reveal delay-200">
+                    <div class="project-image-wrapper">
+                        <img src="/images/projects/exclusive-offers-vip/hero-desktop-homepage.png" alt="Exclusive Offers VIP — Affiliate Acquisition Platform" class="project-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\' fill=\'%23151515\'><rect width=\'600\' height=\'400\'/><text x=\'50%\' y=\'50%\' fill=\'%238B5CF6\' font-family=\'sans-serif\' font-size=\'20\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Exclusive Offers VIP</text></svg>'">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-industry" style="color: #8B5CF6;">Affiliate Marketing · Performance</span>
+                        <h3>Exclusive Offers VIP</h3>
+                        <div class="project-tags">
+                            <span class="tag">Funnel Engineering</span>
+                            <span class="tag">Next.js</span>
+                            <span class="tag">Analytics</span>
+                        </div>
+                        <span class="project-status project-status--live">Live</span>
+                    </div>
+                </a>
+
+                <!-- Project Card 3: Bush Creek Guest House -->
+                <a href="/projects/bush-creek-guest-house.html" class="project-card reveal delay-300">
+                    <div class="project-image-wrapper">
+                        <img src="/images/projects/bush-creek-guest-house/hero-desktop-homepage.png" alt="Bush Creek Guest House — Hospitality Web Experience" class="project-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\' fill=\'%23151515\'><rect width=\'600\' height=\'400\'/><text x=\'50%\' y=\'50%\' fill=\'%2384CC16\' font-family=\'sans-serif\' font-size=\'20\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Bush Creek Guest House</text></svg>'">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-industry" style="color: #84CC16;">Hospitality · KwaZulu-Natal, SA</span>
                         <h3>Bush Creek Guest House</h3>
                         <div class="project-tags">
-                            <span class="tag">Web Solutions</span>
-                            <span class="tag">UX Design</span>
-                            <span class="tag">SEO</span>
+                            <span class="tag">Hospitality UX</span>
+                            <span class="tag">Visual Storytelling</span>
+                            <span class="tag">WordPress</span>
                         </div>
-                        <span class="project-status">In Development</span>
+                        <span class="project-status project-status--live">Live</span>
                     </div>
                 </a>
-                <!-- Project Card 2: CPIL -->
-                <a href="/projects/cpil.html" class="project-card reveal delay-200">
+
+                <!-- Project Card 4: Cemex Project Integrated -->
+                <a href="/projects/cemex-project-integrated.html" class="project-card reveal delay-100">
                     <div class="project-image-wrapper">
-                        <img src="/images/projects/cpil/hero-desktop-homepage.png" alt="CEMEX Project Integrated Dashboard" class="project-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\' fill=\'%23151515\'><rect width=\'600\' height=\'400\'/><text x=\'50%\' y=\'50%\' fill=\'%23333\' font-family=\'sans-serif\' font-size=\'24\' text-anchor=\'middle\'>Image Placeholder</text></svg>'">
+                        <img src="/images/projects/cemex-project-integrated/hero-desktop-homepage.png" alt="Cemex Project Integrated — Corporate Infrastructure Platform" class="project-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\' fill=\'%23151515\'><rect width=\'600\' height=\'400\'/><text x=\'50%\' y=\'50%\' fill=\'%230EA5E9\' font-family=\'sans-serif\' font-size=\'20\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Cemex Project Integrated</text></svg>'">
                     </div>
                     <div class="project-info">
-                        <h3>CEMEX Project Integrated</h3>
+                        <span class="project-industry" style="color: #0EA5E9;">Construction &amp; Infrastructure · Nigeria</span>
+                        <h3>Cemex Project Integrated</h3>
                         <div class="project-tags">
-                            <span class="tag">Data Engineering</span>
-                            <span class="tag">Tableau</span>
-                            <span class="tag">Automation</span>
+                            <span class="tag">Corporate UX</span>
+                            <span class="tag">React.js</span>
+                            <span class="tag">CMS Architecture</span>
                         </div>
-                        <span class="project-status">In Development</span>
+                        <span class="project-status project-status--live">Live</span>
                     </div>
                 </a>
-                <!-- Project Card 3: Red Wolf Security -->
-                <a href="/projects/red-wolf-security.html" class="project-card reveal delay-300">
+
+                <!-- Project Card 5: Red Wolf Security -->
+                <a href="/projects/red-wolf-security.html" class="project-card reveal delay-200">
                     <div class="project-image-wrapper">
-                        <img src="/images/projects/redwolf/hero-desktop-homepage.png" alt="Red Wolf Security Website" class="project-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\' fill=\'%23151515\'><rect width=\'600\' height=\'400\'/><text x=\'50%\' y=\'50%\' fill=\'%23333\' font-family=\'sans-serif\' font-size=\'24\' text-anchor=\'middle\'>Image Placeholder</text></svg>'">
+                        <img src="/images/projects/red-wolf-security/hero-desktop-homepage.png" alt="Red Wolf Security — Enterprise Security Platform" class="project-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 400\' fill=\'%23151515\'><rect width=\'600\' height=\'400\'/><text x=\'50%\' y=\'50%\' fill=\'%23EF4444\' font-family=\'sans-serif\' font-size=\'20\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Red Wolf Security</text></svg>'">
                     </div>
                     <div class="project-info">
+                        <span class="project-industry" style="color: #EF4444;">Integrated Security · Nigeria</span>
                         <h3>Red Wolf Security</h3>
                         <div class="project-tags">
-                            <span class="tag">Web Design</span>
-                            <span class="tag">UX Architecture</span>
-                            <span class="tag">SEO</span>
+                            <span class="tag">Enterprise Security UX</span>
+                            <span class="tag">8+ Verticals</span>
+                            <span class="tag">Lead Generation</span>
                         </div>
-                        <span class="project-status">In Development</span>
+                        <span class="project-status project-status--live">Live</span>
                     </div>
                 </a>
+
             </section>
         </main>
         <footer class="site-footer">
