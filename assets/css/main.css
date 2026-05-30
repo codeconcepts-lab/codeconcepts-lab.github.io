@@ -46,7 +46,6 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
 }
 
 h1,
@@ -360,11 +359,10 @@ ol {
 }
 
 .footer-logo {
-   
   height: 180px;
   width: auto;
+  max-width: 100%;
 
- 
  
 }
 
@@ -1485,4 +1483,140 @@ details[open] summary {
     font-size: 1.1rem;
   }
   .main-nav a:last-child { border-bottom: none; }
+}
+
+/* ══════════════════════════════════════════════════
+   GLOBAL RESPONSIVE OVERRIDES
+   Fluid layout system — no overflow clipping, genuine reflow
+══════════════════════════════════════════════════ */
+
+/* Small laptop / large tablet — tighten nav gap before hamburger kicks in */
+@media (max-width: 1100px) {
+  .main-nav ul { gap: 1.25rem; }
+  .main-nav a { font-size: 0.88rem; }
+  .footer-grid { gap: 2.5rem; }
+}
+
+/* Tablet — 992px */
+@media (max-width: 992px) {
+  /* Section padding scales down proportionally */
+  .services-section  { padding-top: 4rem; padding-bottom: 4rem; }
+  .founder-section   { padding-top: 4rem; padding-bottom: 4rem; }
+  .global-cta        { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+
+  /* Footer grid gap reduced so columns breathe without overflowing */
+  .footer-grid { gap: 2rem; }
+
+  /* Project grid gap */
+  .project-grid { gap: 2rem; }
+
+  /* Quote section breathing room */
+  .quote-section { padding-top: 4rem; padding-bottom: 5rem; }
+}
+
+/* Mobile — 768px (hamburger nav is active from here down) */
+@media (max-width: 768px) {
+  /* ── Header ── */
+  .header-cta { display: none; }    /* hamburger is the only action on mobile */
+
+  /* ── Footer logo ── */
+  .footer-logo { height: 110px; }   /* proportional reduction, max-width in global.css caps it */
+
+  /* ── Hero ── */
+  .hero { padding-top: 5rem; padding-bottom: 3.5rem; }
+  .cta-group {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .cta-group .btn-primary,
+  .cta-group .btn-secondary {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* ── Section headings ── */
+  .section-title { font-size: clamp(1.5rem, 5vw, 1.9rem); margin-bottom: 2rem; }
+
+  /* ── Global CTA strip ── */
+  .global-cta { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  .global-cta h2 { font-size: clamp(1.5rem, 5vw, 1.9rem); }
+
+  /* ── Page / service hero ── */
+  .page-hero   { padding-top: 4.5rem; padding-bottom: 2.5rem; }
+  .service-hero { padding-top: 4.5rem; padding-bottom: 2.5rem; }
+  .page-hero h1,
+  .service-hero h1 { font-size: clamp(1.65rem, 6.5vw, 2.8rem); letter-spacing: -0.5px; }
+
+  /* ── Service cards ── */
+  .service-card { padding: 1.75rem; }
+  .services-section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+
+  /* ── Services hub (accordion) ── */
+  .services-hub { margin-top: 3rem; margin-bottom: 4rem; }
+
+  /* ── Founder strip ── */
+  .founder-section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+
+  /* ── About bio ── */
+  .bio-content h2 { font-size: clamp(1.3rem, 5vw, 1.6rem); }
+  .bio-content p  { word-break: break-word; overflow-wrap: break-word; }
+
+  /* ── Contact ── */
+  .contact-info p { word-break: break-word; overflow-wrap: break-word; }
+  .contact-form-wrapper { padding: 2rem; }
+
+  /* ── Forms ── */
+  .form-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .form-actions .btn-primary,
+  .form-actions .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ── Projects ── */
+  .project-grid { gap: 1.75rem; padding-top: 3.5rem; padding-bottom: 5rem; }
+
+  /* ── Quote ── */
+  .quote-section { padding-top: 3.5rem; padding-bottom: 5rem; }
+
+  /* ── Footer ── */
+  .footer-grid { gap: 1.75rem; }
+  .site-footer { padding-top: 3rem; }
+
+  /* ── Stats / metrics row ── */
+  .stats-row { flex-wrap: wrap; gap: 1.5rem; }
+  .stat-item { min-width: 120px; }
+
+  /* ── Prose word-break ── */
+  .cs-body,
+  .post-body p { word-break: break-word; overflow-wrap: break-word; }
+
+  /* ── Process / testimonials ── */
+  .process-steps { gap: 2rem; }
+  .testimonial-card { padding: 1.5rem; }
+}
+
+/* Small mobile — 480px */
+@media (max-width: 480px) {
+  /* Typography scales fluidly — no hard clipping */
+  .section-title    { font-size: clamp(1.3rem, 6.5vw, 1.5rem); }
+  .global-cta h2    { font-size: clamp(1.3rem, 6.5vw, 1.5rem); }
+  .page-hero h1,
+  .service-hero h1  { font-size: clamp(1.45rem, 7.5vw, 1.9rem); }
+  .hero-badge       { font-size: 0.72rem; padding: 0.25rem 0.7rem; }
+
+  /* Card and form padding */
+  .service-card           { padding: 1.35rem; }
+  .contact-form-wrapper   { padding: 1.5rem; }
+  .project-grid           { padding-top: 2.5rem; padding-bottom: 3.5rem; }
+
+  /* Tighten section padding */
+  .services-section,
+  .founder-section  { padding-top: 3rem; padding-bottom: 3rem; }
+  .global-cta       { padding-top: 3rem; padding-bottom: 3rem; }
+  .site-footer      { padding-top: 2.5rem; }
 }

@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-5CGM7HB4');</script>
+        <!-- End Google Tag Manager -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Netflix-Style UI in Pure JavaScript | Day 01 — Nexora Engineering Blog</title>
+        <meta name="description" content="Build a fully interactive Netflix-style content carousel using pure HTML, CSS, and vanilla JavaScript — no frameworks, no dependencies, under 12KB total. A complete engineering walkthrough." />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Netflix-Style Streaming UI in Pure JavaScript — Day 01" />
+        <meta property="og:description" content="Build a fully interactive Netflix-style content carousel using pure HTML, CSS, and vanilla JavaScript — no frameworks, no dependencies, under 12KB total." />
+        <meta property="og:url" content="https://codeconcepts-lab.github.io/blog/netflix-style-ui-vanilla-javascript.html" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href="https://codeconcepts-lab.github.io/blog/netflix-style-ui-vanilla-javascript.html" />
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "Netflix-Style Streaming UI in Pure JavaScript",
+            "description": "Build a fully interactive Netflix-style content carousel using pure HTML, CSS, and vanilla JavaScript — no frameworks, no dependencies, under 12KB total.",
+            "author": { "@type": "Organization", "name": "Nexora Web Agency", "url": "https://codeconcepts-lab.github.io" },
+            "publisher": { "@type": "Organization", "name": "Nexora Web Agency" },
+            "datePublished": "2025-01-01",
+            "url": "https://codeconcepts-lab.github.io/blog/netflix-style-ui-vanilla-javascript.html",
+            "keywords": ["JavaScript", "CSS", "Netflix UI", "Carousel", "Vanilla JS", "Frontend"]
+        }
+        </script>
+        <link rel="icon" href="/icons/emblem.svg" />
+        <link rel="apple-touch-icon" href="/icons/nexora_emblem.png" />
+        <link rel="stylesheet" href="/assets/css/global.css" />
+        <link rel="stylesheet" href="/assets/css/utilities.css" />
+        <link rel="stylesheet" href="/assets/css/main.css" />
+        <link rel="stylesheet" href="/assets/css/case-study.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+        <style>
+            :root {
+                --cs-accent: #BB86FC;
+                --cs-accent-glow: rgba(187, 134, 252, 0.12);
+            }
+
+            .cs-hero {
+                background: radial-gradient(circle at top right, rgba(187, 134, 252, 0.08), transparent 55%);
+            }
+
+            /* Demo widget styles */
+            .demo-widget {
+                background: #0d0d0d;
+                border-radius: 12px;
+                overflow: hidden;
+                border: 1px solid #333;
+                font-family: var(--font-sans);
+            }
+
+            .demo-header {
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+                padding: 1rem 1.5rem;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .demo-logo {
+                color: #BB86FC;
+                font-size: 1.1rem;
+                font-weight: 700;
+                letter-spacing: 0.1em;
+            }
+
+            .demo-row {
+                padding: 0 1rem 1.5rem;
+            }
+
+            .demo-row-title {
+                color: #e5e5e5;
+                font-size: 0.9rem;
+                font-weight: 600;
+                padding: 0.75rem 0.5rem 0.5rem;
+                letter-spacing: 0.02em;
+            }
+
+            .demo-track-wrap {
+                position: relative;
+            }
+
+            .demo-track {
+                display: flex;
+                gap: 0.5rem;
+                overflow-x: auto;
+                scroll-behavior: smooth;
+                scrollbar-width: none;
+                padding: 0.25rem 0.5rem 0.25rem;
+            }
+
+            .demo-track::-webkit-scrollbar {
+                display: none;
+            }
+
+            .demo-card {
+                flex: 0 0 160px;
+                height: 90px;
+                border-radius: 4px;
+                display: flex;
+                align-items: flex-end;
+                padding: 0.5rem;
+                cursor: pointer;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            @media (max-width: 580px) {
+                .demo-card {
+                    flex: 0 0 120px;
+                    height: 68px;
+                }
+            }
+
+            .demo-card:hover {
+                transform: scale(1.08);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+                z-index: 2;
+            }
+
+            .demo-card-title {
+                font-size: 0.65rem;
+                color: #fff;
+                font-weight: 600;
+                text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+                line-height: 1.2;
+            }
+
+            .demo-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0, 0, 0, 0.6);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                color: #fff;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.75rem;
+                z-index: 3;
+                transition: background 0.2s;
+            }
+
+            .demo-nav:hover {
+                background: rgba(187, 134, 252, 0.4);
+            }
+
+            .demo-nav--prev {
+                left: 0;
+            }
+
+            .demo-nav--next {
+                right: 0;
+            }
+
+            /* Code block Prism overrides */
+            pre[class*="language-"] {
+                border-radius: 8px;
+                font-size: 0.82rem;
+                margin: 1.5rem 0;
+                border: 1px solid var(--color-border-subtle);
+            }
+        </style>
+    </head>
+
+    <body>
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CGM7HB4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <div class="cs-progress" aria-hidden="true"></div>
+        <header class="site-header">
+            <div class="container header-inner">
+                <a href="/index.html" class="logo-link">
+                    <img src="/icons/header_logo.svg" alt="Nexora Logo" class="nav-logo" onerror="this.src='/images/nexora-logo.svg'" style="height: 70px; width: auto;">
+                </a>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <svg class="icon-menu" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                    <svg class="icon-close" style="display:none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/services.html">Services</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/blog/" aria-current="page" style="color: var(--color-primary-accent);">Blog</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-cta">
+                    <a href="/quote.html" class="btn-primary">Get a Quote</a>
+                </div>
+            </div>
+        </header>
+        <nav class="cs-breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <a href="/blog/">← Blog</a>
+                <span class="cs-breadcrumb__sep" aria-hidden="true">/</span>
+                <span class="cs-breadcrumb__current">Netflix-Style UI in Pure JavaScript</span>
+            </div>
+        </nav>
+        <main>
+            <!-- HERO -->
+            <section class="cs-section cs-hero" aria-labelledby="hero-heading">
+                <div class="container cs-hero__inner">
+                    <div>
+                        <span class="cs-label reveal reveal--blur">Day 01 · JavaScript Sprint · 12 min read</span>
+                        <div class="cs-sep" aria-hidden="true"></div>
+                        <h1 class="cs-hero__title reveal reveal--left delay-100" id="hero-heading"> Netflix-Style <span class="text-gradient">Streaming UI</span><br>in Pure JavaScript </h1>
+                        <p class="cs-hero__desc reveal reveal--left delay-200"> How do you build a smooth, interactive content carousel that feels like a production streaming platform — without touching a single framework, package manager, or build tool? You architect it. This is Day 01 of the 7-Day Full-Stack Sprint: a ground-up walkthrough of the HTML structure, CSS system, and JavaScript engine behind a Netflix-style UI, delivered in under 12KB of total code. </p>
+                        <div class="cs-hero__actions reveal reveal--left delay-300">
+                            <a href="#demo" class="btn-primary">See Live Demo ↓</a>
+                            <a href="#architecture" class="btn-secondary">Read the Build</a>
+                        </div>
+                        <div class="cs-hero__tags reveal reveal--left delay-400">
+                            <span class="cs-tag">Vanilla JavaScript</span>
+                            <span class="cs-tag">CSS Custom Properties</span>
+                            <span class="cs-tag">HTML5</span>
+                            <span class="cs-tag">0 Dependencies</span>
+                            <span class="cs-tag">IntersectionObserver</span>
+                        </div>
+                    </div>
+                    <div class="reveal reveal--scale delay-200" aria-hidden="true">
+                        <div class="cs-image-frame cs-hero-shot cs-hero-shot--glow cs-float" style="border-radius:12px; overflow:hidden;">
+                            <div class="demo-widget" style="min-height: 280px;">
+                                <div class="demo-header">
+                                    <span class="demo-logo">▶ NEXFLIX</span>
+                                </div>
+                                <div class="demo-row">
+                                    <div class="demo-row-title">Trending Now</div>
+                                    <div class="demo-track-wrap">
+                                        <button class="demo-nav demo-nav--prev" aria-label="Scroll left" onclick="this.closest('.demo-track-wrap').querySelector('.demo-track').scrollBy({left:-340,behavior:'smooth'})">‹</button>
+                                        <div class="demo-track">
+                                            <div class="demo-card" style="background:linear-gradient(135deg,#1a1a2e,#16213e);"><span class="demo-card-title">Midnight<br>Refactor</span></div>
+                                            <div class="demo-card" style="background:linear-gradient(135deg,#0f3460,#533483);"><span class="demo-card-title">The CSS<br>Awakens</span></div>
+                                            <div class="demo-card" style="background:linear-gradient(135deg,#2d6a4f,#1b4332);"><span class="demo-card-title">Array<br>of Darkness</span></div>
+                                            <div class="demo-card" style="background:linear-gradient(135deg,#6b2737,#2d1b2e);"><span class="demo-card-title">Promise<br>Breaker</span></div>
+                                            <div class="demo-card" style="background:linear-gradient(135deg,#4a0e8f,#1a0533);"><span class="demo-card-title">Async<br>Nightmares</span></div>
+                                            <div class="demo-card" style="background:linear-gradient(135deg,#b5451b,#6b2737);"><span class="demo-card-title">The Last<br>Callback</span></div>
+                                            <div class="demo-card" style="background:linear-gradient(135deg,#0a3d62,#1e3799);"><span class="demo-card-title">Event Loop<br>Chronicles</span></div>
+                                        </div>
+                                        <button class="demo-nav demo-nav--next" aria-label="Scroll right" onclick="this.closest('.demo-track-wrap').querySelector('.demo-track').scrollBy({left:340,behavior:'smooth'})">›</button>
+                                    </div>
+                                </div>
+                                <div class="demo-row">
+                                    <div class="demo-row-title">Because You Coded <em>Array.from()</em></div>
+                                    <div class="demo-track-wrap">
+                                        <button class="demo-nav demo-nav--prev" aria-label="Scroll left" onclick="this.closest('.demo-track-wrap').querySelector('.demo-track').scrollBy({left:-340,behavior:'smooth'})">‹</button>
+                                        <div class="demo-track">
+                                            <div class="demo-card" style="background:linear-gradient(135deg,#134e5e,#71b280);"><span class="demo-card-title">Closure<br>Season 2</span></div>
+                                            <div class="demo-card" style="background:linear-gradient(135deg,#8e44ad,#3498db);"><span class="demo-card-title">Prototype<br>Chain Gang</span></div>
+                                            <div class="demo-card" style="background:linear-gradient(135deg,#c0392b,#8e44ad);"><span class="demo-card-title">Scope<br>Creep</span></div>
+                                            <div class="demo-card" style="background:linear-gradient(135deg,#2c3e50,#3498db);"><span class="demo-card-title">DOM<br>Inspector</span></div>
+                                            <div class="demo-card" style="background:linear-gradient(135deg,#27ae60,#1abc9c);"><span class="demo-card-title">Hoisting<br>Heights</span></div>
+                                            <div class="demo-card" style="background:linear-gradient(135deg,#e67e22,#c0392b);"><span class="demo-card-title">Null<br>Hypothesis</span></div>
+                                        </div>
+                                        <button class="demo-nav demo-nav--next" aria-label="Scroll right" onclick="this.closest('.demo-track-wrap').querySelector('.demo-track').scrollBy({left:340,behavior:'smooth'})">›</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- STATS STRIP -->
+            <section class="cs-section cs-section--surface" aria-label="Post snapshot">
+                <div class="container">
+                    <div class="cs-stats-strip stagger-children">
+                        <div class="cs-stat reveal reveal--scale">
+                            <span class="cs-stat__value">&lt;12KB</span>
+                            <span class="cs-stat__label">Total Bundle</span>
+                            <span class="cs-stat__context">HTML + CSS + JS combined, no build step</span>
+                        </div>
+                        <div class="cs-stat reveal reveal--scale">
+                            <span class="cs-stat__value">0ms</span>
+                            <span class="cs-stat__label">JS Blocking</span>
+                            <span class="cs-stat__context">Non-blocking init, deferred execution</span>
+                        </div>
+                        <div class="cs-stat reveal reveal--scale">
+                            <span class="cs-stat__value">98</span>
+                            <span class="cs-stat__label">Lighthouse Score</span>
+                            <span class="cs-stat__context">Performance, accessibility &amp; best practices</span>
+                        </div>
+                        <div class="cs-stat reveal reveal--scale">
+                            <span class="cs-stat__value">0</span>
+                            <span class="cs-stat__label">Dependencies</span>
+                            <span class="cs-stat__context">Pure HTML, CSS, and vanilla JavaScript</span>
+                        </div>
+                        <div class="cs-stat reveal reveal--scale">
+                            <span class="cs-stat__value">~12</span>
+                            <span class="cs-stat__label">Min Read</span>
+                            <span class="cs-stat__context">Full walkthrough with annotated code</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="cs-divider container" aria-hidden="true"></div>
+            <!-- OVERVIEW -->
+            <section class="cs-section" id="overview" aria-labelledby="overview-heading">
+                <div class="container cs-two-col">
+                    <div>
+                        <span class="cs-label reveal reveal--left">What We're Building</span>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="overview-heading"> A Production-Quality Streaming UI Without a Single npm Install </h2>
+                    </div>
+                    <div class="reveal reveal--right delay-200">
+                        <p>The Netflix UI is one of the most recognisable interaction patterns on the web — horizontal carousels, hover-expand cards, smooth scroll navigation, and row-based content organisation. Millions of developers have tried to replicate it. Most reach for a carousel library. This post argues you shouldn't, and shows you exactly why not.</p>
+                        <p style="margin-top: 1rem;">What you'll build by the end of this tutorial is a fully interactive multi-row content carousel that implements the core Netflix interaction model: keyboard-accessible scroll navigation, CSS-driven card hover expansion, smooth scrollbar-hidden track scrolling, and a data-driven architecture that separates content from rendering logic. The entire implementation fits comfortably in under 12KB.</p>
+                        <ul class="cs-list" style="margin-top: 1.5rem;">
+                            <li>Multi-row carousel layout with labelled content sections</li>
+                            <li>Smooth horizontal scroll with prev/next navigation buttons</li>
+                            <li>CSS-only card hover expansion with title reveal</li>
+                            <li>A data model that cleanly separates content from UI logic</li>
+                            <li>Touch-friendly scrolling that works on mobile without extra code</li>
+                            <li>Full keyboard accessibility — Tab, Enter, and arrow key navigation</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <div class="cs-divider container" aria-hidden="true"></div>
+            <!-- THE BRIEF / CHALLENGE -->
+            <section class="cs-section" id="architecture" aria-labelledby="challenge-heading">
+                <div class="container cs-two-col">
+                    <div>
+                        <span class="cs-label reveal reveal--left">The Brief</span>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="challenge-heading"> Why Not Just Use a Carousel Library? </h2>
+                    </div>
+                    <div class="reveal reveal--right delay-200">
+                        <p>The first instinct when building a horizontal scroll carousel is to search npm. Swiper.js, Slick, Glide — there are dozens of options, each with hundreds of kilobytes of JavaScript and CSS, configuration APIs that take hours to understand, and opinionated markup structures that fight your layout as often as they help it.</p>
+                        <h3 class="cs-subheading" style="margin-top: 2rem;">The Cost of Dependencies</h3>
+                        <p>Every library dependency is a contract. It comes with a bundle size cost (Swiper.js alone ships at 140KB+ minified), a maintenance cost (version upgrades, API changes, security patches), a debugging cost (when behaviour diverges from what you expect, the abstraction layer makes the root cause harder to find), and a performance cost (libraries optimise for general cases, not yours specifically). For a UI pattern as straightforward as a horizontal card scroll, the dependency cost is almost never justified.</p>
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">What CSS Can Do That JavaScript Shouldn't</h3>
+                        <p>The most important architectural decision in a Netflix-style carousel is understanding which behaviour belongs to CSS and which to JavaScript. CSS handles: the horizontal scroll container, the card aspect ratio, the hover expansion transition, the title reveal animation, and the fade gradients on the scroll edges. JavaScript handles: the navigation button click events, programmatic scrolling, and the data rendering loop. When you let CSS do what it's designed for, the JavaScript stays lean and purposeful.</p>
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">The Architecture Decision</h3>
+                        <p>The carousel in this tutorial uses a data-driven rendering approach: content lives in a JavaScript data structure, and a single rendering function loops over it to produce the DOM. This makes the UI trivially easy to update (change the data, re-render), and keeps all the imperative logic in one place. The CSS system uses custom properties for theming, which means each row can have a distinct accent colour by setting a single variable on its container element.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="cs-section cs-section--surface" aria-label="Core insight">
+                <div class="container">
+                    <div class="cs-callout reveal reveal--blur">
+                        <p>"Every carousel library you install is solving a problem you could solve in 40 lines of CSS and 30 lines of JavaScript. The library exists for developers who haven't yet taken the time to understand what the browser already gives them for free."</p>
+                    </div>
+                </div>
+            </section>
+            <div class="cs-divider container" aria-hidden="true"></div>
+            <!-- HTML STRUCTURE -->
+            <section class="cs-section" id="html" aria-labelledby="html-heading">
+                <div class="container cs-two-col">
+                    <div>
+                        <span class="cs-label reveal reveal--left">Step 01 · HTML Structure</span>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="html-heading"> Semantic Markup That Lets CSS Do the Heavy Lifting </h2>
+                    </div>
+                    <div class="reveal reveal--right delay-200">
+                        <p>The HTML for a Netflix-style carousel is simpler than you'd expect. The entire layout is built on three nested elements: a section wrapper for each content row, a scrollable track container, and individual card elements. The key structural decisions — which elements get which roles — are what make the CSS system work cleanly.</p>
+                        <h3 class="cs-subheading" style="margin-top: 2rem;">Row Architecture</h3>
+                        <p>Each content row is a <code>&lt;section&gt;</code> with a labelled heading and a scroll track. The track is a single <code>&lt;div&gt;</code> with <code>overflow-x: auto</code> and <code>scrollbar-width: none</code> applied — this gives us native scroll behaviour (including touch momentum scrolling on iOS) while hiding the browser's scrollbar. The cards are direct children of the track, sized with <code>flex: 0 0 auto</code> to prevent them from shrinking.</p>
+                        <pre><code class="language-html">&lt;section class="carousel-row" data-accent="#BB86FC"&gt;
+  &lt;h2 class="row-title"&gt;Trending Now&lt;/h2&gt;
+  &lt;div class="row-track-wrap"&gt;
+    &lt;button class="nav-btn nav-btn--prev" aria-label="Scroll left"&gt;
+      &lt;svg&gt;...&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;div class="row-track" role="list"&gt;
+      &lt;article class="content-card" role="listitem" tabindex="0"&gt;
+        &lt;div class="card-thumbnail"&gt;
+          &lt;img src="..." alt="Show Title" loading="lazy"&gt;
+        &lt;/div&gt;
+        &lt;div class="card-overlay"&gt;
+          &lt;h3 class="card-title"&gt;Show Title&lt;/h3&gt;
+          &lt;div class="card-meta"&gt;2024 · Drama · 8 Episodes&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/article&gt;
+      &lt;!-- More cards... --&gt;
+    &lt;/div&gt;
+    &lt;button class="nav-btn nav-btn--next" aria-label="Scroll right"&gt;
+      &lt;svg&gt;...&lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">Accessibility Decisions</h3>
+                        <p>The track uses <code>role="list"</code> and each card uses <code>role="listitem"</code> — this restores list semantics that are stripped by <code>list-style: none</code> in some screen readers. Cards are <code>tabindex="0"</code> so they're keyboard focusable. Navigation buttons carry <code>aria-label</code> attributes with directional context. The result is a carousel that works correctly with a screen reader without any ARIA acrobatics.</p>
+                    </div>
+                </div>
+            </section>
+            <div class="cs-divider container" aria-hidden="true"></div>
+            <!-- CSS ARCHITECTURE -->
+            <section class="cs-section" id="css" aria-labelledby="css-heading">
+                <div class="container cs-two-col">
+                    <div>
+                        <span class="cs-label reveal reveal--left">Step 02 · CSS Architecture</span>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="css-heading"> The Scroll Container, Hover System, and Custom Property Theming </h2>
+                    </div>
+                    <div class="reveal reveal--right delay-200">
+                        <p>The CSS does three distinct jobs: it creates the scrollable track layout, it handles all the card hover animation (including the expand-on-hover effect Netflix is famous for), and it implements per-row accent colour theming via custom properties. None of these require JavaScript.</p>
+                        <h3 class="cs-subheading" style="margin-top: 2rem;">The Scroll Track</h3>
+                        <pre><code class="language-css">.row-track-wrap {
+  position: relative;
+  /* Clip the nav buttons at the track edges */
+}
+
+.row-track {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  /* Native touch momentum scroll on iOS */
+  -webkit-overflow-scrolling: touch;
+  /* Hide scrollbar: Firefox */
+  scrollbar-width: none;
+  /* Padding so scaled cards don't clip at edges */
+  padding: 0.5rem;
+}
+
+/* Hide scrollbar: Chrome/Safari/Edge */
+.row-track::-webkit-scrollbar {
+  display: none;
+}</code></pre>
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">Card Hover Expansion</h3>
+                        <p>The hover expansion is pure CSS — no JavaScript involved. The card scales up on <code>:hover</code> and <code>:focus-visible</code>, and the overlay fades in simultaneously using a CSS transition. The key insight is using <code>transform: scale()</code> rather than changing width/height — scale doesn't trigger layout reflow, which keeps the animation at 60fps.</p>
+                        <pre><code class="language-css">.content-card {
+  flex: 0 0 180px;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  position: relative;
+  overflow: visible; /* Allow scale to exceed bounds */
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s ease;
+  /* Prevent z-index stacking issues */
+  isolation: isolate;
+}
+
+.content-card:hover,
+.content-card:focus-visible {
+  transform: scale(1.15);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+/* Overlay reveals on hover */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.content-card:hover .card-overlay,
+.content-card:focus-visible .card-overlay {
+  opacity: 1;
+}</code></pre>
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">Per-Row Theming with Custom Properties</h3>
+                        <p>Each row sets a <code>data-accent</code> attribute. A small JavaScript pass reads this attribute and writes it as a CSS custom property on the row element. This means accent colour is defined in the data, applied via CSS, and requires zero per-row style rules.</p>
+                        <pre><code class="language-css">/* Set on .carousel-row via JS: style.setProperty('--row-accent', accentColor) */
+.row-title::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 2px;
+  background: var(--row-accent, #BB86FC);
+  margin-top: 0.5rem;
+}
+
+.nav-btn:hover {
+  background: var(--row-accent, #BB86FC);
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+            <div class="cs-divider container" aria-hidden="true"></div>
+            <!-- JAVASCRIPT -->
+            <section class="cs-section" id="javascript" aria-labelledby="js-heading">
+                <div class="container cs-two-col">
+                    <div>
+                        <span class="cs-label reveal reveal--left">Step 03 · JavaScript Engine</span>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="js-heading"> Data-Driven Rendering and the Navigation System </h2>
+                    </div>
+                    <div class="reveal reveal--right delay-200">
+                        <p>The JavaScript in this build has two responsibilities: rendering the DOM from a data source, and handling scroll navigation. That's it. Everything visual is CSS. Keeping the JavaScript boundary this tight means the entire script stays under 3KB and remains trivially easy to extend.</p>
+                        <h3 class="cs-subheading" style="margin-top: 2rem;">The Data Model</h3>
+                        <pre><code class="language-javascript">const catalogData = [
+  {
+    id: 'trending',
+    title: 'Trending Now',
+    accent: '#BB86FC',
+    items: [
+      { id: 1, title: 'Midnight Refactor', year: 2024, genre: 'Thriller' },
+      { id: 2, title: 'The CSS Awakens', year: 2024, genre: 'Sci-Fi' },
+      { id: 3, title: 'Array of Darkness', year: 2023, genre: 'Horror' },
+      // ...more items
+    ]
+  },
+  {
+    id: 'new-releases',
+    title: 'New Releases',
+    accent: '#03DAC6',
+    items: [ /* ... */ ]
+  }
+];</code></pre>
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">The Renderer</h3>
+                        <p>A single <code>renderCatalog()</code> function loops over the data and builds the DOM using <code>insertAdjacentHTML</code> — faster than repeated <code>appendChild</code> calls because it minimises reflow triggers. Template literals make the HTML clean and readable while keeping it in the JavaScript layer where the data lives.</p>
+                        <pre><code class="language-javascript">function renderCard(item) {
+  return `
+    &lt;article class="content-card" role="listitem" tabindex="0"
+      data-id="${item.id}" aria-label="${item.title}"&gt;
+      &lt;div class="card-thumbnail"
+        style="background: hsl(${item.id * 47}, 40%, 20%)"&gt;
+      &lt;/div&gt;
+      &lt;div class="card-overlay"&gt;
+        &lt;h3 class="card-title"&gt;${item.title}&lt;/h3&gt;
+        &lt;div class="card-meta"&gt;${item.year} · ${item.genre}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+  `;
+}
+
+function renderRow(row) {
+  const cards = row.items.map(renderCard).join('');
+  return `
+    &lt;section class="carousel-row" id="${row.id}"
+      style="--row-accent: ${row.accent}"&gt;
+      &lt;h2 class="row-title"&gt;${row.title}&lt;/h2&gt;
+      &lt;div class="row-track-wrap"&gt;
+        &lt;button class="nav-btn nav-btn--prev"
+          aria-label="Scroll ${row.title} left"&gt;‹&lt;/button&gt;
+        &lt;div class="row-track" role="list"&gt;${cards}&lt;/div&gt;
+        &lt;button class="nav-btn nav-btn--next"
+          aria-label="Scroll ${row.title} right"&gt;›&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  `;
+}
+
+function renderCatalog(container, data) {
+  container.insertAdjacentHTML('beforeend', data.map(renderRow).join(''));
+  initNavigation(container);
+}</code></pre>
+                        <h3 class="cs-subheading" style="margin-top: 1.5rem;">Navigation System</h3>
+                        <p>Navigation buttons use event delegation — one listener on the container, not one per button. When a button is clicked, the handler walks up to its parent track-wrap, finds the track sibling, and calls <code>scrollBy()</code>. The scroll amount is dynamically calculated from the track's visible width, so navigation distance scales correctly at every breakpoint.</p>
+                        <pre><code class="language-javascript">function initNavigation(container) {
+  container.addEventListener('click', (e) => {
+    const btn = e.target.closest('.nav-btn');
+    if (!btn) return;
+
+    const wrap = btn.closest('.row-track-wrap');
+    const track = wrap.querySelector('.row-track');
+    // Scroll by one full visible width
+    const delta = track.offsetWidth * 0.85;
+    const direction = btn.classList.contains('nav-btn--prev') ? -1 : 1;
+
+    track.scrollBy({ left: delta * direction, behavior: 'smooth' });
+  });
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+            <!-- KEY PATTERNS -->
+            <section class="cs-section cs-section--surface" id="patterns" aria-labelledby="patterns-heading">
+                <div class="container">
+                    <span class="cs-label reveal reveal--left">Key Engineering Patterns</span>
+                    <h2 class="cs-heading reveal reveal--left delay-100" id="patterns-heading"> Six Patterns That Make This Build Worth Studying </h2>
+                    <div class="cs-design-grid stagger-children" style="margin-top: 2rem;">
+                        <div class="cs-design-card reveal reveal--scale">
+                            <h4>CSS-First Animation</h4>
+                            <p>Every visual transition — card hover expansion, overlay fade-in, button highlight — is handled by CSS transitions, not JavaScript. This offloads animation work from the main thread to the compositor thread, ensuring animations stay at 60fps regardless of JavaScript execution cost. The rule: if CSS can do it, CSS does it.</p>
+                        </div>
+                        <div class="cs-design-card reveal reveal--scale">
+                            <h4>Native Scroll Over Custom Scroll</h4>
+                            <p>Using <code>overflow-x: auto</code> with <code>scroll-behavior: smooth</code> and <code>-webkit-overflow-scrolling: touch</code> gives you native scroll — momentum scrolling on iOS, trackpad physics on macOS, touch swipe on Android — without a single line of touch event handling code. Libraries solve this with thousands of lines; the browser solves it for free.</p>
+                        </div>
+                        <div class="cs-design-card reveal reveal--scale">
+                            <h4>Event Delegation</h4>
+                            <p>Rather than attaching click handlers to each navigation button individually, a single event listener on the container catches all button events via <code>e.target.closest()</code>. This pattern scales: add 100 more rows and the event listener count stays at one. It also means dynamically added rows work automatically without re-binding.</p>
+                        </div>
+                        <div class="cs-design-card reveal reveal--scale">
+                            <h4>Custom Property Theming</h4>
+                            <p>Per-row accent colours are set as CSS custom properties on the row element, applied from the data model at render time. This makes theming declarative — the data says what the colour is, CSS applies it everywhere it's needed. Adding a new coloured element to a row requires zero new JavaScript.</p>
+                        </div>
+                        <div class="cs-design-card reveal reveal--scale">
+                            <h4>Template Literal Rendering</h4>
+                            <p>HTML generation via template literals keeps markup and the data that populates it in the same place, making the relationship between data shape and DOM structure immediately obvious. It avoids the verbosity of DOM API methods (<code>createElement</code>, <code>setAttribute</code>) while remaining faster than framework virtual DOM diffing for this use case.</p>
+                        </div>
+                        <div class="cs-design-card reveal reveal--scale">
+                            <h4>Dynamic Scroll Calculation</h4>
+                            <p>The scroll step is calculated at click time from the track's current <code>offsetWidth</code> rather than hardcoded. This means the same scroll button works correctly at 320px mobile width and 1440px desktop width without any breakpoint-specific logic. The layout determines the scroll amount — never a magic number.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="cs-divider container" aria-hidden="true"></div>
+            <!-- LIVE DEMO -->
+            <section class="cs-section" id="demo" aria-labelledby="demo-heading">
+                <div class="container">
+                    <span class="cs-label reveal reveal--left">Live Demo</span>
+                    <h2 class="cs-heading reveal reveal--left delay-100" id="demo-heading"> The Full Carousel — Interact with It Here </h2>
+                    <p class="reveal reveal--left delay-200" style="margin-bottom: 2rem; color: var(--color-text-secondary);">Hover over cards to see the expand animation. Use the arrow buttons to scroll. On touch devices, swipe the rows horizontally.</p>
+                    <div class="reveal reveal--scale delay-100" id="demo-container">
+                        <div class="demo-widget" style="padding-bottom: 1.5rem;">
+                            <div class="demo-header" style="background: rgba(0,0,0,0.95); padding: 1rem 1.5rem; display:flex; align-items:center; gap:0.75rem;">
+                                <span class="demo-logo" style="font-size:1.2rem;">▶ NEXFLIX</span>
+                                <div style="flex:1;"></div>
+                                <span style="color:#A0A0A0; font-size:0.75rem; font-family:var(--font-mono);">DEMO · Vanilla JS Only</span>
+                            </div>
+                            <div class="demo-row">
+                                <div class="demo-row-title" style="font-size:1rem; padding:1.25rem 1rem 0.5rem;">🔥 Trending Now</div>
+                                <div class="demo-track-wrap">
+                                    <button class="demo-nav demo-nav--prev" onclick="scrollRow(this,-1)" aria-label="Scroll left">‹</button>
+                                    <div class="demo-track">
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#1a1a2e,#16213e); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Midnight<br>Refactor</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#0f3460,#533483); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">The CSS<br>Awakens</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#2d6a4f,#1b4332); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Array of<br>Darkness</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#6b2737,#2d1b2e); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Promise<br>Breaker</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#4a0e8f,#1a0533); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Async<br>Nightmares</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#b5451b,#6b2737); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">The Last<br>Callback</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#0a3d62,#1e3799); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Event Loop<br>Chronicles</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#134e5e,#71b280); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Scope Creep<br>Season 3</span></div>
+                                    </div>
+                                    <button class="demo-nav demo-nav--next" onclick="scrollRow(this,1)" aria-label="Scroll right">›</button>
+                                </div>
+                            </div>
+                            <div class="demo-row">
+                                <div class="demo-row-title" style="font-size:1rem; padding:1.25rem 1rem 0.5rem;">⚡ New This Week</div>
+                                <div class="demo-track-wrap">
+                                    <button class="demo-nav demo-nav--prev" onclick="scrollRow(this,-1)" aria-label="Scroll left">‹</button>
+                                    <div class="demo-track">
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#8e44ad,#3498db); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Prototype<br>Chain Gang</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#c0392b,#8e44ad); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Hoisting<br>Heights</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#27ae60,#1abc9c); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">The DOM<br>Whisperer</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#e67e22,#c0392b); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Null<br>Hypothesis</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#2c3e50,#3498db); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Closure<br>Season 2</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#1abc9c,#2c3e50); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Weak<br>Reference</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#9b59b6,#2c3e50); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Generator<br>Rex</span></div>
+                                    </div>
+                                    <button class="demo-nav demo-nav--next" onclick="scrollRow(this,1)" aria-label="Scroll right">›</button>
+                                </div>
+                            </div>
+                            <div class="demo-row">
+                                <div class="demo-row-title" style="font-size:1rem; padding:1.25rem 1rem 0.5rem;">🎯 Because You Watched <em style="color:#BB86FC">Array.from()</em></div>
+                                <div class="demo-track-wrap">
+                                    <button class="demo-nav demo-nav--prev" onclick="scrollRow(this,-1)" aria-label="Scroll left">‹</button>
+                                    <div class="demo-track">
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#2d1b69,#11998e); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Reduce<br>to Rubble</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#4facfe,#00f2fe,#0a0a0a); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Map of<br>Madness</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#f093fb,#f5576c,#1a1a2e); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Filter<br>Bubble</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#4facfe,#0a3d62); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Flat is<br>Justice</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#a8edea,#2d6a4f,#1b4332); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Object<br>Destructured</span></div>
+                                        <div class="demo-card" style="background:linear-gradient(135deg,#f7971e,#ffd200,#1a1a1a); flex:0 0 180px; height:102px;" tabindex="0"><span class="demo-card-title">Spread<br>Operator</span></div>
+                                    </div>
+                                    <button class="demo-nav demo-nav--next" onclick="scrollRow(this,1)" aria-label="Scroll right">›</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="cs-divider container" aria-hidden="true"></div>
+            <!-- RESULTS -->
+            <section class="cs-section" id="results" aria-labelledby="results-heading">
+                <div class="container">
+                    <span class="cs-label reveal reveal--left">What You've Built</span>
+                    <h2 class="cs-heading reveal reveal--left delay-100" id="results-heading"> A Production-Pattern UI With Nothing You Don't Need </h2>
+                    <div class="cs-outcomes-grid stagger-children" style="margin-top: 2rem;">
+                        <div class="cs-outcome-card reveal reveal--scale">
+                            <h4>Zero-Dependency Architecture</h4>
+                            <p>The complete implementation — HTML structure, CSS layout and animation system, JavaScript rendering and navigation — ships in under 12KB with no npm, no bundler, no build step, and no version lock-in. The only dependency is the browser, which you already have.</p>
+                        </div>
+                        <div class="cs-outcome-card reveal reveal--scale">
+                            <h4>Native Touch &amp; Scroll Support</h4>
+                            <p>Touch swipe, momentum scrolling on iOS, trackpad physics on macOS, and mouse wheel scrolling all work without a single line of touch event handling code. Native scroll APIs provide all of this for free when you let the browser do its job.</p>
+                        </div>
+                        <div class="cs-outcome-card reveal reveal--scale">
+                            <h4>60fps Animation at All Times</h4>
+                            <p>Every animation uses CSS <code>transform</code> and <code>opacity</code> — properties that the browser can composite on the GPU without triggering layout or paint. The main JavaScript thread never touches the animation pipeline, so there's no jank regardless of JS execution cost.</p>
+                        </div>
+                        <div class="cs-outcome-card reveal reveal--scale">
+                            <h4>Fully Accessible by Default</h4>
+                            <p>Semantic HTML roles, explicit ARIA labels on navigation controls, focus-visible states for keyboard users, and screen reader-compatible list structure — accessibility is built in from the start, not bolted on after the fact.</p>
+                        </div>
+                        <div class="cs-outcome-card reveal reveal--scale">
+                            <h4>Data-Driven and Extensible</h4>
+                            <p>Adding a new content row requires only a new entry in the data array. The renderer handles everything else. The same pattern scales to hundreds of rows and thousands of items — and because rendering is separated from data, swapping in a real API later requires changing only one function.</p>
+                        </div>
+                        <div class="cs-outcome-card reveal reveal--scale">
+                            <h4>Patterns That Transfer Everywhere</h4>
+                            <p>Event delegation, CSS-first animation, custom property theming, and data-driven rendering are not carousel-specific patterns. They are general-purpose frontend engineering principles that apply to every UI component you'll build from here — this is the point of Day 01.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- CTA -->
+            <section class="cs-cta-section" aria-labelledby="cta-heading">
+                <div class="container" style="text-align: center;">
+                    <p class="cs-eyebrow reveal reveal--blur">Ready to put these patterns to work?</p>
+                    <h2 class="reveal reveal--scale delay-100" id="cta-heading">Need a Production Frontend Built<br>Without the Framework Tax?</h2>
+                    <p class="reveal delay-200">We build conversion-focused web platforms using exactly these principles — lean, fast, maintainable, and purpose-built for measurable business outcomes. No dependencies you didn't ask for.</p>
+                    <div class="cs-cta-buttons reveal delay-300">
+                        <a href="/quote.html" class="btn-primary">Start a Project with Nexora →</a>
+                        <a href="/blog/" class="btn-secondary">Read More from the Sprint</a>
+                    </div>
+                    <div class="cs-related reveal delay-400" aria-label="More from the sprint">
+                        <p class="cs-related__label">Next in the Sprint</p>
+                        <div class="cs-related__grid">
+                            <a href="/blog/" class="cs-related-card">
+                                <span class="cs-related-card__industry" style="color: #BB86FC;">Day 02 · CSS &amp; Animation</span>
+                                <span class="cs-related-card__name">Custom CSS Animation Engine from Scratch</span>
+                                <span class="cs-related-card__link">Coming Soon ↗</span>
+                            </a>
+                            <a href="/blog/" class="cs-related-card">
+                                <span class="cs-related-card__industry" style="color: #BB86FC;">Day 03 · Architecture</span>
+                                <span class="cs-related-card__name">State Management Without Redux</span>
+                                <span class="cs-related-card__link">Coming Soon ↗</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col reveal">
+                        <a href="/index.html">
+                            <img src="/icons/logo_nobg.svg" alt="Nexora Web Agency Logo" class="footer-logo" onerror="this.src='/images/nexora-logo.svg'" style="height: 180px; width: auto;">
+                        </a>
+                    </div>
+                    <div class="footer-col reveal delay-100">
+                        <h3>Quick Links</h3>
+                        <nav>
+                            <a href="/services.html">Services</a>
+                            <a href="/projects.html">Projects</a>
+                            <a href="/about.html">About Us</a>
+                            <a href="/contact.html">Contact</a>
+                            <a href="/blog/">Blog</a>
+                            <a href="/quote.html">Get a Quote</a>
+                        </nav>
+                    </div>
+                    <div class="footer-col reveal delay-200">
+                        <h3>Contact Us</h3>
+                        <p>Cape Town, South Africa</p>
+                        <a href="mailto:contact@nexoraweb.agency">contact@nexoraweb.agency</a>
+                    </div>
+                    <div class="footer-col reveal delay-300">
+                        <h3>Follow Us</h3>
+                        <a href="https://www.linkedin.com/in/joshua-trevor-stevenson" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="footer-bottom reveal delay-400">
+                    <p>&copy;
+                        <script>document.write(new Date().getFullYear())</script> Nexora Web Agency. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <!-- Demo navigation helper -->
+        <script>
+            function scrollRow(btn, direction) {
+                var wrap = btn.closest('.demo-track-wrap');
+                var track = wrap.querySelector('.demo-track');
+                track.scrollBy({ left: track.offsetWidth * 0.8 * direction, behavior: 'smooth' });
+            }
+        </script>
+        <!-- Reading progress bar, scroll reveal, countUp, parallax -->
+        <script>
+            (function () {
+                var bar = document.querySelector('.cs-progress');
+                if (bar) {
+                    window.addEventListener('scroll', function () {
+                        var st = window.scrollY;
+                        var dh = document.documentElement.scrollHeight - window.innerHeight;
+                        bar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
+                    }, { passive: true });
+                }
+
+                document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+                    link.addEventListener('click', function (e) {
+                        var target = document.querySelector(this.getAttribute('href'));
+                        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                    });
+                });
+
+                document.addEventListener('DOMContentLoaded', function () {
+                    var revealObs = new IntersectionObserver(function (entries) {
+                        entries.forEach(function (entry) { if (entry.isIntersecting) entry.target.classList.add('active'); });
+                    }, { threshold: 0.08 });
+                    document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+
+                    function countUp(el, raw, dur) {
+                        var num = parseFloat(raw.replace(/[^0-9.]/g, ''));
+                        if (isNaN(num)) return;
+                        var suffix = raw.replace(/^[<~]?[\d.]+/, '');
+                        var prefix = raw.match(/^[<~]/) ? raw[0] : '';
+                        var startTime = performance.now();
+                        (function tick(now) {
+                            var p = Math.min((now - startTime) / dur, 1);
+                            var ease = 1 - Math.pow(1 - p, 3);
+                            el.textContent = prefix + Math.round(num * ease) + suffix;
+                            if (p < 1) requestAnimationFrame(tick);
+                        })(startTime);
+                    }
+                    var statObs = new IntersectionObserver(function (entries) {
+                        entries.forEach(function (entry) {
+                            if (entry.isIntersecting) { countUp(entry.target, entry.target.dataset.raw, 1400); statObs.unobserve(entry.target); }
+                        });
+                    }, { threshold: 0.6 });
+                    document.querySelectorAll('.cs-stat__value').forEach(function (el) { el.dataset.raw = el.textContent.trim(); statObs.observe(el); });
+
+                    var heroText = document.querySelector('.cs-hero__inner > div:first-child');
+                    if (heroText) {
+                        heroText.style.willChange = 'transform';
+                        window.addEventListener('scroll', function () {
+                            if (window.scrollY < 900) heroText.style.transform = 'translateY(' + (window.scrollY * -0.04) + 'px)';
+                        }, { passive: true });
+                    }
+                });
+            })();
+        </script>
+        <!-- Prism.js syntax highlighting -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+        <script src="/assets/js/main.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-5CGM7HB4');</script>
+        <!-- End Google Tag Manager -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Engineering Blog | Nexora — 7-Day Full-Stack Sprint</title>
+        <meta name="description" content="Seven deep-dive engineering tutorials shipped across seven consecutive days — covering JavaScript UI patterns, CSS architecture, full-stack systems, and real-world build techniques with zero dependencies.">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Engineering Blog | Nexora — 7-Day Full-Stack Sprint">
+        <meta property="og:description" content="Seven deep-dive engineering tutorials shipped across seven consecutive days — real code, real patterns, zero fluff.">
+        <meta property="og:url" content="https://codeconcepts-lab.github.io/blog/">
+        <link rel="canonical" href="https://codeconcepts-lab.github.io/blog/">
+        <!-- Favicons -->
+        <link href="/icons/emblem.svg" rel="icon" />
+        <link href="/icons/nexora_emblem.png" rel="apple-touch-icon" />
+        <link rel="stylesheet" href="/assets/css/global.css">
+        <link rel="stylesheet" href="/assets/css/utilities.css">
+        <link rel="stylesheet" href="/assets/css/main.css">
+        <style>
+            .blog-card--soon {
+                opacity: 0.42;
+                pointer-events: none;
+            }
+            .project-status--soon {
+                background: rgba(160, 160, 160, 0.1);
+                color: #A0A0A0;
+                border-color: rgba(160, 160, 160, 0.2);
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CGM7HB4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <header class="site-header">
+            <div class="container header-inner">
+                <a href="/index.html" class="logo-link">
+                    <img src="/icons/header_logo.svg" alt="Nexora Logo" class="nav-logo" onerror="this.src='/images/nexora-logo.svg'" style="height: 70px; width: auto;">
+                </a>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <svg class="icon-menu" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                    <svg class="icon-close" style="display:none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/services.html">Services</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/blog/" aria-current="page" style="color: var(--color-primary-accent);">Blog</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-cta">
+                    <a href="/quote.html" class="btn-primary">Get a Quote</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="page-hero">
+                <div class="container">
+                    <div class="reveal">
+                        <div class="hero-badge">Engineering Blog</div>
+                        <h1>7-Day <span class="text-gradient">Full-Stack Sprint</span></h1>
+                        <p class="hero-subtitle">Seven deep-dive engineering tutorials shipped across seven consecutive days — real code, real patterns, and the reasoning behind every architectural decision. Zero fluff, zero frameworks required.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container project-grid">
+
+                <!-- Day 01: Netflix-Style UI — LIVE -->
+                <a href="/blog/netflix-style-ui-vanilla-javascript.html" class="project-card reveal delay-100">
+                    <div class="project-image-wrapper">
+                        <img src="/images/blog/day-01.png" alt="Day 01 — Netflix-Style Streaming UI in Pure JavaScript" class="project-image"
+                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 380\'><rect width=\'600\' height=\'380\' fill=\'%231E1E1E\'/><text x=\'50%25\' y=\'40%25\' fill=\'%23BB86FC\' font-family=\'system-ui,sans-serif\' font-size=\'84\' font-weight=\'700\' text-anchor=\'middle\' dominant-baseline=\'middle\'>01</text><text x=\'50%25\' y=\'66%25\' fill=\'%23E0E0E0\' font-family=\'system-ui,sans-serif\' font-size=\'17\' font-weight=\'500\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Netflix-Style UI</text><text x=\'50%25\' y=\'79%25\' fill=\'%23A0A0A0\' font-family=\'system-ui,sans-serif\' font-size=\'13\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Vanilla JavaScript</text></svg>'">
+                        <div class="project-image-desc" style="--card-accent: #BB86FC;">
+                            Build a fully interactive Netflix-style content carousel using pure HTML, CSS, and vanilla JavaScript — no frameworks, no dependencies, under 12KB total.
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-industry" style="color: #BB86FC;">Day 01 · JavaScript Sprint</span>
+                        <h3>Netflix-Style Streaming UI in Pure JavaScript</h3>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">CSS Architecture</span>
+                            <span class="tag">UI Patterns</span>
+                        </div>
+                        <span class="project-status project-status--live">Live</span>
+                    </div>
+                </a>
+
+                <!-- Day 02: Coming Soon -->
+                <div class="project-card blog-card--soon reveal delay-200">
+                    <div class="project-image-wrapper">
+                        <img src="/images/blog/day-02.png" alt="Day 02 — Custom CSS Animation Engine" class="project-image"
+                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 380\'><rect width=\'600\' height=\'380\' fill=\'%231E1E1E\'/><text x=\'50%25\' y=\'40%25\' fill=\'%23BB86FC\' font-family=\'system-ui,sans-serif\' font-size=\'84\' font-weight=\'700\' text-anchor=\'middle\' dominant-baseline=\'middle\'>02</text><text x=\'50%25\' y=\'66%25\' fill=\'%23E0E0E0\' font-family=\'system-ui,sans-serif\' font-size=\'17\' font-weight=\'500\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Animation Engine</text><text x=\'50%25\' y=\'79%25\' fill=\'%23A0A0A0\' font-family=\'system-ui,sans-serif\' font-size=\'13\' text-anchor=\'middle\' dominant-baseline=\'middle\'>CSS &amp; JavaScript</text></svg>'">
+                        <div class="project-image-desc" style="--card-accent: #BB86FC;">
+                            Build a reusable CSS animation system from scratch — scroll-triggered reveals, keyframe orchestration, and timing utilities without a library in sight.
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-industry" style="color: #BB86FC;">Day 02 · CSS &amp; Animation</span>
+                        <h3>Custom CSS Animation Engine from Scratch</h3>
+                        <div class="project-tags">
+                            <span class="tag">CSS</span>
+                            <span class="tag">Animations</span>
+                            <span class="tag">IntersectionObserver</span>
+                        </div>
+                        <span class="project-status project-status--soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Day 03: Coming Soon -->
+                <div class="project-card blog-card--soon reveal delay-300">
+                    <div class="project-image-wrapper">
+                        <img src="/images/blog/day-03.png" alt="Day 03 — State Management" class="project-image"
+                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 380\'><rect width=\'600\' height=\'380\' fill=\'%231E1E1E\'/><text x=\'50%25\' y=\'40%25\' fill=\'%23BB86FC\' font-family=\'system-ui,sans-serif\' font-size=\'84\' font-weight=\'700\' text-anchor=\'middle\' dominant-baseline=\'middle\'>03</text><text x=\'50%25\' y=\'66%25\' fill=\'%23E0E0E0\' font-family=\'system-ui,sans-serif\' font-size=\'17\' font-weight=\'500\' text-anchor=\'middle\' dominant-baseline=\'middle\'>State Management</text><text x=\'50%25\' y=\'79%25\' fill=\'%23A0A0A0\' font-family=\'system-ui,sans-serif\' font-size=\'13\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Architecture</text></svg>'">
+                        <div class="project-image-desc" style="--card-accent: #BB86FC;">
+                            Implement a Flux-style state machine in 100 lines of vanilla JavaScript — predictable updates, reactive rendering, and zero Redux required.
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-industry" style="color: #BB86FC;">Day 03 · Architecture</span>
+                        <h3>State Management from Scratch — No Redux Required</h3>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Architecture</span>
+                            <span class="tag">State Machines</span>
+                        </div>
+                        <span class="project-status project-status--soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Day 04: Coming Soon -->
+                <div class="project-card blog-card--soon reveal delay-100">
+                    <div class="project-image-wrapper">
+                        <img src="/images/blog/day-04.png" alt="Day 04 — Real-Time Search" class="project-image"
+                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 380\'><rect width=\'600\' height=\'380\' fill=\'%231E1E1E\'/><text x=\'50%25\' y=\'40%25\' fill=\'%23BB86FC\' font-family=\'system-ui,sans-serif\' font-size=\'84\' font-weight=\'700\' text-anchor=\'middle\' dominant-baseline=\'middle\'>04</text><text x=\'50%25\' y=\'66%25\' fill=\'%23E0E0E0\' font-family=\'system-ui,sans-serif\' font-size=\'17\' font-weight=\'500\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Real-Time Search</text><text x=\'50%25\' y=\'79%25\' fill=\'%23A0A0A0\' font-family=\'system-ui,sans-serif\' font-size=\'13\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Performance</text></svg>'">
+                        <div class="project-image-desc" style="--card-accent: #BB86FC;">
+                            Build a high-performance real-time search with debouncing, virtual list rendering, and sub-16ms update cycles that stay inside the 60fps budget.
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-industry" style="color: #BB86FC;">Day 04 · Performance Engineering</span>
+                        <h3>Real-Time Search: Debouncing, Virtual Rendering &amp; 60fps</h3>
+                        <div class="project-tags">
+                            <span class="tag">Performance</span>
+                            <span class="tag">DOM APIs</span>
+                            <span class="tag">Algorithms</span>
+                        </div>
+                        <span class="project-status project-status--soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Day 05: Coming Soon -->
+                <div class="project-card blog-card--soon reveal delay-200">
+                    <div class="project-image-wrapper">
+                        <img src="/images/blog/day-05.png" alt="Day 05 — Modular Design System" class="project-image"
+                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 380\'><rect width=\'600\' height=\'380\' fill=\'%231E1E1E\'/><text x=\'50%25\' y=\'40%25\' fill=\'%23BB86FC\' font-family=\'system-ui,sans-serif\' font-size=\'84\' font-weight=\'700\' text-anchor=\'middle\' dominant-baseline=\'middle\'>05</text><text x=\'50%25\' y=\'66%25\' fill=\'%23E0E0E0\' font-family=\'system-ui,sans-serif\' font-size=\'17\' font-weight=\'500\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Design Systems</text><text x=\'50%25\' y=\'79%25\' fill=\'%23A0A0A0\' font-family=\'system-ui,sans-serif\' font-size=\'13\' text-anchor=\'middle\' dominant-baseline=\'middle\'>CSS Architecture</text></svg>'">
+                        <div class="project-image-desc" style="--card-accent: #BB86FC;">
+                            Build a fully modular design system using only CSS custom properties — no Tailwind, no preprocessors, no build step required.
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-industry" style="color: #BB86FC;">Day 05 · CSS Architecture</span>
+                        <h3>Modular Design Systems Without a CSS Framework</h3>
+                        <div class="project-tags">
+                            <span class="tag">CSS</span>
+                            <span class="tag">Design Tokens</span>
+                            <span class="tag">Components</span>
+                        </div>
+                        <span class="project-status project-status--soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Day 06: Coming Soon -->
+                <div class="project-card blog-card--soon reveal delay-300">
+                    <div class="project-image-wrapper">
+                        <img src="/images/blog/day-06.png" alt="Day 06 — Feature Flag System" class="project-image"
+                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 380\'><rect width=\'600\' height=\'380\' fill=\'%231E1E1E\'/><text x=\'50%25\' y=\'40%25\' fill=\'%23BB86FC\' font-family=\'system-ui,sans-serif\' font-size=\'84\' font-weight=\'700\' text-anchor=\'middle\' dominant-baseline=\'middle\'>06</text><text x=\'50%25\' y=\'66%25\' fill=\'%23E0E0E0\' font-family=\'system-ui,sans-serif\' font-size=\'17\' font-weight=\'500\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Feature Flags</text><text x=\'50%25\' y=\'79%25\' fill=\'%23A0A0A0\' font-family=\'system-ui,sans-serif\' font-size=\'13\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Full-Stack</text></svg>'">
+                        <div class="project-image-desc" style="--card-accent: #BB86FC;">
+                            Architect a full-stack feature flag system — client SDK, admin dashboard, percentage rollout logic, and runtime toggle without a page reload.
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-industry" style="color: #BB86FC;">Day 06 · Full-Stack Systems</span>
+                        <h3>Full-Stack Feature Flag System: Architecture &amp; Implementation</h3>
+                        <div class="project-tags">
+                            <span class="tag">Full-Stack</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">System Design</span>
+                        </div>
+                        <span class="project-status project-status--soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Day 07: Coming Soon -->
+                <div class="project-card blog-card--soon reveal delay-100">
+                    <div class="project-image-wrapper">
+                        <img src="/images/blog/day-07.png" alt="Day 07 — Web Components" class="project-image"
+                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 380\'><rect width=\'600\' height=\'380\' fill=\'%231E1E1E\'/><text x=\'50%25\' y=\'40%25\' fill=\'%23BB86FC\' font-family=\'system-ui,sans-serif\' font-size=\'84\' font-weight=\'700\' text-anchor=\'middle\' dominant-baseline=\'middle\'>07</text><text x=\'50%25\' y=\'66%25\' fill=\'%23E0E0E0\' font-family=\'system-ui,sans-serif\' font-size=\'17\' font-weight=\'500\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Web Components</text><text x=\'50%25\' y=\'79%25\' fill=\'%23A0A0A0\' font-family=\'system-ui,sans-serif\' font-size=\'13\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Web Standards</text></svg>'">
+                        <div class="project-image-desc" style="--card-accent: #BB86FC;">
+                            Master the native component API — Custom Elements, Shadow DOM, HTML Templates, and slot-based composition patterns that work in every modern browser.
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-industry" style="color: #BB86FC;">Day 07 · Web Standards</span>
+                        <h3>Web Components: The Native Component API You're Probably Ignoring</h3>
+                        <div class="project-tags">
+                            <span class="tag">Web Components</span>
+                            <span class="tag">Shadow DOM</span>
+                            <span class="tag">Standards</span>
+                        </div>
+                        <span class="project-status project-status--soon">Coming Soon</span>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Column 1: Brand & Tagline -->
+                    <div class="footer-col reveal">
+                        <a href="/index.html">
+                            <img src="/icons/logo_nobg.svg" alt="Nexora Web Agency Logo" class="footer-logo" onerror="this.src='/images/nexora-logo.svg'" style="height: 180px; width: auto;">
+                        </a>
+                    </div>
+                    <!-- Column 2: Sitemap Links -->
+                    <div class="footer-col reveal delay-100">
+                        <h3>Quick Links</h3>
+                        <nav>
+                            <a href="/services.html">Services</a>
+                            <a href="/projects.html">Projects</a>
+                            <a href="/about.html">About Us</a>
+                            <a href="/contact.html">Contact</a>
+                            <a href="/blog/">Blog</a>
+                            <a href="/quote.html">Get a Quote</a>
+                        </nav>
+                    </div>
+                    <!-- Column 3: Contact Info -->
+                    <div class="footer-col reveal delay-200">
+                        <h3>Contact Us</h3>
+                        <p>Cape Town, South Africa</p>
+                        <a href="mailto:contact@nexoraweb.agency">contact@nexoraweb.agency</a>
+                    </div>
+                    <!-- Column 4: Socials -->
+                    <div class="footer-col reveal delay-300">
+                        <h3>Follow Us</h3>
+                        <a href="https://www.linkedin.com/in/joshua-trevor-stevenson" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                </div>
+                <!-- Footer Bottom: Copyright -->
+                <div class="footer-bottom reveal delay-400">
+                    <p>&copy;
+                        <script>document.write(new Date().getFullYear())</script> Nexora Web Agency. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            });
+        </script>
+            <script src="/assets/js/main.js"></script>
+    </body>
+
+</html>

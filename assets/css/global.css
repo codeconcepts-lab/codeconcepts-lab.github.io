@@ -32,6 +32,31 @@
    CSS Resets & Base Styles
    ========================================================================== */
 
+/* Universal box-sizing so padding/border never push elements outside
+   their declared width. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Responsive media — images, video and embeds must never be wider
+   than their container on any screen size. */
+img,
+video,
+canvas,
+iframe,
+embed,
+object {
+    max-width: 100%;
+}
+
+/* Pre / code blocks scroll internally rather than expanding the page. */
+pre {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
 h1,
 h2,
 h3,

@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5CGM7HB4');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netflix-Style UI in Pure JavaScript | Day 01 — Nexora Engineering Blog</title>
+    <meta name="description"
+        content="Build a fully interactive Netflix-style content carousel using pure HTML, CSS, and vanilla JavaScript — no frameworks, no dependencies, under 12KB total. A complete engineering walkthrough." />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        accent: {
+                            DEFAULT: '#BB86FC',
+                            hover: '#9b59b6',
+                            glow: 'rgba(187, 134, 252, 0.12)'
+                        },
+                        base: '#121112',
+                        surface: '#1E1E1E',
+                        borderSubtle: '#333333',
+                        textPrimary: '#E0E0E0',
+                        textSecondary: '#A0A0A0'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Prism.js for Code Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+        body {
+            background-color: #121112;
+            color: #E0E0E0;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Reading Progress Bar */
+        #progress-bar {
+            transform-origin: 0% 50%;
+            transform: scaleX(0);
+            transition: transform 0.1s linear;
+        }
+
+        /* Netflix-style Demo Classes */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .demo-card {
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+            isolation: isolate;
+            transform-origin: center center;
+            will-change: transform;
+        }
+        
+        .demo-card:hover, .demo-card:focus-visible {
+            transform: scale(1.15);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+            z-index: 20;
+            outline: none;
+        }
+
+        .demo-card-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .demo-card:hover .demo-card-overlay, .demo-card:focus-visible .demo-card-overlay {
+            opacity: 1;
+        }
+
+        /* Scroll Reveal Animation System */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 { transition-delay: 0.10s; }
+        .delay-200 { transition-delay: 0.20s; }
+        .delay-300 { transition-delay: 0.30s; }
+
+        /* Custom selection color */
+        ::selection { background: rgba(187, 134, 252, 0.3); color: #fff; }
+
+        /* Prevent Pre tags from causing horizontal scroll */
+        pre[class*="language-"] {
+            border-radius: 8px;
+            border: 1px solid var(--color-borderSubtle);
+            background: #1a1a1a !important;
+            margin: 1.5rem 0;
+            font-size: 0.825rem;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+        
+        /* Hero Dot Grid & Glow */
+        .hero-bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 65%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 65%, transparent 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        @keyframes cs-pulse-glow {
+            0%, 100% { opacity: 0.35; }
+            50% { opacity: 0.6; }
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-accent/30 selection:text-white relative w-full overflow-x-hidden">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CGM7HB4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Reading Progress -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-[2px] w-full bg-gradient-to-r from-accent to-white z-[100] shadow-[0_0_8px_#BB86FC]"></div>
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-[#121112]/95 backdrop-blur-[20px] border-b border-borderSubtle transition-all duration-300">
+        <div class="max-w-[1200px] mx-auto px-5 lg:px-8">
+            <div class="flex items-center justify-between h-[80px]">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 text-decoration-none">
+                    <img src="/icons/header_logo.svg" alt="Nexora Logo" class="h-8 w-auto" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI0IiBmaWxsPSIjQkI4NkZDIi8+PHRleHQgeD0iMTYiIHk9IjIxIiBmb250LWZhbWlseT0iSW50ZXIiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5OPC90ZXh0Pjwvc3ZnPg=='" />
+                    <span class="text-xl font-bold tracking-tight text-white hidden sm:block">Nexora</span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:block">
+                    <ul class="flex items-center space-x-8 text-[0.85rem] font-medium uppercase tracking-[0.05em] font-mono">
+                        <li><a href="#" class="text-textSecondary hover:text-accent transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-accent after:transition-all hover:after:w-full">Home</a></li>
+                        <li><a href="#" class="text-textSecondary hover:text-accent transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-accent after:transition-all hover:after:w-full">About</a></li>
+                        <li><a href="#" class="text-textSecondary hover:text-accent transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-accent after:transition-all hover:after:w-full">Projects</a></li>
+                        <li><a href="#" class="text-accent relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1px] after:bg-accent">Blog</a></li>
+                    </ul>
+                </nav>
+
+                <!-- CTA -->
+                <div class="hidden md:flex">
+                    <a href="#" class="inline-block bg-accent text-black font-bold uppercase tracking-[0.05em] text-[0.85rem] px-6 py-3 rounded-[4px] border-none transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_4px_12px_rgba(187,134,252,0.3)]">
+                        Get a Quote
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-textPrimary hover:text-accent focus:outline-none p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#121112] border-b border-borderSubtle absolute w-full">
+            <div class="px-5 py-4 space-y-1">
+                <a href="#" class="block py-3 border-b border-borderSubtle text-[1.1rem] text-textSecondary hover:text-accent">Home</a>
+                <a href="#" class="block py-3 border-b border-borderSubtle text-[1.1rem] text-textSecondary hover:text-accent">About</a>
+                <a href="#" class="block py-3 border-b border-borderSubtle text-[1.1rem] text-textSecondary hover:text-accent">Projects</a>
+                <a href="#" class="block py-3 border-b border-borderSubtle text-[1.1rem] text-accent">Blog</a>
+                <a href="#" class="block py-3 mt-4 text-center text-[1.1rem] bg-accent text-black font-bold rounded-[4px]">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-[80px]">
+        <!-- Breadcrumb -->
+        <nav class="border-b border-borderSubtle py-3 text-[0.85rem] text-textSecondary" aria-label="Breadcrumb">
+            <div class="max-w-[1200px] mx-auto px-5 lg:px-8 flex items-center gap-2">
+                <a href="#" class="hover:text-accent transition-colors">← Blog</a>
+                <span class="opacity-40">/</span>
+                <span class="text-textPrimary">Netflix-Style UI in Pure JS</span>
+            </div>
+        </nav>
+
+        <!-- HERO SECTION -->
+        <section class="relative pt-20 pb-24 border-b border-borderSubtle overflow-hidden isolate" aria-labelledby="hero-heading">
+            <div class="hero-bg-grid"></div>
+            <!-- Ambient Glow -->
+            <div class="absolute top-[10%] -right-[10%] w-[55%] h-[70%] bg-[radial-gradient(circle,rgba(187,134,252,0.1)_0%,transparent_70%)] blur-[60px] pointer-events-none -z-10 animate-[cs-pulse-glow_5s_ease-in-out_infinite]"></div>
+
+            <div class="max-w-[1200px] mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
+                <div class="reveal">
+                    <!-- Eyebrow -->
+                    <div class="inline-flex items-center gap-2 font-mono text-[0.73rem] text-accent tracking-[0.14em] uppercase mb-4">
+                        <span class="inline-block w-5 h-[1px] bg-accent opacity-70"></span>
+                        Day 01 · JavaScript Sprint · 12 min read
+                    </div>
+                    
+                    <h1 id="hero-heading" class="text-[clamp(2.1rem,4.5vw,3.4rem)] font-extrabold text-white leading-[1.08] tracking-[-0.025em] mb-5">
+                        Netflix-Style <br/>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-br from-accent to-white">Streaming UI</span><br/>
+                        in Pure JavaScript
+                    </h1>
+                    
+                    <p class="text-[1.05rem] text-textSecondary leading-[1.8] mb-8 max-w-[520px]">
+                        How do you build a smooth, interactive content carousel that feels like a production streaming platform — without touching a single framework, package manager, or build tool? You architect it. This is Day 01 of the 7-Day Full-Stack Sprint.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <a href="#demo" class="inline-block bg-accent text-black font-semibold px-6 py-3 rounded-[4px] transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_4px_12px_rgba(187,134,252,0.3)]">
+                            See Live Demo ↓
+                        </a>
+                        <a href="#architecture" class="inline-block bg-transparent text-accent border border-accent font-semibold px-6 py-3 rounded-[4px] transition-all duration-300 hover:bg-accent/10 hover:-translate-y-[2px]">
+                            Read the Build
+                        </a>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        <span class="inline-block px-3 py-1 rounded-full border border-borderSubtle text-textSecondary text-[0.75rem] font-mono bg-white/5">Vanilla JS</span>
+                        <span class="inline-block px-3 py-1 rounded-full border border-borderSubtle text-textSecondary text-[0.75rem] font-mono bg-white/5">CSS Custom Properties</span>
+                        <span class="inline-block px-3 py-1 rounded-full border border-borderSubtle text-textSecondary text-[0.75rem] font-mono bg-white/5">0 Dependencies</span>
+                    </div>
+                </div>
+
+                <!-- Hero Demo Widget (Only visible on larger screens to prevent overflow) -->
+                <div class="reveal relative hidden lg:block">
+                    <!-- Glow Behind Image -->
+                    <div class="absolute -inset-10 -z-10 blur-[72px] opacity-40 bg-[radial-gradient(circle,#BB86FC_0%,transparent_70%)] animate-[cs-pulse-glow_4s_ease-in-out_infinite]"></div>
+
+                    <!-- Decorative window frame -->
+                    <div class="rounded-xl overflow-hidden border border-borderSubtle bg-[#0d0d0d] shadow-[0_24px_70px_rgba(0,0,0,0.42)] max-w-full">
+                        <div class="flex items-center px-4 py-3 border-b border-borderSubtle bg-[#0e0e0e]">
+                            <div class="flex gap-[0.45rem]">
+                                <div class="w-[9px] h-[9px] rounded-full bg-borderSubtle"></div>
+                                <div class="w-[9px] h-[9px] rounded-full bg-borderSubtle"></div>
+                                <div class="w-[9px] h-[9px] rounded-full bg-borderSubtle"></div>
+                            </div>
+                            <div class="flex-1 text-center font-mono text-[0.72rem] text-textSecondary">localhost:3000/carousel</div>
+                        </div>
+                        
+                        <!-- Mini Carousel inside Hero -->
+                        <div class="p-5 pb-8 relative z-0 w-full overflow-hidden">
+                            <div class="text-accent font-bold tracking-[0.1em] text-[1.1rem] mb-4">▶ NEXFLIX</div>
+                            
+                            <h3 class="text-[#e5e5e5] text-[0.9rem] font-semibold mb-2 tracking-[0.02em]">Trending Now</h3>
+                            <div class="relative group/track w-full">
+                                <div class="flex gap-2 overflow-x-auto hide-scrollbar scroll-smooth py-1 px-1" id="hero-track-1">
+                                    <!-- Cards -->
+                                    <div class="demo-card flex-[0_0_120px] h-[68px] rounded bg-gradient-to-br from-[#1a1a2e] to-[#16213e] relative flex items-end p-2 cursor-pointer shadow-lg">
+                                        <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                        <span class="relative z-10 text-[0.65rem] font-semibold text-white leading-[1.2] drop-shadow-md">Midnight<br>Refactor</span>
+                                    </div>
+                                    <div class="demo-card flex-[0_0_120px] h-[68px] rounded bg-gradient-to-br from-[#0f3460] to-[#533483] relative flex items-end p-2 cursor-pointer shadow-lg">
+                                        <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                        <span class="relative z-10 text-[0.65rem] font-semibold text-white leading-[1.2] drop-shadow-md">The CSS<br>Awakens</span>
+                                    </div>
+                                    <div class="demo-card flex-[0_0_120px] h-[68px] rounded bg-gradient-to-br from-[#2d6a4f] to-[#1b4332] relative flex items-end p-2 cursor-pointer shadow-lg">
+                                        <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                        <span class="relative z-10 text-[0.65rem] font-semibold text-white leading-[1.2] drop-shadow-md">Array of<br>Darkness</span>
+                                    </div>
+                                    <div class="demo-card flex-[0_0_120px] h-[68px] rounded bg-gradient-to-br from-[#6b2737] to-[#2d1b2e] relative flex items-end p-2 cursor-pointer shadow-lg">
+                                        <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                        <span class="relative z-10 text-[0.65rem] font-semibold text-white leading-[1.2] drop-shadow-md">Promise<br>Breaker</span>
+                                    </div>
+                                </div>
+                                <button onclick="document.getElementById('hero-track-1').scrollBy({left: 130, behavior: 'smooth'})" class="absolute right-0 top-1/2 -translate-y-1/2 bg-black/60 border border-white/10 text-white w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover/track:opacity-100 transition-all z-30 hover:bg-accent/40 text-xs">›</button>
+                            </div>
+
+                            <h3 class="text-[#e5e5e5] text-[0.9rem] font-semibold mb-2 mt-6 tracking-[0.02em]">Because You Coded in JS</h3>
+                            <div class="relative group/track w-full">
+                                <div class="flex gap-2 overflow-x-auto hide-scrollbar scroll-smooth py-1 px-1" id="hero-track-2">
+                                    <div class="demo-card flex-[0_0_120px] h-[68px] rounded bg-gradient-to-br from-[#134e5e] to-[#71b280] relative flex items-end p-2 cursor-pointer shadow-lg">
+                                        <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                        <span class="relative z-10 text-[0.65rem] font-semibold text-white leading-[1.2] drop-shadow-md">Closure<br>Season 2</span>
+                                    </div>
+                                    <div class="demo-card flex-[0_0_120px] h-[68px] rounded bg-gradient-to-br from-[#8e44ad] to-[#3498db] relative flex items-end p-2 cursor-pointer shadow-lg">
+                                        <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                        <span class="relative z-10 text-[0.65rem] font-semibold text-white leading-[1.2] drop-shadow-md">Prototype<br>Chain</span>
+                                    </div>
+                                    <div class="demo-card flex-[0_0_120px] h-[68px] rounded bg-gradient-to-br from-[#c0392b] to-[#8e44ad] relative flex items-end p-2 cursor-pointer shadow-lg">
+                                        <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                        <span class="relative z-10 text-[0.65rem] font-semibold text-white leading-[1.2] drop-shadow-md">Scope<br>Creep</span>
+                                    </div>
+                                    <div class="demo-card flex-[0_0_120px] h-[68px] rounded bg-gradient-to-br from-[#2c3e50] to-[#3498db] relative flex items-end p-2 cursor-pointer shadow-lg">
+                                        <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                        <span class="relative z-10 text-[0.65rem] font-semibold text-white leading-[1.2] drop-shadow-md">DOM<br>Inspector</span>
+                                    </div>
+                                </div>
+                                <button onclick="document.getElementById('hero-track-2').scrollBy({left: 130, behavior: 'smooth'})" class="absolute right-0 top-1/2 -translate-y-1/2 bg-black/60 border border-white/10 text-white w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover/track:opacity-100 transition-all z-30 hover:bg-accent/40 text-xs">›</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS STRIP -->
+        <section class="bg-surface relative border-b border-borderSubtle">
+            <!-- Top Gradient Line -->
+            <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-60"></div>
+            
+            <div class="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-5 divide-x-0 md:divide-x divide-borderSubtle border-x-0 md:border-x border-borderSubtle">
+                <div class="reveal p-6 md:p-9 flex flex-col transition-colors hover:bg-white/5">
+                    <div class="text-[2.2rem] font-extrabold text-accent font-mono leading-none mb-2 stat-num" data-target="12">&lt;0KB</div>
+                    <div class="text-[0.875rem] font-semibold text-white mb-1">Total Bundle</div>
+                    <div class="text-[0.775rem] text-textSecondary leading-[1.55]">HTML + CSS + JS combined</div>
+                </div>
+                <div class="reveal delay-100 p-6 md:p-9 flex flex-col transition-colors hover:bg-white/5">
+                    <div class="text-[2.2rem] font-extrabold text-accent font-mono leading-none mb-2 stat-num" data-target="0">0ms</div>
+                    <div class="text-[0.875rem] font-semibold text-white mb-1">JS Blocking</div>
+                    <div class="text-[0.775rem] text-textSecondary leading-[1.55]">Non-blocking init</div>
+                </div>
+                <div class="reveal delay-200 p-6 md:p-9 flex flex-col transition-colors hover:bg-white/5">
+                    <div class="text-[2.2rem] font-extrabold text-accent font-mono leading-none mb-2 stat-num" data-target="98">0</div>
+                    <div class="text-[0.875rem] font-semibold text-white mb-1">Lighthouse Score</div>
+                    <div class="text-[0.775rem] text-textSecondary leading-[1.55]">Performance & a11y</div>
+                </div>
+                <div class="reveal delay-300 p-6 md:p-9 flex flex-col transition-colors hover:bg-white/5">
+                    <div class="text-[2.2rem] font-extrabold text-accent font-mono leading-none mb-2 stat-num" data-target="0">0</div>
+                    <div class="text-[0.875rem] font-semibold text-white mb-1">Dependencies</div>
+                    <div class="text-[0.775rem] text-textSecondary leading-[1.55]">Pure Vanilla code</div>
+                </div>
+                <div class="reveal delay-400 p-6 md:p-9 flex flex-col transition-colors hover:bg-white/5 col-span-2 md:col-span-1">
+                    <div class="text-[2.2rem] font-extrabold text-accent font-mono leading-none mb-2 stat-num" data-target="12">~0</div>
+                    <div class="text-[0.875rem] font-semibold text-white mb-1">Min Read</div>
+                    <div class="text-[0.775rem] text-textSecondary leading-[1.55]">Full walkthrough</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OVERVIEW -->
+        <section id="overview" class="py-20 lg:py-24 border-b border-borderSubtle">
+            <div class="max-w-[1200px] mx-auto px-5 lg:px-8 grid md:grid-cols-12 gap-10 lg:gap-16 items-start">
+                <div class="md:col-span-5 reveal">
+                    <div class="inline-flex items-center gap-2 font-mono text-[0.73rem] text-accent tracking-[0.14em] uppercase mb-4">
+                        <span class="inline-block w-5 h-[1px] bg-accent opacity-70"></span>
+                        What We're Building
+                    </div>
+                    <h2 class="text-[clamp(1.65rem,3vw,2.6rem)] font-extrabold text-white leading-[1.1] tracking-[-0.02em] mb-4">
+                        A Production-Quality Streaming UI Without a Single npm Install
+                    </h2>
+                </div>
+                <div class="md:col-span-7 text-[0.975rem] text-textSecondary leading-[1.85] reveal delay-100 min-w-0">
+                    <p class="mb-5">The Netflix UI is one of the most recognisable interaction patterns on the web — horizontal carousels, hover-expand cards, smooth scroll navigation, and row-based content organisation. Millions of developers have tried to replicate it. Most reach for a carousel library. This post argues you shouldn't, and shows you exactly why not.</p>
+                    <p class="mb-6">What you'll build by the end of this tutorial is a fully interactive multi-row content carousel that implements the core Netflix interaction model: keyboard-accessible scroll navigation, CSS-driven card hover expansion, smooth scrollbar-hidden track scrolling, and a data-driven architecture that separates content from rendering logic. The entire implementation fits comfortably in under 12KB.</p>
+                    
+                    <ul class="flex flex-col gap-3 mt-5">
+                        <li class="relative pl-5 text-[0.925rem]"><span class="absolute left-0 top-[0.6em] w-[6px] h-[6px] rounded-full bg-accent opacity-80"></span>Multi-row carousel layout with labelled content sections</li>
+                        <li class="relative pl-5 text-[0.925rem]"><span class="absolute left-0 top-[0.6em] w-[6px] h-[6px] rounded-full bg-accent opacity-80"></span>Smooth horizontal scroll with prev/next navigation buttons</li>
+                        <li class="relative pl-5 text-[0.925rem]"><span class="absolute left-0 top-[0.6em] w-[6px] h-[6px] rounded-full bg-accent opacity-80"></span>CSS-only card hover expansion with title reveal</li>
+                        <li class="relative pl-5 text-[0.925rem]"><span class="absolute left-0 top-[0.6em] w-[6px] h-[6px] rounded-full bg-accent opacity-80"></span>A data model that cleanly separates content from UI logic</li>
+                        <li class="relative pl-5 text-[0.925rem]"><span class="absolute left-0 top-[0.6em] w-[6px] h-[6px] rounded-full bg-accent opacity-80"></span>Touch-friendly scrolling that works on mobile without extra code</li>
+                        <li class="relative pl-5 text-[0.925rem]"><span class="absolute left-0 top-[0.6em] w-[6px] h-[6px] rounded-full bg-accent opacity-80"></span>Full keyboard accessibility — Tab, Enter, and arrow key navigation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE BRIEF / ARCHITECTURE -->
+        <section id="architecture" class="py-20 lg:py-24 border-b border-borderSubtle">
+            <div class="max-w-[1200px] mx-auto px-5 lg:px-8 grid md:grid-cols-12 gap-10 lg:gap-16 items-start">
+                <div class="md:col-span-5 reveal">
+                    <div class="inline-flex items-center gap-2 font-mono text-[0.73rem] text-accent tracking-[0.14em] uppercase mb-4">
+                        <span class="inline-block w-5 h-[1px] bg-accent opacity-70"></span>
+                        The Brief
+                    </div>
+                    <h2 class="text-[clamp(1.65rem,3vw,2.6rem)] font-extrabold text-white leading-[1.1] tracking-[-0.02em] mb-4">
+                        Why Not Just Use a Carousel Library?
+                    </h2>
+                </div>
+                <div class="md:col-span-7 text-[0.975rem] text-textSecondary leading-[1.85] reveal delay-100 min-w-0">
+                    <p class="mb-8">The first instinct when building a horizontal scroll carousel is to search npm. Swiper.js, Slick, Glide — there are dozens of options, each with hundreds of kilobytes of JavaScript and CSS, configuration APIs that take hours to understand, and opinionated markup structures that fight your layout as often as they help it.</p>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-[1rem] font-semibold text-white mb-2 tracking-[-0.01em]">The Cost of Dependencies</h3>
+                        <p>Every library dependency is a contract. It comes with a bundle size cost (Swiper.js alone ships at 140KB+ minified), a maintenance cost (version upgrades, API changes, security patches), a debugging cost (when behaviour diverges from what you expect, the abstraction layer makes the root cause harder to find), and a performance cost (libraries optimise for general cases, not yours specifically). For a UI pattern as straightforward as a horizontal card scroll, the dependency cost is almost never justified.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-[1rem] font-semibold text-white mb-2 tracking-[-0.01em]">What CSS Can Do That JavaScript Shouldn't</h3>
+                        <p>The most important architectural decision in a Netflix-style carousel is understanding which behaviour belongs to CSS and which to JavaScript. CSS handles: the horizontal scroll container, the card aspect ratio, the hover expansion transition, the title reveal animation, and the fade gradients on the scroll edges. JavaScript handles: the navigation button click events, programmatic scrolling, and the data rendering loop. When you let CSS do what it's designed for, the JavaScript stays lean and purposeful.</p>
+                    </div>
+
+                    <!-- Callout Box -->
+                    <div class="border-l-[3px] border-accent bg-white/5 rounded-r-xl p-6 lg:p-8 mt-9 relative overflow-hidden">
+                        <div class="absolute -top-2 left-4 text-[5rem] text-accent opacity-5 font-serif leading-none pointer-events-none">"</div>
+                        <p class="text-[1.05rem] text-white leading-[1.75] font-serif italic relative z-10 m-0">
+                            Every carousel library you install is solving a problem you could solve in 40 lines of CSS and 30 lines of JavaScript. The library exists for developers who haven't yet taken the time to understand what the browser already gives them for free.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HTML STRUCTURE -->
+        <section id="html" class="py-20 lg:py-24 border-b border-borderSubtle">
+            <div class="max-w-[1200px] mx-auto px-5 lg:px-8 grid md:grid-cols-12 gap-10 lg:gap-16 items-start">
+                <div class="md:col-span-5 reveal">
+                    <div class="inline-flex items-center gap-2 font-mono text-[0.73rem] text-accent tracking-[0.14em] uppercase mb-4">
+                        <span class="inline-block w-5 h-[1px] bg-accent opacity-70"></span>
+                        Step 01 · HTML
+                    </div>
+                    <h2 class="text-[clamp(1.65rem,3vw,2.6rem)] font-extrabold text-white leading-[1.1] tracking-[-0.02em] mb-4">
+                        Semantic Markup That Lets CSS Do the Heavy Lifting
+                    </h2>
+                    <p class="text-[0.975rem] text-textSecondary leading-[1.85] mt-6">
+                        The HTML for a Netflix-style carousel is simpler than you'd expect. The entire layout is built on three nested elements. The key structural decisions — which elements get which roles — are what make the CSS system work cleanly.
+                    </p>
+                </div>
+                <div class="md:col-span-7 text-[0.975rem] text-textSecondary leading-[1.85] reveal delay-100 min-w-0">
+                    <h3 class="text-[1rem] font-semibold text-white mb-2 tracking-[-0.01em]">Row Architecture</h3>
+                    <p class="mb-6">Each content row is a <code>&lt;section&gt;</code> with a labelled heading and a scroll track. The track is a single <code>&lt;div&gt;</code> with <code>overflow-x: auto</code> and <code>scrollbar-width: none</code> applied — this gives us native scroll behaviour (including touch momentum scrolling on iOS) while hiding the browser's scrollbar.</p>
+                    
+<pre><code class="language-html">&lt;section class="carousel-row" data-accent="#BB86FC"&gt;
+  &lt;h2 class="row-title"&gt;Trending Now&lt;/h2&gt;
+  &lt;div class="row-track-wrap"&gt;
+    &lt;button class="nav-btn nav-btn--prev" aria-label="Scroll left"&gt;
+      &lt;svg&gt;...&lt;/svg&gt;
+    &lt;/button&gt;
+    
+    &lt;div class="row-track" role="list"&gt;
+      &lt;article class="content-card" role="listitem" tabindex="0"&gt;
+        &lt;div class="card-thumbnail"&gt;
+          &lt;img src="..." alt="Show Title" loading="lazy"&gt;
+        &lt;/div&gt;
+        &lt;div class="card-overlay"&gt;
+          &lt;h3 class="card-title"&gt;Show Title&lt;/h3&gt;
+          &lt;div class="card-meta"&gt;2024 · Drama · 8 Episodes&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/article&gt;
+      &lt;!-- More cards... --&gt;
+    &lt;/div&gt;
+
+    &lt;button class="nav-btn nav-btn--next" aria-label="Scroll right"&gt;
+      &lt;svg&gt;...&lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS ARCHITECTURE -->
+        <section id="css" class="py-20 lg:py-24 border-b border-borderSubtle">
+            <div class="max-w-[1200px] mx-auto px-5 lg:px-8 grid md:grid-cols-12 gap-10 lg:gap-16 items-start">
+                <div class="md:col-span-5 reveal">
+                    <div class="inline-flex items-center gap-2 font-mono text-[0.73rem] text-accent tracking-[0.14em] uppercase mb-4">
+                        <span class="inline-block w-5 h-[1px] bg-accent opacity-70"></span>
+                        Step 02 · CSS
+                    </div>
+                    <h2 class="text-[clamp(1.65rem,3vw,2.6rem)] font-extrabold text-white leading-[1.1] tracking-[-0.02em] mb-4">
+                        The Scroll Container, Hover System, and Theming
+                    </h2>
+                    <p class="text-[0.975rem] text-textSecondary leading-[1.85] mt-6">
+                        The CSS does three distinct jobs: it creates the scrollable track layout, it handles all the card hover animation, and it implements per-row accent colour theming via custom properties.
+                    </p>
+                </div>
+                <div class="md:col-span-7 text-[0.975rem] text-textSecondary leading-[1.85] reveal delay-100 min-w-0">
+                    <h3 class="text-[1rem] font-semibold text-white mb-2 tracking-[-0.01em]">Card Hover Expansion</h3>
+                    <p class="mb-6">The hover expansion is pure CSS — no JavaScript involved. The card scales up on <code>:hover</code> and <code>:focus-visible</code>. The key insight is using <code>transform: scale()</code> rather than changing width/height — scale doesn't trigger layout reflow, which keeps the animation at 60fps.</p>
+                    
+<pre><code class="language-css">.content-card {
+  flex: 0 0 180px;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  position: relative;
+  overflow: visible; /* Allow scale to exceed bounds */
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s ease;
+  isolation: isolate; /* Prevent z-index stacking issues */
+}
+
+.content-card:hover,
+.content-card:focus-visible {
+  transform: scale(1.15);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+/* Overlay reveals on hover */
+.card-overlay {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.content-card:hover .card-overlay { opacity: 1; }</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- JAVASCRIPT -->
+        <section id="javascript" class="py-20 lg:py-24 border-b border-borderSubtle">
+            <div class="max-w-[1200px] mx-auto px-5 lg:px-8 grid md:grid-cols-12 gap-10 lg:gap-16 items-start">
+                <div class="md:col-span-5 reveal">
+                    <div class="inline-flex items-center gap-2 font-mono text-[0.73rem] text-accent tracking-[0.14em] uppercase mb-4">
+                        <span class="inline-block w-5 h-[1px] bg-accent opacity-70"></span>
+                        Step 03 · JS Engine
+                    </div>
+                    <h2 class="text-[clamp(1.65rem,3vw,2.6rem)] font-extrabold text-white leading-[1.1] tracking-[-0.02em] mb-4">
+                        Data-Driven Rendering and the Navigation System
+                    </h2>
+                    <p class="text-[0.975rem] text-textSecondary leading-[1.85] mt-6">
+                        The JavaScript in this build has two responsibilities: rendering the DOM from a data source, and handling scroll navigation. That's it. Everything visual is CSS.
+                    </p>
+                </div>
+                <div class="md:col-span-7 text-[0.975rem] text-textSecondary leading-[1.85] reveal delay-100 min-w-0">
+                    <h3 class="text-[1rem] font-semibold text-white mb-2 tracking-[-0.01em]">Navigation System</h3>
+                    <p class="mb-6">Navigation buttons use event delegation. When a button is clicked, the handler walks up to its parent track-wrap, finds the track sibling, and calls <code>scrollBy()</code>. The scroll amount is dynamically calculated from the track's visible width.</p>
+                    
+<pre><code class="language-javascript">function initNavigation(container) {
+  container.addEventListener('click', (e) => {
+    const btn = e.target.closest('.nav-btn');
+    if (!btn) return;
+
+    const wrap = btn.closest('.row-track-wrap');
+    const track = wrap.querySelector('.row-track');
+    
+    // Scroll by 85% of visible width to leave a hint of the previous card
+    const delta = track.offsetWidth * 0.85;
+    const direction = btn.classList.contains('nav-btn--prev') ? -1 : 1;
+
+    track.scrollBy({ left: delta * direction, behavior: 'smooth' });
+  });
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- PATTERNS GRID -->
+        <section class="bg-surface border-b border-borderSubtle">
+            <div class="max-w-[1200px] mx-auto px-5 lg:px-8 py-20 lg:py-24">
+                <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+                    <div class="inline-flex items-center gap-2 font-mono text-[0.73rem] text-accent tracking-[0.14em] uppercase mb-4 justify-center">
+                        <span class="inline-block w-5 h-[1px] bg-accent opacity-70"></span>
+                        Key Engineering Patterns
+                        <span class="inline-block w-5 h-[1px] bg-accent opacity-70"></span>
+                    </div>
+                    <h2 class="text-[clamp(1.65rem,3vw,2.6rem)] font-extrabold text-white leading-[1.1] tracking-[-0.02em]">Six Patterns That Make This Build Worth Studying</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+                    <!-- Cards using .cs-design-card styles from main.css approximation -->
+                    <div class="bg-surface border border-borderSubtle rounded-xl p-7 relative overflow-hidden transition-all duration-350 hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.35),0_0_0_1px_rgba(187,134,252,0.1)] group reveal">
+                        <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-350 group-hover:opacity-100"></div>
+                        <div class="text-[1.5rem] mb-3">⚡️</div>
+                        <h4 class="text-[0.95rem] font-bold text-white mb-2 leading-[1.3]">CSS-First Animation</h4>
+                        <p class="text-[0.85rem] text-textSecondary leading-[1.75] m-0">Every visual transition — card hover expansion, overlay fade-in — is handled by CSS transitions. This offloads animation work from the main thread to the GPU.</p>
+                    </div>
+
+                    <div class="bg-surface border border-borderSubtle rounded-xl p-7 relative overflow-hidden transition-all duration-350 hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.35),0_0_0_1px_rgba(187,134,252,0.1)] group reveal delay-100">
+                        <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-350 group-hover:opacity-100"></div>
+                        <div class="text-[1.5rem] mb-3">📱</div>
+                        <h4 class="text-[0.95rem] font-bold text-white mb-2 leading-[1.3]">Native Scroll</h4>
+                        <p class="text-[0.85rem] text-textSecondary leading-[1.75] m-0">Using <code>overflow-x: auto</code> with <code>scroll-behavior: smooth</code> gives you native scroll — momentum scrolling on iOS, trackpad physics — without JS touch event handlers.</p>
+                    </div>
+
+                    <div class="bg-surface border border-borderSubtle rounded-xl p-7 relative overflow-hidden transition-all duration-350 hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.35),0_0_0_1px_rgba(187,134,252,0.1)] group reveal delay-200">
+                        <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-350 group-hover:opacity-100"></div>
+                        <div class="text-[1.5rem] mb-3">🎯</div>
+                        <h4 class="text-[0.95rem] font-bold text-white mb-2 leading-[1.3]">Event Delegation</h4>
+                        <p class="text-[0.85rem] text-textSecondary leading-[1.75] m-0">Rather than attaching click handlers to each button individually, a single event listener on the container catches all events. This scales perfectly.</p>
+                    </div>
+
+                    <div class="bg-surface border border-borderSubtle rounded-xl p-7 relative overflow-hidden transition-all duration-350 hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.35),0_0_0_1px_rgba(187,134,252,0.1)] group reveal">
+                        <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-350 group-hover:opacity-100"></div>
+                        <div class="text-[1.5rem] mb-3">🎨</div>
+                        <h4 class="text-[0.95rem] font-bold text-white mb-2 leading-[1.3]">Custom Property Theming</h4>
+                        <p class="text-[0.85rem] text-textSecondary leading-[1.75] m-0">Per-row accent colours are set as CSS custom properties on the row element, applied from the data model at render time.</p>
+                    </div>
+
+                    <div class="bg-surface border border-borderSubtle rounded-xl p-7 relative overflow-hidden transition-all duration-350 hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.35),0_0_0_1px_rgba(187,134,252,0.1)] group reveal delay-100">
+                        <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-350 group-hover:opacity-100"></div>
+                        <div class="text-[1.5rem] mb-3">📝</div>
+                        <h4 class="text-[0.95rem] font-bold text-white mb-2 leading-[1.3]">Template Literals</h4>
+                        <p class="text-[0.85rem] text-textSecondary leading-[1.75] m-0">HTML generation via template literals keeps markup and the data that populates it in the same place, remaining highly performant.</p>
+                    </div>
+
+                    <div class="bg-surface border border-borderSubtle rounded-xl p-7 relative overflow-hidden transition-all duration-350 hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.35),0_0_0_1px_rgba(187,134,252,0.1)] group reveal delay-200">
+                        <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-350 group-hover:opacity-100"></div>
+                        <div class="text-[1.5rem] mb-3">📏</div>
+                        <h4 class="text-[0.95rem] font-bold text-white mb-2 leading-[1.3]">Dynamic Scroll Calc</h4>
+                        <p class="text-[0.85rem] text-textSecondary leading-[1.75] m-0">The scroll step is calculated at click time from the track's current width. It works perfectly on mobile and 4k displays without media queries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FULL DEMO SECTION -->
+        <section id="demo" class="max-w-[1200px] mx-auto px-5 lg:px-8 py-20 lg:py-24">
+            <div class="mb-10 reveal">
+                <div class="inline-flex items-center gap-2 font-mono text-[0.73rem] text-accent tracking-[0.14em] uppercase mb-4">
+                    <span class="inline-block w-5 h-[1px] bg-accent opacity-70"></span>
+                    Live Demo
+                </div>
+                <h2 class="text-[clamp(1.65rem,3vw,2.6rem)] font-extrabold text-white leading-[1.1] tracking-[-0.02em] mb-3">The Full Carousel In Action</h2>
+                <p class="text-textSecondary">Hover over cards to see the expand animation. Use the arrow buttons to scroll. On touch devices, swipe the rows horizontally.</p>
+            </div>
+
+            <!-- Demo Container -->
+            <div class="bg-[#0d0d0d] rounded-xl border border-borderSubtle overflow-hidden shadow-2xl reveal delay-100 max-w-full">
+                <div class="bg-black/95 px-6 py-4 flex items-center justify-between border-b border-[#333]">
+                    <span class="text-accent font-bold tracking-[0.1em] text-[1.1rem]">▶ NEXFLIX</span>
+                    <span class="text-textSecondary font-mono text-[0.75rem] uppercase tracking-wider">Vanilla JS Demo</span>
+                </div>
+                
+                <div class="py-8 pb-16 space-y-10 overflow-hidden w-full">
+                    <!-- Row 1 -->
+                    <div class="relative group/row w-full">
+                        <h3 class="text-white text-[1rem] font-semibold px-8 mb-3 tracking-[0.02em]">🔥 Trending Now</h3>
+                        <div class="relative px-8 w-full">
+                            <button onclick="scrollFullRow(this, -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 border border-white/15 text-white flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-all z-30 hover:bg-accent/40 shadow-lg hidden md:flex backdrop-blur-sm text-sm">‹</button>
+                            
+                            <div class="flex gap-2 overflow-x-auto hide-scrollbar scroll-smooth py-4 px-2 -mx-2 w-full" id="full-demo-track-1">
+                                <!-- Generate Cards dynamically or statically -->
+                                <div class="demo-card flex-[0_0_140px] md:flex-[0_0_200px] aspect-[16/9] rounded bg-gradient-to-br from-[#1a1a2e] to-[#16213e] relative flex items-end p-3 cursor-pointer shadow-xl">
+                                    <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                    <div class="relative z-10">
+                                        <h4 class="font-bold text-white text-[0.75rem] md:text-[0.85rem] leading-[1.2] drop-shadow-md">Midnight Refactor</h4>
+                                        <p class="text-[0.65rem] text-gray-300 mt-1 hidden md:block">2024 · Thriller</p>
+                                    </div>
+                                </div>
+                                <div class="demo-card flex-[0_0_140px] md:flex-[0_0_200px] aspect-[16/9] rounded bg-gradient-to-br from-[#0f3460] to-[#533483] relative flex items-end p-3 cursor-pointer shadow-xl">
+                                    <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                    <div class="relative z-10">
+                                        <h4 class="font-bold text-white text-[0.75rem] md:text-[0.85rem] leading-[1.2] drop-shadow-md">The CSS Awakens</h4>
+                                        <p class="text-[0.65rem] text-gray-300 mt-1 hidden md:block">2024 · Sci-Fi</p>
+                                    </div>
+                                </div>
+                                <div class="demo-card flex-[0_0_140px] md:flex-[0_0_200px] aspect-[16/9] rounded bg-gradient-to-br from-[#2d6a4f] to-[#1b4332] relative flex items-end p-3 cursor-pointer shadow-xl">
+                                    <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                    <div class="relative z-10">
+                                        <h4 class="font-bold text-white text-[0.75rem] md:text-[0.85rem] leading-[1.2] drop-shadow-md">Array of Darkness</h4>
+                                        <p class="text-[0.65rem] text-gray-300 mt-1 hidden md:block">2023 · Horror</p>
+                                    </div>
+                                </div>
+                                <div class="demo-card flex-[0_0_140px] md:flex-[0_0_200px] aspect-[16/9] rounded bg-gradient-to-br from-[#6b2737] to-[#2d1b2e] relative flex items-end p-3 cursor-pointer shadow-xl">
+                                    <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                    <div class="relative z-10">
+                                        <h4 class="font-bold text-white text-[0.75rem] md:text-[0.85rem] leading-[1.2] drop-shadow-md">Promise Breaker</h4>
+                                        <p class="text-[0.65rem] text-gray-300 mt-1 hidden md:block">2023 · Drama</p>
+                                    </div>
+                                </div>
+                                <div class="demo-card flex-[0_0_140px] md:flex-[0_0_200px] aspect-[16/9] rounded bg-gradient-to-br from-[#4a0e8f] to-[#1a0533] relative flex items-end p-3 cursor-pointer shadow-xl">
+                                    <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                    <div class="relative z-10">
+                                        <h4 class="font-bold text-white text-[0.75rem] md:text-[0.85rem] leading-[1.2] drop-shadow-md">Async Nightmares</h4>
+                                        <p class="text-[0.65rem] text-gray-300 mt-1 hidden md:block">2022 · Docuseries</p>
+                                    </div>
+                                </div>
+                                <div class="demo-card flex-[0_0_140px] md:flex-[0_0_200px] aspect-[16/9] rounded bg-gradient-to-br from-[#b5451b] to-[#6b2737] relative flex items-end p-3 cursor-pointer shadow-xl">
+                                    <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                    <div class="relative z-10">
+                                        <h4 class="font-bold text-white text-[0.75rem] md:text-[0.85rem] leading-[1.2] drop-shadow-md">The Last Callback</h4>
+                                        <p class="text-[0.65rem] text-gray-300 mt-1 hidden md:block">2024 · Action</p>
+                                    </div>
+                                </div>
+                                <div class="demo-card flex-[0_0_140px] md:flex-[0_0_200px] aspect-[16/9] rounded bg-gradient-to-br from-[#0a3d62] to-[#1e3799] relative flex items-end p-3 cursor-pointer shadow-xl">
+                                    <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                    <div class="relative z-10">
+                                        <h4 class="font-bold text-white text-[0.75rem] md:text-[0.85rem] leading-[1.2] drop-shadow-md">Event Loop Chronicles</h4>
+                                        <p class="text-[0.65rem] text-gray-300 mt-1 hidden md:block">2021 · Fantasy</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="scrollFullRow(this, 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 border border-white/15 text-white flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-all z-30 hover:bg-accent/40 shadow-lg hidden md:flex backdrop-blur-sm text-sm">›</button>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="relative group/row w-full">
+                        <h3 class="text-white text-[1rem] font-semibold px-8 mb-3 tracking-[0.02em]">⚡ New This Week</h3>
+                        <div class="relative px-8 w-full">
+                            <button onclick="scrollFullRow(this, -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 border border-white/15 text-white flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-all z-30 hover:bg-accent/40 shadow-lg hidden md:flex backdrop-blur-sm text-sm">‹</button>
+                            
+                            <div class="flex gap-2 overflow-x-auto hide-scrollbar scroll-smooth py-4 px-2 -mx-2 w-full" id="full-demo-track-2">
+                                <div class="demo-card flex-[0_0_140px] md:flex-[0_0_200px] aspect-[16/9] rounded bg-gradient-to-br from-[#8e44ad] to-[#3498db] relative flex items-end p-3 cursor-pointer shadow-xl">
+                                    <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                    <div class="relative z-10">
+                                        <h4 class="font-bold text-white text-[0.75rem] md:text-[0.85rem] leading-[1.2] drop-shadow-md">Prototype Chain Gang</h4>
+                                    </div>
+                                </div>
+                                <div class="demo-card flex-[0_0_140px] md:flex-[0_0_200px] aspect-[16/9] rounded bg-gradient-to-br from-[#c0392b] to-[#8e44ad] relative flex items-end p-3 cursor-pointer shadow-xl">
+                                    <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                    <div class="relative z-10">
+                                        <h4 class="font-bold text-white text-[0.75rem] md:text-[0.85rem] leading-[1.2] drop-shadow-md">Hoisting Heights</h4>
+                                    </div>
+                                </div>
+                                <div class="demo-card flex-[0_0_140px] md:flex-[0_0_200px] aspect-[16/9] rounded bg-gradient-to-br from-[#27ae60] to-[#1abc9c] relative flex items-end p-3 cursor-pointer shadow-xl">
+                                    <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                    <div class="relative z-10">
+                                        <h4 class="font-bold text-white text-[0.75rem] md:text-[0.85rem] leading-[1.2] drop-shadow-md">The DOM Whisperer</h4>
+                                    </div>
+                                </div>
+                                <div class="demo-card flex-[0_0_140px] md:flex-[0_0_200px] aspect-[16/9] rounded bg-gradient-to-br from-[#e67e22] to-[#c0392b] relative flex items-end p-3 cursor-pointer shadow-xl">
+                                    <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                    <div class="relative z-10">
+                                        <h4 class="font-bold text-white text-[0.75rem] md:text-[0.85rem] leading-[1.2] drop-shadow-md">Null Hypothesis</h4>
+                                    </div>
+                                </div>
+                                <div class="demo-card flex-[0_0_140px] md:flex-[0_0_200px] aspect-[16/9] rounded bg-gradient-to-br from-[#2c3e50] to-[#3498db] relative flex items-end p-3 cursor-pointer shadow-xl">
+                                    <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                    <div class="relative z-10">
+                                        <h4 class="font-bold text-white text-[0.75rem] md:text-[0.85rem] leading-[1.2] drop-shadow-md">Closure Season 2</h4>
+                                    </div>
+                                </div>
+                                <div class="demo-card flex-[0_0_140px] md:flex-[0_0_200px] aspect-[16/9] rounded bg-gradient-to-br from-[#1abc9c] to-[#2c3e50] relative flex items-end p-3 cursor-pointer shadow-xl">
+                                    <div class="demo-card-overlay absolute inset-0 rounded"></div>
+                                    <div class="relative z-10">
+                                        <h4 class="font-bold text-white text-[0.75rem] md:text-[0.85rem] leading-[1.2] drop-shadow-md">Weak Reference</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="scrollFullRow(this, 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 border border-white/15 text-white flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-all z-30 hover:bg-accent/40 shadow-lg hidden md:flex backdrop-blur-sm text-sm">›</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="py-[7rem] bg-surface text-center border-t border-borderSubtle relative overflow-hidden isolate">
+            <div class="absolute -bottom-[20%] left-1/2 -translate-x-1/2 w-[70%] h-[60%] bg-[radial-gradient(circle,rgba(187,134,252,0.08)_0%,transparent_70%)] blur-[60px] pointer-events-none -z-10 animate-[cs-pulse-glow_6s_ease-in-out_infinite]"></div>
+            
+            <div class="max-w-[760px] mx-auto px-5 lg:px-8 relative z-10">
+                <span class="inline-block font-mono text-[0.78rem] text-accent tracking-[0.14em] uppercase mb-[1.1rem] reveal">
+                    Ready to build?
+                </span>
+                <h2 class="text-[clamp(1.65rem,3.5vw,2.6rem)] font-extrabold text-white mb-4 leading-[1.15] tracking-[-0.02em] reveal delay-100">
+                    Need a Production Frontend Built Without the Framework Tax?
+                </h2>
+                <p class="text-[1rem] text-textSecondary mb-[2.25rem] max-w-[540px] mx-auto leading-[1.75] reveal delay-200">
+                    We build conversion-focused web platforms using exactly these principles — lean, fast, maintainable, and purpose-built for measurable business outcomes.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 reveal delay-300">
+                    <a href="#" class="inline-block bg-accent text-black font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_4px_12px_rgba(187,134,252,0.3)]">
+                        Start a Project with Nexora →
+                    </a>
+                    <a href="#" class="inline-block bg-transparent text-accent border border-accent font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:bg-accent/10 hover:-translate-y-[2px]">
+                        Read More Articles
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-base border-t border-borderSubtle pt-16 pb-8 mt-16">
+        <div class="max-w-[1200px] mx-auto px-5 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <img src="/icons/header_logo.svg" alt="Nexora Logo" class="h-10 w-auto" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI0IiBmaWxsPSIjQkI4NkZDIi8+PHRleHQgeD0iMTYiIHk9IjIxIiBmb250LWZhbWlseT0iSW50ZXIiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5OPC90ZXh0Pjwvc3ZnPg=='" />
+                        <span class="text-[1.5rem] font-bold text-white tracking-[-0.5px]">Nexora</span>
+                    </div>
+                    <p class="text-textSecondary text-[0.95rem] leading-[1.6] max-w-[300px]">Engineering lean, high-performance web platforms for modern businesses.</p>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h3 class="text-[1.1rem] text-white mb-6 font-semibold">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-textSecondary text-[0.95rem] hover:text-accent transition-colors block">Services</a></li>
+                        <li><a href="#" class="text-textSecondary text-[0.95rem] hover:text-accent transition-colors block">Projects</a></li>
+                        <li><a href="#" class="text-textSecondary text-[0.95rem] hover:text-accent transition-colors block">About Us</a></li>
+                        <li><a href="#" class="text-textSecondary text-[0.95rem] hover:text-accent transition-colors block">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-[1.1rem] text-white mb-6 font-semibold">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="text-textSecondary text-[0.95rem] block">Cape Town, South Africa</li>
+                        <li><a href="mailto:hello@nexora.com" class="text-textSecondary text-[0.95rem] hover:text-accent transition-colors block">hello@nexora.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-borderSubtle text-center text-textSecondary text-[0.85rem] font-mono">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Nexora Web Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Prism.js syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
+    <!-- Custom Interactivity Scripts -->
+    <script>
+        // Demo Carousel Navigation Logic
+        function scrollFullRow(btn, direction) {
+            const wrap = btn.closest('.relative.px-8');
+            const track = wrap.querySelector('.flex.overflow-x-auto');
+            // Scroll by 80% of visible width
+            track.scrollBy({ left: (track.offsetWidth * 0.8) * direction, behavior: 'smooth' });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Reading Progress Bar
+            const progressBar = document.getElementById('progress-bar');
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                const height = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = height > 0 ? scrollY / height : 0;
+                progressBar.style.transform = `scaleX(${progress})`;
+            }, { passive: true });
+
+            // Scroll Reveal Animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        revealObserver.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => {
+                revealObserver.observe(el);
+            });
+
+            // Number Counter Animation for Stats
+            const animateNumbers = () => {
+                const statElements = document.querySelectorAll('.stat-num');
+                statElements.forEach(el => {
+                    const target = parseInt(el.getAttribute('data-target'));
+                    if (isNaN(target)) return;
+                    
+                    const duration = 1500; // ms
+                    const step = target / (duration / 16); // 60fps
+                    let current = 0;
+                    
+                    const updateNum = () => {
+                        current += step;
+                        if (current < target) {
+                            el.innerText = el.innerText.replace(/[0-9]+/, Math.ceil(current));
+                            requestAnimationFrame(updateNum);
+                        } else {
+                            el.innerText = el.innerText.replace(/[0-9]+/, target);
+                        }
+                    };
+                    updateNum();
+                });
+            };
+
+            // Trigger number counter when stats section is visible
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateNumbers();
+                        statsObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const statsSection = document.querySelector('.stat-num')?.closest('section');
+            if(statsSection) statsObserver.observe(statsSection);
+
+            // Navbar background effect on scroll
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('shadow-[0_4px_20px_rgba(0,0,0,0.3)]', 'bg-[#121112]/98');
+                    header.classList.remove('bg-[#121112]/95');
+                } else {
+                    header.classList.remove('shadow-[0_4px_20px_rgba(0,0,0,0.3)]', 'bg-[#121112]/98');
+                    header.classList.add('bg-[#121112]/95');
+                }
+            }, { passive: true });
+        });
+    </script>
+</body>
+</html>
