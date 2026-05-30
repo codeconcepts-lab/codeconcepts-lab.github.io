@@ -87,7 +87,8 @@
             </div>
             <!-- Right Column: Form -->
             <div class="contact-form-wrapper reveal delay-200">
-                <form name="general-contact" method="POST" action="/process-form.php" id="contact-form">
+                <form name="general-contact" method="POST" action="https://api.web3forms.com/submit" id="contact-form">
+                    <input type="hidden" name="access_key" value="70c496cd-37e2-4351-a4a3-57e76fc1c2de">
                     <input type="hidden" name="form-name" value="general-contact" />
                     <div class="input-group">
                         <label for="name">Your Name</label>
