@@ -42,25 +42,53 @@
                 --cs-accent: #84CC16;
                 --cs-accent-glow: rgba(132, 204, 22, 0.12);
             }
+
             .cs-hero {
                 background: radial-gradient(circle at top right, rgba(132, 204, 22, 0.08), transparent 55%);
             }
-            .cs-image { width: 100%; height: auto; display: block; border-radius: 8px; }
+
+            .cs-image {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 8px;
+            }
+
             .cs-image-frame {
-                border-radius: 12px; overflow: hidden;
+                border-radius: 12px;
+                overflow: hidden;
                 background: var(--color-surface, #111827);
-                box-shadow: 0 4px 32px rgba(0,0,0,0.22), 0 1px 4px rgba(0,0,0,0.12);
+                box-shadow: 0 4px 32px rgba(0, 0, 0, 0.22), 0 1px 4px rgba(0, 0, 0, 0.12);
                 line-height: 0;
             }
-            .cs-hero-shot__img { width: 100%; height: auto; display: block; border-radius: 0; }
-            .cs-placeholder--caption { margin-top: 0.6rem; font-size: 0.8rem; color: var(--color-text-muted, #6b7280); text-align: center; display: block; }
+
+            .cs-hero-shot__img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 0;
+            }
+
+            .cs-placeholder--caption {
+                margin-top: 0.6rem;
+                font-size: 0.8rem;
+                color: var(--color-text-muted, #6b7280);
+                text-align: center;
+                display: block;
+            }
+
+            .cs-overview-video {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 0;
+            }
         </style>
     </head>
 
     <body>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CGM7HB4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="cs-progress" aria-hidden="true"></div>
-
         <header class="site-header">
             <div class="container header-inner">
                 <a href="/index.html" class="logo-link">
@@ -92,7 +120,6 @@
                 </div>
             </div>
         </header>
-
         <nav class="cs-breadcrumb" aria-label="Breadcrumb">
             <div class="container">
                 <a href="/projects.html">← Projects</a>
@@ -100,21 +127,15 @@
                 <span class="cs-breadcrumb__current">Bush Creek Guest House</span>
             </div>
         </nav>
-
         <main>
-
             <!-- HERO -->
             <section class="cs-section cs-hero" aria-labelledby="hero-heading">
                 <div class="container cs-hero__inner">
                     <div>
                         <span class="cs-label reveal reveal--blur">Hospitality · KwaZulu-Natal, South Africa</span>
                         <div class="cs-sep" aria-hidden="true"></div>
-                        <h1 class="cs-hero__title reveal reveal--left delay-100" id="hero-heading">
-                            Designing an <span class="text-gradient">Immersive Hospitality</span><br>Experience for the South African Countryside
-                        </h1>
-                        <p class="cs-hero__desc reveal reveal--left delay-200">
-                            Bush Creek Guest House needed more than a website — it needed a digital presence that could carry the emotional weight of a countryside retreat. A platform that made a prospective guest feel the stillness, the space, and the warmth of KwaZulu-Natal before they ever packed a bag.
-                        </p>
+                        <h1 class="cs-hero__title reveal reveal--left delay-100" id="hero-heading"> Designing an <span class="text-gradient">Immersive Hospitality</span><br>Experience for the South African Countryside </h1>
+                        <p class="cs-hero__desc reveal reveal--left delay-200"> Bush Creek Guest House needed more than a website — it needed a digital presence that could carry the emotional weight of a countryside retreat. A platform that made a prospective guest feel the stillness, the space, and the warmth of KwaZulu-Natal before they ever packed a bag. </p>
                         <div class="cs-hero__actions reveal reveal--left delay-300">
                             <a href="https://bushcreekguesthouse.co.za" target="_blank" rel="noopener" class="btn-primary">View Website ↗</a>
                             <a href="#challenge" class="btn-secondary">Read Case Study</a>
@@ -129,16 +150,11 @@
                     </div>
                     <div class="reveal reveal--scale delay-200" aria-hidden="true">
                         <div class="cs-image-frame cs-hero-shot cs-hero-shot--glow cs-float">
-                            <img
-                                src="/images/projects/bush-creek-guest-house/hero-desktop-homepage.png"
-                                alt="Bush Creek Guest House website overview"
-                                class="cs-image cs-hero-shot__img"
-                                loading="eager" />
+                            <img src="/images/projects/bush-creek-guest-house/hero-desktop-homepage.png" alt="Bush Creek Guest House website overview" class="cs-image cs-hero-shot__img" loading="eager" />
                         </div>
                     </div>
                 </div>
             </section>
-
             <!-- STATS STRIP -->
             <section class="cs-section cs-section--surface" aria-label="Project snapshot">
                 <div class="container">
@@ -171,17 +187,13 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- PROJECT OVERVIEW -->
             <section class="cs-section" id="overview" aria-labelledby="overview-heading">
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">Project Overview</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="overview-heading">
-                            Turning a Countryside Retreat Into a Digital Destination People Feel Before They Arrive
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="overview-heading"> Turning a Countryside Retreat Into a Digital Destination People Feel Before They Arrive </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>In the South African accommodation market, trust is currency. Guests aren't just booking a room — they're making a decision about where they'll feel safe, comfortable, and genuinely welcomed. Bush Creek Guest House, a self-catering countryside retreat set between Mooi River and Estcourt in KwaZulu-Natal, had everything a discerning traveller looks for: space, natural surroundings, authentic hospitality, and the kind of quiet that's increasingly hard to find. The problem was that its digital presence didn't reflect any of that.</p>
@@ -195,42 +207,35 @@
                     </div>
                 </div>
             </section>
-
             <section class="cs-section cs-section--flush" aria-label="Project preview">
                 <div class="container">
                     <div class="cs-image-frame reveal reveal--scale">
-                        <img src="/images/projects/bush-creek-guest-house/overview-screenshot.png" alt="Bush Creek Guest House — website overview" class="cs-image" loading="lazy" />
+                        <video class="cs-overview-video" playsinline controls aria-label="Bush Creek Guest House website tour">
+                            <source src="/images/projects/bush-creek-guest-house/Bush Creek Guest House Tour.mp4" type="video/mp4" /> Your browser does not support the video tag.
+                        </video>
                     </div>
-                    <span class="cs-placeholder--caption">Bush Creek Guest House — hospitality platform, desktop view</span>
+                    <span class="cs-placeholder--caption">Bush Creek Guest House — facilities tour</span>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- THE CHALLENGE -->
             <section class="cs-section" id="challenge" aria-labelledby="challenge-heading">
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">The Challenge</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="challenge-heading">
-                            A Property With Genuine Character. A Digital Presence That Couldn't Communicate It.
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="challenge-heading"> A Property With Genuine Character. A Digital Presence That Couldn't Communicate It. </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>The challenge for Bush Creek Guest House wasn't the property — it was the gap between the experience the property delivered in person and what prospective guests encountered online. Accommodation decisions at the boutique and self-catering level are emotionally driven. Guests aren't comparing feature tables or price-matching against large hotel chains. They're asking: "Will I feel good there?" A website that can't answer that question visually and emotionally within the first few seconds of a visit loses that booking to a competitor that can.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Visual Trust Deficit</h3>
                         <p>Accommodation websites live or die on photography and visual presentation. The existing platform lacked the immersive visual architecture necessary to transport a prospective guest — even mentally — to the property. Without a structured gallery system, atmospheric hero treatment, and deliberate visual hierarchy, high-quality property photography was rendered ineffective. The images existed, but the presentation wasn't making them work.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Inquiry Friction and Booking Abandonment</h3>
                         <p>Booking intent in the accommodation market is volatile. A prospective guest who has committed enough interest to visit your website is already high-intent — but if the inquiry or booking process introduces friction (unclear forms, confusing navigation, slow load times under mobile data conditions), that intent evaporates. The challenge was not just to surface the inquiry mechanism, but to make it feel like a natural next step rather than a bureaucratic process.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Mobile Performance in a Regional Market</h3>
                         <p>KwaZulu-Natal leisure travellers are predominantly mobile users, and connectivity in regional corridors is inconsistent. A platform that relies on large unoptimised images, heavy JavaScript bundles, or desktop-first layout logic will fail this audience before it has a chance to make its case. Performance engineering wasn't an afterthought — it was a prerequisite for reaching the market the property serves.</p>
                     </div>
                 </div>
             </section>
-
             <section class="cs-section cs-section--surface" aria-label="Key insight">
                 <div class="container">
                     <div class="cs-callout reveal reveal--blur">
@@ -238,33 +243,25 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- STRATEGY -->
             <section class="cs-section" id="strategy" aria-labelledby="strategy-heading">
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">Strategy &amp; Discovery</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="strategy-heading">
-                            Emotional Architecture Before a Single Layout Was Drawn
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="strategy-heading"> Emotional Architecture Before a Single Layout Was Drawn </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>Nexora's discovery process began with a question that sounds simple but shapes every decision that follows: what does a guest need to feel at each stage of the browsing journey to move forward? The answer, mapped against the accommodation decision cycle, produced three emotional phases — curiosity, desire, and confidence. The platform's information architecture was designed to serve all three, sequentially, without interruption.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Atmosphere-Led Information Architecture</h3>
                         <p>Unlike e-commerce or SaaS products, hospitality websites must lead with feeling before they lead with function. The hero section's job was to generate curiosity and desire — atmosphere, space, natural beauty. Amenities, pricing, and availability came after the emotional case had been made, not before it. This sequencing is deliberate: guests who have emotionally committed to a property are far more tolerant of the functional steps required to book it than guests who encounter those steps before they've been emotionally engaged.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Trust Signal Architecture</h3>
                         <p>The discovery process identified the specific trust signals that drive accommodation decisions at the boutique self-catering level: property photography quality, amenity clarity, location context, and the ease of reaching a real person to ask a question. Each of these was given a deliberate structural position in the information hierarchy — not buried in a footer or hidden behind a navigation click, but surfaced as part of the primary browsing journey.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Conversion Flow Simplification</h3>
                         <p>The inquiry pathway was reduced to its minimum viable friction. Rather than a multi-step booking system that asked guests to make decisions before they had the information they needed to make them, the flow was redesigned as a two-stage process: browse (understand the property, feel the atmosphere, assess the fit) and then connect (inquiry form with minimal required fields, surfaced at multiple points in the journey rather than locked behind a single CTA).</p>
                     </div>
                 </div>
             </section>
-
             <section class="cs-section cs-section--surface" aria-label="Process">
                 <div class="container">
                     <h3 class="cs-subheading reveal reveal--left" style="margin-bottom: 2rem;">Our Process</h3>
@@ -297,21 +294,16 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- VISUAL DESIGN SYSTEM -->
             <section class="cs-section" id="design" aria-labelledby="design-heading">
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">Visual Design System</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="design-heading">
-                            Nature-Led Aesthetics in Service of Booking Conversion
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="design-heading"> Nature-Led Aesthetics in Service of Booking Conversion </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>The visual language for Bush Creek Guest House was derived directly from the property's physical environment. KwaZulu-Natal's Midlands landscape — grassland, water, open sky, weathered natural materials — provided the palette and the emotional register. The design system wasn't imposed onto the property; it was extracted from it. This alignment between visual identity and physical reality is what gives hospitality brands their sense of authenticity, and authenticity is the single most effective conversion driver in the self-catering accommodation market.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Colour System</h3>
                         <div class="cs-palette" style="margin-top: 1rem;">
                             <div class="cs-swatch" style="background: #84CC16;" title="#84CC16 — Foliage Green / Accent"></div>
@@ -320,10 +312,8 @@
                             <div class="cs-swatch" style="background: #F5F0E8;" title="#F5F0E8 — Natural Linen / Text Primary"></div>
                             <div class="cs-swatch" style="background: #C8A96E;" title="#C8A96E — Warm Timber / Secondary Accent"></div>
                         </div>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Typography</h3>
                         <p>Heading typography used a refined serif for property names, section headings, and pull quotes — conveying the kind of unhurried, considered quality associated with premium self-catering stays. Body copy shifted to a clean humanist sans-serif for legibility across mobile breakpoints. The combination created a visual rhythm that felt editorial and property-specific without defaulting to the generic travel site aesthetic that erases differentiation.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Design Principles</h3>
                     </div>
                 </div>
@@ -344,42 +334,31 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- UX FLOW -->
             <section class="cs-section" id="ux" aria-labelledby="ux-heading">
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">UX &amp; Experience Design</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="ux-heading">
-                            A Journey That Earns the Inquiry Before It Asks for It
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="ux-heading"> A Journey That Earns the Inquiry Before It Asks for It </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>The fundamental UX philosophy behind Bush Creek Guest House was that a guest should arrive at the inquiry form feeling certain, not curious. By the time a user reaches the contact section, they should have already answered their own decision questions: Is this the right type of accommodation? Does it match the atmosphere I'm looking for? Is it in the right location? Does it have what we need? The platform was designed to answer all of these questions visually and informatively before presenting any conversion mechanism.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Hero Section: The Arrival Experience</h3>
                         <p>The hero section was designed to function as a digital arrival — the equivalent of pulling up a gravel driveway and seeing the property for the first time. A full-viewport atmospheric image, a headline that anchored the guest in the specific physical and emotional experience of the property, and a single clear primary action placed where a resting eye naturally falls. No navigation clutter, no competing CTAs, no information overload. Just the property, at its best, making its case.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Property Discovery: Structured Storytelling</h3>
                         <p>Below the hero, the UX flow structured the property's story in the sequence a guest naturally wants to consume it: what it feels like (gallery), what it includes (accommodation and amenities), where it is (location and surroundings), and how to book. Each section answered one question completely before the next arose. Navigation between sections was smooth-scrolled and anchor-linked, preserving the sense of a continuous journey rather than a page-by-page interrogation.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Mobile: Scrolling as the Primary Interaction</h3>
                         <p>Mobile hospitality browsing is fundamentally a vertical scroll experience, and the UX system was designed around this. Card layouts stacked cleanly, image galleries adapted to touch-friendly swiping, and the inquiry form collapsed to a minimal set of required fields. Reducing the perceived commitment of the initial inquiry was key to converting mobile browsers who might abandon a lengthy form in favour of the next search result.</p>
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- FEATURE HIGHLIGHTS -->
             <section class="cs-section" id="features" aria-labelledby="features-heading">
                 <div class="container">
                     <span class="cs-label reveal reveal--left">Feature Highlights</span>
-                    <h2 class="cs-heading reveal reveal--left delay-100" id="features-heading">
-                        The Systems That Transformed a Property Into a Premium Digital Destination
-                    </h2>
+                    <h2 class="cs-heading reveal reveal--left delay-100" id="features-heading"> The Systems That Transformed a Property Into a Premium Digital Destination </h2>
                     <div class="cs-design-grid stagger-children" style="margin-top: 2rem;">
                         <div class="cs-design-card reveal reveal--scale">
                             <h4>Immersive Gallery System</h4>
@@ -414,21 +393,16 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- TECHNICAL EXECUTION -->
             <section class="cs-section" id="technical" aria-labelledby="technical-heading">
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">Technical Execution</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="technical-heading">
-                            A Lightweight, Scalable Platform Built for an Image-Led Experience
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="technical-heading"> A Lightweight, Scalable Platform Built for an Image-Led Experience </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>The technical requirements for Bush Creek Guest House were governed by a core constraint: the platform needed to deliver a visually rich, image-intensive hospitality experience to a regional South African audience that would primarily access it on mobile devices under variable data conditions. This ruled out bloated JavaScript frameworks and unoptimised image delivery, and placed performance engineering at the centre of every technology decision.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Frontend Architecture</h3>
                         <ul class="cs-list">
                             <li>HTML5 semantic structure — clean, crawlable markup that gives search engines the property information they need to surface the site in accommodation-relevant queries</li>
@@ -436,14 +410,12 @@
                             <li>Progressive image loading — lazy-loaded imagery with WebP format delivery, srcset-responsive sizing, and aspect-ratio containers that prevent layout shift during load</li>
                             <li>Minimal JavaScript footprint — interactive components implemented with vanilla JS rather than framework dependencies</li>
                         </ul>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Backend &amp; Content Management</h3>
                         <ul class="cs-list">
                             <li>PHP-based backend with WordPress CMS — chosen for operational simplicity, the property team's ability to self-manage content, and its robust ecosystem of hospitality-adjacent plugins</li>
                             <li>Custom page templates designed around the hospitality content model — gallery management, accommodation unit pages, and seasonal messaging all structured as discrete, manageable content types</li>
                             <li>Form handling with server-side validation — inquiry submissions processed reliably with spam filtering and email notification routing</li>
                         </ul>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Infrastructure &amp; Performance</h3>
                         <ul class="cs-list">
                             <li>CDN-distributed asset delivery — static files served from edge locations closer to South African users, reducing latency on image-heavy page loads</li>
@@ -454,7 +426,6 @@
                     </div>
                 </div>
             </section>
-
             <section class="cs-section cs-section--surface" aria-label="Technology stack">
                 <div class="container">
                     <div class="cs-stack-callout reveal reveal--blur">
@@ -462,16 +433,12 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- RESULTS -->
             <section class="cs-section" id="results" aria-labelledby="results-heading">
                 <div class="container">
                     <span class="cs-label reveal reveal--left">Results &amp; Business Impact</span>
-                    <h2 class="cs-heading reveal reveal--left delay-100" id="results-heading">
-                        A Digital Presence That Works as Hard as the Property Does
-                    </h2>
+                    <h2 class="cs-heading reveal reveal--left delay-100" id="results-heading"> A Digital Presence That Works as Hard as the Property Does </h2>
                     <div class="cs-outcomes-grid stagger-children" style="margin-top: 2rem;">
                         <div class="cs-outcome-card reveal reveal--scale">
                             <h4>Premium Brand Positioning Established</h4>
@@ -500,16 +467,12 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- GALLERY -->
             <section class="cs-section" id="gallery" aria-labelledby="gallery-heading">
                 <div class="container">
                     <span class="cs-label reveal reveal--left">Visual Gallery</span>
-                    <h2 class="cs-heading reveal reveal--left delay-100" id="gallery-heading">
-                        Inside the Bush Creek Guest House Platform
-                    </h2>
+                    <h2 class="cs-heading reveal reveal--left delay-100" id="gallery-heading"> Inside the Bush Creek Guest House Platform </h2>
                     <div class="cs-gallery-grid stagger-children" style="margin-top: 2rem;">
                         <div class="cs-gallery-card cs-image-frame reveal reveal--scale">
                             <img src="/images/projects/bush-creek-guest-house/gallery-01.png" alt="Bush Creek Guest House — hero and property overview" class="cs-image" loading="lazy" />
@@ -526,19 +489,8 @@
                     </div>
                 </div>
             </section>
-
-            <section class="cs-section cs-section--surface" aria-label="Device showcase">
-                <div class="container">
-                    <div class="cs-device-showcase reveal reveal--scale">
-                        <div class="cs-image-frame">
-                            <img src="/images/projects/bush-creek-guest-house/desktop-full.png" alt="Bush Creek Guest House — full platform view" class="cs-image" loading="lazy" />
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+            
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <section class="cs-section" aria-label="Client testimonial">
                 <div class="container">
                     <div class="cs-testimonial reveal reveal--blur">
@@ -547,7 +499,6 @@
                     </div>
                 </div>
             </section>
-
             <!-- CTA -->
             <section class="cs-cta-section" aria-labelledby="cta-heading">
                 <div class="container" style="text-align: center;">
@@ -575,9 +526,7 @@
                     </div>
                 </div>
             </section>
-
         </main>
-
         <footer class="site-footer">
             <div class="container">
                 <div class="footer-grid">
@@ -608,63 +557,64 @@
                     </div>
                 </div>
                 <div class="footer-bottom reveal delay-400">
-                    <p>&copy; <script>document.write(new Date().getFullYear())</script> Nexora Web Agency. All rights reserved.</p>
+                    <p>&copy;
+                        <script>document.write(new Date().getFullYear())</script> Nexora Web Agency. All rights reserved.
+                    </p>
                 </div>
             </div>
         </footer>
-
         <script>
-            (function () {
-                var bar = document.querySelector('.cs-progress');
-                if (bar) {
-                    window.addEventListener('scroll', function () {
-                        var st = window.scrollY;
-                        var dh = document.documentElement.scrollHeight - window.innerHeight;
-                        bar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
-                    }, { passive: true });
-                }
-                document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-                    link.addEventListener('click', function (e) {
-                        var target = document.querySelector(this.getAttribute('href'));
-                        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-                    });
-                });
-                document.addEventListener('DOMContentLoaded', function () {
-                    var revealObs = new IntersectionObserver(function (entries) {
-                        entries.forEach(function (entry) { if (entry.isIntersecting) entry.target.classList.add('active'); });
-                    }, { threshold: 0.08 });
-                    document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
-
-                    function countUp(el, raw, dur) {
-                        var num = parseFloat(raw.replace(/[^0-9.]/g, ''));
-                        if (isNaN(num)) return;
-                        var suffix = raw.replace(/^[\d.]+/, '');
-                        var startTime = performance.now();
-                        (function tick(now) {
-                            var p = Math.min((now - startTime) / dur, 1);
-                            var ease = 1 - Math.pow(1 - p, 3);
-                            el.textContent = Math.round(num * ease) + suffix;
-                            if (p < 1) requestAnimationFrame(tick);
-                        })(startTime);
-                    }
-                    var statObs = new IntersectionObserver(function (entries) {
-                        entries.forEach(function (entry) {
-                            if (entry.isIntersecting) { countUp(entry.target, entry.target.dataset.raw, 1400); statObs.unobserve(entry.target); }
-                        });
-                    }, { threshold: 0.6 });
-                    document.querySelectorAll('.cs-stat__value').forEach(function (el) { el.dataset.raw = el.textContent.trim(); statObs.observe(el); });
-
-                    var heroText = document.querySelector('.cs-hero__inner > div:first-child');
-                    if (heroText) {
-                        heroText.style.willChange = 'transform';
+                (function () {
+                    var bar = document.querySelector('.cs-progress');
+                    if (bar) {
                         window.addEventListener('scroll', function () {
-                            if (window.scrollY < 900) heroText.style.transform = 'translateY(' + (window.scrollY * -0.04) + 'px)';
+                            var st = window.scrollY;
+                            var dh = document.documentElement.scrollHeight - window.innerHeight;
+                            bar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
                         }, { passive: true });
                     }
-                });
-            })();
+                    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+                        link.addEventListener('click', function (e) {
+                            var target = document.querySelector(this.getAttribute('href'));
+                            if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                        });
+                    });
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var revealObs = new IntersectionObserver(function (entries) {
+                            entries.forEach(function (entry) { if (entry.isIntersecting) entry.target.classList.add('active'); });
+                        }, { threshold: 0.08 });
+                        document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+
+                        function countUp(el, raw, dur) {
+                            var num = parseFloat(raw.replace(/[^0-9.]/g, ''));
+                            if (isNaN(num)) return;
+                            var suffix = raw.replace(/^[\d.]+/, '');
+                            var startTime = performance.now();
+                            (function tick(now) {
+                                var p = Math.min((now - startTime) / dur, 1);
+                                var ease = 1 - Math.pow(1 - p, 3);
+                                el.textContent = Math.round(num * ease) + suffix;
+                                if (p < 1) requestAnimationFrame(tick);
+                            })(startTime);
+                        }
+                        var statObs = new IntersectionObserver(function (entries) {
+                            entries.forEach(function (entry) {
+                                if (entry.isIntersecting) { countUp(entry.target, entry.target.dataset.raw, 1400); statObs.unobserve(entry.target); }
+                            });
+                        }, { threshold: 0.6 });
+                        document.querySelectorAll('.cs-stat__value').forEach(function (el) { el.dataset.raw = el.textContent.trim(); statObs.observe(el); });
+
+                        var heroText = document.querySelector('.cs-hero__inner > div:first-child');
+                        if (heroText) {
+                            heroText.style.willChange = 'transform';
+                            window.addEventListener('scroll', function () {
+                                if (window.scrollY < 900) heroText.style.transform = 'translateY(' + (window.scrollY * -0.04) + 'px)';
+                            }, { passive: true });
+                        }
+                    });
+                })();
         </script>
-            <script src="/assets/js/main.js"></script>
+        <script src="/assets/js/main.js"></script>
     </body>
 
 </html>
