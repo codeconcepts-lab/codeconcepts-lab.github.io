@@ -14,7 +14,6 @@
         <!-- End Google Tag Manager -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
         <!-- ═══════════════════════════════════════════════════════════
              FILL IN: Title, description, OG tags, canonical URL
              ═══════════════════════════════════════════════════════════ -->
@@ -26,7 +25,6 @@
         <meta property="og:url" content="https://codeconcepts-lab.github.io/projects/[slug].html" />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="canonical" href="https://codeconcepts-lab.github.io/projects/[slug].html" />
-
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -36,17 +34,14 @@
             "about": { "@type": "Organization", "name": "[CLIENT NAME]", "url": "[CLIENT URL]" }
         }
         </script>
-
         <!-- Favicons -->
         <link rel="icon" href="/icons/emblem.svg" />
         <link rel="apple-touch-icon" href="/icons/nexora_emblem.png" />
-
         <!-- Global CSS -->
         <link rel="stylesheet" href="/assets/css/global.css" />
         <link rel="stylesheet" href="/assets/css/utilities.css" />
         <link rel="stylesheet" href="/assets/css/main.css" />
         <link rel="stylesheet" href="/assets/css/case-study.css" />
-
         <style>
             /* ═══════════════════════════════════════════════════════════
                PER-PROJECT ACCENT COLOUR
@@ -55,8 +50,10 @@
                3. Update the hero radial-gradient rgba() to match.
                ═══════════════════════════════════════════════════════════ */
             :root {
-                --cs-accent: #BB86FC;           /* ← REPLACE with project brand colour */
-                --cs-accent-glow: rgba(187, 134, 252, 0.12); /* ← Update RGB to match above */
+                --cs-accent: #BB86FC;
+                /* ← REPLACE with project brand colour */
+                --cs-accent-glow: rgba(187, 134, 252, 0.12);
+                /* ← Update RGB to match above */
             }
 
             .cs-hero {
@@ -105,10 +102,8 @@
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CGM7HB4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-
         <!-- Reading progress bar -->
         <div class="cs-progress" aria-hidden="true"></div>
-
         <!-- ══════════════════════════════════════════════════════════════
              HEADER — do not edit
              ══════════════════════════════════════════════════════════════ -->
@@ -123,7 +118,6 @@
                         <li><a href="/about.html">About</a></li>
                         <li><a href="/services.html">Services</a></li>
                         <li><a href="/projects.html">Projects</a></li>
-                        <li><a href="/blog/">Blog</a></li>
                         <li><a href="/contact.html">Contact</a></li>
                     </ul>
                 </nav>
@@ -132,7 +126,6 @@
                 </div>
             </div>
         </header>
-
         <!-- Breadcrumb — update project name -->
         <nav class="cs-breadcrumb" aria-label="Breadcrumb">
             <div class="container">
@@ -141,25 +134,18 @@
                 <span class="cs-breadcrumb__current">[PROJECT NAME]</span>
             </div>
         </nav>
-
         <main>
-
             <!-- ════════════════════════════════════════════════════════
                  SECTION 1 — HERO
                  ════════════════════════════════════════════════════════ -->
             <section class="cs-section cs-hero" aria-labelledby="hero-heading">
                 <div class="container cs-hero__inner">
-
                     <!-- Left: text — directional reveals slide content in from left -->
                     <div>
                         <span class="cs-label reveal reveal--blur">[INDUSTRY CATEGORY] · [LOCATION / REGION]</span>
                         <div class="cs-sep" aria-hidden="true"></div>
-                        <h1 class="cs-hero__title reveal reveal--left delay-100" id="hero-heading">
-                            [HEADLINE PART A] <span class="text-gradient">[HEADLINE GRADIENT PHRASE]</span><br>[HEADLINE PART B]
-                        </h1>
-                        <p class="cs-hero__desc reveal reveal--left delay-200">
-                            [HERO SUBHEADLINE — 1–2 sentences. Specific and compelling. What was the core result or transformation? No generic filler.]
-                        </p>
+                        <h1 class="cs-hero__title reveal reveal--left delay-100" id="hero-heading"> [HEADLINE PART A] <span class="text-gradient">[HEADLINE GRADIENT PHRASE]</span><br>[HEADLINE PART B] </h1>
+                        <p class="cs-hero__desc reveal reveal--left delay-200"> [HERO SUBHEADLINE — 1–2 sentences. Specific and compelling. What was the core result or transformation? No generic filler.] </p>
                         <div class="cs-hero__actions reveal reveal--left delay-300">
                             <a href="[CLIENT LIVE URL]" target="_blank" rel="noopener" class="btn-primary">View Live Site ↗</a>
                             <a href="#challenge" class="btn-secondary">Read Case Study</a>
@@ -172,21 +158,14 @@
                             <span class="cs-tag">[TAG 5]</span>
                         </div>
                     </div>
-
                     <!-- Right: hero screenshot — scale-reveal + float animation -->
                     <div class="reveal reveal--scale delay-200" aria-hidden="true">
                         <div class="cs-image-frame cs-hero-shot cs-hero-shot--glow cs-float">
-                            <img
-                                src="/images/projects/[slug]/hero-desktop-homepage.png"
-                                alt="[PROJECT NAME] — homepage screenshot"
-                                class="cs-image cs-hero-shot__img"
-                                loading="eager" />
+                            <img src="/images/projects/[slug]/hero-desktop-homepage.png" alt="[PROJECT NAME] — homepage screenshot" class="cs-image cs-hero-shot__img" loading="eager" />
                         </div>
                     </div>
-
                 </div>
             </section>
-
             <!-- ════════════════════════════════════════════════════════
                  SECTION 2 — PROJECT SNAPSHOT (Stats Strip)
                  Tip: stagger-children applies nth-child delays to each .cs-stat.
@@ -223,9 +202,7 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- ════════════════════════════════════════════════════════
                  SECTION 3 — PROJECT OVERVIEW
                  ════════════════════════════════════════════════════════ -->
@@ -234,9 +211,7 @@
                     <!-- Left column: label + heading slide in from left -->
                     <div>
                         <span class="cs-label reveal reveal--left">Project Overview</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="overview-heading">
-                            [OVERVIEW HEADLINE — What transformation story does this tell?]
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="overview-heading"> [OVERVIEW HEADLINE — What transformation story does this tell?] </h2>
                     </div>
                     <!-- Right column: body content slides in from right -->
                     <div class="reveal reveal--right delay-200">
@@ -251,23 +226,16 @@
                     </div>
                 </div>
             </section>
-
             <!-- Full-width overview screenshot -->
             <section class="cs-section cs-section--flush" aria-label="Project preview">
                 <div class="container">
                     <div class="cs-image-frame reveal reveal--scale">
-                        <img
-                            src="/images/projects/[slug]/overview-screenshot.png"
-                            alt="[PROJECT NAME] — full page preview"
-                            class="cs-image"
-                            loading="lazy" />
+                        <img src="/images/projects/[slug]/overview-screenshot.png" alt="[PROJECT NAME] — full page preview" class="cs-image" loading="lazy" />
                     </div>
                     <span class="cs-placeholder--caption">[PROJECT NAME] — [brief caption describing what's shown]</span>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- ════════════════════════════════════════════════════════
                  SECTION 4 — THE CHALLENGE
                  ════════════════════════════════════════════════════════ -->
@@ -275,25 +243,19 @@
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">The Challenge</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="challenge-heading">
-                            [CHALLENGE HEADLINE — What was broken, missing, or holding the business back?]
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="challenge-heading"> [CHALLENGE HEADLINE — What was broken, missing, or holding the business back?] </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>[CHALLENGE INTRO — The real business problem. Not surface-level symptoms but the underlying strategic gap. Why did the existing situation limit growth, trust, or conversion? 3–4 sentences.]</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">[CHALLENGE THEME 1 — e.g. Brand Credibility Gap]</h3>
                         <p>[Explain this specific challenge and its business impact. Why did it matter?]</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">[CHALLENGE THEME 2 — e.g. Fragmented Service Communication]</h3>
                         <p>[Explain this specific challenge. What was the UX or operational cost?]</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">[CHALLENGE THEME 3 — e.g. No Mobile-First Infrastructure]</h3>
                         <p>[Explain the technical gap and what it cost the client in missed opportunities.]</p>
                     </div>
                 </div>
             </section>
-
             <!-- Challenge pull-quote callout -->
             <section class="cs-section cs-section--surface" aria-label="Key insight">
                 <div class="container">
@@ -302,9 +264,7 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- ════════════════════════════════════════════════════════
                  SECTION 5 — STRATEGY / DISCOVERY
                  ════════════════════════════════════════════════════════ -->
@@ -312,25 +272,19 @@
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">Strategy &amp; Discovery</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="strategy-heading">
-                            [STRATEGY HEADLINE — How did Nexora approach solving the problem?]
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="strategy-heading"> [STRATEGY HEADLINE — How did Nexora approach solving the problem?] </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>[STRATEGY INTRO — The strategic framing. What research, analysis, or discovery drove the direction? 3–4 sentences.]</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">[STRATEGY PILLAR 1 — e.g. Audience Behaviour Analysis]</h3>
                         <p>[What was learned and how it shaped specific design or technical decisions.]</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">[STRATEGY PILLAR 2 — e.g. Information Architecture]</h3>
                         <p>[How content was structured to serve both user needs and business goals. What hierarchy decisions were made and why?]</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">[STRATEGY PILLAR 3 — e.g. Conversion Flow Planning]</h3>
                         <p>[How the experience was engineered to guide users toward the desired action. What friction was removed?]</p>
                     </div>
                 </div>
             </section>
-
             <!-- Process steps — stagger-children staggers each step's reveal -->
             <section class="cs-section cs-section--surface" aria-label="Process">
                 <div class="container">
@@ -364,9 +318,7 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- ════════════════════════════════════════════════════════
                  SECTION 6 — VISUAL DESIGN SYSTEM
                  ════════════════════════════════════════════════════════ -->
@@ -374,13 +326,10 @@
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">Visual Design System</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="design-heading">
-                            [DESIGN HEADLINE — What aesthetic direction and why?]
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="design-heading"> [DESIGN HEADLINE — What aesthetic direction and why?] </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>[DESIGN INTRO — The philosophy behind the visual system. What emotions or perceptions was it engineered to create? Why those choices for this specific client and audience?]</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Colour Palette</h3>
                         <div class="cs-palette" style="margin-top: 1rem;">
                             <!-- Fill title attr with HEX + role e.g. "#EF4444 — Primary Accent" -->
@@ -390,14 +339,11 @@
                             <div class="cs-swatch" style="background: [HEX 4];" title="[HEX 4] — [ROLE]"></div>
                             <div class="cs-swatch" style="background: [HEX 5];" title="[HEX 5] — [ROLE]"></div>
                         </div>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Typography</h3>
                         <p>[TYPOGRAPHY RATIONALE — What typeface(s) were used and why they were the right choice for the brand's positioning. How does type reinforce the emotional tone?]</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Design Principles</h3>
                     </div>
                 </div>
-
                 <!-- Design principle cards — stagger-children cascades their reveal -->
                 <div class="container" style="margin-top: 2rem;">
                     <div class="cs-design-grid stagger-children">
@@ -416,22 +362,15 @@
                     </div>
                 </div>
             </section>
-
             <!-- Design/UI screenshot -->
             <section class="cs-section cs-section--flush" aria-label="UI design preview">
                 <div class="container">
                     <div class="cs-image-frame reveal reveal--scale">
-                        <img
-                            src="/images/projects/[slug]/design-system.png"
-                            alt="[PROJECT NAME] — UI design system"
-                            class="cs-image"
-                            loading="lazy" />
+                        <img src="/images/projects/[slug]/design-system.png" alt="[PROJECT NAME] — UI design system" class="cs-image" loading="lazy" />
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- ════════════════════════════════════════════════════════
                  SECTION 7 — UX FLOW / EXPERIENCE DESIGN
                  ════════════════════════════════════════════════════════ -->
@@ -439,59 +378,41 @@
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">UX &amp; Experience Design</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="ux-heading">
-                            [UX HEADLINE — How was the user journey engineered to convert?]
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="ux-heading"> [UX HEADLINE — How was the user journey engineered to convert?] </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>[UX INTRO — The overarching user experience philosophy. What was the primary flow and how was it designed to reduce friction and build confidence?]</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">[PRIMARY USER JOURNEY — e.g. The Discovery-to-Inquiry Flow]</h3>
                         <p>[Walk through the key steps. What does a user encounter at each stage and what behaviour does each design decision encourage?]</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">[MOBILE STRATEGY — e.g. Mobile-First Navigation Architecture]</h3>
                         <p>[How the mobile experience was specifically designed — not just "made responsive" but engineered for mobile behaviour patterns and thumb zones.]</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">[CONVERSION OPTIMISATION — e.g. CTA Hierarchy & Placement Logic]</h3>
                         <p>[How CTAs were placed, worded, and staged across the experience to maximise conversion without feeling aggressive.]</p>
                     </div>
                 </div>
             </section>
-
             <!-- Mobile screenshots — remove this section if not relevant -->
             <section class="cs-section cs-section--surface" aria-label="Mobile experience">
                 <div class="container">
                     <h3 class="cs-subheading reveal reveal--left" style="text-align: center; margin-bottom: 2rem;">Mobile Experience</h3>
                     <div class="cs-mobile-pair reveal reveal--scale delay-100">
                         <div class="cs-image-frame">
-                            <img
-                                src="/images/projects/[slug]/mobile-screen-1.png"
-                                alt="[PROJECT NAME] — mobile view 1"
-                                class="cs-image"
-                                loading="lazy" />
+                            <img src="/images/projects/[slug]/mobile-screen-1.png" alt="[PROJECT NAME] — mobile view 1" class="cs-image" loading="lazy" />
                         </div>
                         <div class="cs-image-frame">
-                            <img
-                                src="/images/projects/[slug]/mobile-screen-2.png"
-                                alt="[PROJECT NAME] — mobile view 2"
-                                class="cs-image"
-                                loading="lazy" />
+                            <img src="/images/projects/[slug]/mobile-screen-2.png" alt="[PROJECT NAME] — mobile view 2" class="cs-image" loading="lazy" />
                         </div>
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- ════════════════════════════════════════════════════════
                  SECTION 8 — FEATURE HIGHLIGHTS
                  ════════════════════════════════════════════════════════ -->
             <section class="cs-section" id="features" aria-labelledby="features-heading">
                 <div class="container">
                     <span class="cs-label reveal reveal--left">Feature Highlights</span>
-                    <h2 class="cs-heading reveal reveal--left delay-100" id="features-heading">
-                        [FEATURES HEADLINE — The systems engineered to power this experience]
-                    </h2>
+                    <h2 class="cs-heading reveal reveal--left delay-100" id="features-heading"> [FEATURES HEADLINE — The systems engineered to power this experience] </h2>
                     <!-- stagger-children cascades card reveals with nth-child delays -->
                     <div class="cs-design-grid stagger-children" style="margin-top: 2rem;">
                         <div class="cs-design-card reveal reveal--scale">
@@ -527,9 +448,7 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- ════════════════════════════════════════════════════════
                  SECTION 9 — TECHNICAL EXECUTION
                  ════════════════════════════════════════════════════════ -->
@@ -537,34 +456,28 @@
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">Technical Execution</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="technical-heading">
-                            [TECHNICAL HEADLINE — The engineering decisions that make this scalable]
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="technical-heading"> [TECHNICAL HEADLINE — The engineering decisions that make this scalable] </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>[TECHNICAL INTRO — Stack rationale. Why these technology choices served the business and performance goals specifically — not just because they're popular.]</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Frontend Architecture</h3>
                         <ul class="cs-list">
                             <li>[FRONTEND DETAIL 1 — e.g. React.js with component-based architecture for scalable UI consistency]</li>
                             <li>[FRONTEND DETAIL 2]</li>
                             <li>[FRONTEND DETAIL 3]</li>
                         </ul>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Backend &amp; Infrastructure</h3>
                         <ul class="cs-list">
                             <li>[BACKEND DETAIL 1 — e.g. Node.js API layer with modular route architecture for expandability]</li>
                             <li>[BACKEND DETAIL 2]</li>
                             <li>[BACKEND DETAIL 3]</li>
                         </ul>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Performance Engineering</h3>
                         <ul class="cs-list">
                             <li>[PERFORMANCE DETAIL 1 — e.g. CDN-served static assets with aggressive cache headers]</li>
                             <li>[PERFORMANCE DETAIL 2]</li>
                             <li>[PERFORMANCE DETAIL 3]</li>
                         </ul>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Integrations</h3>
                         <ul class="cs-list">
                             <li>[INTEGRATION 1 — e.g. Google Analytics 4 + GTM for full behavioural event tracking]</li>
@@ -574,7 +487,6 @@
                     </div>
                 </div>
             </section>
-
             <!-- Tech stack callout — use cs-stack-callout for the pill-badge styled version -->
             <section class="cs-section cs-section--surface" aria-label="Technology stack">
                 <div class="container">
@@ -583,18 +495,14 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- ════════════════════════════════════════════════════════
                  SECTION 10 — RESULTS / BUSINESS IMPACT
                  ════════════════════════════════════════════════════════ -->
             <section class="cs-section" id="results" aria-labelledby="results-heading">
                 <div class="container">
                     <span class="cs-label reveal reveal--left">Results &amp; Business Impact</span>
-                    <h2 class="cs-heading reveal reveal--left delay-100" id="results-heading">
-                        [RESULTS HEADLINE — The measurable shift this project created]
-                    </h2>
+                    <h2 class="cs-heading reveal reveal--left delay-100" id="results-heading"> [RESULTS HEADLINE — The measurable shift this project created] </h2>
                     <div class="cs-outcomes-grid stagger-children" style="margin-top: 2rem;">
                         <div class="cs-outcome-card reveal reveal--scale">
                             <h4>[OUTCOME 1 — e.g. Brand Credibility]</h4>
@@ -623,68 +531,41 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- ════════════════════════════════════════════════════════
                  SECTION 11 — VISUAL GALLERY
                  ════════════════════════════════════════════════════════ -->
             <section class="cs-section" id="gallery" aria-labelledby="gallery-heading">
                 <div class="container">
                     <span class="cs-label reveal reveal--left">Visual Gallery</span>
-                    <h2 class="cs-heading reveal reveal--left delay-100" id="gallery-heading">
-                        [GALLERY HEADLINE — A look inside the build]
-                    </h2>
+                    <h2 class="cs-heading reveal reveal--left delay-100" id="gallery-heading"> [GALLERY HEADLINE — A look inside the build] </h2>
                     <div class="cs-gallery-grid stagger-children" style="margin-top: 2rem;">
                         <div class="cs-gallery-card cs-image-frame reveal reveal--scale">
-                            <img
-                                src="/images/projects/[slug]/gallery-01.png"
-                                alt="[CAPTION 1]"
-                                class="cs-image"
-                                loading="lazy" />
+                            <img src="/images/projects/[slug]/gallery-01.png" alt="[CAPTION 1]" class="cs-image" loading="lazy" />
                         </div>
                         <div class="cs-gallery-card cs-image-frame reveal reveal--scale">
-                            <img
-                                src="/images/projects/[slug]/gallery-02.png"
-                                alt="[CAPTION 2]"
-                                class="cs-image"
-                                loading="lazy" />
+                            <img src="/images/projects/[slug]/gallery-02.png" alt="[CAPTION 2]" class="cs-image" loading="lazy" />
                         </div>
                         <div class="cs-gallery-card cs-image-frame reveal reveal--scale">
-                            <img
-                                src="/images/projects/[slug]/gallery-03.png"
-                                alt="[CAPTION 3]"
-                                class="cs-image"
-                                loading="lazy" />
+                            <img src="/images/projects/[slug]/gallery-03.png" alt="[CAPTION 3]" class="cs-image" loading="lazy" />
                         </div>
                         <div class="cs-gallery-card cs-image-frame reveal reveal--scale">
-                            <img
-                                src="/images/projects/[slug]/gallery-04.png"
-                                alt="[CAPTION 4]"
-                                class="cs-image"
-                                loading="lazy" />
+                            <img src="/images/projects/[slug]/gallery-04.png" alt="[CAPTION 4]" class="cs-image" loading="lazy" />
                         </div>
                     </div>
                 </div>
             </section>
-
             <!-- Full-width device showcase -->
             <section class="cs-section cs-section--surface" aria-label="Device showcase">
                 <div class="container">
                     <div class="cs-device-showcase reveal reveal--scale">
                         <div class="cs-image-frame">
-                            <img
-                                src="/images/projects/[slug]/desktop-full.png"
-                                alt="[PROJECT NAME] — desktop full view"
-                                class="cs-image"
-                                loading="lazy" />
+                            <img src="/images/projects/[slug]/desktop-full.png" alt="[PROJECT NAME] — desktop full view" class="cs-image" loading="lazy" />
                         </div>
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- Testimonial — remove entire block if unavailable -->
             <section class="cs-section" aria-label="Client testimonial">
                 <div class="container">
@@ -701,22 +582,18 @@
                     </div>
                 </div>
             </section>
-
             <!-- ════════════════════════════════════════════════════════
                  SECTION 12 — FINAL CTA
                  ════════════════════════════════════════════════════════ -->
             <section class="cs-cta-section" aria-labelledby="cta-heading">
                 <div class="container" style="text-align: center;">
                     <p class="cs-eyebrow reveal reveal--blur">[CTA EYEBROW — e.g. "Ready to build something like this?"]</p>
-                    <h2 class="reveal reveal--scale delay-100" id="cta-heading">
-                        [CTA HEADLINE — Industry-specific hook. Who is the next ideal client?]
-                    </h2>
+                    <h2 class="reveal reveal--scale delay-100" id="cta-heading"> [CTA HEADLINE — Industry-specific hook. Who is the next ideal client?] </h2>
                     <p class="reveal delay-200">[CTA SUPPORTING COPY — 1–2 sentences. What will Nexora deliver for this type of client? Concrete, not generic.]</p>
                     <div class="cs-cta-buttons reveal delay-300">
                         <a href="/quote.html" class="btn-primary">Start a Project with Nexora →</a>
                         <a href="/projects.html" class="btn-secondary">View All Projects</a>
                     </div>
-
                     <!-- Related projects — link to other case study pages -->
                     <div class="cs-related reveal delay-400" aria-label="Related projects">
                         <p class="cs-related__label">More Projects</p>
@@ -735,9 +612,7 @@
                     </div>
                 </div>
             </section>
-
         </main>
-
         <!-- ══════════════════════════════════════════════════════════════
              FOOTER — do not edit
              ══════════════════════════════════════════════════════════════ -->
@@ -756,7 +631,6 @@
                             <a href="/projects.html">Projects</a>
                             <a href="/about.html">About Us</a>
                             <a href="/contact.html">Contact</a>
-                            <a href="/blog/">Blog</a>
                             <a href="/quote.html">Get a Quote</a>
                         </nav>
                     </div>
@@ -777,89 +651,88 @@
                 </div>
             </div>
         </footer>
-
         <!-- ══════════════════════════════════════════════════════════════
              Inline JS — progress bar, scroll reveal, count-up, smooth scroll, parallax
              ══════════════════════════════════════════════════════════════ -->
         <script>
-            (function () {
+                (function () {
 
-                // === Reading Progress Bar ===
-                var bar = document.querySelector('.cs-progress');
-                if (bar) {
-                    window.addEventListener('scroll', function () {
-                        var st = window.scrollY;
-                        var dh = document.documentElement.scrollHeight - window.innerHeight;
-                        bar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
-                    }, { passive: true });
-                }
-
-                // === Smooth Scroll for Anchor Links ===
-                document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-                    link.addEventListener('click', function (e) {
-                        var target = document.querySelector(this.getAttribute('href'));
-                        if (target) {
-                            e.preventDefault();
-                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                    });
-                });
-
-                document.addEventListener('DOMContentLoaded', function () {
-
-                    // === Scroll-Reveal (IntersectionObserver) ===
-                    var revealObs = new IntersectionObserver(function (entries) {
-                        entries.forEach(function (entry) {
-                            if (entry.isIntersecting) entry.target.classList.add('active');
-                        });
-                    }, { threshold: 0.08 });
-                    document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
-
-                    // === Count-Up Animation for Stat Values ===
-                    // Animates numeric .cs-stat__value elements when they scroll into view.
-                    // Non-numeric values (e.g. "RT", "A+") are left unchanged.
-                    function countUp(el, raw, dur) {
-                        var num = parseFloat(raw.replace(/[^0-9.]/g, ''));
-                        if (isNaN(num)) return;
-                        var suffix = raw.replace(/^[\d.]+/, '');
-                        var startTime = performance.now();
-                        (function tick(now) {
-                            var p = Math.min((now - startTime) / dur, 1);
-                            var ease = 1 - Math.pow(1 - p, 3); // cubic ease-out
-                            el.textContent = Math.round(num * ease) + suffix;
-                            if (p < 1) requestAnimationFrame(tick);
-                        })(startTime);
-                    }
-
-                    var statObs = new IntersectionObserver(function (entries) {
-                        entries.forEach(function (entry) {
-                            if (entry.isIntersecting) {
-                                countUp(entry.target, entry.target.dataset.raw, 1400);
-                                statObs.unobserve(entry.target);
-                            }
-                        });
-                    }, { threshold: 0.6 });
-
-                    document.querySelectorAll('.cs-stat__value').forEach(function (el) {
-                        el.dataset.raw = el.textContent.trim();
-                        statObs.observe(el);
-                    });
-
-                    // === Hero Text Parallax (subtle depth shift on scroll) ===
-                    var heroText = document.querySelector('.cs-hero__inner > div:first-child');
-                    if (heroText) {
-                        heroText.style.willChange = 'transform';
+                    // === Reading Progress Bar ===
+                    var bar = document.querySelector('.cs-progress');
+                    if (bar) {
                         window.addEventListener('scroll', function () {
-                            var y = window.scrollY;
-                            if (y < 900) {
-                                heroText.style.transform = 'translateY(' + (y * -0.04) + 'px)';
-                            }
+                            var st = window.scrollY;
+                            var dh = document.documentElement.scrollHeight - window.innerHeight;
+                            bar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
                         }, { passive: true });
                     }
 
-                });
+                    // === Smooth Scroll for Anchor Links ===
+                    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+                        link.addEventListener('click', function (e) {
+                            var target = document.querySelector(this.getAttribute('href'));
+                            if (target) {
+                                e.preventDefault();
+                                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                        });
+                    });
 
-            })();
+                    document.addEventListener('DOMContentLoaded', function () {
+
+                        // === Scroll-Reveal (IntersectionObserver) ===
+                        var revealObs = new IntersectionObserver(function (entries) {
+                            entries.forEach(function (entry) {
+                                if (entry.isIntersecting) entry.target.classList.add('active');
+                            });
+                        }, { threshold: 0.08 });
+                        document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+
+                        // === Count-Up Animation for Stat Values ===
+                        // Animates numeric .cs-stat__value elements when they scroll into view.
+                        // Non-numeric values (e.g. "RT", "A+") are left unchanged.
+                        function countUp(el, raw, dur) {
+                            var num = parseFloat(raw.replace(/[^0-9.]/g, ''));
+                            if (isNaN(num)) return;
+                            var suffix = raw.replace(/^[\d.]+/, '');
+                            var startTime = performance.now();
+                            (function tick(now) {
+                                var p = Math.min((now - startTime) / dur, 1);
+                                var ease = 1 - Math.pow(1 - p, 3); // cubic ease-out
+                                el.textContent = Math.round(num * ease) + suffix;
+                                if (p < 1) requestAnimationFrame(tick);
+                            })(startTime);
+                        }
+
+                        var statObs = new IntersectionObserver(function (entries) {
+                            entries.forEach(function (entry) {
+                                if (entry.isIntersecting) {
+                                    countUp(entry.target, entry.target.dataset.raw, 1400);
+                                    statObs.unobserve(entry.target);
+                                }
+                            });
+                        }, { threshold: 0.6 });
+
+                        document.querySelectorAll('.cs-stat__value').forEach(function (el) {
+                            el.dataset.raw = el.textContent.trim();
+                            statObs.observe(el);
+                        });
+
+                        // === Hero Text Parallax (subtle depth shift on scroll) ===
+                        var heroText = document.querySelector('.cs-hero__inner > div:first-child');
+                        if (heroText) {
+                            heroText.style.willChange = 'transform';
+                            window.addEventListener('scroll', function () {
+                                var y = window.scrollY;
+                                if (y < 900) {
+                                    heroText.style.transform = 'translateY(' + (y * -0.04) + 'px)';
+                                }
+                            }, { passive: true });
+                        }
+
+                    });
+
+                })();
         </script>
     </body>
 

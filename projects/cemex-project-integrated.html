@@ -42,25 +42,46 @@
                 --cs-accent: #F4BE2A;
                 --cs-accent-glow: rgba(244, 190, 42, 0.12);
             }
+
             .cs-hero {
                 background: radial-gradient(circle at top right, rgba(244, 190, 42, 0.08), transparent 55%);
             }
-            .cs-image { width: 100%; height: auto; display: block; border-radius: 8px; }
+
+            .cs-image {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 8px;
+            }
+
             .cs-image-frame {
-                border-radius: 12px; overflow: hidden;
+                border-radius: 12px;
+                overflow: hidden;
                 background: var(--color-surface, #111827);
-                box-shadow: 0 4px 32px rgba(0,0,0,0.22), 0 1px 4px rgba(0,0,0,0.12);
+                box-shadow: 0 4px 32px rgba(0, 0, 0, 0.22), 0 1px 4px rgba(0, 0, 0, 0.12);
                 line-height: 0;
             }
-            .cs-hero-shot__img { width: 100%; height: auto; display: block; border-radius: 0; }
-            .cs-placeholder--caption { margin-top: 0.6rem; font-size: 0.8rem; color: var(--color-text-muted, #6b7280); text-align: center; display: block; }
+
+            .cs-hero-shot__img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 0;
+            }
+
+            .cs-placeholder--caption {
+                margin-top: 0.6rem;
+                font-size: 0.8rem;
+                color: var(--color-text-muted, #6b7280);
+                text-align: center;
+                display: block;
+            }
         </style>
     </head>
 
     <body>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CGM7HB4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="cs-progress" aria-hidden="true"></div>
-
         <header class="site-header">
             <div class="container header-inner">
                 <a href="/index.html" class="logo-link">
@@ -83,7 +104,6 @@
                         <li><a href="/about.html">About</a></li>
                         <li><a href="/services.html">Services</a></li>
                         <li><a href="/projects.html">Projects</a></li>
-                        <li><a href="/blog/">Blog</a></li>
                         <li><a href="/contact.html">Contact</a></li>
                     </ul>
                 </nav>
@@ -92,7 +112,6 @@
                 </div>
             </div>
         </header>
-
         <nav class="cs-breadcrumb" aria-label="Breadcrumb">
             <div class="container">
                 <a href="/projects.html">← Projects</a>
@@ -100,21 +119,15 @@
                 <span class="cs-breadcrumb__current">Cemex Project Integrated</span>
             </div>
         </nav>
-
         <main>
-
             <!-- HERO -->
             <section class="cs-section cs-hero" aria-labelledby="hero-heading">
                 <div class="container cs-hero__inner">
                     <div>
                         <span class="cs-label reveal reveal--blur">Construction &amp; Infrastructure · Lagos, Nigeria</span>
                         <div class="cs-sep" aria-hidden="true"></div>
-                        <h1 class="cs-hero__title reveal reveal--left delay-100" id="hero-heading">
-                            Building a <span class="text-gradient">Corporate Digital Platform</span><br>for an Infrastructure Leader
-                        </h1>
-                        <p class="cs-hero__desc reveal reveal--left delay-200">
-                            Cemex Project Integrated operates in a sector where credibility is the contract. Nexora was engaged to build a digital platform that matched the scale and sophistication of the company's physical operations — transforming a fragmented web presence into a structured, enterprise-grade corporate experience capable of communicating the depth and capability of a serious infrastructure firm.
-                        </p>
+                        <h1 class="cs-hero__title reveal reveal--left delay-100" id="hero-heading"> Building a <span class="text-gradient">Corporate Digital Platform</span><br>for an Infrastructure Leader </h1>
+                        <p class="cs-hero__desc reveal reveal--left delay-200"> Cemex Project Integrated operates in a sector where credibility is the contract. Nexora was engaged to build a digital platform that matched the scale and sophistication of the company's physical operations — transforming a fragmented web presence into a structured, enterprise-grade corporate experience capable of communicating the depth and capability of a serious infrastructure firm. </p>
                         <div class="cs-hero__actions reveal reveal--left delay-300">
                             <a href="https://www.cpil.com.ng" target="_blank" rel="noopener" class="btn-primary">View Website ↗</a>
                             <a href="#challenge" class="btn-secondary">Read Case Study</a>
@@ -129,16 +142,11 @@
                     </div>
                     <div class="reveal reveal--scale delay-200" aria-hidden="true">
                         <div class="cs-image-frame cs-hero-shot cs-hero-shot--glow cs-float">
-                            <img
-                                src="/images/projects/cemex-project-integrated/hero-desktop-homepage.png"
-                                alt="Cemex Project Integrated platform overview"
-                                class="cs-image cs-hero-shot__img"
-                                loading="eager" />
+                            <img src="/images/projects/cemex-project-integrated/hero-desktop-homepage.png" alt="Cemex Project Integrated platform overview" class="cs-image cs-hero-shot__img" loading="eager" />
                         </div>
                     </div>
                 </div>
             </section>
-
             <!-- STATS STRIP -->
             <section class="cs-section cs-section--surface" aria-label="Project snapshot">
                 <div class="container">
@@ -171,17 +179,13 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- PROJECT OVERVIEW -->
             <section class="cs-section" id="overview" aria-labelledby="overview-heading">
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">Project Overview</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="overview-heading">
-                            When Your Operations Are Enterprise-Grade, Your Digital Presence Has to Match
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="overview-heading"> When Your Operations Are Enterprise-Grade, Your Digital Presence Has to Match </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>In the Nigerian construction and infrastructure sector, corporate website quality is a credibility signal — one that prospective clients and institutional partners evaluate before a single meeting is scheduled. Cemex Project Integrated operates across power, marine, construction, facility management, solar, and vehicle services. The challenge was building a digital presence that communicated the full scope of that multi-sector capability without overwhelming visitors — and that felt as sophisticated as the company's physical operations.</p>
@@ -195,7 +199,6 @@
                     </div>
                 </div>
             </section>
-
             <section class="cs-section cs-section--flush" aria-label="Project preview">
                 <div class="container">
                     <div class="cs-image-frame reveal reveal--scale">
@@ -204,33 +207,25 @@
                     <span class="cs-placeholder--caption">Cemex Project Integrated — corporate platform, desktop view</span>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- THE CHALLENGE -->
             <section class="cs-section" id="challenge" aria-labelledby="challenge-heading">
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">The Challenge</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="challenge-heading">
-                            Communicating Enterprise-Scale Capability Without Losing Clarity or Credibility.
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="challenge-heading"> Communicating Enterprise-Scale Capability Without Losing Clarity or Credibility. </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>Infrastructure and construction companies face a specific UX challenge that consumer brands do not: their audiences are sophisticated, time-constrained, and evaluating multiple vendors simultaneously. A corporate website in this sector isn't marketing collateral — it's a due diligence tool. Procurement managers, project owners, and institutional clients arrive at a corporate website with specific questions, and if those questions aren't answered quickly and credibly, the company is deprioritised before the relationship has even begun.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Multi-Service Communication Complexity</h3>
                         <p>Cemex Project Integrated's service portfolio spanned multiple distinct verticals — construction and civil works, procurement and supply chain, facility management, and industrial services. Presenting these on a single corporate platform without creating confusion, visual clutter, or navigation paralysis required a service architecture strategy that could make each vertical feel appropriately prominent without competing with the others for attention. This is a significantly harder information design problem than single-service corporate sites face.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Credibility Signalling in a High-Stakes Decision Environment</h3>
                         <p>In B2B infrastructure services, the visual quality and structural sophistication of a company's digital presence is interpreted as a proxy for operational quality. A poorly structured website in this sector doesn't just fail to impress — it actively damages the credibility assessment of an otherwise capable company. The existing platform wasn't projecting the confidence or capability that the company's track record warranted, creating a discrepancy that was costing them in first-impression evaluations.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Scalability Without Architectural Debt</h3>
                         <p>Infrastructure businesses expand their service offerings over time. A platform built without scalability in mind becomes an obstacle to growth — content teams are forced to work around structural limitations, new services can't be added cleanly, and the eventual cost of a rebuild far exceeds what good architecture would have required upfront. Cemex Project Integrated needed a CMS and page architecture that could accommodate growth without technical debt accumulation.</p>
                     </div>
                 </div>
             </section>
-
             <section class="cs-section cs-section--surface" aria-label="Key insight">
                 <div class="container">
                     <div class="cs-callout reveal reveal--blur">
@@ -238,33 +233,25 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- STRATEGY -->
             <section class="cs-section" id="strategy" aria-labelledby="strategy-heading">
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">Strategy &amp; Discovery</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="strategy-heading">
-                            Credibility Architecture as the Foundation of Every Design Decision
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="strategy-heading"> Credibility Architecture as the Foundation of Every Design Decision </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>Nexora's discovery process for Cemex Project Integrated began with a stakeholder audience analysis — mapping the distinct decision-maker profiles who would visit the platform and understanding what each of them needed to see, in what order, to reach a positive credibility assessment. The architecture wasn't designed for a generic visitor. It was designed for a procurement officer evaluating a shortlist, a project owner validating a referral, and a facilities manager researching service capabilities. Each of these audiences had different entry points and different information requirements.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Dark Industrial Theme as Competitive Positioning</h3>
                         <p>The decision to build in dark mode was strategic, not aesthetic. Most Nigerian construction company websites default to light corporate templates — blues, whites, stock photography. CEMEX Project Integrated needed to look categorically different. The carbon black and graphite design system places the platform in the same visual tier as Siemens Energy, Fluor, and GE Vernova — global engineering brands that the company's target enterprise clients already trust. The brand impression is set before a single word is read.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Information Architecture Optimised for B2B Lead Generation</h3>
                         <p>The homepage follows the structure proven by enterprise B2B platforms: hero with company positioning → statistics panel (proof of scale) → services overview (capability breadth) → products section → CTA panel. This sequence answers the four questions every procurement evaluator arrives with — who are you, what do you do, how big is your operation, how do I engage you — in under ninety seconds without requiring navigation. The information architecture is a funnel, not a brochure.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Gold CTA System for Conversion Clarity</h3>
                         <p>All primary CTAs use industrial gold (#F4BE2A) on black text — high contrast, immediately scannable, clearly actionable. Secondary CTAs use a transparent background with a white border at 20% opacity. This two-tier CTA system ensures a visitor always knows the primary action Nexora wants them to take (Request Quote / Get Started) without competing visual noise. Gold becomes synonymous with action throughout every section of the platform.</p>
                     </div>
                 </div>
             </section>
-
             <section class="cs-section cs-section--surface" aria-label="Process">
                 <div class="container">
                     <h3 class="cs-subheading reveal reveal--left" style="margin-bottom: 2rem;">Our Process</h3>
@@ -297,21 +284,16 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- VISUAL DESIGN SYSTEM -->
             <section class="cs-section" id="design" aria-labelledby="design-heading">
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">Visual Design System</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="design-heading">
-                            Authority Through Precision — An Enterprise Design Language
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="design-heading"> Authority Through Precision — An Enterprise Design Language </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>The visual language for Cemex Project Integrated was built around a single design principle: look like a global engineering firm, not a regional contractor. The entire interface operates on a dark industrial theme — the same visual register used by Siemens Energy, GE Vernova, and Bechtel — where carbon black backgrounds and graphite surfaces create the backdrop against which industrial gold becomes the decisive visual anchor. The 70/20/10 colour hierarchy (black/graphite · white · gold) produces the luxury-inspired balance seen across premium infrastructure brands globally.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Colour System</h3>
                         <div class="cs-palette" style="margin-top: 1rem;">
                             <div class="cs-swatch" style="background: #050505;" title="#050505 — Carbon Black / Page Background"></div>
@@ -320,10 +302,8 @@
                             <div class="cs-swatch" style="background: #FFFFFF;" title="#FFFFFF — Pure White / Headlines & CTAs"></div>
                             <div class="cs-swatch" style="background: #B5B5B5;" title="#B5B5B5 — Soft Gray / Body & Secondary Content"></div>
                         </div>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Typography</h3>
                         <p>The type system uses a geometric modern sans — Inter, Manrope, or DM Sans — at weights and sizes calibrated to communicate authority at scale. Hero headlines run at 56–72px, weight 700, tight line-height — matching the visual weight of large-format infrastructure photography. Section headings step down to 36–48px. Uppercase label text with 0.08em letter-spacing appears throughout statistics, navigation, and service metadata. The system feels closer to high-end SaaS or energy sector branding than to traditional construction company typography.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Design Principles</h3>
                     </div>
                 </div>
@@ -344,42 +324,31 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- UX FLOW -->
             <section class="cs-section" id="ux" aria-labelledby="ux-heading">
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">UX &amp; Experience Design</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="ux-heading">
-                            Designed for the Decision-Maker Who Has Twelve Tabs Open
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="ux-heading"> Designed for the Decision-Maker Who Has Twelve Tabs Open </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>Corporate B2B visitors are not leisurely browsers. They are task-oriented, time-pressured, and comparing your platform against competitors with identical intent. The UX architecture for Cemex Project Integrated was built around this reality — making it possible for a procurement evaluator to understand the company's full capability and reach the contact mechanism in under ninety seconds, while simultaneously providing the structural depth for a visitor who wanted to spend fifteen minutes in detailed research.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Homepage: Rapid Credibility Assessment</h3>
                         <p>The homepage was engineered to answer the four questions every corporate B2B visitor arrives with: Who are you? What do you do? How large is your operation? How do I start a conversation? The hero section answered the first two. The service overview answered the third. The CTA infrastructure answered the fourth. All four were resolvable above or near the fold on desktop, without requiring navigation or extended scroll. This efficiency communicates operational confidence before a single service page has been read.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Service Discovery: Clear Pathways, No Dead Ends</h3>
                         <p>Service discovery was designed as a two-layer system. Layer one: service category navigation accessible from the homepage and top-level navigation, providing a high-level map of the company's portfolio. Layer two: individual service pages with their own internal structure — scope, deliverables, relevant project context, and contact entry point — allowing a visitor who landed on a specific service page from search to get everything they needed without returning to the homepage. No dead ends. No navigation required to progress.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Mobile: Corporate Experience Without Compromise</h3>
                         <p>Senior decision-makers in the Nigerian market frequently access corporate platforms on mobile during or between meetings. The responsive system was designed to maintain full information depth on mobile — not a stripped-down version of the desktop experience, but an equivalently capable one restructured for a vertical viewport. Navigation collapsed to a structured mobile menu, service grids refolded to single-column card layouts, and contact forms adapted to native mobile input patterns.</p>
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- FEATURE HIGHLIGHTS -->
             <section class="cs-section" id="features" aria-labelledby="features-heading">
                 <div class="container">
                     <span class="cs-label reveal reveal--left">Feature Highlights</span>
-                    <h2 class="cs-heading reveal reveal--left delay-100" id="features-heading">
-                        The Systems That Positioned Cemex Project Integrated as an Enterprise-Grade Digital Operation
-                    </h2>
+                    <h2 class="cs-heading reveal reveal--left delay-100" id="features-heading"> The Systems That Positioned Cemex Project Integrated as an Enterprise-Grade Digital Operation </h2>
                     <div class="cs-design-grid stagger-children" style="margin-top: 2rem;">
                         <div class="cs-design-card reveal reveal--scale">
                             <h4>Cinematic Hero with Glassmorphism Stats Panel</h4>
@@ -414,21 +383,16 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- TECHNICAL EXECUTION -->
             <section class="cs-section" id="technical" aria-labelledby="technical-heading">
                 <div class="container cs-two-col">
                     <div>
                         <span class="cs-label reveal reveal--left">Technical Execution</span>
-                        <h2 class="cs-heading reveal reveal--left delay-100" id="technical-heading">
-                            An Enterprise Stack Built for Long-Term Scalability and Content Independence
-                        </h2>
+                        <h2 class="cs-heading reveal reveal--left delay-100" id="technical-heading"> An Enterprise Stack Built for Long-Term Scalability and Content Independence </h2>
                     </div>
                     <div class="reveal reveal--right delay-200">
                         <p>The technology choices for Cemex Project Integrated were governed by one core requirement: the dark industrial visual system had to be delivered without performance compromise to a Nigerian enterprise audience that frequently accesses corporate platforms on mobile under variable data conditions. That ruled out heavy JavaScript frameworks and required a clean, dependency-light frontend that could deliver the premium dark-mode experience with fast initial render times.</p>
-
                         <h3 class="cs-subheading" style="margin-top: 2rem;">Frontend Build</h3>
                         <ul class="cs-list">
                             <li>HTML5 and CSS3 — the entire design system (carbon black backgrounds, graphite cards, gold accents, glassmorphism stats panel) implemented in CSS custom properties without framework overhead</li>
@@ -438,7 +402,6 @@
                             <li>Vanilla JavaScript — scroll-triggered fade-up animations, hover lift interactions (<code>translateY(-4px)</code>), and CTA scale effects (<code>scale(1.02)</code>) without framework dependencies</li>
                             <li>Performance-optimised imagery — industrial photography compressed and delivered at appropriate sizes per breakpoint, with lazy loading below the fold to protect initial render speed</li>
                         </ul>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Design System Implementation</h3>
                         <ul class="cs-list">
                             <li>Dark overlay system — hero photography treated with a 70% black overlay applied via CSS pseudo-element, maintaining image depth while ensuring headline legibility at 56–72px</li>
@@ -446,7 +409,6 @@
                             <li>Statistics component — 42px gold numbers, uppercase label text at 12–14px with 0.08em letter-spacing — used in both the hero glassmorphism panel and standalone mid-page stat blocks</li>
                             <li>Two-tier CTA system — primary gold fill button (<code>background: #F4BE2A</code>, <code>color: #000</code>, 8px radius) and secondary ghost button (<code>border: 1px solid rgba(255,255,255,.2)</code>) consistently applied across every section</li>
                         </ul>
-
                         <h3 class="cs-subheading" style="margin-top: 1.5rem;">Infrastructure &amp; SEO</h3>
                         <ul class="cs-list">
                             <li>Semantic HTML structure — service sections built with appropriate heading hierarchy and structured content for both accessibility and search engine comprehension in construction/infrastructure queries</li>
@@ -457,7 +419,6 @@
                     </div>
                 </div>
             </section>
-
             <section class="cs-section cs-section--surface" aria-label="Technology stack">
                 <div class="container">
                     <div class="cs-stack-callout reveal reveal--blur">
@@ -465,16 +426,12 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- RESULTS -->
             <section class="cs-section" id="results" aria-labelledby="results-heading">
                 <div class="container">
                     <span class="cs-label reveal reveal--left">Results &amp; Business Impact</span>
-                    <h2 class="cs-heading reveal reveal--left delay-100" id="results-heading">
-                        A Corporate Platform That Earns Credibility Before the First Meeting
-                    </h2>
+                    <h2 class="cs-heading reveal reveal--left delay-100" id="results-heading"> A Corporate Platform That Earns Credibility Before the First Meeting </h2>
                     <div class="cs-outcomes-grid stagger-children" style="margin-top: 2rem;">
                         <div class="cs-outcome-card reveal reveal--scale">
                             <h4>Global Engineering Brand Positioning Achieved</h4>
@@ -503,16 +460,12 @@
                     </div>
                 </div>
             </section>
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <!-- GALLERY -->
             <section class="cs-section" id="gallery" aria-labelledby="gallery-heading">
                 <div class="container">
                     <span class="cs-label reveal reveal--left">Visual Gallery</span>
-                    <h2 class="cs-heading reveal reveal--left delay-100" id="gallery-heading">
-                        Inside the Cemex Project Integrated Platform
-                    </h2>
+                    <h2 class="cs-heading reveal reveal--left delay-100" id="gallery-heading"> Inside the Cemex Project Integrated Platform </h2>
                     <div class="cs-gallery-grid stagger-children" style="margin-top: 2rem;">
                         <div class="cs-gallery-card cs-image-frame reveal reveal--scale">
                             <img src="/images/projects/cemex-project-integrated/gallery-01.png" alt="Cemex Project Integrated — cinematic dark hero with glassmorphism statistics panel" class="cs-image" loading="lazy" />
@@ -529,11 +482,7 @@
                     </div>
                 </div>
             </section>
-
-           
-
             <div class="cs-divider container" aria-hidden="true"></div>
-
             <section class="cs-section" aria-label="Client testimonial">
                 <div class="container">
                     <div class="cs-testimonial reveal reveal--blur">
@@ -542,7 +491,6 @@
                     </div>
                 </div>
             </section>
-
             <!-- CTA -->
             <section class="cs-cta-section" aria-labelledby="cta-heading">
                 <div class="container" style="text-align: center;">
@@ -570,9 +518,7 @@
                     </div>
                 </div>
             </section>
-
         </main>
-
         <footer class="site-footer">
             <div class="container">
                 <div class="footer-grid">
@@ -588,7 +534,6 @@
                             <a href="/projects.html">Projects</a>
                             <a href="/about.html">About Us</a>
                             <a href="/contact.html">Contact</a>
-                            <a href="/blog/">Blog</a>
                             <a href="/quote.html">Get a Quote</a>
                         </nav>
                     </div>
@@ -603,63 +548,64 @@
                     </div>
                 </div>
                 <div class="footer-bottom reveal delay-400">
-                    <p>&copy; <script>document.write(new Date().getFullYear())</script> Nexora Web Agency. All rights reserved.</p>
+                    <p>&copy;
+                        <script>document.write(new Date().getFullYear())</script> Nexora Web Agency. All rights reserved.
+                    </p>
                 </div>
             </div>
         </footer>
-
         <script>
-            (function () {
-                var bar = document.querySelector('.cs-progress');
-                if (bar) {
-                    window.addEventListener('scroll', function () {
-                        var st = window.scrollY;
-                        var dh = document.documentElement.scrollHeight - window.innerHeight;
-                        bar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
-                    }, { passive: true });
-                }
-                document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-                    link.addEventListener('click', function (e) {
-                        var target = document.querySelector(this.getAttribute('href'));
-                        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-                    });
-                });
-                document.addEventListener('DOMContentLoaded', function () {
-                    var revealObs = new IntersectionObserver(function (entries) {
-                        entries.forEach(function (entry) { if (entry.isIntersecting) entry.target.classList.add('active'); });
-                    }, { threshold: 0.08 });
-                    document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
-
-                    function countUp(el, raw, dur) {
-                        var num = parseFloat(raw.replace(/[^0-9.]/g, ''));
-                        if (isNaN(num)) return;
-                        var suffix = raw.replace(/^[\d.]+/, '');
-                        var startTime = performance.now();
-                        (function tick(now) {
-                            var p = Math.min((now - startTime) / dur, 1);
-                            var ease = 1 - Math.pow(1 - p, 3);
-                            el.textContent = Math.round(num * ease) + suffix;
-                            if (p < 1) requestAnimationFrame(tick);
-                        })(startTime);
-                    }
-                    var statObs = new IntersectionObserver(function (entries) {
-                        entries.forEach(function (entry) {
-                            if (entry.isIntersecting) { countUp(entry.target, entry.target.dataset.raw, 1400); statObs.unobserve(entry.target); }
-                        });
-                    }, { threshold: 0.6 });
-                    document.querySelectorAll('.cs-stat__value').forEach(function (el) { el.dataset.raw = el.textContent.trim(); statObs.observe(el); });
-
-                    var heroText = document.querySelector('.cs-hero__inner > div:first-child');
-                    if (heroText) {
-                        heroText.style.willChange = 'transform';
+                (function () {
+                    var bar = document.querySelector('.cs-progress');
+                    if (bar) {
                         window.addEventListener('scroll', function () {
-                            if (window.scrollY < 900) heroText.style.transform = 'translateY(' + (window.scrollY * -0.04) + 'px)';
+                            var st = window.scrollY;
+                            var dh = document.documentElement.scrollHeight - window.innerHeight;
+                            bar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
                         }, { passive: true });
                     }
-                });
-            })();
+                    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+                        link.addEventListener('click', function (e) {
+                            var target = document.querySelector(this.getAttribute('href'));
+                            if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                        });
+                    });
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var revealObs = new IntersectionObserver(function (entries) {
+                            entries.forEach(function (entry) { if (entry.isIntersecting) entry.target.classList.add('active'); });
+                        }, { threshold: 0.08 });
+                        document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+
+                        function countUp(el, raw, dur) {
+                            var num = parseFloat(raw.replace(/[^0-9.]/g, ''));
+                            if (isNaN(num)) return;
+                            var suffix = raw.replace(/^[\d.]+/, '');
+                            var startTime = performance.now();
+                            (function tick(now) {
+                                var p = Math.min((now - startTime) / dur, 1);
+                                var ease = 1 - Math.pow(1 - p, 3);
+                                el.textContent = Math.round(num * ease) + suffix;
+                                if (p < 1) requestAnimationFrame(tick);
+                            })(startTime);
+                        }
+                        var statObs = new IntersectionObserver(function (entries) {
+                            entries.forEach(function (entry) {
+                                if (entry.isIntersecting) { countUp(entry.target, entry.target.dataset.raw, 1400); statObs.unobserve(entry.target); }
+                            });
+                        }, { threshold: 0.6 });
+                        document.querySelectorAll('.cs-stat__value').forEach(function (el) { el.dataset.raw = el.textContent.trim(); statObs.observe(el); });
+
+                        var heroText = document.querySelector('.cs-hero__inner > div:first-child');
+                        if (heroText) {
+                            heroText.style.willChange = 'transform';
+                            window.addEventListener('scroll', function () {
+                                if (window.scrollY < 900) heroText.style.transform = 'translateY(' + (window.scrollY * -0.04) + 'px)';
+                            }, { passive: true });
+                        }
+                    });
+                })();
         </script>
-            <script src="/assets/js/main.js"></script>
+        <script src="/assets/js/main.js"></script>
     </body>
 
 </html>

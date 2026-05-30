@@ -35,7 +35,7 @@
             "keywords": ["JavaScript", "CSS", "Netflix UI", "Carousel", "Vanilla JS", "Frontend"]
         }
         </script>
-       <link rel="icon" href="/icons/emblem.svg" />
+        <link rel="icon" href="/icons/emblem.svg" />
         <link rel="apple-touch-icon" href="/icons/nexora_emblem.png" />
         <link rel="stylesheet" href="/assets/css/global.css" />
         <link rel="stylesheet" href="/assets/css/utilities.css" />
@@ -178,6 +178,134 @@
                 border: 1px solid var(--color-border-subtle);
             }
         </style>
+        <style>
+            html {
+                scroll-behavior: smooth;
+                overflow-x: hidden
+            }
+
+            body {
+                overflow-x: hidden
+            }
+
+            main {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) 280px;
+                gap: 2rem;
+                max-width: 1600px;
+                margin: auto;
+                padding: 0 1rem
+            }
+
+            article {
+                min-width: 0
+            }
+
+            .toc {
+                position: sticky;
+                top: 100px;
+                align-self: start;
+                max-height: calc(100vh - 120px);
+                overflow: auto;
+                padding: 1rem;
+                border: 1px solid rgba(255, 255, 255, .08);
+                border-radius: 16px;
+                background: #14141c
+            }
+
+            .reading-progress {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 4px;
+                width: 0;
+                background: #BB86FC;
+                z-index: 9999
+            }
+
+            pre {
+                overflow: auto;
+                max-width: 100%;
+                border-radius: 16px
+            }
+
+            img,
+            svg,
+            iframe,
+            video,
+            table {
+                max-width: 100%
+            }
+
+            p,
+            li {
+                max-width: 75ch
+            }
+
+            section {
+                scroll-margin-top: 100px
+            }
+
+            @container (max-width:900px) {
+                .cs-two-col {
+                    grid-template-columns: 1fr !important
+                }
+            }
+
+            @media(max-width:1100px) {
+                main {
+                    grid-template-columns: 1fr
+                }
+
+                .toc {
+                    display: none
+                }
+            }
+
+            * {
+                max-width: 100%
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const bar = document.createElement('div');
+                bar.className = 'reading-progress';
+                document.body.appendChild(bar);
+
+                const update = () => {
+                    const h = document.documentElement;
+                    const p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+                    bar.style.width = p + '%';
+                };
+                update();
+                window.addEventListener('scroll', update, { passive: true });
+
+                const headings = [...document.querySelectorAll('h2[id],h3[id]')];
+                if (headings.length) {
+                    const aside = document.createElement('aside');
+                    aside.className = 'toc';
+                    aside.innerHTML = '<h3>Contents</h3>';
+                    const ul = document.createElement('ul');
+                    headings.forEach(h => {
+                        const li = document.createElement('li');
+                        li.style.margin = '0.5rem 0';
+                        li.innerHTML = `<a href="#${h.id}">${h.textContent}</a>`;
+                        ul.appendChild(li);
+                    });
+                    aside.appendChild(ul);
+
+                    const main = document.querySelector('main');
+                    const article = document.createElement('article');
+                    while (main.firstChild) { article.appendChild(main.firstChild); }
+                    main.appendChild(article);
+                    main.appendChild(aside);
+                }
+
+                document.querySelectorAll('.demo-nav').forEach(btn => {
+                    btn.addEventListener('click', e => e.stopPropagation());
+                });
+            });
+        </script>
     </head>
 
     <body>
